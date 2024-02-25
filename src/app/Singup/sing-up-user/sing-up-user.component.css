@@ -1,0 +1,100 @@
+
+.containerSingup {
+  background-color: rgb(39, 40, 135);
+  background-size: cover; 
+  background-position: center; 
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+}
+
+.fullWidthBackground {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+  } 
+
+  .card-sing {
+    margin: auto auto;
+    margin-top: 5%;
+    width: 70%;
+    height: 80%;
+    background-color: #fff;
+  }
+  .container-tittle-singUp{
+     
+      width: 50%;
+  }
+  .tittle-singUp{
+    margin-top: 30px;
+    font-family: "ancizar-bold";
+    text-align: center;
+    font-size: 40px;
+  }
+  .container-div{
+    display: flex;
+  }
+  .container-img{
+    width: 70%
+  }
+  .img-singUp{
+    width:100%;
+    height: 110%;
+    border-radius: 0.3rem ;
+  }
+  /*input syles*/
+  .inputs-singUp{
+    width: 70%;
+
+  }
+  
+  .inputs-total{
+    margin-top: 8%;
+
+
+  
+  }
+  .input-field{
+    margin: auto auto;
+    margin-bottom: 20px;
+    width: 300px;
+  }
+  .input-global{
+    width: 100%;
+    outline: unset;
+    height: 40px;
+  }
+  
+
+  @media screen and (max-width:700px){
+
+    .img-singUp{
+      display: none;
+    }
+    .card-sing {
+      width: 90%;
+    }
+    .tittle-singUp{
+       width: 100%;
+       margin: auto  auto;
+       justify-content: center;
+       text-align: center;
+       
+    }
+    .inputs-singUp{
+      width: 70%;
+      margin-top: 10%;
+    }
+
+    .inputs-total{
+      margin: auto auto;
+    }
+
+  }
+
+
+
+

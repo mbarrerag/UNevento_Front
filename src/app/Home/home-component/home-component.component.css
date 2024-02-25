@@ -1,0 +1,27 @@
+.carousel-inner{
+    height: 700px;
+}
+
+
+.card-events{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap:16px;
+    margin: 5%;
+    cursor: pointer;
+
+}
+.main-tittle{
+    
+    text-align: center;
+    font-family:"ancizar-bold";
+}
+
+.card-categories{
+    margin-left: 20px;
+    border-color: rgb(222, 212, 212);
+    width: 15%;
+    padding: 10px;
+    font-size: 10px;
+
+}

@@ -1,0 +1,33 @@
+.navbar{
+    color: white;
+    background-color: rgb(39, 40, 135);
+    justify-content: space-between;
+}
+.brand{
+    margin-left: 5%;
+}
+.container-navbar{
+    justify-content: end;
+    margin-right: 5%;
+}
+.nav-link, .navbar-brand{
+    color: white;
+    font-family: "ancizar-regular";
+    cursor: pointer;
+    
+}
+.nav-link{
+    font-size: 18px;
+}
+
+.btn-search{
+    color: white;
+    background-color: transparent;
+    border-color: white;
+}
+.btn-search:hover{
+    color: white;
+    background-color: transparent;
+    border-color: white;
+}
+

@@ -1,0 +1,190 @@
+@-webkit-keyframes astronautLost {
+  100% { -webkit-transform: translate(10vh,  -30vh);}
+  75% { -webkit-transform: translate(-115vh, 45vh);}
+  50% { -webkit-transform: translate(-226vh, -15vh);}
+  25% { -webkit-transform: translate(-100vh, -76vh);}
+}
+
+@keyframes astronautRotate{
+  100% { -webkit-transform: rotate(-270deg); }
+  75% { -webkit-transform: rotate(-180deg);}
+  50% { -webkit-transform: rotate(-90deg);}
+  25% { -webkit-transform: rotate(0deg); }
+}
+
+
+/* Implementation of linear-gradient property */
+.not-found-container{
+  height: 100vh;
+  background-image: linear-gradient(157deg, rgb(3, 32, 93),rgb(39 1 75));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Graphik', sans-serif;;
+}
+
+.errorTitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.errorTct{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorTct p{
+  margin: 16px auto 0;
+  text-transform: none;
+  letter-spacing: 1px;
+  font-style: normal;
+  font-weight: 700;
+  width: 500px;
+}
+
+.errorTitle h1{
+  font-size: 140px;
+}
+
+.Main404{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error-flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  flex-direction: column;
+}
+
+#fondo-espacial .estrella {
+  position: absolute;
+  background-color: #fff; /* Color de fondo blanco */
+  border-radius: 50%; /* Forma circular */
+  width: 3px;
+  height: 3px;
+}
+
+#errorButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #5518ff;
+  border-radius: 15px;
+  height: 35px;
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  margin: 10px;
+  width: 150px;
+}
+
+.errorA{
+  display: flex;
+}
+
+.margin15px{
+  margin: 13px;
+}
+
+.backHome{
+  background-color: #5618ff9d;
+  width: 150px;
+}
+.backHome:hover{
+  background-color: #5518ff;
+}
+.contacUs{
+  width: 100%;
+}
+.contacUs:hover{
+  background-color: #5618ff1b;
+}
+
+.Astronaut{
+  z-index: 110 !important;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  will-change: transform;
+  animation: astronautLost 15s infinite linear both;
+}
+
+.Astronaut img{
+  width: 300px;
+  position: absolute;
+  animation: astronautRotate 15s infinite linear both;
+}
+
+.earth{
+  z-index: 110 !important;
+  position: absolute;
+}
+
+.earth img{
+  width: 260px;
+  position: fixed;
+  top: 5%;
+  right: 5%;
+}
+
+@media screen and (max-width: 530px){
+  .errorTitle h1 {
+      font-size: 90px;
+  }
+  .errorTct p {
+      width: 300px;
+  }
+  .earth img {
+      width: 90px;
+      top: 1%;
+      z-index: 100;
+  }
+  .Astronaut img {
+      width: 200px;
+
+  }
+}
+@media screen and (max-width: 400px){
+
+  .errorTitle h1 {
+      font-size: 40px;
+  }
+  .errorTct p {
+      width: 220px;
+      font-size: 13px;
+  }
+  .earth img {
+      width: 130px;
+  }
+  .Astronaut img {
+      width: 200px;
+  }
+  #errorButton {
+      height: 35px;
+      width: 96px;
+      font-size: 12px;
+  }
+}
+@media screen and (max-width: 365px){
+  .errorTitle h1 {
+      font-size: 38px;
+  }
+  .earth img {
+      width: 130px;
+  }
+  .Astronaut img {
+      width: 130px;
+  }
+  #errorButton {
+      height: 35px;
+      width: 100px;
+      font-size: 12px;
+  }
+}
