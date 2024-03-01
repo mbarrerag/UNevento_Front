@@ -12,13 +12,14 @@ export class ForgotPasswordComponent {
  
  
  changeColor(event: MouseEvent) {
-  if ((event.target instanceof HTMLParagraphElement && event.target.classList.contains('subtittle'))  ) {
-    return;
-  }
-  const element = event.target as HTMLElement;
-    element.style.color = "#a1cb0b"; // Cambiar el color al hacer hover
-    element.removeEventListener('mouseover', this.changeColor); // Eliminar el event listener para evitar cambios posteriores
   
+    const h2Element = document.querySelector('.Title-login') as HTMLElement;
+
+      h2Element.style.color = "#a1cb0b"; // Cambia el color del h2
+    
+  
+  
+
   
    
 }
