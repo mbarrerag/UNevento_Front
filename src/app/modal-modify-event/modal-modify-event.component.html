@@ -1,0 +1,30 @@
+<div>
+    <div class="card-header">
+        <h2> {{data.name}} </h2>
+    </div>
+    <div class="card-content">
+        <p><strong>Fecha:</strong> <input type="text" class="caja-text" placeholder="{{data.date}}"></p>        
+        <p><strong>Hora:</strong> <input type="text" class="caja-text" placeholder="{{data.time}}"></p>
+        <p><strong>Lugar:</strong> <input type="text" class="caja-text" placeholder="{{data.place}}"></p>
+        <p><strong>Facultad:</strong> 
+            <select class="caja-seleccion">
+                <option value="FacultadArtes" selected="{{data.faculty}}==='Facultad de Artes'">Facultad de Artes</option>
+                <option value="FacultadCiencias" selected="{{data.faculty}}==='Facultad de Ciencias'">Facultad de Ciencias</option>
+                <option value="FacultadCienciasAgrarias" selected="{{data.faculty}}==='Facultad de Ciencias Agrarias'">Facultad de Ciencias Agrarias</option>
+                <option value="FacultadCienciasHumanas" selected="{{data.faculty}}==='Facultad de Ciencias Humanas'">Facultad de Ciencias Humanas</option>
+                <option value="FacultadCienciasEconomicas" selected="{{data.faculty}}==='Facultad de Ciencias Económicas'">Facultad de Ciencias Económicas</option>
+                <option value="FacultadDerecho" selected="{{data.faculty}}==='Facultad de Derecho, Ciencias Políticas y Sociales'">Facultad de Derecho, Ciencias Políticas y Sociales</option>
+                <option value="FacultadEnfermeria" selected="{{data.faculty}}==='Facultad de Enfermería'">Facultad de Enfermería</option>
+                <option value="FacultadMedicina" selected="{{data.faculty}}==='Facultad de Medicina'">Facultad de Medicina</option> 
+                <option value="FacultadIngenieria" selected="{{data.faculty}}==='Facultad de Ingeniería'">Facultad de Ingeniería</option>
+            </select>
+        </p>
+        <p><strong>Categoría:</strong>
+
+        </p>
+        <p><strong>Aforo:</strong> <input type="text" class="caja-text" placeholder="{{data.max}}"> </p>
+        <p><strong>Descripcion</strong> <input type="text" class="caja-text" placeholder="{{data.description}}"> </p>
+    </div>
+    <button class="close-btn" (click)="onCloseModify()">Cancelar</button>
+    <button class="accept-btn" (click)="onCloseModify()">Aceptar</button>
+</div>

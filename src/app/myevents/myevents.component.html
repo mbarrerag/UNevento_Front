@@ -1,0 +1,17 @@
+<div>
+    <app-navbar></app-navbar>
+</div>
+<div>
+    <ul>
+        <li *ngFor="let event of events">
+            <app-card-mis-eventos [data] = "event"></app-card-mis-eventos>
+        </li>        
+    </ul>
+</div>
+<div>
+    <app-footer></app-footer>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>
+
