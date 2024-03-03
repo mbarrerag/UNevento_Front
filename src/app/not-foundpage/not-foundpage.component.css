@@ -12,100 +12,90 @@
   25% { -webkit-transform: rotate(0deg); }
 }
 
-
-/* Implementation of linear-gradient property */
-.not-found-container{
-  height: 100vh;
-  background-image: linear-gradient(157deg, rgb(3, 32, 93),rgb(39 1 75));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  font-family: 'Graphik', sans-serif;;
+body, html{
+  height:100%;
+  overflow:hidden;
+}
+body{
+  margin-top: 200%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+   font-family: source-sans-pro, sans-serif;
+  background-color: #ededed; /* #ededed*/
+color: #333;
 }
 
-.errorTitle{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+h2 {  display:inline;
+    font-size:200px;
+  margin:0;
+  padding:0;
+  line-height:0;
+  margin-top:50px;
 }
 
-.errorTct{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.quote
+{
+  display:inline;
+margin-left:5px;
+margin-right:5px;
 }
 
-.errorTct p{
-  margin: 16px auto 0;
-  text-transform: none;
-  letter-spacing: 1px;
-  font-style: normal;
-  font-weight: 700;
-  width: 500px;
+.quote:before
+{
+content: '{';
+  
 }
 
-.errorTitle h1{
-  font-size: 140px;
+.quote:after
+{
+  content: '}';  
+
 }
 
-.Main404{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.error {  text-align:center;
+position:relative;
+margin-top:70px;
+
 }
-.error-flex{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  flex-direction: column;
+.text {
+position:absolute;
+right:13px;
 }
 
-#fondo-espacial .estrella {
-  position: absolute;
-  background-color: #fff; /* Color de fondo blanco */
-  border-radius: 50%; /* Forma circular */
-  width: 3px;
-  height: 3px;
+.container{
+  width:334px;
+  padding:5px;
 }
 
-#errorButton{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #5518ff;
-  border-radius: 15px;
-  height: 35px;
-  cursor: pointer;
-  color: #fff;
-  text-decoration: none;
-  margin: 10px;
-  width: 150px;
+.info-label{display:inline;}
+
+.info-text{
+text-align:center;
 }
 
-.errorA{
-  display: flex;
+a {
+color: #3B81BE;
+line-height: inherit;
+text-decoration: none;
+  
 }
 
-.margin15px{
-  margin: 13px;
+a:after
+{
+  vertical-align:top;
+  width:13px;
+  height:13px;
+  
+display: inline-block;
+
 }
 
-.backHome{
-  background-color: #5618ff9d;
-  width: 150px;
+p{  text-align:justify;
 }
-.backHome:hover{
-  background-color: #5518ff;
-}
-.contacUs{
-  width: 100%;
-}
-.contacUs:hover{
-  background-color: #5618ff1b;
-}
+
+
 
 .Astronaut{
   z-index: 110 !important;
