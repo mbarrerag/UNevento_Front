@@ -3,23 +3,71 @@
 * {
   box-sizing: border-box;
 }
+
+.containerbox{
+  background-repeat: no-repeat; /* Para que el logo no se repita */
+  background-position: top center; /* Para centrar el logo */
+}
+
+.cards-people{
+  margin-top: 10%;
+}
+
 body {
+  font-family: "ancizar-bold";
   color: #2b2c48;
   font-family: "Jost", sans-serif;
-  background-image: url(https://images.unsplash.com/photo-1566738780863-f9608f88f3a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80);
+  
+}
 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px;
+.decorator {
+
+  border-top: 10px solid green; /* Línea horizontal verde de 2px de grosor */
+  width: 100%; /* Ancho completo del contenedor */
+  display: block; 
+  margin-bottom: 5%;
+}
+
+.developers{
+  font-family: "ancizar-italy";
+  display: grid;
+  place-items: center;
+  font-size: 300%;
+}
+
+.misionvision{
+  margin-bottom: 10%;
+  text-align: center;
+ 
+
+}
+.containerabout{
+  
+  margin-left: 36.5%;
+  background-size: contain; /* Para que el logo se ajuste dentro del contenedor */
+  background-repeat: no-repeat; /* Para que el logo no se repita */
+  background-position: top center ; /* Para centrar el logo */
+}
+
+.titulo{
+  color: #333; /* Color del texto */
+  font-size: 400%; /* Tamaño de fuente */
+  font-weight: bold; /* Negrita */
+  text-align: center; /* Alineación centrada */
+  margin-top: 10%; /* Espacio después del título */
+  z-index: 2;
+
+}
+.texto {
+  font-size: 150%; /* Tamaño de fuente */
+  text-align: justify;
+  margin: 5% auto;
+  max-width: 600px;
+  z-index: 2;
 }
 
 .card {
-  max-width: 340px;
+  max-width: 400px;
   margin: auto;
   overflow-y: auto;
   position: relative;
@@ -33,6 +81,14 @@ body {
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
+.frase{
+  font-size: 100%; /* Tamaño de fuente */
+  
+  margin: 8% 0 5% 7.5%;
+  font-family: "ancizar-italy";
+  
+
+}
 
 
 .card.is-active {
@@ -47,10 +103,10 @@ body {
 
   .card-avatar {
     transform: none;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    bottom: 10px;
+    left: 40px;
+    width: 80px;
+    height: 80px;
+    bottom: 20px;
   }
 
   .card-fullname,
@@ -74,7 +130,7 @@ body {
 .card-header {
   position: relative;
   display: flex;
-  height: 200px;
+  height: 380px;
   flex-shrink: 0;
   width: 100%;
   transition: 0.3s;
@@ -100,8 +156,8 @@ body {
 }
 
 .card-avatar {
-  width: 100px;
-  height: 100px;
+  width: 250px;
+  height: 250px;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   object-position: center;
@@ -156,12 +212,12 @@ body {
 }
 
 .card-desc {
-  line-height: 1.6;
+  
   color: #636b6f;
   font-size: 14px;
   margin: 0;
   font-weight: 400;
-  font-family: "DM Sans", sans-serif;
+  
 }
 
 .card-social {

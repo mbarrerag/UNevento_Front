@@ -16,10 +16,6 @@ export class ForgotPasswordComponent {
     const h2Element = document.querySelector('.Title-login') as HTMLElement;
 
       h2Element.style.color = "#a1cb0b"; // Cambia el color del h2
-    
-  
-  
-
   
    
 }
