@@ -6,7 +6,7 @@
 
 /* Login styles */
 .containerLog {
-    background-image: url('./img/n.jpg');
+    background-image: url('../../../assets/img-login/n.jpg');
     background-size: cover; /* La imagen se escala para cubrir todo el contenedor sin distorsionarse */
     background-position: center; /* La imagen se centra dentro del contenedor */
     height: 100vh;
