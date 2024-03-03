@@ -17,7 +17,7 @@ body, html{
   overflow:hidden;
 }
 body{
-  margin-top: 200%;
+
   display:flex;
   align-items:center;
   justify-content:center;
@@ -54,25 +54,43 @@ content: '{';
 
 }
 
-.error {  text-align:center;
+.error {  
+  margin-top: 70%;
+text-align:center;
 position:relative;
-margin-top:70px;
 
 }
+
 .text {
 position:absolute;
 right:13px;
 }
 
 .container{
-  width:334px;
+  width:500px;
   padding:5px;
+}
+
+ .info-text a{
+  font-size: 150%;
+  margin: 0 0 5% 0;
+  padding: 0;
+  line-height: 0;
+
+} 
+.info-text p{
+  font-size: 150%;
+  
 }
 
 .info-label{display:inline;}
 
 .info-text{
 text-align:center;
+margin-top: 10%;
+display: grid;
+place-items: center;
+
 }
 
 a {
