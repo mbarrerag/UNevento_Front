@@ -1,0 +1,10 @@
+ul {
+    list-style-type: none;
+}
+
+div {
+    position: relative;
+    float: right;
+    display: block;
+    width: 100%;
+}
