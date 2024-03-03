@@ -1,0 +1,39 @@
+h2 {
+  font-family: 'ancizar-bold';
+  font-size: 25 px;
+}
+
+div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);  
+  width: 20%;
+  height: 20%;
+  background-color: #f0f0f0;
+  z-index: 9999;
+}
+
+p {
+  font-family: "ancizar-regular";
+  font-size: 20px;
+  text-align: center;
+}
+  
+.close-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: 'ancizar-regular';
+}
+
+.accept-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: 'ancizar-regular';
+}

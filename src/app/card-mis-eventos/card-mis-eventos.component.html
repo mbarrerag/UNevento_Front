@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header">
+        <h2> {{data.name}} </h2>
+        <img (click)="onOpenModalDelete()" src="../../assets/img-myevents/eliminar(1).png" alt="Eliminar Evento">
+        <img (click)="onOpenModalModify()" src="../../assets/img-myevents/boligrafo.png" alt="Modificar Evento">
+    </div>
+    <div class="card-content">
+        <p><strong>Fecha:</strong> {{data.date}} </p>
+        <p><strong>Hora:</strong> {{data.time}} </p>
+        <p><strong>Lugar:</strong> {{data.place}} </p>
+        <p><strong>Facultad:</strong> {{data.faculty}} </p>
+        <p><strong>Categoría:</strong> {{data.type}} </p>
+        <p><strong>Aforo:</strong> {{data.max}} </p>
+        <p><strong>Descripcion</strong> {{data.description}} </p>
+    </div>
+</div>
+<app-modal-delete-event *ngIf ="showModalDelete==true"  (closeModalDelete)="onCloseModalDelete()"  [data]="{name:data.name}" ></app-modal-delete-event>
+<app-modal-modify-event *ngIf ="showModalModify==true"  (closeModalModify)="onCloseModalModify()"  [data]="data" ></app-modal-modify-event>
