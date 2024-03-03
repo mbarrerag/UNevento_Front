@@ -1,0 +1,83 @@
+.profile-title {
+    font-family: "ancizar-bold";
+    text-align: center;
+    font-size: 50px;
+}
+.profile-edit-info {
+    display: flex;
+    justify-content: space-between;
+    font-family: "ancizar-regular";
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 25px;
+    align-items: center;
+    border-radius: 5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+}
+.profile-edit-info:hover{
+    transform: scale(1.1);
+}
+.profile-subtitle {
+    font-family: "ancizar-bold";
+    font-size: 30px;
+}
+.input-form{
+    display: flex;
+    gap: 50px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+.form-control{
+    width: 100%;
+}
+.profile-photo {
+    border-radius: 30%; 
+    width: auto; 
+    height: auto;
+    overflow: hidden; 
+    justify-content: center;
+    align-items: center;
+}
+.profile-photo img {
+    width: 100%; 
+    height: auto;
+    transition: transform 0.3s ease; 
+}
+.data {
+    flex: 1; 
+    padding-left: 20px; 
+}
+
+.btn-save-profile{
+    width: auto;
+    height: 40px;
+	background-color: #a1cb0b;
+    border: solid 0px;
+    box-shadow: 0 0px 10px rgb(0, 0, 0);
+    text-decoration: none;
+	color: #fff;
+	margin: auto auto;
+    border-radius: 5%;
+    transition: transform 0.3s ease;
+}
+.btn-save-profile:hover{
+    background-color: #8bae0e;
+    transform: scale(1.1);
+}
+.button-editprofile-container{
+    margin-bottom: 30px;
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    gap: 50px;
+    justify-content: center;
+    font-family: 'ancizar-regular';
+}
+a{
+    text-decoration: none;
+    color: white;
+}
