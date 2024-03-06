@@ -1,1 +1,27 @@
-<p>profile works!</p>
+<app-navbar></app-navbar>
+<h1 class="profile-title">Perfil de Usuario</h1>
+<div class="profile-info">
+    <div class="profile-photo">
+        <img src="../../../assets/img-profile/user-photo.png" style="width: 250px;" alt="">
+    </div>
+    <div class="data">
+        <h2 class="profile-subtitle">Nombre:</h2> Nombre de Usuario
+        <h2 class="profile-subtitle">Apellido:</h2> Apellido del Usuario
+        <h2 class="profile-subtitle">Correo Electrónico:</h2><p>Correo de prueba</p>
+    </div>
+</div>
+<div class="button-profile-container">
+    <div class="button-container">
+        <button type="button" class="btn-edit-profile">
+            <a routerLink="/editprofile">
+                <img src="../../../assets/img-buttons/Edit.png" alt=""> Editar
+            </a>
+        </button>
+    </div>
+    <div class="button-container">
+        <button type="button" class="btn-delete-profile">
+            <img src="../../../assets/img-buttons/delete.png" alt=""> Eliminar Cuenta
+        </button>
+    </div>  
+</div>
+<app-footer></app-footer>

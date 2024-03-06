@@ -1,6 +1,6 @@
 
 .containerSingup {
-  background-color: #333;
+  background-color: rgb(39, 40, 135);
   background-size: cover; 
   background-position: center; 
   height: 100vh;
@@ -25,19 +25,20 @@
     background-color: #fff;
   }
   .container-tittle-singUp{
+     
       width: 50%;
   }
   .tittle-singUp{
     margin-top: 30px;
-    font-family: "ancizar-bold-italic";
+    font-family: "ancizar-bold";
     text-align: center;
-    font-size: 38px;
+    font-size: 40px;
   }
   .container-div{
     display: flex;
   }
   .container-img{
-    width: 69%;
+    width: 70%
   }
   .img-singUp{
     width:100%;
@@ -53,6 +54,7 @@
   .inputs-total{
     margin-top: 8%;
 
+
   
   }
   .input-field{
@@ -65,28 +67,7 @@
     outline: unset;
     height: 40px;
   }
-
-
-
-  .terminos-condiciones{
-    font-size: 12px;
-  }
-
-
-
-.container-btn{
- 
-  text-align: center;
-
-}
-
-.btn-aceptar{
-  background-color: #9ba769;
-  color: #fff;
-
-  width: 200px;
-}
-
+  
 
   @media screen and (max-width:700px){
 
