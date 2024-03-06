@@ -47,6 +47,7 @@ export class MyeventsComponent implements OnInit {
       max: 80,
       description: 'Mi descripcion'
     }
+    
   ]
 
   ngOnInit(): void {
