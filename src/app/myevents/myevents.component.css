@@ -10,7 +10,6 @@ ul {
 }
 
 div {
-    position: relative;
     float: right;
     display: block;
     width: 100%;
@@ -20,7 +19,10 @@ div {
 }
 .cardsmiseventos{
     margin-top: 5%;
-    margin-right: 2%;
    
+}
+
+.row{
+   margin-left: 4.5%;
 }
 

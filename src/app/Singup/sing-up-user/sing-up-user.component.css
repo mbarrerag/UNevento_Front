@@ -1,11 +1,12 @@
 
 .containerSingup {
-  background-color: #333;
+  background-color: #a1cb0b;
   background-size: cover; 
   background-position: center; 
   height: 100vh;
   position: absolute;
   width: 100%;
+  opacity: 0.9;
 }
 
 .fullWidthBackground {
@@ -20,7 +21,7 @@
   .card-sing {
     margin: auto auto;
     margin-top: 5%;
-    width: 70%;
+    width: 80%;
     height: 80%;
     background-color: #fff;
   }
@@ -35,14 +36,25 @@
   }
   .container-div{
     display: flex;
+    width: 80%;
+    margin-top: 5%;
   }
   .container-img{
-    width: 69%;
+    display: grid;
+    justify-content: flex-end;
+    width: 52%;
+    height: 30%;
+
+
   }
   .img-singUp{
-    width:100%;
+    width:155%;
+
+    object-fit: cover;
     height: 110%;
     border-radius: 0.3rem ;
+
+
   }
   /*input syles*/
   .inputs-singUp{
@@ -81,7 +93,7 @@
 }
 
 .btn-aceptar{
-  background-color: #9ba769;
+  background-color: #000000;
   color: #fff;
 
   width: 200px;
