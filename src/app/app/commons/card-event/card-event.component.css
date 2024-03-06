@@ -1,0 +1,21 @@
+.card-events{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap:16px;
+    margin: 5%;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width:750px){
+
+    .card-events{
+        grid-template-columns: repeat(3,1fr);
+       width: 100%;
+      
+    
+    }
+
+
+}

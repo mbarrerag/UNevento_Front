@@ -1,7 +1,31 @@
-.navbar{
-    color: white;
-    background-color: rgb(39, 40, 135);
+.navbar {
+    background-color:#333; /* Ajusta el último valor para la opacidad deseada */
     justify-content: space-between;
+    height:90px;
+
+  }
+
+
+
+
+  .container-logo {
+    position: relative;
+    opacity: 1;
+}
+.cuadro{
+    width: 230px;
+    height: 160px;
+}
+  .logo-unal {
+    position: absolute;
+    top: 60px;
+    left: 30px;
+    z-index: 100;
+  }
+
+.logo{
+    width: 100px;
+    margin-left: 40px;
 }
 .brand{
     margin-left: 5%;
@@ -14,12 +38,10 @@
     color: white;
     font-family: "ancizar-regular";
     cursor: pointer;
-    
 }
 .nav-link{
     font-size: 18px;
 }
-
 .btn-search{
     color: white;
     background-color: transparent;
@@ -30,4 +52,8 @@
     background-color: transparent;
     border-color: white;
 }
-
+.nav-link:hover, .navbar-brand:hover{
+    color: #acff07;
+    font-family: "ancizar-regular";
+    cursor: pointer; 
+}

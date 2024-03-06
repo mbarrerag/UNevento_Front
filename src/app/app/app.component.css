@@ -1,0 +1,24 @@
+
+
+
+@font-face {
+    font-family: "ancizar-bold";
+    src: url("./fonts/AncizarSans-Black_02042016.otf") format('opentype');
+}
+
+@font-face {
+    font-family: "ancizar-italic";
+    src: url("./fonts/AncizarSans-Italic_02042016.otf") format('opentype');
+}
+
+@font-face {
+    font-family: "ancizar-bold-italic";
+    src: url("./fonts/AncizarSans-BlackItalic_02042016.otf") format('opentype');
+}
+
+@font-face {
+    font-family: "ancizar-regular";
+    src: url("./fonts/AncizarSans-Regular_02042016.otf") format('opentype');
+}
+
+
