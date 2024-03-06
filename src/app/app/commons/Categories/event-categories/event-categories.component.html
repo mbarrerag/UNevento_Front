@@ -1,0 +1,6 @@
+<div class="card card-categories">
+    <h5>Categorias de eventos disponibles</h5>
+    <select (change)="onCategoryChange($event.target.value)">
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+</div>
