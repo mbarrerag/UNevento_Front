@@ -1,5 +1,5 @@
 .footer-container{
-    background-color: rgb(17, 6, 82);
+    background-color:#504e4f;
     color: white;
     padding: 30px;
     width: 100%;
@@ -22,9 +22,7 @@
     display: flex;
 }
 
-.icon-instagram{
-    
-}
+
 
 .icon-facebook{
     margin-left: 20px;
@@ -39,5 +37,11 @@
 }
 
 
+.icons-general{
+    color:  #acff07;
+}
 
 
+.icons-general:hover{
+    color: #363935;
+}
