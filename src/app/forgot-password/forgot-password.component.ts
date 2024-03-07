@@ -11,14 +11,11 @@ export class ForgotPasswordComponent {
   newPassword: string = '';
  
  
- changeColor(event: MouseEvent) {
   
-    const h2Element = document.querySelector('.Title-login') as HTMLElement;
-    const labelemailElement = document.querySelector('.label-email') as HTMLElement;
-      h2Element.style.color = "#a1cb0b"; // Cambia el color del h2
-      labelemailElement.style.color = "#a1cb0b"; // Cambia el color del label
+
+
    
-}
+
   
   requestPasswordReset() {
     // Lógica para enviar una solicitud de restablecimiento de contraseña

@@ -44,6 +44,8 @@ app-navbar {
     height: 200px;
 }
 .facultad-tittle{
+    margin-top: 5%;
+    margin-bottom: 3%;
     text-align: center;
     font-family:"ancizar-bold";
 }
