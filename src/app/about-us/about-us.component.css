@@ -91,7 +91,28 @@ body {
 
 }
 
+.frase-nicolas{
+  font-size: 100%; /* Tamaño de fuente */
+  margin: 8% 5% 0 7.5%;
+  font-family: "ancizar-italy";
+  display: inline-block; /* Mostrar como bloque en línea */
 
+}
+
+.frase-juan{
+  font-size: 100%; /* Tamaño de fuente */
+  margin: 8% 5% 0 7.5%;
+  font-family: "ancizar-italy";
+  display: inline-block; /* Mostrar como bloque en línea */
+
+}
+.frase-breiner{
+  font-size: 100%; /* Tamaño de fuente */
+  margin: 8% 5% 0 7.5%;
+  font-family: "ancizar-italy";
+  display: inline-block; /* Mostrar como bloque en línea */
+
+}
 .card.is-active {
   .card-header {
     height: 80px;
