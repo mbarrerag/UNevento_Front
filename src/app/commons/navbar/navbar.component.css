@@ -5,12 +5,14 @@
 
   }
 
-
-
+  .navbar-nav > li {
+    margin-right: 20px; /* Ajusta este valor según sea necesario para obtener el espacio deseado */
+}
 
   .container-logo {
     position: relative;
     opacity: 1;
+    margin-top: 1px;
 }
 .cuadro{
     width: 230px;
@@ -56,4 +58,53 @@
     color: #acff07;
     font-family: "ancizar-regular";
     cursor: pointer; 
+}
+
+.prenavbar{
+    background-color:#666666;
+    color: white;
+    padding: 5px;
+    height: 34px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.p-developedby{
+    font-family: "ancizar-regular";
+    font-size: 20px;
+}
+
+.p-allrights{
+    font-family: "ancizar-italic";
+    font-size: 20px;
+}
+
+.icons-social{
+    justify-content: center;
+    display: flex;
+}
+
+
+
+.icon-facebook{
+    margin-left: 20px;
+}
+
+.icon-x{
+    margin-left: 20px;
+}
+
+.icon-tik{
+    margin-left: 20px;
+}
+
+
+.icons-general{
+    color:  #ffffff;
+}
+
+
+.icons-general:hover{
+    color: #363935;
 }
