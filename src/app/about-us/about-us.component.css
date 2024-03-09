@@ -43,8 +43,7 @@ body {
 
 }
 .containerabout{
-  
-  margin-left: 36.5%;
+  margin-top: 5%;
   background-size: contain; /* Para que el logo se ajuste dentro del contenedor */
   background-repeat: no-repeat; /* Para que el logo no se repita */
   background-position: top center ; /* Para centrar el logo */

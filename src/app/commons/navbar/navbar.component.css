@@ -1,7 +1,8 @@
 .navbar {
-    background-color:#333; /* Ajusta el último valor para la opacidad deseada */
+    background-color:#ffffff; /* Ajusta el último valor para la opacidad deseada */
     justify-content: space-between;
     height:90px;
+    opacity: 0.9;
 
   }
 
@@ -10,13 +11,16 @@
 }
 
   .container-logo {
-    position: relative;
-    opacity: 1;
-    margin-top: 1px;
-}
+    margin-left: 40%;
+    margin-top: 4%;
+
+    margin-top: 4.7%;
+  }
 .cuadro{
-    width: 230px;
-    height: 160px;
+    background-color: white;
+    width: 15%;
+    height: 20%;
+    
 }
   .logo-unal {
     position: absolute;
@@ -37,23 +41,14 @@
     margin-right: 5%;
 }
 .nav-link, .navbar-brand{
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: "ancizar-regular";
     cursor: pointer;
 }
 .nav-link{
     font-size: 18px;
 }
-.btn-search{
-    color: white;
-    background-color: transparent;
-    border-color: white;
-}
-.btn-search:hover{
-    color: white;
-    background-color: transparent;
-    border-color: white;
-}
+
 .nav-link:hover, .navbar-brand:hover{
     color: #acff07;
     font-family: "ancizar-regular";
@@ -61,12 +56,12 @@
 }
 
 .prenavbar{
-    background-color:#666666;
-    color: white;
+    background-color:rgb(255, 255, 255);
     padding: 5px;
     height: 34px;
     width: 100%;
     text-align: center;
+
 }
 
 
@@ -101,10 +96,10 @@
 
 
 .icons-general{
-    color:  #ffffff;
+    color:  #000000;
 }
 
 
 .icons-general:hover{
-    color: #363935;
+    color: #6b6b6b;
 }
