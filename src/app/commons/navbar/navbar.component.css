@@ -8,7 +8,8 @@
   }
 
   .navbar-nav > li {
-    margin-right: 20px; /* Ajusta este valor según sea necesario para obtener el espacio deseado */
+    margin-right: 30px; /* Ajusta este valor según sea necesario para obtener el espacio deseado */
+    
 }
 
   .container-logo {
@@ -47,7 +48,7 @@
     cursor: pointer;
 }
 .nav-link{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .nav-link:hover, .navbar-brand:hover{
@@ -63,8 +64,6 @@
     width: 100%;
     text-align: center;
     box-shadow: 15px 100px 16px rgba(0, 0, 0, 0.2); /* Adjust values for the desired shadow effect */
-
-
 }
 
 

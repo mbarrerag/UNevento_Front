@@ -1,198 +1,93 @@
-@-webkit-keyframes astronautLost {
-  100% { -webkit-transform: translate(10vh,  -30vh);}
-  75% { -webkit-transform: translate(-115vh, 45vh);}
-  50% { -webkit-transform: translate(-226vh, -15vh);}
-  25% { -webkit-transform: translate(-100vh, -76vh);}
+body {
+  background-color: #2F3242;
 }
-
-@keyframes astronautRotate{
-  100% { -webkit-transform: rotate(-270deg); }
-  75% { -webkit-transform: rotate(-180deg);}
-  50% { -webkit-transform: rotate(-90deg);}
-  25% { -webkit-transform: rotate(0deg); }
-}
-
-body, html{
-  height:100%;
-  overflow:hidden;
-}
-body{
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-   font-family: source-sans-pro, sans-serif;
-  background-color: #ededed; /* #ededed*/
-color: #333;
-}
-
-h2 {  display:inline;
-    font-size:200px;
-  margin:0;
-  padding:0;
-  line-height:0;
-  margin-top:50px;
-}
-
-
-.quote
-{
-  display:inline;
-margin-left:5px;
-margin-right:5px;
-}
-
-.quote:before
-{
-content: '{';
-  
-}
-
-.quote:after
-{
-  content: '}';  
-
-}
-
-.error {  
-  margin-top: 70%;
-text-align:center;
-position:relative;
-
-}
-
-.text {
-position:absolute;
-right:13px;
-}
-
-.container{
-  width:500px;
-  padding:5px;
-}
-
- .info-text a{
-  font-size: 150%;
-  margin: 0 0 5% 0;
-  padding: 0;
-  line-height: 0;
-
-} 
-.info-text p{
-  font-size: 150%;
-  
-}
-
-.info-label{display:inline;}
-
-.info-text{
-text-align:center;
-margin-top: 10%;
-display: grid;
-place-items: center;
-
-}
-
-a {
-color: #3B81BE;
-line-height: inherit;
-text-decoration: none;
-  
-}
-
-a:after
-{
-  vertical-align:top;
-  width:13px;
-  height:13px;
-  
-display: inline-block;
-
-}
-
-p{  text-align:justify;
-}
-
-
-
-.Astronaut{
-  z-index: 110 !important;
+svg {
   position: absolute;
   top: 50%;
-  right: 0%;
-  will-change: transform;
-  animation: astronautLost 15s infinite linear both;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -400px;
 }
-
-.Astronaut img{
-  width: 300px;
+.message-box {
+  height: 200px;
+  width: 380px;
   position: absolute;
-  animation: astronautRotate 15s infinite linear both;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: 50px;
+  color: #FFF;
+  font-family: Roboto;
+  font-weight: 300;
+}
+.message-box h1 {
+  font-size: 700%;
+  line-height: 46px;
+  margin-bottom: 40px;
+  color: #2F3242;
 }
 
-.earth{
-  z-index: 110 !important;
-  position: absolute;
+.message-box p {
+  font-size: 60px;
+  line-height: 46px;
+  margin-bottom: 40px;
+  color: #2F3242;
 }
 
-.earth img{
-  width: 260px;
-  position: fixed;
-  top: 5%;
-  right: 5%;
+.buttons-con .action-link-wrap {
+  margin-top: 40px;
+}
+.buttons-con .action-link-wrap a {
+  background: #68c950;
+  padding: 8px 25px;
+  border-radius: 4px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px
+}
+.buttons-con .action-link-wrap a:hover {
+  background: #5A5C6C;
+  color: #fff;
 }
 
-@media screen and (max-width: 530px){
-  .errorTitle h1 {
-      font-size: 90px;
-  }
-  .errorTct p {
-      width: 300px;
-  }
-  .earth img {
-      width: 90px;
-      top: 1%;
-      z-index: 100;
-  }
-  .Astronaut img {
-      width: 200px;
+#Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4 , #Polygon-4, #Polygon-5 {
+  animation: float 1s infinite ease-in-out alternate;
+}
+#Polygon-2 {
+  animation-delay: .2s; 
+}
+#Polygon-3 {
+  animation-delay: .4s; 
+}
+#Polygon-4 {
+  animation-delay: .6s; 
+}
+#Polygon-5 {
+  animation-delay: .8s; 
+}
 
+@keyframes float {
+	100% {
+    transform: translateY(20px);
   }
 }
-@media screen and (max-width: 400px){
-
-  .errorTitle h1 {
-      font-size: 40px;
+@media (max-width: 450px) {
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -190px;
   }
-  .errorTct p {
-      width: 220px;
-      font-size: 13px;
-  }
-  .earth img {
-      width: 130px;
-  }
-  .Astronaut img {
-      width: 200px;
-  }
-  #errorButton {
-      height: 35px;
-      width: 96px;
-      font-size: 12px;
-  }
-}
-@media screen and (max-width: 365px){
-  .errorTitle h1 {
-      font-size: 38px;
-  }
-  .earth img {
-      width: 130px;
-  }
-  .Astronaut img {
-      width: 130px;
-  }
-  #errorButton {
-      height: 35px;
-      width: 100px;
-      font-size: 12px;
+  .message-box {
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -190px;
+    text-align: center;
   }
 }
