@@ -30,7 +30,7 @@ body {
 }
 
 .developers{
-  font-family: "ancizar-italy";
+  font-family: "Times-New-Roman";
   display: grid;
   place-items: center;
   font-size: 300%;
@@ -68,7 +68,8 @@ body {
 }
 
 .card {
-  max-width: 400px;
+  max-width: 130%;
+  height: 100%;
   margin: auto;
   overflow-y: auto;
   position: relative;

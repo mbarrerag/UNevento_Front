@@ -1,12 +1,13 @@
 
 .containerSingup {
-  background-color: #666666;
+  background-color: #ffffff;
   background-size: cover; 
   background-position: center; 
   height: 100vh;
   position: absolute;
   width: 100%;
   opacity: 0.9;
+  z-index: 1;
 }
 
 .fullWidthBackground {
@@ -17,14 +18,26 @@
 	height: 100%;
 	z-index: 1;
   } 
+  .square {
+    width: 2000px;
+    height: 1000px;
+    background-color: #000000;
 
-  .card-sing {
+    position: relative; /* Añade esto para que el z-index funcione */
+    z-index: 1; /* Cambiado a 1 */
+}
+
+.card-sing {
     margin: auto auto;
     margin-top: 5%;
     width: 80%;
     height: 80%;
     background-color: #fff;
-  }
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Añade esto para que el z-index funcione */
+    z-index: 2; /* Cambiado a 2 */
+}
+
   .container-tittle-singUp{
       width: 50%;
   }

@@ -9,7 +9,7 @@
 
   .navbar-nav > li {
     margin-right: 30px; /* Ajusta este valor según sea necesario para obtener el espacio deseado */
-    
+    font-size: 60px;
 }
 
   .container-logo {
@@ -48,7 +48,7 @@
     cursor: pointer;
 }
 .nav-link{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .nav-link:hover, .navbar-brand:hover{
@@ -58,7 +58,7 @@
 }
 
 .prenavbar{
-    background-color:rgb(232, 232, 232);
+    background-color:rgb(236, 236, 236);
     padding: 5px;
     height: 34px;
     width: 100%;
