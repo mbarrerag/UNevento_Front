@@ -22,14 +22,14 @@
               </label>
 
               <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Correo"
-                class="form-control input2"
-                aria-label="email"    
-                autocomplete="email"
-         
+              formControlName="username" 
+              type="email" 
+              class="form-control input2"
+              id="exampleInputEmail1" 
+              aria-describedby="emailHelp"
+              placeholder="Correo"
+              aria-label="email"    
+              autocomplete="email"
               />
 
               <br />
@@ -37,14 +37,15 @@
                 Contraseña
               </label>
               <input
-                id="password"
-                type="password"
-                placeholder="Ingresa tú constraseña"
-                class="form-control input2"
-                aria-describedby="trash-desc"
-                name="password"
-                required
-                autocomplete="current-password"
+              formControlName="password"
+               type="password" 
+               class="form-control input2" 
+               id="exampleInputPassword1"
+               placeholder="Ingresa tú constraseña"
+               aria-describedby="trash-desc"
+               name="password"
+               required
+               autocomplete="current-password"
               />
 
             <div class="link-forgotPassword"> 

@@ -131,20 +131,12 @@
     outline: unset;
     height: 40px;
   }
-
-
-
   .terminos-condiciones{
     font-size: 12px;
   }
-
-
-
-.container-btn{
- 
+    .container-btn{
   text-align: center;
-
-}
+    }
 
 .btn-aceptar{
   background-color: #000000;
@@ -169,14 +161,43 @@
        text-align: center;
        
     }
+  
+
+    .inputs-total,.input-field{
+      width: 100%;
+
+    }
+
+
+
     .inputs-singUp{
-      width: 70%;
+ 
       margin-top: 10%;
     }
 
     .inputs-total{
       margin: auto auto;
     }
+
+    .card-sing{
+      width: 95%;
+    }
+
+    .square3{
+      width: 0%;
+      margin: auto auto;
+      position: inherit;
+    }
+
+
+    .square1{
+      position: inherit;
+     
+     }
+     .square2,.square {
+      position: inherit;
+    /* Posición inicial a la izquierda */
+     }
 
   }
 
