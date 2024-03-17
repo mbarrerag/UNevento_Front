@@ -8,36 +8,35 @@
   }
 
   .navbar-nav > li {
-    margin-right: 30px; /* Ajusta este valor según sea necesario para obtener el espacio deseado */
+    margin-right: 40px; /* Ajusta este valor según sea necesario para obtener el espacio deseado */
     font-size: 60px;
 }
 
 .logo{
     width: 8%;
     height: 8%;
-    margin-left: 2%;
+    margin-left: 1%;
 
     
 }
 .brand{
-    margin-left: 5%;
+    margin-left: 3%;
 }
 .container-navbar{
     justify-content: end;
-    margin-right: 5%;
+    margin-right: 1%;
 }
 .nav-link, .navbar-brand{
     color: rgb(0, 0, 0);
-    font-family: "ancizar-regular";
+    font-family: "approach-medium";
     cursor: pointer;
+    font-size: 32%;
 }
-.nav-link{
-    font-size: 18px;
-}
+
 
 .nav-link:hover, .navbar-brand:hover{
     color: #acff07;
-    font-family: "ancizar-regular";
+    font-family: "approach-medium";
     cursor: pointer; 
 }
 

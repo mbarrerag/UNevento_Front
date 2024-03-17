@@ -15,9 +15,9 @@
 }
 
 body {
-  font-family: "ancizar-bold";
+  font-family: "approach-regular";
   color: #2b2c48;
-  font-family: "Jost", sans-serif;
+
   
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 .developers{
-  font-family: "Times-New-Roman";
+  font-family: "approach-black-italic";
   display: grid;
   place-items: center;
   font-size: 300%;
@@ -88,7 +88,7 @@ body {
   font-size: 100%; /* Tamaño de fuente */
   
   margin: 8% 0 5% 7.5%;
-  font-family: "ancizar-italy";
+  font-family: "aprroach-regular-italy";
   
 
 }
@@ -96,7 +96,7 @@ body {
 .frase-nicolas{
   font-size: 100%; /* Tamaño de fuente */
   margin: 8% 5% 0 7.5%;
-  font-family: "ancizar-italy";
+
   display: inline-block; /* Mostrar como bloque en línea */
 
 }
@@ -104,14 +104,14 @@ body {
 .frase-juan{
   font-size: 100%; /* Tamaño de fuente */
   margin: 8% 5% 0 7.5%;
-  font-family: "ancizar-italy";
+ 
   display: inline-block; /* Mostrar como bloque en línea */
 
 }
 .frase-breiner{
   font-size: 100%; /* Tamaño de fuente */
   margin: 8% 5% 0 7.5%;
-  font-family: "ancizar-italy";
+
   display: inline-block; /* Mostrar como bloque en línea */
 
 }
