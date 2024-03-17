@@ -8,6 +8,64 @@
 
 
 
+
+
+
+
+
+
+
+
+
+.public-events-cards{
+    /* display: flex; */
+    margin: auto auto;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap:16px;
+    margin: 5%;
+    cursor: pointer;
+  }
+
+.container-card-public-events{
+    width: 450px;
+   height: auto;
+}
+.card-public-texts{
+    width: 50%;
+    margin-left: 8px;
+}
+.card-text, .card-text2, .card-text3, .card-text4{
+    font-family: "ancizar-italic";
+}
+.card-title{
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.card-avalible{
+    display:flex;
+    margin: auto auto
+  }
+.card-events-public-img{
+    width: 50%;
+}
+.img-public{
+    height: 250px;
+}
+.card-text strong,
+.card-text2 strong,
+.card-text3 strong,
+.card-text4 strong {
+    font-weight: bold;
+    margin-right: 5px; /* Espacio entre los dos puntos y el texto */
+}
+
+
+
+
+
 @media screen and (max-width:750px){
 
     .card-events{

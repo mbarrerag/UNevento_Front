@@ -9,10 +9,14 @@ import { FooterComponent } from './commons/footer/footer.component';
 import { HomeComponentComponent } from './Home/home-component/home-component.component';
 
 
+
+
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ CommonModule,HomeComponentComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent,CardEventComponent,FooterComponent],
+  imports: [ CommonModule,HomeComponentComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent,CardEventComponent,FooterComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
