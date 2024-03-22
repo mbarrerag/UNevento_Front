@@ -1,72 +1,82 @@
- <div class="containerbackground">
- <div class="square"></div>
-    <div class="square1"></div>
-        <div class="square2"></div>
-           <div class="square3"></div>
- </div>
-        
-<div class="fullWidthBackground">
-
-    <div class="containerSingup">
-     
-      
-        <div class="card card-sing">
-            <div class="information">
-            <div class="container-div">
-
-
-                    <div class="inputs-singUp">
-
-                        <div class="contaner-tittle-singUp">
-                            
-                            <h2 class="tittle-singUp">¡REGISTRATE!</h2>
-                            <h2 class="tittle-singUp">Ingresa tus datos</h2>
-                        </div>
-
-                <div class="inputs-total">
-
-                        <div class="input-field">
-                            <input placeholder="Nombre"   class="input-name input-global"   type="text" required>
-                            
-                        </div>
-
-                        <div class="input-field">
-                            <input placeholder="Apellido" class="input-lastname input-global"    type="text" required>
-                            
-                        </div>
-
-                        <div class="input-field">
-                            <input placeholder="Correo electronico"  class="input-email input-global" type="text" required>
-                
-                        </div>
-
-                        <div class="input-field">
-                            <input placeholder="Contraseña"  class="input-password input-global" type="text" required>
-                          
-                        </div>
-
-                        <div class="input-field">
-                            <input placeholder="Confirmar Contraseña" class="input-confirmPassword input-global"   type="text" required>
-                         
-                        </div>
-
-                        <div class="input-field  ">
-                            <input type="checkbox" id="termsCheckbox" required>
-                            <label for="termsCheckbox" class="terminos-condiciones">Acepto los <a href="#" target="_blank">Términos y Condiciones</a></label>
-                        </div>
-
-
-                        <div class="container-btn">
-                        <button class="btn btn-aceptar" type="submit">Aceptar</button>
-                            </div>
-                    </div>
-                    </div>
-                        <div class="container-img">
-                            <img src="../../../assets/img-singup/viejo.jpg" alt="" class="card-img-top  img-singUp">
-                        </div>
-                    </div>
-            </div>
-        </div>
-        
+<div class="containerbackground">
+    <div class="square"></div>
+       <div class="square1"></div>
+           <div class="square2"></div>
+              <div class="square3"></div>
     </div>
-
+           
+   <div class="fullWidthBackground">
+   
+       <!-- signup-form.component.html -->
+   
+   <div class="containerbackground">
+       <div class="square"></div>
+       <div class="square1"></div>
+       <div class="square2"></div>
+       <div class="square3"></div>
+     </div>
+     
+     <div class="fullWidthBackground">
+       <div class="containerSingup">
+         <div class="card card-sing">
+           <div class="information">
+             <div class="container-div">
+               <div class="inputs-singUp">
+                 <div class="contaner-tittle-singUp">
+                   <h2 class="tittle-singUp">¡REGÍSTRATE!</h2>
+                   <h2 class="tittle-singUp">Ingresa tus datos</h2>
+                 </div>
+     
+                 <div class="inputs-total">
+                   <form (ngSubmit)="submitForm()">
+                     <div class="input-field">
+                       <input placeholder="Nombre" class="input-name input-global"  name="nombre"   type="text" required [(ngModel)]="userData.nombre">
+                     </div>
+     
+                     <div class="input-field">
+                       <input placeholder="Apellido" class="input-lastname input-global"  name="apellido"   type="text" required [(ngModel)]="userData.apellido">
+                     </div>
+     
+                     <div class="input-field">
+                       <input placeholder="Correo electrónico" class="input-email input-global"  name="correo" type="email" required [(ngModel)]="userData.correo">
+                     </div>
+     
+                     <div class="input-field">
+                       <input placeholder="Contraseña" class="input-password input-global" name="contrasena" pattern="(?=.*[a-z])(?=.*[A-Z]).*" [type]="showPassword ? 'text' : 'password'" required [(ngModel)]="userData.contrasena">
+                       <span class="password-toggle" (click)="togglePasswordVisibility2()">
+                           <i class="fa fa-eye" [class.fa-eye-slash]="!showPassword"></i>
+                       </span>
+                   </div>
+                   
+     
+                     <div class="input-field">
+                       <input placeholder="Confirmar Contraseña" class="input-confirmPassword input-global" name="confirmPassword" pattern="(?=.*[a-z])(?=.*[A-Z]).*" [type]="showConfirmPassword ? 'text' : 'password'" required [(ngModel)]="confirmPassword">
+                       <span class="password-toggle" (click)="togglePasswordVisibility()">
+                           <i class="fa fa-eye" [class.fa-eye-slash]="!showConfirmPassword"></i>
+                       </span>
+                   </div>
+                   
+                   
+     
+                     <div class="input-field">
+                       <input type="checkbox" id="termsCheckbox"  name="check" required [(ngModel)]="acceptTerms">
+                       <label for="termsCheckbox" class="terminos-condiciones">Acepto los <a href="#" target="_blank">Términos y Condiciones</a></label>
+                     </div>
+     
+                     <div class="container-btn">
+                       <button class="btn btn-aceptar" type="submit">Aceptar</button>
+                     </div>
+                   </form>
+                 </div>
+               </div>
+               <div class="container-img">
+                 <img src="../../../assets/img-singup/viejo.jpg" alt="" class="card-img-top img-singUp">
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     
+   
+   

@@ -118,9 +118,32 @@
   
   .inputs-total{
     margin-top: 8%;
-
-  
   }
+  
+
+
+
+
+  .password-toggle {
+  
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.password-toggle i {
+    color: #777;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+ 
   .input-field{
     margin: auto auto;
     margin-bottom: 20px;
