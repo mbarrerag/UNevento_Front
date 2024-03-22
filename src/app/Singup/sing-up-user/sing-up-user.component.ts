@@ -19,21 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 export class SingUpUserComponent {
   userData = {
-    nombre: '',
-    apellido: '',
-    correo: '',
-    contrasena: ''
+    "nombre" : "",
+    "apellido": "",
+    "email" : "",
+    "contrasena" : ""
   };
-
-  userData2 = {
-    "id": 0,
-    "nombre": "meluck",
-    "apellido": "b",
-    "email": "cv",
-    "contrasena": "meluck"
-  };
-
-
 
 
   confirmPassword = '';
@@ -52,22 +42,22 @@ togglePasswordVisibility2() {
 
 
   submitForm() {
-    // if (this.userData2.contrasena !== this.confirmPassword) {
-    //   console.error('Las contraseñas no coinciden');
-    //   return;
-    // }
+    if (this.userData.contrasena !== this.confirmPassword) {
+      console.error('Las contraseñas no coinciden');
+      return;
+    }
 
-    // if (!this.acceptTerms) {
-    //   console.error('Debes aceptar los términos y condiciones');
-    //   return;
-    // }
+    if (!this.acceptTerms) {
+      console.error('Debes aceptar los términos y condiciones');
+      return;
+    }
 
-    // if (this.userData2.contrasena.length < 8) {
-    //   console.error('La contraseña debe tener al menos 8 caracteres');
-    //   return;
-    // }
+    if (this.userData.contrasena.length < 8) {
+      console.error('La contraseña debe tener al menos 8 caracteres');
+      return;
+    }
 
-    this.serviceSingUp.createUser(this.userData2).subscribe(
+    this.serviceSingUp.createUser(this.userData).subscribe(
       response => {
         console.log('Usuario creado exitosamente:', response);
         // Aquí puedes manejar la respuesta del backend, como redireccionar al usuario a otra página, mostrar un mensaje de éxito, etc.

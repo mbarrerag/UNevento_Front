@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class serviceSingUp {
-  private baseUrl = 'http://localhost:8182/newuser'; // Reemplaza esto con la URL de tu backend
+  private baseUrl = 'http://localhost:8180/newuser'; // Reemplaza esto con la URL de tu backend
 
 
 
@@ -24,7 +24,7 @@ private http = inject(HttpClient)
   createUser(userData: any) {
   console.log(userData);
   
-    return this.http.post<any>('http://localhost:8182/newuser', userData);
+    return this.http.post<any>('http://localhost:8180/newuser', userData);
   }
 }
 
