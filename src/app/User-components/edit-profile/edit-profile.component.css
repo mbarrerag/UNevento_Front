@@ -26,7 +26,7 @@
     margin-bottom: 30px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 775px) {
     .profile-edit-info {
         flex-direction: column;
     }
