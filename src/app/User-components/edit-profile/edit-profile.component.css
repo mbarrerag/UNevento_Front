@@ -1,19 +1,22 @@
-.edit-profile{
+.edit-profile {
     margin-top: 10%;
     margin-bottom: 10%;
 }
+
 .profile-title {
-    font-family: "ancizar-bold";
+    font-family: "approach-bold";
     text-align: center;
     font-size: 50px;
 }
+
 .profile-edit-info {
     display: flex;
     justify-content: space-between;
-    font-family: "ancizar-regular";
+    flex-direction: row;
+    font-family: "approach-regular";
     width: 70%;
     margin: 0 auto;
-    margin-top: 25px;
+    margin-top: 35px;
     align-items: center;
     border-radius: 5%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -22,72 +25,98 @@
     transition: transform 0.3s ease;
     margin-bottom: 30px;
 }
-.profile-edit-info:hover{
+
+@media screen and (max-width: 775px) {
+    .profile-edit-info {
+        flex-direction: column;
+    }
+    .profile-subtitle {
+        text-align: center;
+        align-self: center;
+    }
+}
+
+.profile-edit-info:hover {
     transform: scale(1.1);
 }
+
 .profile-subtitle {
-    font-family: "ancizar-bold";
+    font-family: "approach-bold";
     font-size: 30px;
+    text-align: left;
+    align-self: flex-start;
+    margin-bottom: 5px;
 }
-.input-form{
+
+.input-form {
     display: flex;
-    gap: 50px;
-    margin-bottom: 30px;
+    gap: 10px;
     align-items: center;
+    margin-bottom: 10px;
 }
-.form-control{
+
+.form-control {
     width: 100%;
+    margin-top: 10px;
 }
+
 .profile-photo {
-    border-radius: 30%; 
-    width: auto; 
+    border-radius: 30%;
+    width: auto;
     height: auto;
-    overflow: hidden; 
+    overflow: hidden;
     justify-content: center;
     align-items: center;
 }
+
 .profile-photo img {
-    width: 100%; 
+    width: 100%;
     height: auto;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
+
 .data {
-    flex: 1; 
-    padding-left: 20px; 
+    flex: 1;
+    padding-left: 20px;
 }
 
-.btn-save-profile{
-    width: 300px;
-    height: 100px;
-	background-color: #a1cb0b;
+.btn-save-profile {
+    width: 200px;
+    height: 70px;
+    background-color: #a1cb0b;
     border: solid 0px;
-
     text-decoration: none;
-	color: #fff;
-	margin: auto auto;
+    color: #fff;
+    margin: auto auto;
     border-radius: 5%;
     transition: transform 0.3s ease;
 }
-.btn-save-profile:hover{
+
+.btn-save-profile:hover {
     background-color: #8bae0e;
     transform: scale(1.1);
 }
-.button-editprofile-container{
+
+.button-editprofile-container {
     margin-bottom: 30px;
     display: flex;
     padding-top: 30px;
     padding-bottom: 10px;
     gap: 50px;
-    height: 300%;
+    height: 100%;
     justify-content: center;
-    font-family: 'ancizar-regular';
+    font-family: 'approach-regular';
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
 }
 
-.footer{
+.footer {
     margin-top: 10%;
+}
+
+.input-form {
+    flex-direction: column;
 }
