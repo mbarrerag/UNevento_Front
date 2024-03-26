@@ -1,0 +1,99 @@
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var preview = document.getElementById('preview');
+            preview.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+<app-navbar></app-navbar>
+<div class="CrearEvento">
+    <div class="Encabezado">
+        <img src="../../../assets/img-home/UNeventoBlanco.png" alt="LogoUNevento" class="Logo">
+        <h1 class="Titulo">Crear Evento de Facultad</h1>
+    </div>
+    <div class="Forms">
+        <div class="TextForms">
+            <form action="/submit" method="post">
+                <div class="Entrada">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+
+                <div class="Entrada">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+
+                <div class="Entrada">
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" required>
+                </div>
+                
+                <div class="Entrada">
+                    <label for="lugar">Lugar:</label>
+                    <input type="text" id="lugar" name="lugar" required>
+                </div>
+            
+                <div class="Entrada">
+                    <label for="facultad">Facultad:</label>
+                    <select id="facultad" name="facultad" required>
+                        <option value="">Selecciona una Facultad</option>
+                        <option value="ingenieria">Facultad de Ingeniería</option>
+                        <option value="ciencias">Facultad de Ciencias</option>
+                        <option value="ciencias-humanas">Facultad de Ciencias Humanas</option>
+                        <option value="ciencias-economicas">Facultad de Ciencias Económicas</option>
+                        <option value="ciencias-agrarias">Facultad de Ciencias Agrarias</option>
+                        <option value="medicina">Facultad de Medicina</option>
+                        <option value="odontologia">Facultad de Odontología</option>
+                        <option value="medicina-veterinaria-zootecnia">Facultad de Medicina Veterinaria y de Zootecnia</option>
+                        <option value="derecho-ciencias-politicas-sociales">Facultad de Derecho, Ciencias Politicas y Sociales</option>
+                        <option value="artes">Facultad de Artes</option>
+                    </select>
+                </div>
+                <div class="Entrada">
+
+                </div>
+
+                <div class="Entrada">
+                    <label for="aforo">Aforo:</label>
+                    <input type="number" id="aforo" name="aforo">
+                </div>
+
+                <div class="Entrada">
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Selecciona una Categoría Asociada con el Evento</option>
+                        <option value="conferencia">Conferencia</option>
+                        <option value="capacitacion">Capacitación</option>
+                        <option value="cultural">Actividad Cultural</option>
+                        <option value="deportiva">Actividad Deportiva</option>
+                    </select>
+                </div>
+
+                <div class="Entrada" style="margin-bottom: 0px;">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" required></textarea>
+                </div>
+                <br>
+            </form>
+        </div>
+        <div class="ImageForms">
+            
+            <form action="/submit" method="post" enctype="multipart/form-data">
+                <label for="file-upload" class="TextoArchivo">Seleccionar imagen que represente el evento:</label>
+                <input type="file" id="file-upload" name="file-upload" accept="image/*" (change)="handleImageUpload($event)"><!-- Aceptar Solo Imágenes -->
+                <div *ngIf="imageSrc" class="ImagenSeleccionada">
+                    <img [src]="imageSrc" alt="Vista previa de la imagen" style="max-width: 100%;">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="align-items: center; display: flex; justify-content: center;">
+        <input type="submit" value="Crear Evento" class="btn-crear-evento">
+    </div>
+</div>
+<app-footer></app-footer>

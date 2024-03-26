@@ -11,6 +11,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AboutUSComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './User-components/profile/profile.component';
 import { EditProfileComponent } from './User-components/edit-profile/edit-profile.component';
+import {CreateEventsComponent} from './User-components/create-events/create-events.component';
+import { CreateFacultyEventsComponent } from './User-components/create-faculty-events/create-faculty-events.component';
+import { CreateCommunityEventsComponent } from './User-components/create-community-events/create-community-events.component';
 
 
 export const routes: Routes = [
@@ -25,6 +28,9 @@ export const routes: Routes = [
   { path: 'aboutus', component:AboutUSComponent },
   { path: 'profile', component:ProfileComponent},
   { path: 'editprofile', component:EditProfileComponent},
+  { path: 'createevent', component:CreateEventsComponent},
+  { path: 'createfacultyevent', component:CreateFacultyEventsComponent},
+  { path: 'createcommunityevent', component:CreateCommunityEventsComponent},
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
   { path: '**', component: NotFoundpageComponent } 
   // { path:'dashboard',
