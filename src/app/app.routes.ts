@@ -11,6 +11,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AboutUSComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './User-components/profile/profile.component';
 import { EditProfileComponent } from './User-components/edit-profile/edit-profile.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 
 
 export const routes: Routes = [
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'aboutus', component:AboutUSComponent },
   { path: 'profile', component:ProfileComponent},
   { path: 'editprofile', component:EditProfileComponent},
+  { path: 'termsofservice', component:TermsAndConditionsComponent },
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
   { path: '**', component: NotFoundpageComponent } 
   // { path:'dashboard',
