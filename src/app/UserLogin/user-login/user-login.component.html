@@ -15,57 +15,32 @@
             </h2>
           </div>
       
-          <div class="contInput1">
-            <form  class="formUser">
-              <label class="label-email" for="email">
-                Email
-              </label>
+          <div class="contInput1 ">
+                <form (ngSubmit)="login()">
+                  <label    class="label-email"  for="username">correo:</label>
 
-              <input
-              formControlName="username" 
-              type="email" 
-              class="form-control input2"
-              id="exampleInputEmail1" 
-              aria-describedby="emailHelp"
-              placeholder="Correo"
-              aria-label="email"    
-              autocomplete="email"
-              />
+                  <div class="container-inputs">
+                    <input    class="input1"  placeholder="correo"  type="text" id="username" name="username" [(ngModel)]="correo" required>
+                  </div>
+                  <br> 
+                  
+                  <label class="label-password"for="password">Contraseña:</label>
+                <div class="container-inputs">
+                  <input    class="input2"     placeholder="Contraseña" type="password" id="password" name="password" [(ngModel)]="password" required><br>
+                </div>
 
-              <br />
-              <label for="password" class="label-password">
-                Contraseña
-              </label>
-              <input
-              formControlName="password"
-               type="password" 
-               class="form-control input2" 
-               id="exampleInputPassword1"
-               placeholder="Ingresa tú constraseña"
-               aria-describedby="trash-desc"
-               name="password"
-               required
-               autocomplete="current-password"
-              />
-
-            <div class="link-forgotPassword"> 
-               <a routerLink="/forgotpassword" class="RecoverPassword">
-                   ¿Has olvidado tú contraseña?
-               </a>
-            </div>
-              <div class="button-container">
-                <button type="submit" class="btn btnLogin">
-                  Ingresa
-                </button>
-              </div>  
-            <br />
-            </form>
+                 <div class="button-container">
+                  <button   class="btnLogin btn"  type="submit">Iniciar sesión</button>
+                 </div>
+                  
+                </form>          
             <br />
             <p class="text-recovery">¿No tienes cuenta?,
               <a routerLink="/singup" class="RecoverPassword">
                 registrate
               </a>
-            </p> 
+            </p>
+         
           </div>
         </div>
       </div>

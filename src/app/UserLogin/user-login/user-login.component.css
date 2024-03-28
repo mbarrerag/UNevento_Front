@@ -7,8 +7,8 @@
 /* Login styles */
 .containerLog {
     background-image: url('../../../assets/img-login/n.jpg');
-    background-size: cover; /* La imagen se escala para cubrir todo el contenedor sin distorsionarse */
-    background-position: center; /* La imagen se centra dentro del contenedor */
+    background-size: cover; 
+    background-position: center; 
     height: 100vh;
     position: absolute;
     width: 100%;
@@ -42,11 +42,22 @@
 	margin-left: 8%;
 	font-family: "ancizar-italic";
 }
+
+
+.container-inputs{
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+}
+
+
 .input1, .input2 {
 	width: 85%;
 	justify-content: center;
 	margin: auto;
 	margin-bottom: 20px;
+	outline: unset;
+	
 }
 .RecoverPassword {
 	text-decoration: none;

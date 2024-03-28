@@ -72,7 +72,14 @@ app-navbar {
 
 
 
-
+@media screen and (max-width: 1200px) {
+  
+  .container-cards-facultad{
+ 
+    grid-template-columns: repeat(2,1fr);
+   
+}
+}
 
 
 

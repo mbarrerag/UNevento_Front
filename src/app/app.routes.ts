@@ -11,6 +11,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AboutUSComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './User-components/profile/profile.component';
 import { EditProfileComponent } from './User-components/edit-profile/edit-profile.component';
+import { PremiumComponent } from './Premium/premium/premium.component';
+
 
 
 export const routes: Routes = [
@@ -21,6 +23,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponentComponent},
   { path: 'miseventos', component: MyeventsComponent },
   { path: 'home', component:HomeComponentComponent},
+  { path: 'premium', component:PremiumComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},
   { path: 'aboutus', component:AboutUSComponent },
   { path: 'profile', component:ProfileComponent},

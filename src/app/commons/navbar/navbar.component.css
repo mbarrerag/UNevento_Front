@@ -88,3 +88,25 @@
 .icons-general:hover{
    color: #acff07;
 }
+
+.profile-image {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+  }
+  
+
+
+
+
+@keyframes titileo {
+    0% { color: #000; }
+    50% { color: #ffdd77; }
+    100% { color: #000; }
+}
+
+.Premium {
+    color: #f6cf5b;
+    text-decoration: none;
+    animation: titileo 1.5s infinite;
+}

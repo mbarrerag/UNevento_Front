@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { serviceSingUp } from './Sevice/serviceSingUp';
-
-
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // Importa FormsModule aquí
 import { HttpClientModule } from '@angular/common/http';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sing-up-user',
@@ -21,7 +18,7 @@ export class SingUpUserComponent {
   userData = {
     "nombre" : "",
     "apellido": "",
-    "email" : "",
+    "correo" : "",
     "contrasena" : ""
   };
 
@@ -59,12 +56,25 @@ togglePasswordVisibility2() {
 
     this.serviceSingUp.createUser(this.userData).subscribe(
       response => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Usuario creado exitosamente',
+          
+        });
+
         console.log('Usuario creado exitosamente:', response);
-        // Aquí puedes manejar la respuesta del backend, como redireccionar al usuario a otra página, mostrar un mensaje de éxito, etc.
+       
       },
       error => {
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al crear usuario',
+          text: 'Ocurrió un error al crear el usuario. Por favor, inténtalo nuevamente más tarde.'
+        });
+
         console.error('Error al crear usuario:', error);
-        // Aquí puedes manejar el error, como mostrar un mensaje de error al usuario, registrar el error, etc.
+     
       }
     );
   }
