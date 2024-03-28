@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { CardEventComponent } from './commons/card-event/card-event.component';
 import { FooterComponent } from './commons/footer/footer.component';
 import { HomeComponentComponent } from './Home/home-component/home-component.component';
+import { CardFacultiesComponent } from './commons/card-faculties/card-faculties.component';
 
 
 
@@ -16,7 +17,7 @@ import { HomeComponentComponent } from './Home/home-component/home-component.com
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ CommonModule,HomeComponentComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent,CardEventComponent,FooterComponent,],
+  imports: [CommonModule,HomeComponentComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent,CardEventComponent,FooterComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

@@ -6,13 +6,14 @@ import { RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CardEventComponent } from '../../commons/card-event/card-event.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
+import { CardFacultiesComponent } from '../../commons/card-faculties/card-faculties.component';
 
 
 
 @Component({
   selector: 'app-home-component',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, CardEventComponent, FooterComponent],
+  imports: [   CardFacultiesComponent,CommonModule, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, CardEventComponent, FooterComponent],
   templateUrl: './home-component.component.html',
   styleUrl: './home-component.component.css'
 })
