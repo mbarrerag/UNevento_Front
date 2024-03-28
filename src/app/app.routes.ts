@@ -1,7 +1,6 @@
 
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { NotFoundpageComponent } from './not-foundpage/not-foundpage.component';
 import { UserLoginComponent } from './UserLogin/user-login/user-login.component';
 import { SingUpUserComponent } from './Singup/sing-up-user/sing-up-user.component';
@@ -11,6 +10,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AboutUSComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './User-components/profile/profile.component';
 import { EditProfileComponent } from './User-components/edit-profile/edit-profile.component';
+import { PremiumComponent } from './Premium/premium/premium.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import {CreateEventsComponent} from './User-components/create-events/create-events.component';
 import { CreateFacultyEventsComponent } from './User-components/create-faculty-events/create-faculty-events.component';
@@ -25,6 +25,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponentComponent},
   { path: 'miseventos', component: MyeventsComponent },
   { path: 'home', component:HomeComponentComponent},
+  { path: 'premium', component:PremiumComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},
   { path: 'aboutus', component:AboutUSComponent },
   { path: 'profile', component:ProfileComponent},
