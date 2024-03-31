@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './card-faculties.component.scss'
 })
 export class CardFacultiesComponent {
+  
 
   
 }

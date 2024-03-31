@@ -10,114 +10,83 @@ $c_1: #353540;
   padding: 0;
   box-sizing: border-box;
 }
-.image-facultad{
-  width: 40%;
-  height: 60%;
-  size: cover;
 
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: $c_1;
 }
+
+.title-card{
+  color: rgb(0, 0, 0);
+  font: size 5%;;
+  align-items: center;
+  text-align: center;
+  font: "approch-black-italic";
+  margin-top: 3%;
+}
+
+
 
 
 
 .l-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15%;
-  width: 90%;
+  grid-gap: 5%;
+  align-items: center;
   max-width: 90%;
-  padding: 30px;
-  margin-left: 6%;
 
-
+  
   @media screen and (max-width: 760px) {
     grid-template-columns: repeat(2, 1fr);
   }
   
 }
-.b-game-card{
-  background-color: ba;
-}
 
-.card-body{
-  background-color: #f6d365;
-  background-image: linear-gradient(315deg, #f6d365 0%, #fda085 74%);
-  border-radius: 5%;
+.image-facultad {
+  box-shadow: #a2d630 5px 1px 10px 5px;
+  border-radius: 0.7rem;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(7px);
+  height: 85%;
   width: 100%;
-  height: 50%;
-  overflow: hidden;
-  background-size: cover; /* La imagen se ajustará para cubrir todo el contenedor */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-size: cover;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-  transform-origin: top center;
-  will-change: transform;
-  transform: skewX(.001deg);
-  transition: transform .35s ease-in-out;
-  position: relative;
-  z-index: 1;
-  width: 160%;
-  padding-bottom: 150%;
-  perspective: 1000px;
-  border-radius: 5%;
-  background-color: #f6d365;
-  background-image: linear-gradient(315deg, #f6d365 0%, #fda085 74%);
-  background-size: cover; /* La imagen se ajustará para cubrir todo el contenedor */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-size: cover;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-  transform-origin: top center;
-  will-change: transform;
-  transform: skewX(.001deg);
-  transition: transform .35s ease-in-out;
-  position: relative;
-  z-index: 1;
-  width: 160%;
-  padding-bottom: 150%;
-  perspective: 1000px;
-  border-radius: 5%;
-  background-color: #f6d365;
-  background-image: linear-gradient(315deg, #f6d365 0%, #fda085 74%);
-  background-size: cover; /* La imagen se ajustará para cubrir todo el contenedor */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-size: cover;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-  transform-origin: top center;
-  will-change: transform;
-  transform: skewX(.001deg);
-  transition: transform .35s ease-in-out;
-  position: relative;
+  object-fit: cover;
+  object-position: 80% center;
+
 }
 
-.card-containe{
-  border-radius: 5%;
-  width: 10%;
-  height: 150%;
 
-  color: red($color: #000000);
-}
+
 .b-game-card {
-  position: relative;
-  z-index: 1;
-  width: 160%;
-  padding-bottom: 150%;
-  perspective: 1000px;
   
+  border-radius: .7rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: .7rem;
+  z-index: 1;
+  width: 110%;
+  height: 80%;
+  margin-top: 1%;
+  margin-left: 1%;
+  padding-bottom: 130%;
+  perspective: 1000px;
+   
   &__cover {
+    border-radius: .7rem;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(7px);
     position: absolute;
-    border-radius: 5%;
-
     z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-    background-size: cover; /* La imagen se ajustará para cubrir todo el contenedor */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-image: white;
     background-size: cover;
     perspective-origin: 50% 50%;
     transform-style: preserve-3d;
@@ -126,9 +95,11 @@ $c_1: #353540;
     transform: skewX(.001deg);
     transition: transform .35s ease-in-out;
     
+    
     // Gloss 
     
     &::after {
+      
       display: block;
       content: '';
       position: absolute;
@@ -141,14 +112,18 @@ $c_1: #353540;
       transform: translateY(-20%);
       will-change: transform;
       transition: transform .65s cubic-bezier(0.18, 0.9, 0.58, 1);
+      
     }
     
   }
   
   &:hover &__cover {
     transform: rotateX(7deg) translateY(-6px);
-    box-shadow: 0 7px 50px 10px #8dcc00; /*Wrapper iamges*/
+    
 
+    
+
+    
 
     &::after {
       transform: translateY(0%);
@@ -166,8 +141,8 @@ $c_1: #353540;
     left: 5%;
     width: 90%;
     height: 90%;
-    background: rgba($c_0, 0.5);
-    box-shadow: 0 6px 12px 12px rgba($c_0, 0.4);
+   
+
     will-change: opacity;
     transform-origin: top center;
     transform: skewX(.001deg);
@@ -178,6 +153,5 @@ $c_1: #353540;
     opacity: 0.6;
     transform: rotateX(7deg) translateY(-6px) scale(1.05);
   }
-  
   
 }

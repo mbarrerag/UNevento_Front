@@ -27,7 +27,8 @@ app-navbar {
     max-height: 100%;
   }
 .container-cards-facultad{
- margin: center;
+ margin-left: 9%;
+ margin-top: 5%;
   width: 90%;
 
   align-items: center ;
@@ -44,9 +45,18 @@ app-navbar {
 }
 .facultad-tittle{
     margin-top: 5%;
-    margin-bottom: 3%;
+    margin: 3%;
     text-align: center;
-    font-family:"ancizar-bold";
+    font-family:"approach-italic";
+}
+
+.explanation{
+  margin-top: 5%;
+  margin: 3%;
+  font-size: 150%;
+  text-align: center;
+  font-family:"approach-italic";
+
 }
 .card-events{
     display: grid;
@@ -58,6 +68,7 @@ app-navbar {
 .main-tittle{
     text-align: center;
     font-family:"ancizar-bold";
+    margin-top: 10%;
 }
 .card-categories{
     margin-left: 20px;
