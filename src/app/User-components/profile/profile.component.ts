@@ -5,6 +5,7 @@ import { RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../commons/navbar/navbar.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
+import { ProfileService } from './Services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,5 +15,19 @@ import { FooterComponent } from '../../commons/footer/footer.component';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
+
+  constructor(private profileService: ProfileService) { }
+
+  userData: any = {};
+
+  ngOnInit(): void {
+    const userID = parseInt(localStorage.getItem('id') || '0');
+    const token = localStorage.getItem('token') || '';
+
+    this.profileService.getUserData(userID, token).subscribe((response: any) => {
+      this.userData = response;
+      //console.log(this.userData);
+    });
+  }
 
 }
