@@ -14,30 +14,46 @@ export class CreateFacultyEventService {
 
 
 
-  CreateFacEvent(newEvent: any, file:File, token:string, userID:number): Observable<any> {
+  CreateFacEventPhoto(newEvent: any, file:File, token:string, userID:number): Observable<any> {
     const formData: FormData = new FormData();
 
-    const headers = new HttpHeaders({
-      'Authorization': `${userID}, ${token}`,
-    });
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `${userID}, ${token}`,
+      })
+    };
 
-    formData.append('newEvent', JSON.stringify(newEvent));
+    formData.append('newEvent', new Blob([JSON.stringify(newEvent)], { type: 'application/json' }));
 
     // Agrega el archivo de imagen
 
-    formData.append('file', file, file.name);
+    formData.append('file', file);
     
     /* let emptyFile = new Blob([''], { type: 'image/jpeg' });
     formData.append('file', emptyFile, 'empty.jpg'); */
 
 
-    console.log(formData.get('newEvent'),formData.get('file'));
+    const createFacEventUrl = `${this.apiUrl}/newevent`;//URL del endpoint para crear un nuevo evento
 
+    
+    return this.http.post(createFacEventUrl,formData,httpOptions);
+  }
+
+  CreateFacEvent(newEvent: any, token:string, userID:number): Observable<any> {
+    const formData: FormData = new FormData();
+    //const boundary = 'boundary-' + Math.random().toString().substr(2);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `${userID}, ${token}`,
+      })
+    };
+
+    formData.append('newEvent', new Blob([JSON.stringify(newEvent)], { type: 'application/json' }));
 
 
     const createFacEventUrl = `${this.apiUrl}/newevent`;//URL del endpoint para crear un nuevo evento
 
     
-    return this.http.post(createFacEventUrl,formData,{headers: headers});
+    return this.http.post(createFacEventUrl,formData,httpOptions);
   }
 }

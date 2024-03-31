@@ -44,7 +44,7 @@ export class CreateFacultyEventsComponent {
   Aforo: number = 0;
   Categoria: string = '';
   Descripcion: string = '';
-  Imagen: File = new File([], ''); // Initialize the "Imagen" property
+  Imagen: any; // Initialize the "Imagen" property
 
   // Función de validación para la fecha
   validarFecha(): void {
@@ -75,16 +75,27 @@ export class CreateFacultyEventsComponent {
     };
 
     let file:File=this.Imagen;
-
-
-    this.createFacEventService.CreateFacEvent(newEvent, file, this.token,this.IdUsuario).subscribe(response => {
-      console.log(response);
-      this.showSuccessAlert('Evento creado', 'El evento ha sido creado exitosamente');
-      this.router.navigate(['/miseventos']);
-    }, error => {
-      this.showErrorAlert('Error', 'No fue posible crear el evento');
-      console.error(error);
-    });
+    if (!file) {//Caso En el que no se envía Imagen
+      console.log('Ejecutando Petición Creación de Evento Sin Imagen');
+      this.createFacEventService.CreateFacEvent(newEvent, this.token, this.IdUsuario).subscribe(response => {
+        console.log(response);
+        this.showSuccessAlert('Evento creado', 'El evento ha sido creado exitosamente');
+        this.router.navigate(['/miseventos']);
+      }, error => {
+        this.showErrorAlert('Error', 'No fue posible crear el evento');
+        console.error(error);
+      });
+    } else { //Caso en el que se envía Imagen
+      console.log('Ejecutando Petición Creación de Evento Con Imagen');
+      this.createFacEventService.CreateFacEventPhoto(newEvent, file, this.token, this.IdUsuario).subscribe(response => {
+        console.log(response);
+        this.showSuccessAlert('Evento creado', 'El evento ha sido creado exitosamente');
+        this.router.navigate(['/miseventos']);
+      }, error => {
+        this.showErrorAlert('Error', 'No fue posible crear el evento');
+        console.error(error);
+      });
+    }
   }
   
 

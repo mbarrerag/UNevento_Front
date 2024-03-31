@@ -26,6 +26,7 @@ export class ProfileComponent {
 
     this.profileService.getUserData(userID, token).subscribe((response: any) => {
       this.userData = response;
+      //console.log(this.userData);
     });
   }
 
