@@ -1,14 +1,3 @@
-<script>
-    function previewImage(event) {
-        var reader = new FileReader();
-        reader.onload = function() {
-            var preview = document.getElementById('preview');
-            preview.src = reader.result;
-        }
-        reader.readAsDataURL(event.target.files[0]);
-    }
-</script>
-
 <app-navbar></app-navbar>
 <div class="CrearEvento">
     <div class="Encabezado">
@@ -16,68 +5,72 @@
         <h1 class="Titulo">Crear Evento de la Comunidad</h1>
     </div>
     <div class="Forms">
+    <form (ngSubmit)="CreateComEvent()">
         <div class="TextForms">
-            <form action="/submit" method="post">
                 <div class="Entrada">
                     <label for="titulo">Título:</label>
-                    <input type="text" id="titulo" name="titulo" required>
+                    <input type="text" id="titulo" name="titulo" [(ngModel)]="Titulo" required>
                 </div>
 
                 <div class="Entrada">
                     <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="fecha" required>
+                    <input type="date" id="fecha" name="fecha" [(ngModel)]="Fecha" (change)="validarFecha()" required>
+                    
+                </div>
+                <div>
+                    <div *ngIf="Fecha && !fechaValida" style="color: red; margin-left:150px; margin-bottom:2px">La fecha debe ser de hoy en adelante</div>
                 </div>
 
                 <div class="Entrada">
                     <label for="hora">Hora:</label>
-                    <input type="time" id="hora" name="hora" required>
+                    <input type="time" id="hora" name="hora" [(ngModel)]="Hora" required>
                 </div>
                 
                 <div class="Entrada">
                     <label for="lugar">Lugar:</label>
-                    <input type="text" id="lugar" name="lugar" required>
-                </div>
-    
-                <div class="Entrada">
-
+                    <input type="text" id="lugar" name="lugar" [(ngModel)]="Lugar" required>
                 </div>
 
                 <div class="Entrada">
                     <label for="aforo">Aforo:</label>
-                    <input type="number" id="aforo" name="aforo">
+                    <input type="number" id="aforo" name="aforo" [(ngModel)]="Aforo" min="0" max="5000" step="1" oninput="validity.valid||(value='');">
                 </div>
 
                 <div class="Entrada">
                     <label for="categoria">Categoria:</label>
-                    <select id="categoria" name="categoria" required>
+                    <select id="categoria" name="categoria" [(ngModel)]="Categoria" required>
                         <option value="">Selecciona una Categoría Asociada con el Evento</option>
-                        <option value="conferencia">Conferencia</option>
-                        <option value="capacitacion">Capacitación</option>
-                        <option value="cultural">Actividad Cultural</option>
-                        <option value="deportiva">Actividad Deportiva</option>
+                        <option value="Conferencia">Conferencia</option>
+                        <option value="Seminario">Seminario</option>
+                        <option value="Congreso">Congreso</option>
+                        <option value="Curso">Curso</option>
+                        <option value="Taller">Taller</option>
+                        <option value="Networking">Networking</option>
+                        <option value="Cultural">Actividad Cultural</option>
+                        <option value="Deportiva">Actividad Deportiva</option>
+                        <option value="Otro">Otro</option>
                     </select>
                 </div>
 
                 <div class="Entrada" style="margin-bottom: 0px;">
                     <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="descripcion" required></textarea>
+                    <textarea id="descripcion" name="descripcion" [(ngModel)]="Descripcion" required></textarea>
                 </div>
                 <br>
-            </form>
         </div>
         <div class="ImageForms">
-            
-            <form action="/submit" method="post" enctype="multipart/form-data">
+        
                 <label for="file-upload" class="TextoArchivo">Seleccionar imagen que represente el evento:</label>
                 <input type="file" id="file-upload" name="file-upload" accept="image/*" (change)="handleImageUpload($event)"><!-- Aceptar Solo Imágenes -->
-            </form>
-            <div *ngIf="imageSrc" class="ImagenSeleccionada">
-                <img [src]="imageSrc" alt="Vista previa de la imagen" style="max-width: 100%;">
-            </div>
+                <div *ngIf="imageSrc" class="ImagenSeleccionada">
+                    <img [src]="imageSrc" alt="Vista previa de la imagen" style="max-width: 100%;">
+                </div>
+                <div style="align-items: center; display: flex; justify-content: center;">
+                    <button type="submit" class="btn-crear-evento" [disabled]="!fechaValida">Crear Evento</button>
+                </div>
         </div>
-    </div>
-    <div style="align-items: center; display: flex; justify-content: center;">
-        <input type="submit" value="Crear Evento" class="btn-crear-evento">
+        
+    </form>
     </div>
 </div>
 <app-footer></app-footer>
