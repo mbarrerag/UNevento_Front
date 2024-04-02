@@ -1,22 +1,19 @@
 <div>
     <app-navbar></app-navbar>
 </div>
+
 <div class="background">
     <div class="container">
-    <div class="row">
-        <div class="col-14">
         <div class="cardsmiseventos">
-            <ul class="row">
-                <li *ngFor="let event of events">
+            <ul class="events-list">
+                <li *ngFor="let event of events" class="event-item">
                     <app-card-mis-eventos [data]="event"></app-card-mis-eventos>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-</div>
 
-</div>
 <div class="footer">
     <app-footer></app-footer>
 </div>
