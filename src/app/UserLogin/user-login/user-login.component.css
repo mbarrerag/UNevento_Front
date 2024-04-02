@@ -6,7 +6,7 @@
 
 /* Login styles */
 .containerLog {
-    background-image: url('../../../assets/img-login/n.jpg');
+    background-image: url('../../../assets/img-login/n.JPG');
     background-size: cover; 
     background-position: center; 
     height: 100vh;
@@ -26,21 +26,21 @@
 	margin: auto auto;
 	margin-top: 5%;
 	width: 30%;
-	height: 70%;
+
 }
 .Title-login{
-	font-family: "ancizar-bold";
+	font-family: "approach-bold";
 	margin-bottom: 15%;
 	text-align: center;
 	justify-content: center;
 }
 .label-email{
 	margin-left: 8%;
-	font-family: "ancizar-italic";
+	font-family: "approach-regular";
 }
 .label-password{
 	margin-left: 8%;
-	font-family: "ancizar-italic";
+	font-family: "approach-regular";
 }
 
 
@@ -52,13 +52,16 @@
 
 
 .input1, .input2 {
-	width: 85%;
+    width: 85%;
+    height: 40px;
 	justify-content: center;
-	margin: auto;
-	margin-bottom: 20px;
-	outline: unset;
+    margin: auto;
+    margin-bottom: 20px;
+    outline: unset;
 	
+    border: 1px solid rgba(0, 0, 0, 0.3); /* Cambia el último valor (0.5) para ajustar la opacidad */
 }
+
 .RecoverPassword {
 	text-decoration: none;
 	font-size: 14px;	
@@ -70,7 +73,7 @@
 	text-align: center;	
 }
 .btnLogin{
-	width: 50%;
+	width: 85%;
 	background-color: #000;
 	color: #fff;
 	margin: auto auto;
@@ -86,9 +89,10 @@ font-family: "ancizar-regular";
 font-size: 17px;
 }
 
-
-
-
+.forgot-password{
+	text-decoration: none;
+	font-size: 14px;
+}
 
 /* Aquí puedes agregar estilos para pantallas más pequeñas */
 @media only screen and (max-width: 767px) {
@@ -96,7 +100,5 @@ font-size: 17px;
 	.divcard {
 	width: 92%;
 	}
-  
-
 
 }

@@ -11,22 +11,26 @@
         <div class="card-body">
           <div>
             <h2 class="Title-login">
-              Bienvenido - Ingresa sesión
+              Bienvenido - Inicia sesión
             </h2>
           </div>
       
           <div class="contInput1 ">
                 <form (ngSubmit)="login()">
-                  <label    class="label-email"  for="username">correo:</label>
+                  <label    class="label-email"  for="username">Correo:</label>
 
                   <div class="container-inputs">
-                    <input    class="input1"  placeholder="correo"  type="text" id="username" name="username" [(ngModel)]="correo" required>
+                    <input    class="input1"  placeholder="Ingresa tu correo"  type="text" id="username" name="username" [(ngModel)]="correo" required>
                   </div>
-                  <br> 
+                
                   
                   <label class="label-password"for="password">Contraseña:</label>
+
                 <div class="container-inputs">
-                  <input    class="input2"     placeholder="Contraseña" type="password" id="password" name="password" [(ngModel)]="password" required><br>
+                  <input    class="input2"     placeholder="Ingresa tu contraseña" type="password" id="password" name="password" [(ngModel)]="password" required><br>
+                  <br/>
+                  
+                  <a routerLink="/forgotpassword" class="forgot-password">¿Olvidaste tu contraseña?</a>
                 </div>
 
                  <div class="button-container">
