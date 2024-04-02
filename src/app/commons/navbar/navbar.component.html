@@ -58,18 +58,10 @@
       
         </li>
 
-        <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
+        <li class="nav-item" *ngIf="!(isLoggedIn$ | async)"  >
           <a class="nav-link" routerLinkActive="active"  ariaCurrentWhenActive="page" routerLink="/aboutus">Acerca de nosotros</a>
         </li>
 
-
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active"   *ngIf="isLoggedIn$ | async"   ariaCurrentWhenActive="page" routerLink="/aboutus">Mi perfil</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active"  *ngIf="isLoggedIn$ | async"    ariaCurrentWhenActive="page" routerLink="/aboutus">Mis eventos</a>
-        </li>
 
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active"  ariaCurrentWhenActive="page" routerLink="/aboutus">Eventos</a>
@@ -87,6 +79,15 @@
         </li>
         
 
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active"   *ngIf="isLoggedIn$ | async"   ariaCurrentWhenActive="page" routerLink="/aboutus">Mi perfil</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active"  *ngIf="isLoggedIn$ | async"    ariaCurrentWhenActive="page" routerLink="/aboutus">Mis eventos</a>
+        </li>
+
+
         <li class="nav-item"   *ngIf="(isLoggedIn$ | async)">
           <a  class="nav-link"  (click)="logout()">Cerrar sesión</a>
         </li>
@@ -99,7 +100,7 @@
       </ul>
       
       <!-- <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown" [ngClass]="{ show: isMenuOpen }" (click)="toggleMenu()">
+        <li class="nav-item dropdown" *ngIf="isLoggedIn$ | async">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
             <img src="../../../assets/personas/Breiner.jpg" alt="Perfil" class="profile-image">
           </a>

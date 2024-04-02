@@ -1,93 +1,49 @@
 
 .containerSingup {
-  background-color: #ffffff;
-  background-size: cover; 
-  background-position: center; 
   height: 100vh;
   position: absolute;
   width: 100%;
   opacity: 1;
-  z-index: 1;
+  z-index: 2; /* Cambiado a 2 */
+  background-image: url('../../../assets/img-singup/ciencias.JPG');
+  background-size: cover; 
+  background-position: center; 
+
 }
 
 .fullWidthBackground {
-	position: fixed;
+  position: fixed;
 	top: 0;
 	left: 0;
-	width: 90%;
+	width: 100%;
 	height: 100%;
-  } 
-  .containerbackground{
-    width: 100%;
-    height: 100%;
-  }
+	z-index: 1;
+  
+} 
 
-  .square {
-    width: 100px;
-    height:1000px;
-    background-color: #000000; 
-    position: absolute;
-    z-index: 2;
-   
-    
-}
-.square1{
- position: absolute;
-  width: 50px;
-  height:1000px;
-  background-color: #8dcc00;
-  z-index: 2;
-  left: 0;
+.container-div{
 
+  margin: auto auto;
+  border-radius: 1.4rem;
+  width: 40%;
+  margin-top: 70px;
 }
-.square2 {
-  width: 100px;
-  height: 1000px;
-  background-color: #000000;
-  position: absolute;
-  z-index: 2;
-  right: 0; /* Posición inicial a la izquierda */
-}
-.containerbackground{
-  width: 100%;
-  height: 100%;
-}
-
-.square3 {
-  position: absolute;
-  width: 50px;
-  height: 1000px;
-  background-color: #8dcc00;
-  z-index: 2;
-  right: 0; /* Posición inicial a la derecha */
-}
-
-
-.card-sing {
-    margin: auto auto;
-    width: 90%;
-    margin-left: 10%;
-    height: 90%;
-    margin-top: 2%;
-    background-color: #fff;
-    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
-    position: relative; /* Añade esto para que el z-index funcione */
-    z-index: 2; /* Cambiado a 2 */
-}
-
-  .container-tittle-singUp{
-      width: 50%;
-  }
-  .tittle-singUp{
-    
-    font-family: "ancizar-bold-italic";
+  .container-logo-sing{
     text-align: center;
-    font-size: 38px;
   }
-  .container-div{
-    display: flex;
-    width: 80%;
-    margin-top: 2%;
+  .logo-sing{
+    height: 100px;
+    width: 250px;
+  }
+  .container-tittle-singUp{
+    width: 50%;
+   
+}
+
+  .tittle-singUp{
+    font-family: "approach-bold";
+    text-align: center;
+    font-size: 28px;
   }
   .container-img{
     display: grid;
@@ -111,7 +67,7 @@
   /*input syles*/
   .inputs-singUp{
     width: 70%;
-    margin-top: 9%;
+  
     margin-left: 15%;
 
   }
@@ -119,9 +75,6 @@
   .inputs-total{
     margin-top: 8%;
   }
-  
-
-
 
 
   .password-toggle {
@@ -132,29 +85,33 @@
     cursor: pointer;
 }
 
-.password-toggle i {
-    color: #777;
-    font-size: 16px;
+.input-field {
+  margin: auto auto;
+  margin-bottom: 20px;
+  width: 300px;
+  position: relative; 
 }
 
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%; 
+  transform: translateY(-50%); 
+  cursor: pointer;
+}
 
+.password-toggle i {
+  color: #777;
+  font-size: 16px;
+}
 
-
-
-
-
- 
-  .input-field{
-    margin: auto auto;
-    margin-bottom: 20px;
-    width: 300px;
-  }
   .input-global{
     width: 100%;
     outline: unset;
     height: 40px;
   }
   .terminos-condiciones{
+    margin-left: 10px;
     font-size: 12px;
   }
     .container-btn{
@@ -162,22 +119,19 @@
     }
 
 .btn-aceptar{
-  background-color: #000000;
-  color: #fff;
+  background-color: #85d450;
+  color: #081f02;
 
   width: 200px;
 }
+.div-check{
+  display: flex;
+}
 
 
-  @media screen and (max-width:700px){
 
-    .img-singUp{
-      display: none;
-    }
-    .card-sing {
-      width: 90%;
-    }
-    .tittle-singUp{
+  @media screen and (max-width:1200px){
+  .tittle-singUp{
        width: 100%;
        margin: auto  auto;
        justify-content: center;
@@ -194,29 +148,15 @@
     }
 
     .inputs-total{
-      margin: auto auto;
+      width: 100%;
     }
 
-    .card-sing{
-      width: 95%;
-    }
-
-    .square3{
-      width: 0%;
-      margin: auto auto;
-      position: inherit;
-    }
+.container-div{
+  width: 100%;
+}    
 
 
-    .square1{
-      position: inherit;
-     
-     }
-     .square2,.square {
-      position: inherit;
-    /* Posición inicial a la izquierda */
-     }
-
+    
   }
 
 
