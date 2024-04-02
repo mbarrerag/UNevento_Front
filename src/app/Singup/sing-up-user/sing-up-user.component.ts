@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { serviceSingUp } from './Sevice/serviceSingUp';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { Router } from '@angular/router'; // Importa Router de @angular/router
 import { FormsModule } from '@angular/forms'; // Importa FormsModule aquí
 import { HttpClientModule } from '@angular/common/http';
 import Swal from 'sweetalert2';
@@ -22,21 +21,20 @@ export class SingUpUserComponent {
     "contrasena" : ""
   };
 
-
   confirmPassword = '';
   acceptTerms = false;
   showConfirmPassword = false;
   showPassword = false;
-  constructor(private serviceSingUp: serviceSingUp) {}
+
+  constructor(private serviceSingUp: serviceSingUp, private router: Router) {} // Inyecta el Router en el constructor
 
   togglePasswordVisibility() {
     this.showConfirmPassword = !this.showConfirmPassword;
-}
+  }
 
-togglePasswordVisibility2() {
-  this.showPassword = !this.showPassword;
-}
-
+  togglePasswordVisibility2() {
+    this.showPassword = !this.showPassword;
+  }
 
   submitForm() {
     if (this.userData.contrasena !== this.confirmPassword) {
@@ -59,25 +57,20 @@ togglePasswordVisibility2() {
         Swal.fire({
           icon: 'success',
           title: 'Usuario creado exitosamente',
-          
         });
-
+      
         console.log('Usuario creado exitosamente:', response);
-       
+        this.router.navigate(['/login']); // Utiliza el método navigate del Router para redirigir
+
       },
       error => {
-
         Swal.fire({
           icon: 'error',
           title: 'Error al crear usuario',
           text: 'Ocurrió un error al crear el usuario. Por favor, inténtalo nuevamente más tarde.'
         });
-
         console.error('Error al crear usuario:', error);
-     
       }
     );
   }
 }
-
-
