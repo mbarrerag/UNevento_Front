@@ -1,90 +1,133 @@
-
-
-  h2 {
-    font-family: 'ancizar-bold';
-    font-size: 30px;
-  }
-  
-  .card-header {
-    top: 0%;
-    background-color: #605e5f;
-    height: 20%;
-    color: #000;
-    padding: 15px;
-    text-align: center;
-    font-family: 'ancizar-bold';
-    float:inline-end;
-    width: 100%;
-    vertical-align: middle;
-  }
-  
-  .card-content {
-    height: 60%;
-    padding: 20px;
-  }
-  
-  div {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);  
-    width: 80%;
-    height: 80%;
-    background-color: #f0f0f0;
-    z-index: 9900;
-  }
-
-
-.card-content p {
-  font-family: 'ancizar-regular';
-  font-size: 20px;
+.CrearEvento {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-image: url('../../assets/backgrounds/FondoconCirculo.jpeg');
+  background-size: cover;
+  z-index: 9999;
 }
-    
-  .close-btn {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    font-family: 'ancizar-regular';
-  }
-  
-  .accept-btn {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    font-family: 'ancizar-regular';
-  }
 
-  .caja-texto {
-    width: 300px;
-    padding: 10px;
-    font-size: 25px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s;
-    font-family: 'ancizar-regular'; 
+.Logo{
+  width: 40%;
+}
+@media (max-width: 900px) {
+  .Encabezado {
+      flex-direction: column;
   }
-
-  .caja-texto:focus {
-    border-color: #007bff;
+  .Titulo{
+      text-align: right;
   }
-
-  .caja-seleccion {
-    padding: 10px;
-    font-size: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none; 
-    transition: border-color 0.3s; 
-    font-family: 'ancizar-regular';
-    cursor: pointer;
+  form{
+      flex-direction: column;
   }
-
-
-  .caja-seleccion:focus {
-    border-color: #007bff;
+  .TextForms, .ImageForms{
+      width: 100% !important;
   }
+}
+h1{
+  font-family: "approach-bold";
+}
+
+.Encabezado{
+  display: flex;
+  align-items: center;
+}
+.Titulo{
+  width: 60%;
+  text-align: center;
+  height: 100%;
+}
+
+form{
+  font-family: 'approach-regular';
+  display: flex;
+}
+.TextForms{
+  padding: 20px;
+  width: 50%;
+}
+.ImageForms{
+  width: 50%;
+  cursor: pointer;
+}
+
+.Entrada{
+  display: flex;
+  gap: 20px;  /* Ajusta este valor según tus necesidades */
+  margin-bottom: 10px;
+}
+
+label{
+  font-family: 'approach-bold-italic';
+  font-size: 20px;
+  width: 150px;
+}
+
+textarea{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+}
+select{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+}
+
+input{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+}
+
+.TextoArchivo{
+  width: 100%;
+}
+
+/*Estilos Boton de Crear Evento*/
+.btn-crear-evento {
+  background-color: #a1cb0b;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Modificado para ocupar el 100% del contenedor */
+  font-family: 'approach-black';
+}
+
+.btn-crear-evento:hover {
+  background-color: #8fb209;
+}
+
+.btn-crear-evento:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(161, 203, 11, 0.5);
+}
+
+.ImagenSeleccionada{
+  margin-top: 10px;
+}

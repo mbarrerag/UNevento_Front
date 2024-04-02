@@ -1,30 +1,93 @@
-<div>
-    <div class="card-header">
-        <h2> {{data.name}} </h2>
+<div class="CrearEvento">
+    <div class="Encabezado">
+        <img src="../../assets/img-home/UNeventoBlanco.png" alt="LogoUNevento" class="Logo">
+        <h1 class="Titulo">Modifica Tu Evento</h1>
     </div>
-    <div class="card-content">
-        <p><strong>Fecha:</strong> <input type="text" class="caja-text" placeholder="{{data.date}}"></p>        
-        <p><strong>Hora:</strong> <input type="text" class="caja-text" placeholder="{{data.time}}"></p>
-        <p><strong>Lugar:</strong> <input type="text" class="caja-text" placeholder="{{data.place}}"></p>
-        <p><strong>Facultad:</strong> 
-            <select class="caja-seleccion">
-                <option value="FacultadArtes" selected="{{data.faculty}}==='Facultad de Artes'">Facultad de Artes</option>
-                <option value="FacultadCiencias" selected="{{data.faculty}}==='Facultad de Ciencias'">Facultad de Ciencias</option>
-                <option value="FacultadCienciasAgrarias" selected="{{data.faculty}}==='Facultad de Ciencias Agrarias'">Facultad de Ciencias Agrarias</option>
-                <option value="FacultadCienciasHumanas" selected="{{data.faculty}}==='Facultad de Ciencias Humanas'">Facultad de Ciencias Humanas</option>
-                <option value="FacultadCienciasEconomicas" selected="{{data.faculty}}==='Facultad de Ciencias Económicas'">Facultad de Ciencias Económicas</option>
-                <option value="FacultadDerecho" selected="{{data.faculty}}==='Facultad de Derecho, Ciencias Políticas y Sociales'">Facultad de Derecho, Ciencias Políticas y Sociales</option>
-                <option value="FacultadEnfermeria" selected="{{data.faculty}}==='Facultad de Enfermería'">Facultad de Enfermería</option>
-                <option value="FacultadMedicina" selected="{{data.faculty}}==='Facultad de Medicina'">Facultad de Medicina</option> 
-                <option value="FacultadIngenieria" selected="{{data.faculty}}==='Facultad de Ingeniería'">Facultad de Ingeniería</option>
-            </select>
-        </p>
-        <p><strong>Categoría:</strong>
+    <div class="Forms">
+    <form (ngSubmit)="PutModifiedEvent()">
+        <div class="TextForms">
+                <div class="Entrada">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" [(ngModel)]="Titulo" required>
+                </div>
 
-        </p>
-        <p><strong>Aforo:</strong> <input type="text" class="caja-text" placeholder="{{data.max}}"> </p>
-        <p><strong>Descripcion</strong> <input type="text" class="caja-text" placeholder="{{data.description}}"> </p>
+                <div class="Entrada">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" [(ngModel)]="Fecha" (change)="validarFecha()" required>
+                    
+                </div>
+                <div>
+                    <div *ngIf="Fecha && !fechaValida" style="color: red; margin-left:150px; margin-bottom:2px">La fecha debe ser de hoy en adelante</div>
+                </div>
+
+                <div class="Entrada">
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" [(ngModel)]="Hora" required>
+                </div>
+                
+                <div class="Entrada">
+                    <label for="lugar">Lugar:</label>
+                    <input type="text" id="lugar" name="lugar" [(ngModel)]="Lugar" required>
+                </div>
+            
+                <div class="Entrada">
+                    <label for="facultad">Facultad:</label>
+                    <select id="facultad" name="facultad" [(ngModel)]="Facultad" required>
+                        <option value="">Selecciona una Facultad</option>
+                        <option value="Facultad_De_Ingenieria">Facultad de Ingeniería</option>
+                        <option value="Facultad_De_Ciencias">Facultad de Ciencias</option>
+                        <option value="Facultad_De_Ciencias_Humanas">Facultad de Ciencias Humanas</option>
+                        <option value="Facultad_De_Ciencias_Economicas">Facultad de Ciencias Económicas</option>
+                        <option value="Facultad_De_Ciencias_Agrarias">Facultad de Ciencias Agrarias</option>
+                        <option value="Facultad_De_Ciencias_De_La_Salud">Facultad de Medicina</option>
+                        <option value="Facultad_De_Odontologia">Facultad de Odontología</option>
+                        <option value="Facultad_De_Veterinaria">Facultad de Medicina Veterinaria y de Zootecnia</option>
+                        <option value="Facultad_De_Derecho">Facultad de Derecho, Ciencias Politicas y Sociales</option>
+                        <option value="Facultad_De_Artes">Facultad de Artes</option>
+                    </select>
+                </div>
+                <div class="Entrada">
+
+                </div>
+
+                
+
+                
+                <br>
+        </div>
+        <div class="ImageForms">
+
+            <div class="Entrada">
+                <label for="aforo">Aforo:</label>
+                <input type="number" id="aforo" name="aforo" [(ngModel)]="Aforo" min="0" max="5000" step="1" oninput="validity.valid||(value='');">
+            </div>
+
+            <div class="Entrada">
+                <label for="categoria">Categoria:</label>
+                <select id="categoria" name="categoria" [(ngModel)]="Categoria" required>
+                    <option value="">Selecciona una Categoría Asociada con el Evento</option>
+                    <option value="Conferencia">Conferencia</option>
+                    <option value="Seminario">Seminario</option>
+                    <option value="Congreso">Congreso</option>
+                    <option value="Curso">Curso</option>
+                    <option value="Taller">Taller</option>
+                    <option value="Networking">Networking</option>
+                    <option value="Cultural">Actividad Cultural</option>
+                    <option value="Deportiva">Actividad Deportiva</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="Entrada" style="margin-bottom: 0px;">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" [(ngModel)]="Descripcion" required></textarea>
+            </div>
+
+            <div style="align-items: center; display: flex; justify-content: center;">
+                <button type="submit" class="btn-crear-evento" [disabled]="!fechaValida">Modificar Evento</button>
+            </div>
+        </div>
+        
+    </form>
     </div>
-    <button class="close-btn" (click)="onCloseModify()">Cancelar</button>
-    <button class="accept-btn" (click)="onCloseModify()">Aceptar</button>
 </div>

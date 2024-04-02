@@ -3,7 +3,8 @@ import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import { Input } from '@angular/core';
 import {NgIf} from '@angular/common';
-import { DeleteEventServiceService } from './delete-event-service.service';
+import { DeleteEventServiceService } from './Services/delete-event-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-delete-event',
@@ -16,7 +17,7 @@ export class ModalDeleteEventComponent {
   @Input() data: any;
   @Output() closeModalDelete = new EventEmitter<void>();
 
-  constructor(private deleteEventService: DeleteEventServiceService) {  }
+  constructor(private deleteEventService: DeleteEventServiceService, private router:Router) {  }
 
   onCloseDeleteCancel(): void {
     this.closeModalDelete.emit();
@@ -34,7 +35,7 @@ export class ModalDeleteEventComponent {
     this.deleteEventService.deleteUserEvent(userId, token, eventId).subscribe((response: any) => {
       this.result = response.content;
       console.log(this.result);
+      this.router.navigate(['/miseventos']);
     });
-    this.closeModalDelete.emit();
   }
 }
