@@ -29,9 +29,9 @@ app-navbar {
 .container-cards-facultad{
  margin-left: 9%;
  margin-top: 5%;
-  width: 90%;
-
-  align-items: center ;
+ width: 90%;
+ align-items: center ;
+height: 100%;
 }
 .card-facultad{
     width: 222px;
@@ -60,7 +60,7 @@ app-navbar {
 }
 .card-events{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(4,1fr);
     grid-gap:16px;
     margin: 5%;
     cursor: pointer;
@@ -68,7 +68,7 @@ app-navbar {
 .main-tittle{
     text-align: center;
     font-family:"approach-italic";
-    margin-top: 10%;
+    margin-top: 15%;
 }
 .card-categories{
     border-color: rgb(222, 212, 212);
@@ -97,10 +97,30 @@ app-navbar {
 @media screen and (max-width: 1200px) {
   
   .container-cards-facultad{
- 
+    height: 1200;
     grid-template-columns: repeat(2,1fr);
+  
    
 }
 }
 
+@media screen and (max-width: 780px) {
+  
+
+  .container-cards-facultad{
+ 
+    grid-template-columns: repeat(2,1fr);
+    margin-bottom: 60%;
+   
+}
+.main-tittle{
+  margin-top: 1500px;
+}
+.card-categories{
+  margin-top: 30%;
+}
+.events{
+  margin-top: 60%;
+}
+}
 
