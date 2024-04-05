@@ -14,9 +14,6 @@ export class AuthService {
   private rolkey = 'rol'; 
   // private fotokey = 'foto'; 
 
-  private tokenKey = 'token'; // Agregar clave para el token
-  private idKey = 'id'; // Agregar clave para el id
-
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isAuthenticatedSubject.asObservable();
 
@@ -64,4 +61,4 @@ export class AuthService {
 
 }
 
-}
+
