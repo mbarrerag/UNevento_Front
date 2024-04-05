@@ -1,9 +1,8 @@
 <div class="prenavbar">
  
   
+  
       <div class="icons-social">
-  
-  
       <div class="icon-instagram">
           <a href="https://www.instagram.com/uneventounal/" target="_blank">
               <i class="fab fa-instagram icons-general" aria-hidden="true"></i>
@@ -26,8 +25,7 @@
           <a href="https://www.tiktok.com/@uneventounal" target="_blank">
               <i class="fab fa-tiktok icons-general" aria-hidden="true"></i>
           </a>
-      </div>
-        
+      </div>  
   </div>   
   </div>
   
@@ -98,21 +96,24 @@
 
 
       
-      
+   
+        
 
 
-      </ul>
+ <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown" *ngIf="isLoggedIn$ | async">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+              <img src="../../../assets/img-home/user-img.png" alt="Perfil" class="profile-image">
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+         
+            </ul>
+          </li>
+        </ul> 
+
+  </ul>
       
-      <!-- <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown" *ngIf="isLoggedIn$ | async">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
-            <img src="../../../assets/personas/Breiner.jpg" alt="Perfil" class="profile-image">
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-       
-          </ul>
-        </li>
-      </ul> -->
+      
       
     </div>
   </div> 

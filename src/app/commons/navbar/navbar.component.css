@@ -2,7 +2,6 @@
     background-color:#ffffff; /* Ajusta el último valor para la opacidad deseada */
     justify-content: space-between;
     height:90px;
-    opacity: 0.9;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adjust values for the desired shadow effect */
 
   }
@@ -24,7 +23,6 @@
 }
 .container-navbar{
     justify-content: end;
-    margin-right: 1%;
 }
 .nav-link, .navbar-brand{
     color: rgb(0, 0, 0);
@@ -42,7 +40,6 @@
 
 .prenavbar{
     background-color:rgb(242, 242, 242);
-    padding: 5px;
     height: 34px;
     width: 100%;
     text-align: center;

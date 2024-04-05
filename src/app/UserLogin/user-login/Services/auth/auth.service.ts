@@ -9,8 +9,14 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class AuthService {
   private apiUrl = 'http://localhost:8180'; 
   private isAuthenticatedKey = 'isAuthenticated';
+  private tokenKey = 'token'; 
+  private idKey = 'id'; 
+  private rolkey = 'rol'; 
+  // private fotokey = 'foto'; 
+
   private tokenKey = 'token'; // Agregar clave para el token
   private idKey = 'id'; // Agregar clave para el id
+
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isAuthenticatedSubject.asObservable();
 
@@ -24,6 +30,10 @@ export class AuthService {
     return this.http.post<any>(loginUrl, { correo, password }).pipe(
       tap((response) => {
         localStorage.setItem(this.isAuthenticatedKey, 'true');
+        localStorage.setItem(this.tokenKey, response.token); 
+        localStorage.setItem(this.idKey, response.id); 
+        localStorage.setItem(this.rolkey, response.rol); 
+        // localStorage.setItem(this.fotokey, response.foto); 
         localStorage.setItem(this.tokenKey, response.token); // Guardar el token en el localStorage
         localStorage.setItem(this.idKey, response.id); // Guardar el id en el localStorage
         this.isAuthenticatedSubject.next(true);
@@ -31,10 +41,14 @@ export class AuthService {
     );
   }
 
+
+
   logout(): void {
     localStorage.removeItem(this.isAuthenticatedKey);
     localStorage.removeItem(this.tokenKey); 
     localStorage.removeItem(this.idKey); 
+    localStorage.removeItem(this.rolkey); 
+    // localStorage.removeItem(this.fotokey); 
     this.isAuthenticatedSubject.next(false);
   }
 
@@ -47,4 +61,7 @@ export class AuthService {
       return false;
     }
   }
+
+}
+
 }
