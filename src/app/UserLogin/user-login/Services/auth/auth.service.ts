@@ -9,6 +9,10 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class AuthService {
   private apiUrl = 'http://localhost:8182'; 
   private isAuthenticatedKey = 'isAuthenticated';
+  private tokenKey = 'token'; 
+  private idKey = 'id'; 
+  private rolkey = 'rol'; 
+  // private fotokey = 'foto'; 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isAuthenticatedSubject.asObservable();
 
@@ -20,16 +24,29 @@ export class AuthService {
   login(correo: string, password: string): Observable<any> {
     const loginUrl = `${this.apiUrl}/login`;
     return this.http.post<any>(loginUrl, { correo, password }).pipe(
-      tap(() => {
-        localStorage.setItem(this.isAuthenticatedKey, 'true'); // Establece la autenticación en true después de iniciar sesión
-        this.isAuthenticatedSubject.next(true); // Notifica a los suscriptores que el usuario ha iniciado sesión
+      tap((response) => {
+        localStorage.setItem(this.isAuthenticatedKey, 'true');
+        localStorage.setItem(this.tokenKey, response.token); 
+        localStorage.setItem(this.idKey, response.id); 
+        localStorage.setItem(this.rolkey, response.rol); 
+        // localStorage.setItem(this.fotokey, response.foto); 
+
+        this.isAuthenticatedSubject.next(true);
       })
     );
   }
 
+
+
   logout(): void {
-    localStorage.removeItem(this.isAuthenticatedKey); // Elimina el estado de autenticación al cerrar sesión
-    this.isAuthenticatedSubject.next(false); // Notifica a los suscriptores que el usuario ha cerrado sesión
+    localStorage.removeItem(this.isAuthenticatedKey);
+    localStorage.removeItem(this.tokenKey); 
+    localStorage.removeItem(this.idKey); 
+    localStorage.removeItem(this.rolkey); 
+    // localStorage.removeItem(this.fotokey); 
+
+
+    this.isAuthenticatedSubject.next(false);
   }
 
   isLoggedIn(): boolean {
@@ -42,49 +59,3 @@ export class AuthService {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// import { Injectable } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-// import { environment } from '../../../../environments/environment';
-// import { BehaviorSubject, Observable } from 'rxjs';
-// import { tap } from 'rxjs/operators';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthService {
-
-//   private apiUrl = 'http://localhost:8182'; 
-//   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
-
-//   constructor(private http: HttpClient) { }
-
-//   login(correo: string, password: string): Observable<any> {
-//     const loginUrl = `${this.apiUrl}/login`;
-//     return this.http.post<any>(loginUrl, { correo, password }).pipe(
-//       tap(() => {
-//         this.isAuthenticatedSubject.next(true); // Establece el estado de autenticación a true después de iniciar sesión
-//       })
-//     );
-//   }
-
-//   logout(): void {
-
-//     this.isAuthenticatedSubject.next(false); // Establece el estado de autenticación a false al cerrar sesión
-//   }
-
-//   isLoggedIn(): Observable<boolean> {
-//     return this.isAuthenticatedSubject.asObservable();
-//   }
-// }
