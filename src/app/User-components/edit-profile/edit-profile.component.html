@@ -8,35 +8,42 @@
             <img src="../../../assets/img-profile/user-photo.png" style="width: 250px;" alt="">
         </div>
         <div class="data">
-            <div class="input-form">
-                <h2 class="profile-subtitle">Nombre:</h2>
-                <input
-                    id="username"
-                    value="Nombre de Usuario Anterior"
-                    type="text"
-                    placeholder="Nombre de Usuario"
-                    class="form-control"
-                />
-            </div>
-            <div class="input-form">
-                <h2 class="profile-subtitle">Apellido:</h2>
-                <input
-                    id="userlastname"
-                    type="text"
-                    value="Apellido de Usuario Anterior"
-                    placeholder="Apellido del Usuario"
-                    class="form-control"
-                />
-            </div>
+            <form (ngSubmit)="updateData()">
+                <div class="input-form">
+                    <h2 class="profile-subtitle">Nombre:</h2>
+                    <input
+                        id="username"
+                        value="{{userData.nombre}}"
+                        type="text"
+                        placeholder="Nombre de Usuario"
+                        class="form-control"
+                        name="NuevoNombre"
+                        [(ngModel)]="NuevoNombre"
+                        (keypress)="alphaOnly($event)"
+                    />
+                </div>
+                <div class="input-form">
+                    <h2 class="profile-subtitle">Apellido:</h2>
+                    <input
+                        id="userlastname"
+                        type="text"
+                        value="{{userData.apellido}}"
+                        placeholder="Apellido del Usuario"
+                        class="form-control"
+                        name="NuevoApellido"
+                        [(ngModel)]="NuevoApellido"
+                        (keypress)="alphaOnly($event)"
+                    />
+                </div>
+
+                <div class="button-editprofile-container">
+                    <button type="submit" class="btn-save-profile">
+                            <img src="../../../assets/img-buttons/Save.png" alt=""> Guardar Información
+                    </button>
+                </div> 
+            </form>
         </div>
     </div>
-    <div class="button-editprofile-container">
-        <button type="submit" class="btn-save-profile">
-            <a routerLink="/profile">
-                <img src="../../../assets/img-buttons/Save.png" alt=""> Guardar Información
-            </a>
-        </button>
-    </div> 
   </div>
 </div> 
 <app-footer class="footer"></app-footer>

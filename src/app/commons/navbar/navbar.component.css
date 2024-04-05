@@ -7,7 +7,7 @@
   }
 
   .navbar-nav > li {
-    margin-right: 40px; /* Ajusta este valor según sea necesario para obtener el espacio deseado */
+    margin-right: 20px; /* Ajusta este valor según sea necesario para obtener el espacio deseado */
     font-size: 60px;
 }
 

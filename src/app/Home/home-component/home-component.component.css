@@ -27,10 +27,11 @@ app-navbar {
     max-height: 100%;
   }
 .container-cards-facultad{
- margin: center;
-  width: 90%;
-
-  align-items: center ;
+ margin-left: 9%;
+ margin-top: 5%;
+ width: 90%;
+ align-items: center ;
+height: 100%;
 }
 .card-facultad{
     width: 222px;
@@ -44,39 +45,82 @@ app-navbar {
 }
 .facultad-tittle{
     margin-top: 5%;
-    margin-bottom: 3%;
+    margin: 3%;
     text-align: center;
-    font-family:"ancizar-bold";
+    font-family:"approach-italic";
+}
+
+.explanation{
+  margin-top: 5%;
+  margin: 3%;
+  font-size: 150%;
+  text-align: center;
+  font-family:"approach-italic";
+
 }
 .card-events{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(4,1fr);
     grid-gap:16px;
     margin: 5%;
     cursor: pointer;
 }
 .main-tittle{
     text-align: center;
-    font-family:"ancizar-bold";
+    font-family:"approach-italic";
+    margin-top: 15%;
 }
 .card-categories{
-    margin-left: 20px;
     border-color: rgb(222, 212, 212);
-    width: 15%;
+    width: 50%;
+    height: 30%;
+    margin-top: 7%;
     padding: 10px;
-    font-size: 10px;
+    font-size: 150%;
+    font-family: 'approach-italic';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+ .card-categories h6{
+  font-size: 150%;
+  font-family: 'approach-italic';
+  margin-bottom: 2%;
+
+ }
+.card{
+   display: grid;
+   place-items: center;
 }
-
-
-
 
 @media screen and (max-width: 1200px) {
   
   .container-cards-facultad{
- 
+    height: 1200;
     grid-template-columns: repeat(2,1fr);
+  
    
 }
 }
 
+@media screen and (max-width: 780px) {
+  
+
+  .container-cards-facultad{
+ 
+    grid-template-columns: repeat(2,1fr);
+    margin-bottom: 60%;
+   
+}
+.main-tittle{
+  margin-top: 600px;
+}
+.card-categories{
+  margin-top: 30%;
+}
+.events{
+  margin-top: 60%;
+}
+}
 

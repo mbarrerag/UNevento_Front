@@ -62,7 +62,7 @@
 
 
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active"  ariaCurrentWhenActive="page" routerLink="/aboutus">Eventos</a>
+          <a class="nav-link" routerLinkActive="active"  ariaCurrentWhenActive="page" routerLink="/home">Eventos</a>
         </li>
 
         <li class="nav-item ">
@@ -78,16 +78,20 @@
         
 
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active"   *ngIf="isLoggedIn$ | async"   ariaCurrentWhenActive="page" routerLink="/aboutus">Mi perfil</a>
+          <a class="nav-link" routerLinkActive="active"   *ngIf="isLoggedIn$ | async"   ariaCurrentWhenActive="page" routerLink="/profile">Mi perfil</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active"  *ngIf="isLoggedIn$ | async"    ariaCurrentWhenActive="page" routerLink="/aboutus">Mis eventos</a>
+          <a class="nav-link" routerLinkActive="active"  *ngIf="isLoggedIn$ | async"    ariaCurrentWhenActive="page" routerLink="/createevent">Crear evento</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active"  *ngIf="isLoggedIn$ | async"    ariaCurrentWhenActive="page" routerLink="/miseventos">Mis eventos</a>
         </li>
 
 
         <li class="nav-item"   *ngIf="(isLoggedIn$ | async)">
-          <a  class="nav-link"  (click)="logout()">Cerrar sesión</a>
+          <a  class="nav-link"  (click)="logout()" routerLink="/home">Cerrar sesión</a>
         </li>
 
 

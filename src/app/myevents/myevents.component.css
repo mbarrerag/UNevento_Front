@@ -1,28 +1,37 @@
 .background {
     background: url(../../assets/img-miseventos/Edificio_de_Posgados_de_Ciencias_Humanas_0.jpg);
-    background-size: cover; /* Cubrir completamente el fondo */
-    background-position: center; /* Centrar la imagen en el fondo */
-    background-repeat: no-repeat; /* No repetir la imagen en el fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-ul {
+.container {
+    max-width: 1200px; /* Limitar el ancho del contenedor para que no se extienda demasiado */
+    margin: 0 auto; /* Centrar el contenedor en la pantalla */
+    padding: 0 15px; /* Añadir relleno a los lados del contenedor */
+}
+
+.cardsmiseventos {
+    margin-top: 30px;
+}
+
+.events-list {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan a una nueva línea cuando no haya suficiente espacio */
+    justify-content: space-between; /* Distribuir uniformemente los elementos en el contenedor */
 }
 
-div {
-    float: right;
-    display: block;
-    width: 100%;
-}
-.footer{
-    margin-top: 1%;
-}
-.cardsmiseventos{
-    margin-top: 5%;
-   
+.event-item {
+    width: calc(50% - 15px); /* Establecer el ancho de cada elemento al 50% del contenedor con un margen entre ellos */
+    margin-bottom: 30px;
 }
 
-.row{
-   margin-left: 4.5%;
+/* Estilos para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    .event-item {
+        width: 100%; /* En pantallas más pequeñas, cada evento ocupa todo el ancho del contenedor */
+    }
 }
-

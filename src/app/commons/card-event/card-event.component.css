@@ -6,7 +6,7 @@
     border: 1px solid #ffffff22;
     background-color: #282c34;
     background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.5) 100%);
-    box-shadow: 0.5px 0.5px 15px 1px #000000;
+    box-shadow: 0.5px 0.5px 15px 1px #8dcc00;
     border-radius: .7rem;
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(7px);
@@ -103,7 +103,7 @@
       }
     &:hover{
       border: 1px solid #00000044;
-      box-shadow: 0 7px 50px 10px #8dcc00; /*Wrapper iamges*/
+      box-shadow: 0 7px 30px 5px #8dcc00; /*Wrapper iamges*/
       transform: scale(1.015);
 
       ::before{

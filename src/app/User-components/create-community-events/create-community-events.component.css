@@ -10,9 +10,6 @@
     background-image: url('../../../assets/backgrounds/FondoconCirculo.jpeg');
     background-size: cover;
 }
-body{
-    font-family: 'approach-regular';
-}
 .Logo{
     width: 40%;
 }
@@ -23,7 +20,7 @@ body{
     .Titulo{
         text-align: right;
     }
-    .Forms{
+    form{
         flex-direction: column;
     }
     .TextForms, .ImageForms{
@@ -44,9 +41,9 @@ h1{
     height: 100%;
 }
 
-.Forms{
-    display: flex;
+form{
     font-family: 'approach-regular';
+    display: flex;
 }
 .TextForms{
     padding: 20px;
@@ -54,6 +51,7 @@ h1{
 }
 .ImageForms{
     width: 50%;
+    cursor: pointer;
 }
 
 .Entrada{
@@ -115,7 +113,7 @@ input{
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    width: 200px;
+    width: 100%; /* Modificado para ocupar el 100% del contenedor */
     font-family: 'approach-black';
 }
 
@@ -127,6 +125,7 @@ input{
     outline: none;
     box-shadow: 0 0 0 2px rgba(161, 203, 11, 0.5);
 }
+
 .ImagenSeleccionada{
     margin-top: 10px;
 }
