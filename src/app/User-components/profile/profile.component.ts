@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 import { NavbarComponent } from '../../commons/navbar/navbar.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
 import { ProfileService } from './Services/profile.service';
@@ -16,9 +17,10 @@ import { ProfileService } from './Services/profile.service';
 })
 export class ProfileComponent {
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private sanitizer: DomSanitizer, private profileService: ProfileService) { }
 
   userData: any = {};
+  userImage: any = {};
 
   ngOnInit(): void {
     const userID = parseInt(localStorage.getItem('id') || '0');
@@ -26,8 +28,15 @@ export class ProfileComponent {
 
     this.profileService.getUserData(userID, token).subscribe((response: any) => {
       this.userData = response;
-      //console.log(this.userData);
+      console.log(this.userData);
+      this.profileService.getImage(this.userData.imageUrl).subscribe((response: Blob) => {
+        const objectUrl = URL.createObjectURL(response);
+        this.userImage = objectUrl
+        console.log(this.userImage);
+      });
     });
+
+    
   }
 
 }
