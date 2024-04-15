@@ -33,7 +33,7 @@ export class EditProfileService {
     });
     const updateDataUrl = `${this.apiUrl}/updateuser`;
 
-    formData.append('userData',new Blob([JSON.stringify(userData)], { type: 'application/json' }))
+    formData.append('userData',new Blob([JSON.stringify(userData)], { type: 'application/json' }));
     formData.append('file', file);
 
     return this.http.put(updateDataUrl, formData, {headers: headers});

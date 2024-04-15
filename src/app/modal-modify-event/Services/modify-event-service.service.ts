@@ -12,13 +12,22 @@ export class ModifyEventServiceService {
 
   
 
-  updateEvent(modifiedEvent: any, userId: number, token: string): any {
+  updateEvent(UpdateEvent: any,file:File, userId: number, token: string): any {
+    const formData: FormData = new FormData();
+
     const headers =  new HttpHeaders({
       'Authorization': `${userId}, ${token}`,
     });
-    console.log(modifiedEvent.id);
+    formData.append('UpdateEvent',new Blob([JSON.stringify(UpdateEvent)], { type: 'application/json' }));
+    formData.append('file', file);
 
     const eventUrl = `${this.apiUrl}`;
-    return this.http.put(eventUrl, modifiedEvent, {headers: headers})
+    return this.http.put(eventUrl, formData, {headers: headers})
+  }
+  getImage(nombrearchivo:string): any {
+
+    const getUserDataUrl = `${this.apiUrl}/images/${nombrearchivo}`;
+
+    return this.http.get(getUserDataUrl, { responseType: 'blob' });
   }
 }
