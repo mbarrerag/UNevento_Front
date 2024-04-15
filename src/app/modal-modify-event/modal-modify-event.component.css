@@ -1,4 +1,4 @@
-.CrearEvento {
+.ModificarEvento {
   position: fixed;
   top: 20px;
   left: 20px;
@@ -10,6 +10,7 @@
   background-image: url('../../assets/backgrounds/FondoconCirculo.jpeg');
   background-size: cover;
   z-index: 9999;
+  overflow-y: auto;
 }
 
 .Logo{
@@ -38,9 +39,8 @@ h1{
   align-items: center;
 }
 .Titulo{
-  width: 60%;
   text-align: center;
-  height: 100%;
+  width: 60% !important;
 }
 
 form{
@@ -53,7 +53,13 @@ form{
 }
 .ImageForms{
   width: 50%;
-  cursor: pointer;
+  align-items: center;
+  text-align: center;
+}
+.ImageForms img{
+  width: auto;
+  height:auto;
+  max-height: 600px;
 }
 
 .Entrada{
@@ -130,4 +136,47 @@ input{
 
 .ImagenSeleccionada{
   margin-top: 10px;
+}
+.error {
+  color: red;
+  margin-left: 150px;
+  margin-bottom: 5px;
+}
+
+.custom-file-upload {
+  appearance: button;
+  background-color: #1652F0;
+  border: 1px solid #1652F0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: "approach-regular";
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.15;
+  overflow: visible;
+  padding: 12px 16px;
+  text-transform: none;
+  transition: all 80ms ease-in-out;
+  margin-bottom: 10px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom-file-upload:disabled {
+  opacity: .5;
+}
+
+
+.custom-file-upload:hover {
+  background-color: #0A46E4;
+  border-color: #0A46E4;
+}
+
+.custom-file-upload:active {
+  background-color: #0039D7;
+  border-color: #0039D7;
 }

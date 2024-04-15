@@ -129,3 +129,9 @@ input{
 .ImagenSeleccionada{
     margin-top: 10px;
 }
+
+.error {
+    color: red;
+    margin-left: 150px;
+    margin-bottom: 5px;
+}

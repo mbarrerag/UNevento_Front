@@ -41,7 +41,7 @@ export class CreateFacultyEventsComponent {
   Facultad: string = '';
   IdUsuario: number = parseInt(localStorage.getItem('id') || '0');
   token: string = localStorage.getItem('token') || '';
-  Aforo: number = 0;
+  Aforo: number = 1;
   Categoria: string = '';
   Descripcion: string = '';
   Imagen: any; // Initialize the "Imagen" property
@@ -69,6 +69,7 @@ export class CreateFacultyEventsComponent {
       lugar: this.Lugar,
       categoria: this.Categoria,
       Facultad: this.Facultad,
+      tipo:'OFICIAL',
       fechaEvento: new Date(formattedFechaEvento),
       capacidad: this.Aforo,
       hora: this.Hora
