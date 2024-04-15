@@ -12,6 +12,7 @@ app-navbar {
     z-index: 1; 
     opacity: 0.9; 
   }
+
   .video {
     width: 100%;
     height: auto;
@@ -50,6 +51,10 @@ height: 100%;
     font-family:"approach-italic";
 }
 
+.app-card-bienestar {
+  margin-left: 20%;
+}
+
 .explanation{
   margin-top: 5%;
   margin: 3%;
@@ -68,20 +73,31 @@ height: 100%;
 .main-tittle{
     text-align: center;
     font-family:"approach-italic";
-    margin-top: 15%;
+    margin-top: 5%;
 }
-.card-categories{
-    border-color: rgb(222, 212, 212);
-    width: 50%;
-    height: 30%;
-    margin-top: 7%;
-    padding: 10px;
-    font-size: 150%;
-    font-family: 'approach-italic';
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.contenedor-bienestar {
+  margin-top: 10%;
+  background-color: #98d119;
+  color: rgb(255, 255, 255);
+  height: 20vh;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  line-height: 20vh; /* Para centrar verticalmente el texto */
+  position: relative;
+  overflow: hidden; /* Para ocultar las líneas adicionales que se desborden */
+  & p {
+    z-index: 1;
+    font-size: 10em;
+    font-family: approach-bold;
+
+
+  
+ }
+}
+
+
+
   
  .card-categories h6{
   font-size: 150%;
@@ -106,21 +122,26 @@ height: 100%;
 
 @media screen and (max-width: 780px) {
   
+  .contenedor-bienestar{
+    margin-top: 5%;
+    height: 15vh;
+    z-index: 2;
+    & p {
+      font-size: 5em;
+    }
+  
+  }
 
   .container-cards-facultad{
  
     grid-template-columns: repeat(2,1fr);
-    margin-bottom: 60%;
+    margin-bottom: 80%;
    
 }
-.main-tittle{
-  margin-top: 600px;
-}
+
 .card-categories{
   margin-top: 30%;
 }
-.events{
-  margin-top: 60%;
-}
+
 }
 
