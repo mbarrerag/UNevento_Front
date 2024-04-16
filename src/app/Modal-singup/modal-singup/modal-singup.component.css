@@ -1,0 +1,57 @@
+.email-modal{
+    font-weight: 300;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 40%;
+  }
+
+  .container-input-code{
+    justify-content: center;
+    text-align: center;
+  }
+
+  .custom-modal {
+
+    width: 60vw; 
+    height: 50vh;
+ 
+    border-radius: 10px;
+    padding: 20px;
+}
+.button-verificar{
+    background-color: #85d450;
+}
+.div-code{
+    margin: auto auto;
+}
+.h2-code{
+    font-family: "approach-regular";
+    justify-content: center;
+    text-align: center;
+}
+.button-verificar{
+    width: 40%;
+}
+.container-verificar{
+    justify-content: center;
+    text-align: center;
+}
+.p-user-code{
+    font-family: "approach-regular";
+    justify-content: center;
+    text-align: center;
+
+}
+
+.input-code{
+    width: 40%;
+    margin: auto auto;
+
+}

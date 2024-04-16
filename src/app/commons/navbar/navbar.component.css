@@ -1,13 +1,11 @@
 .navbar {   
-    background-color:#ffffff; /* Ajusta el último valor para la opacidad deseada */
-    justify-content: space-between;
+    background-color:#ffffff; 
     height:90px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adjust values for the desired shadow effect */
-
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
   }
-
   .navbar-nav > li {
-    margin-right: 20px; /* Ajusta este valor según sea necesario para obtener el espacio deseado */
+    width: 130px;
+    margin-top: 20px;
     font-size: 60px;
 }
 
@@ -15,9 +13,8 @@
     width: 8%;
     height: 8%;
     margin-left: 1%;
-
-    
 }
+
 .brand{
     margin-left: 3%;
 }
@@ -30,22 +27,18 @@
     cursor: pointer;
     font-size: 32%;
 }
-
-
 .nav-link:hover, .navbar-brand:hover{
     color: #acff07;
     font-family: "approach-medium";
     cursor: pointer; 
 }
-
 .prenavbar{
     background-color:rgb(242, 242, 242);
     height: 34px;
     width: 100%;
     text-align: center;
-    box-shadow: 15px 100px 16px rgba(0, 0, 0, 0.2); /* Adjust values for the desired shadow effect */
+    box-shadow: 15px 100px 16px rgba(0, 0, 0, 0.2);
 }
-
 
 .p-developedby{
     font-family: "ancizar-regular";
@@ -62,8 +55,6 @@
     display: flex;
 }
 
-
-
 .icon-facebook{
     margin-left: 20px;
 }
@@ -76,11 +67,9 @@
     margin-left: 20px;
 }
 
-
 .icons-general{
     color:  #000000;
 }
-
 
 .icons-general:hover{
    color: #acff07;
