@@ -26,6 +26,10 @@ export class ModalModifyEventComponent {
     location.reload();
   }
 
+  onCancel(){
+    this.closeModalModify.emit();
+    this.router.navigate(['/miseventos']);
+  }
 
 
   fechaValida: boolean = true; // Propiedad para controlar la validez de la fecha

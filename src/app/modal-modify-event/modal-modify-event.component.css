@@ -21,7 +21,7 @@
       flex-direction: column;
   }
   .Titulo{
-      text-align: right;
+      text-align: center !important;
   }
   form{
       flex-direction: column;
@@ -39,8 +39,8 @@ h1{
   align-items: center;
 }
 .Titulo{
-  text-align: center;
-  width: 60% !important;
+  text-align: right;
+  width: 100% !important;
 }
 
 form{
@@ -107,8 +107,41 @@ input{
   width: 100%;
 }
 
+.btn-zone{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/*Estilos botón Cancelar*/
+.btn-cancelar {
+  background-color: #cb210b;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  width: 50%; /* Modificado para ocupar el 100% del contenedor */
+  font-family: 'approach-black';
+}
+
+.btn-cancelar:hover {
+  background-color: #e63535;
+}
+
+.btn-cancelar:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(223, 30, 20, 0.5);
+}
+
 /*Estilos Boton de Crear Evento*/
-.btn-crear-evento {
+.btn-modificar-evento {
   background-color: #a1cb0b;
   border: none;
   color: white;
@@ -121,18 +154,20 @@ input{
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  width: 100%; /* Modificado para ocupar el 100% del contenedor */
+  width: 50%; /* Modificado para ocupar el 100% del contenedor */
   font-family: 'approach-black';
 }
 
-.btn-crear-evento:hover {
+.btn-modificar-evento:hover {
   background-color: #8fb209;
 }
 
-.btn-crear-evento:focus {
+.btn-modificar-evento:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(161, 203, 11, 0.5);
 }
+
+
 
 .ImagenSeleccionada{
   margin-top: 10px;
