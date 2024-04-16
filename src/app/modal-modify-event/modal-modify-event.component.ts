@@ -23,7 +23,12 @@ export class ModalModifyEventComponent {
   onCloseModify(): void {
     this.closeModalModify.emit();
     this.router.navigate(['/miseventos']);
-    location.reload();
+    this.showSuccessAlert('Evento Modificado', 'El evento ha sido modificado exitosamente')
+        .then((result) => {
+            if (result.isConfirmed) {
+                location.reload();
+            }
+        });
   }
 
   onCancel(){
@@ -109,14 +114,12 @@ export class ModalModifyEventComponent {
     console.log('Ejecutando Petición Modificación de Evento', modifiedEvent);
     this.modifyEventService.updateEvent(modifiedEvent, this.Imagen,this.IdUsuario, this.token).subscribe((response: any) => {
       console.log(response);
-      this.showSuccessAlert('Evento Modificado', 'El evento ha sido modificado exitosamente');
-      this.router.navigate(['/miseventos']);
+      this.onCloseModify();
       
     }, (error: any) => {
       this.showErrorAlert('Error', 'No fue posible modificar el evento');
       console.error(error);
     });
-    this.onCloseModify();
   }
   
 
@@ -131,7 +134,7 @@ export class ModalModifyEventComponent {
     });
   }
   private showSuccessAlert(title: string, message: string) {
-    Swal.fire({
+    return Swal.fire({
       title: title,
       text: message,
       icon: 'success',
