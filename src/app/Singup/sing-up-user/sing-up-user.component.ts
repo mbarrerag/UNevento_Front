@@ -77,15 +77,19 @@ export class SingUpUserComponent {
     }
 
 
+    
 
-    this.serviceSingUp.getCode().subscribe(
+    this.serviceSingUp.getCode(this.userData.correo).subscribe(
       response => {
         console.log('Código obtenido:', response);
+        // Open modal after code is obtained
+        this.abrirModal(response, this.userData);
       },
       error => {
         console.error('Error al obtener el código:', error);
       }
-  )}
 
+    );
+  }
  
-}
+  }
