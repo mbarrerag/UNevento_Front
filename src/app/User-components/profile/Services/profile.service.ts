@@ -19,4 +19,11 @@ export class ProfileService {
   }
 
 
+  getImage(nombrearchivo:string): any {
+
+    const getUserDataUrl = `${this.apiUrl}/images/${nombrearchivo}`;
+
+    return this.http.get(getUserDataUrl, { responseType: 'blob' });
+  }
+
 }

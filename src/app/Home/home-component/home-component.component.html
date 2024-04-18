@@ -25,30 +25,15 @@
 <p class="explanation">Seleccione algunas de las siguientes opciones para consultar los eventos disponibles:</p>
 <div class="container-cards-facultad">
 <app-card-faculties></app-card-faculties>
-
 </div>
+<div class="contenedor-bienestar">
+  <p>Bienestar</p>
+</div>
+<app-card-bienestar class="app-card-bienestar"></app-card-bienestar>
+
 <div class="events">
   <h1 class="main-tittle">Eventos disponibles Universidad Nacional de Colombia</h1>
 
-<div class="card card-categories">
-    <h6 >Filtrar por categorías</h6>
-    <select (change)="onCategoryChange($event)">
-        <option value="conferencia">Conferencia</option>
-        <option value="taller">Taller</option>
-        <option value="">Concierto</option>
-        <option value="">Deporte</option>
-        <option value="">Charla</option>
-        <option value="">Inducción</option>
-        <option value="">Compartir</option>
-        <option value="">Debate</option>
-        <option value="">Asamblea</option>
-        <option value="">Paro estudiantil</option>
-        <option value="">Espectáculos de danza o teatro </option>
-        <option value="">Proyecciones de películas </option>
-        <option value="">Juegos amistosos</option>
-        <option value="">Religiosos y espirituales</option>
-    </select>
-</div>
 <div class="container cards-eventos">
   <div class="row row-cols-1 row-cols-md-3 gx-5 gy-5"> <!-- Ajuste de gx-5 y gy-5 -->
     <div class="col">

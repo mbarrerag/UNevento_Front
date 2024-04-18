@@ -18,16 +18,26 @@ export class EditProfileService {
     return this.http.get(getUserDataUrl, {headers: headers});
   }
 
-  editData(nombre:string,apellido:string,userID:number, token:string){
+  getImage(nombrearchivo:string): any {
+
+    const getUserDataUrl = `${this.apiUrl}/images/${nombrearchivo}`;
+
+    return this.http.get(getUserDataUrl, { responseType: 'blob' });
+  }
+
+  editData(userData: any,file: File,userID:number, token:string){
+    const formData: FormData = new FormData();
+
     const headers = new HttpHeaders({
       'Authorization': `${userID}, ${token}`,
     });
     const updateDataUrl = `${this.apiUrl}/updateuser`;
-    const body = {
-      id: userID,
-      nombre: nombre,
-      apellido: apellido
-    };
-    return this.http.put(updateDataUrl, body, {headers: headers});
+
+    formData.append('userData',new Blob([JSON.stringify(userData)], { type: 'application/json' }));
+    formData.append('file', file);
+
+    return this.http.put(updateDataUrl, formData, {headers: headers});
   }
+
+  
 }

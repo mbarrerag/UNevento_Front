@@ -22,9 +22,12 @@ export class EditProfileComponent {
   constructor(private Editprofileservice: EditProfileService, private router:Router) { }
 
   userData: any = {};
-
+  
   NuevoNombre:string="";
   NuevoApellido:string="";
+
+  imageSrc: string | ArrayBuffer | null = null;
+  Imagen: any; // Initialize the "Imagen" property
 
   ngOnInit(): void {
     const userID = parseInt(localStorage.getItem('id') || '0');
@@ -34,7 +37,22 @@ export class EditProfileComponent {
       this.userData = response;
       this.NuevoNombre=this.userData.nombre;  
       this.NuevoApellido=this.userData.apellido;
+      this.Editprofileservice.getImage(this.userData.imageUrl).subscribe((response: Blob) => {
+        this.Imagen = new File([response], this.userData.imageUrl);
+        this.handleImageUpload({ target: { files: [this.Imagen] } });
+        console.log(this.Imagen);
+      });
     });
+  }
+
+  handleImageUpload(event: any): void {
+    const file = event.target.files[0];//Acceder al archivo cargado por el usuario
+    this.Imagen = file;
+    const reader = new FileReader();//API que permite leer archivos
+    reader.onload = (e) => {///Controlador que se activará cuando la carga se ha realizado
+      this.imageSrc = e.target?.result || null;
+    };
+    reader.readAsDataURL(file);
   }
 
   updateData(){
@@ -42,7 +60,13 @@ export class EditProfileComponent {
       this.showErrorAlert('Error', 'El nombre y el apellido no pueden estar vacíos');
       return;
     }
-    this.Editprofileservice.editData(this.NuevoNombre, this.NuevoApellido, parseInt(localStorage.getItem('id') || '0'), localStorage.getItem('token') || '').subscribe((response: any) => {
+    let userData={
+      id:parseInt(localStorage.getItem('id') || '0'),
+      nombre:this.NuevoNombre,
+      apellido:this.NuevoApellido
+    }
+
+    this.Editprofileservice.editData(userData,this.Imagen, parseInt(localStorage.getItem('id') || '0'), localStorage.getItem('token') || '').subscribe((response: any) => {
       this.showSuccessAlert('Datos actualizados', 'Los datos se han actualizado correctamente');
       this.router.navigate(['/profile']);
     }, (error: any) => {

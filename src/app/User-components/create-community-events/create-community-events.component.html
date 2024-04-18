@@ -9,52 +9,79 @@
         <div class="TextForms">
                 <div class="Entrada">
                     <label for="titulo">Título:</label>
-                    <input type="text" id="titulo" name="titulo" [(ngModel)]="Titulo" required>
+                    <input type="text" id="titulo" name="titulo" [(ngModel)]="Titulo" #titulo="ngModel" maxlength="50" required>
+                </div>
+                <div *ngIf="titulo.invalid && titulo.touched" class="error">
+                    El título no puede estar vacío
                 </div>
 
                 <div class="Entrada">
                     <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="fecha" [(ngModel)]="Fecha" (change)="validarFecha()" required>
-                    
+                    <input type="date" id="fecha" name="fecha" [(ngModel)]="Fecha" #fecha="ngModel" (change)="validarFecha()" required>
                 </div>
                 <div>
-                    <div *ngIf="Fecha && !fechaValida" style="color: red; margin-left:150px; margin-bottom:2px">La fecha debe ser de hoy en adelante</div>
+                    <div *ngIf="Fecha && !fechaValida" class="error">La fecha debe ser de hoy en adelante</div>
                 </div>
+                <div *ngIf="fecha.invalid && fecha.touched" class="error">
+                    Debe seleccionar alguna fecha para el evento
+                </div> 
 
                 <div class="Entrada">
                     <label for="hora">Hora:</label>
-                    <input type="time" id="hora" name="hora" [(ngModel)]="Hora" required>
+                    <input type="time" id="hora" name="hora" [(ngModel)]="Hora" #hora="ngModel" required>
+                </div>
+                <div *ngIf="hora.invalid && hora.touched" class="error">
+                    Debe seleccionar alguna hora para el evento
                 </div>
                 
                 <div class="Entrada">
                     <label for="lugar">Lugar:</label>
-                    <input type="text" id="lugar" name="lugar" [(ngModel)]="Lugar" required>
+                    <input type="text" id="lugar" name="lugar" [(ngModel)]="Lugar" maxlength="50" #lugar="ngModel" required>
+                </div>
+                <div *ngIf="lugar.invalid && lugar.touched" class="error">
+                    Especificar algún lugar para el evento
                 </div>
 
                 <div class="Entrada">
                     <label for="aforo">Aforo:</label>
-                    <input type="number" id="aforo" name="aforo" [(ngModel)]="Aforo" min="0" max="5000" step="1" oninput="validity.valid||(value='');">
+                    <input type="number" id="aforo" name="aforo" [(ngModel)]="Aforo" #aforo="ngModel" min="1" max="5000" step="1" value="1" oninput="validity.valid||(value='');">
+                </div>
+                <div *ngIf="Aforo==null && aforo.dirty" class="error">
+                    El Aforo no puede estar vacío
                 </div>
 
                 <div class="Entrada">
                     <label for="categoria">Categoria:</label>
-                    <select id="categoria" name="categoria" [(ngModel)]="Categoria" required>
-                        <option value="">Selecciona una Categoría Asociada con el Evento</option>
-                        <option value="Conferencia">Conferencia</option>
-                        <option value="Seminario">Seminario</option>
+                    <select id="categoria" name="categoria" [(ngModel)]="Categoria" #categoria="ngModel" required>
+                        <option value="Actvidad_Cultural">Actividad Cultural</option>
+                        <option value="Actividad_Deportiva">Actividad Deportiva</option>
+                        <option value="Asamblea">Asamblea</option>
+                        <option value="Charla">Charla</option>
+                        <option value="Concierto">Concierto</option>
                         <option value="Congreso">Congreso</option>
+                        <option value="Conferencia">Conferencia</option>
                         <option value="Curso">Curso</option>
-                        <option value="Taller">Taller</option>
+                        <option value="Debate">Debate</option>
+                        <option value="Espectaculo_de_danzas_o_teatro">Espectáculo de danzas o teatro</option>
+                        <option value="Introduccion">Introduccion</option>
                         <option value="Networking">Networking</option>
-                        <option value="Cultural">Actividad Cultural</option>
-                        <option value="Deportiva">Actividad Deportiva</option>
+                        <option value="Proyeccion_de_peliculas">Proyección de películas</option>
+                        <option value="Religioso_y_Espiritual">Religioso y Espiritual</option>
+                        <option value="Seminario">Seminario</option>
+                        <option value="Taller">Taller</option>
                         <option value="Otro">Otro</option>
                     </select>
+                </div>
+                <div *ngIf="categoria.invalid && categoria.touched" class="error">
+                    Debe seleccionar alguna categoría para el evento
                 </div>
 
                 <div class="Entrada" style="margin-bottom: 0px;">
                     <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="descripcion" [(ngModel)]="Descripcion" required></textarea>
+                    <textarea id="descripcion" name="descripcion" [(ngModel)]="Descripcion" #descripcion="ngModel" maxlength="120" required></textarea>
+                </div>
+                <div *ngIf="descripcion.invalid && descripcion.touched" class="error">
+                    Debe escribir una descripción para el evento
                 </div>
                 <br>
         </div>
