@@ -32,9 +32,11 @@ export class ModalSingupComponent {
   }
 
   verifyCode() {
-    const sentCode = this.data.code; 
- 
-    if (this.verificationCode === sentCode) {
+    const sentCode = parseInt(this.data.code); // Convert string to integer
+    const enteredCode = parseInt(this.verificationCode); // Convert string to integer
+  
+    console.log(enteredCode, sentCode);
+    if (isNaN(sentCode) === isNaN(enteredCode)) {
     
       this.createUser();
     } else {
