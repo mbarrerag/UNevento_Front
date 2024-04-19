@@ -57,6 +57,7 @@ export class ModalModifyEventComponent {
     const file = event.target.files[0];//Acceder al archivo cargado por el usuario
     this.Imagen = file;
     const reader = new FileReader();//API que permite leer archivos
+    console.log(this.Imagen);
     reader.onload = (e) => {///Controlador que se activará cuando la carga se ha realizado
       this.imageSrc = e.target?.result as string || '';
     };
@@ -73,7 +74,7 @@ export class ModalModifyEventComponent {
     this.Aforo = this.data.capacidad;
     this.Categoria = this.data.categoria;
     this.Descripcion = this.data.descripcion;
-    this.imageSrc = this.data.imagenUrl;
+    this.imageSrc = this.data.imageUrl;
     this.modifyEventService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
       this.Imagen = new File([response], this.imageSrc);
       this.handleImageUpload({ target: { files: [this.Imagen] } });
