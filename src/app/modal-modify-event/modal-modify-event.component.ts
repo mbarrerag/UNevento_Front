@@ -98,7 +98,9 @@ export class ModalModifyEventComponent {
   
   PutModifiedEvent(){
     
-    const formattedFechaEvento = this.Fecha.slice(0,10).split('/').join('-');
+    const fechaEvento = new Date(this.Fecha);
+    fechaEvento.setDate(fechaEvento.getDate() + 1);
+    const formattedFechaEvento = fechaEvento.toISOString().slice(0,10);
     
 
     let modifiedEvent = {
