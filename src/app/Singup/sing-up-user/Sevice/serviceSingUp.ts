@@ -9,7 +9,9 @@ export class serviceSingUp {
 
   constructor(private http: HttpClient) { }
 
-  getCode(): Observable<any> {
-    return this.http.get<any>('http://localhost:8180/SendCode');
+  getCode(email: string): Observable<any> {
+    console.log(email);
+    // Send userData.email in the request body
+    return this.http.post<any>('http://localhost:8180/sendCode', {email: email });
   }
 }

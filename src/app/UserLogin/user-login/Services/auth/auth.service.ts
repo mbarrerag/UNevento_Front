@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +11,7 @@ export class AuthService {
   private tokenKey = 'token'; 
   private idKey = 'id'; 
   private rolkey = 'rol'; 
-  // private fotokey = 'foto'; 
+  private imagekey = 'imagekey'; 
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isAuthenticatedSubject.asObservable();
@@ -27,25 +26,30 @@ export class AuthService {
     return this.http.post<any>(loginUrl, { correo, password }).pipe(
       tap((response) => {
         localStorage.setItem(this.isAuthenticatedKey, 'true');
-        localStorage.setItem(this.tokenKey, response.token); 
-        localStorage.setItem(this.idKey, response.id); 
-        localStorage.setItem(this.rolkey, response.rol); 
-        // localStorage.setItem(this.fotokey, response.foto); 
-        localStorage.setItem(this.tokenKey, response.token); // Guardar el token en el localStorage
-        localStorage.setItem(this.idKey, response.id); // Guardar el id en el localStorage
+        localStorage.setItem(this.tokenKey, response.token);
+        localStorage.setItem(this.idKey, response.id);
         this.isAuthenticatedSubject.next(true);
+
+        const userInfoUrl = `${this.apiUrl}/userinformation`;
+        const headers = new HttpHeaders({
+          'Authorization': `${response.id}, ${response.token}`
+        });
+        return this.http.post<any>(userInfoUrl, { email: correo }, { headers }).pipe(
+          tap((userInfoResponse) => {
+            localStorage.setItem(this.rolkey, userInfoResponse.rol);
+            localStorage.setItem(this.imagekey, userInfoResponse.imageUrl);
+          })
+        );
       })
     );
   }
-
-
 
   logout(): void {
     localStorage.removeItem(this.isAuthenticatedKey);
     localStorage.removeItem(this.tokenKey); 
     localStorage.removeItem(this.idKey); 
     localStorage.removeItem(this.rolkey); 
-    // localStorage.removeItem(this.fotokey); 
+    localStorage.removeItem(this.imagekey); 
     this.isAuthenticatedSubject.next(false);
   }
 
@@ -58,7 +62,6 @@ export class AuthService {
       return false;
     }
   }
-
 }
-
+}
 

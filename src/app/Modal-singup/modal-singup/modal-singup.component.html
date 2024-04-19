@@ -5,13 +5,13 @@
 
 <h2 mat-dialog-title class="h2-code">Ingresa el código de verificación enviado al Correo:</h2>
 <br/>
-<p class="p-user-code">useremail</p>
+<p class="p-user-code">{{ userData.correo }}</p>
 <br/>
 <br/>
 <div mat-dialog-content class="container-input-code">
     <mat-form-field class="example-full-width ">
         <mat-label class="div-code">Código de 6 digitos*</mat-label>
-        <input matInput placeholder="" value="" class="input-code" maxlength="6">
+        <input matInput placeholder="" value="" class="input-code" maxlength="6"   [(ngModel)]="verificationCode" >
       </mat-form-field>
 </div>
 <div mat-dialog-actions  class="container-verificar">
