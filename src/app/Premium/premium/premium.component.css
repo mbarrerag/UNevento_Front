@@ -21,6 +21,7 @@ body {
   flex-wrap: wrap;
   max-width: 1200px;
   padding: 100px 0 50px;
+  margin-left: 17%;
 }
 
 .container .card {

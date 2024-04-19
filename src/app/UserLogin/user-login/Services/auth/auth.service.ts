@@ -29,17 +29,6 @@ export class AuthService {
         localStorage.setItem(this.tokenKey, response.token);
         localStorage.setItem(this.idKey, response.id);
         this.isAuthenticatedSubject.next(true);
-
-        const userInfoUrl = `${this.apiUrl}/userinformation`;
-        const headers = new HttpHeaders({
-          'Authorization': `${response.id}, ${response.token}`
-        });
-        return this.http.post<any>(userInfoUrl, { email: correo }, { headers }).pipe(
-          tap((userInfoResponse) => {
-            localStorage.setItem(this.rolkey, userInfoResponse.rol);
-            localStorage.setItem(this.imagekey, userInfoResponse.imageUrl);
-          })
-        );
       })
     );
   }
@@ -63,5 +52,3 @@ export class AuthService {
     }
   }
 }
-}
-
