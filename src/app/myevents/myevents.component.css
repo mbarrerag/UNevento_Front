@@ -1,8 +1,15 @@
 .background {
-    background: url(../../assets/img-miseventos/Edificio_de_Posgados_de_Ciencias_Humanas_0.jpg);
+    background: url(../../assets/img-home/Facultad\ de\ Enfermeria.JPG);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .container {

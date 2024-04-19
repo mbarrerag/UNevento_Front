@@ -34,8 +34,7 @@ export class ModalDeleteEventComponent {
 
     this.deleteEventService.deleteUserEvent(userId, token, eventId).subscribe((response: any) => {
       this.result = response.content;
-      console.log(this.result);
-      this.router.navigate(['/miseventos']);
     });
+    this.router.navigate(['/home']);
   }
 }

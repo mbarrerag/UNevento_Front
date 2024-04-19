@@ -12,6 +12,6 @@ export class serviceSingUp {
   getCode(email: string): Observable<any> {
     console.log(email);
     // Send userData.email in the request body
-    return this.http.post<any>('http://localhost:8182/sendCode', {email: email });
+    return this.http.post<any>('http://localhost:8180/sendCode', {email: email });
   }
 }
