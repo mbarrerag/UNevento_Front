@@ -1,26 +1,26 @@
 
 <div class="nft">
   <div class='main'>
-    <img class='tokenImage' src="../../../assets/img-home/Facultad Humanas.JPG" alt="NFT" />
-    <h2 class="card-title">{{data.Titulo}}</h2>
-    <p class='card-description'><strong>Descripción del Evento:</strong> {{data.Descripcion}}</p>
+    <img class='tokenImage' src="{{this.eventImage}}" alt="NFT" />
+    <h2 class="card-title">{{data.nombre}}</h2>
+    <p class='card-description'><strong>Descripción del Evento:</strong> {{data.descripcion}}</p>
     <div class='tokenInfo'>
-      <strong>Fecha:  </strong>{{data.Fecha}}
-      <strong>Hora:  </strong>{{data.Hora}}
+      <strong>Fecha:  </strong>{{data.fechaEvento.slice(0,10)}}
+      <strong>Hora:  </strong>{{data.hora}}
       <br>
-      <strong>Lugar:  </strong>{{data.Lugar}}
+      <strong>Lugar:  </strong>{{data.lugar}}
       <br>
-      <strong>Aforo:  </strong>{{data.Aforo}}
+      <strong>Aforo:  </strong>{{data.capacidad}}
       <br>
-      <strong>Categoría:  </strong>{{data.Categoria}}
+      <strong>Categoría:  </strong>{{this.categoria}}
       <br>
     </div>
     <hr />
    <div class='creator'>
       <div class='wrapper'>
-        <img src="../../../assets/img-home/Facultad Artes.JPG" alt="Creator" />
+        <img src="{{this.creatorImage}}" alt="Creator" />
       </div> 
-      <p><ins>Creado por </ins>{{data.User}}</p>
+      <p><ins>Creado por </ins>{{creatorData.nombre+" "+creatorData.apellido}}</p>
     </div>
   </div>
 </div>
