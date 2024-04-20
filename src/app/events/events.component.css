@@ -1,17 +1,21 @@
-.CreateEventContainer {
-    margin-top: 5%;
+.EventContainer {
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 5%;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-image: url('../../assets/backgrounds/FondoConFigurasNegras.jpeg');
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);    
+}
+.BodyContainer{
+  margin-top: 5%;
 }
 
 h1 {
     text-align: center;
     font-family: "approach-bold";
+    font-size: 2rem;
 }
 
 p {
