@@ -44,12 +44,18 @@
                         (keypress)="alphaOnly($event)"
                     />
                 </div>
-
-                <div class="button-editprofile-container">
-                    <button type="submit" class="btn-save-profile">
-                            <img src="../../../assets/img-buttons/Save.png" alt=""> Guardar Información
-                    </button>
-                </div> 
+                <div class="ButtonZone">
+                    <div class="button-editprofile-container">
+                        <button type="submit" class="btn-save-profile">
+                                <img src="../../../assets/img-buttons/Save.png" alt=""> Guardar Información
+                        </button>
+                    </div> 
+                    <div class="button-editprofile-container">
+                        <button type="button" class="btn-cancelar" (click)="OnCancelar()">
+                                Cancelar
+                        </button>
+                    </div> 
+                </div>
             </form>
         </div>
     </div>

@@ -45,6 +45,10 @@ export class EditProfileComponent {
     });
   }
 
+  OnCancelar(){
+    this.router.navigate(['/profile']);
+  }
+  
   handleImageUpload(event: any): void {
     const file = event.target.files[0];//Acceder al archivo cargado por el usuario
     this.Imagen = file;
