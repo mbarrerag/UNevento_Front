@@ -14,11 +14,8 @@ export class DeleteEventServiceService {
     const headers = new HttpHeaders ({
       'Authorization': `${userId}, ${token}`,
     });
-    console.log(eventId);
     const eventUrl = `${this.apiUrl}/${eventId}`;
-    console.log(eventUrl)
     const result = this.http.delete(eventUrl, {headers: headers});
-    console.log(result);
     return result;
    }
 }

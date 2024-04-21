@@ -41,7 +41,7 @@ export class CreateFacultyEventsComponent {
   Facultad: string = '';
   IdUsuario: number = parseInt(localStorage.getItem('id') || '0');
   token: string = localStorage.getItem('token') || '';
-  Aforo: number = 0;
+  Aforo: number = 1;
   Categoria: string = '';
   Descripcion: string = '';
   Imagen: any; // Initialize the "Imagen" property
@@ -60,7 +60,9 @@ export class CreateFacultyEventsComponent {
   constructor(private createFacEventService: CreateFacultyEventService, private router:Router) { }
   CreateFacEvent(){
     
-    const formattedFechaEvento = this.Fecha.split('/').join('-');
+    const fechaEvento = new Date(this.Fecha);
+    fechaEvento.setDate(fechaEvento.getDate() + 1);
+    const formattedFechaEvento = fechaEvento.toISOString().slice(0,10);
 
     let newEvent = {
       userID: this.IdUsuario,
@@ -69,6 +71,7 @@ export class CreateFacultyEventsComponent {
       lugar: this.Lugar,
       categoria: this.Categoria,
       Facultad: this.Facultad,
+      tipo:'OFICIAL',
       fechaEvento: new Date(formattedFechaEvento),
       capacidad: this.Aforo,
       hora: this.Hora

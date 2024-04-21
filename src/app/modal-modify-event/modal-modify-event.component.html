@@ -1,90 +1,126 @@
-<div class="CrearEvento">
+<div class="ModificarEvento">
     <div class="Encabezado">
         <img src="../../assets/img-home/UNeventoBlanco.png" alt="LogoUNevento" class="Logo">
-        <h1 class="Titulo">Modifica Tu Evento</h1>
+            <h1 class="Titulo" *ngIf="Facultad !== 'No_Aplica'; else otroCaso">Modifica Tu Evento de Facultad</h1>
+        
+        <ng-template #otroCaso>
+            <h1 class="Titulo">Modifica Tu Evento Comunitario</h1>
+        </ng-template>
     </div>
     <div class="Forms">
     <form (ngSubmit)="PutModifiedEvent()">
         <div class="TextForms">
                 <div class="Entrada">
                     <label for="titulo">Título:</label>
-                    <input type="text" id="titulo" name="titulo" [(ngModel)]="Titulo" required>
+                    <input type="text" id="titulo" name="titulo" [(ngModel)]="Titulo" #titulo="ngModel" maxlength="50" required>
+                </div>
+                <div *ngIf="titulo.invalid && titulo.touched" class="error">
+                    El título no puede estar vacío
                 </div>
 
                 <div class="Entrada">
                     <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="fecha" [(ngModel)]="Fecha" (change)="validarFecha()" required>
-                    
+                    <input type="date" id="fecha" name="fecha" [(ngModel)]="Fecha" #fecha="ngModel" (change)="validarFecha()" required>
                 </div>
                 <div>
-                    <div *ngIf="Fecha && !fechaValida" style="color: red; margin-left:150px; margin-bottom:2px">La fecha debe ser de hoy en adelante</div>
+                    <div *ngIf="Fecha && !fechaValida" class="error">La fecha debe ser de hoy en adelante</div>
                 </div>
+                <div *ngIf="fecha.invalid && fecha.touched" class="error">
+                    Debe seleccionar alguna fecha para el evento
+                </div> 
 
                 <div class="Entrada">
                     <label for="hora">Hora:</label>
-                    <input type="time" id="hora" name="hora" [(ngModel)]="Hora" required>
+                    <input type="time" id="hora" name="hora" [(ngModel)]="Hora" #hora="ngModel" required>
+                </div>
+                <div *ngIf="hora.invalid && hora.touched" class="error">
+                    Debe seleccionar alguna hora para el evento
                 </div>
                 
                 <div class="Entrada">
                     <label for="lugar">Lugar:</label>
-                    <input type="text" id="lugar" name="lugar" [(ngModel)]="Lugar" required>
+                    <input type="text" id="lugar" name="lugar" [(ngModel)]="Lugar" maxlength="50" #lugar="ngModel" required>
                 </div>
-            
+                <div *ngIf="lugar.invalid && lugar.touched" class="error">
+                    Especificar algún lugar para el evento
+                </div> 
+                <div *ngIf="Facultad!=='No_Aplica'">
+                    <div class="Entrada">
+                        <label for="facultad">Facultad:</label>
+                        <select id="facultad" name="facultad" [(ngModel)]="Facultad" #facultad="ngModel" required>
+                            <option value="">Selecciona una Facultad</option>
+                            <option value="Facultad_De_Ingenieria">Facultad de Ingeniería</option>
+                            <option value="Facultad_De_Ciencias">Facultad de Ciencias</option>
+                            <option value="Facultad_De_Ciencias_Humanas">Facultad de Ciencias Humanas</option>
+                            <option value="Facultad_De_Ciencias_Economicas">Facultad de Ciencias Económicas</option>
+                            <option value="Facultad_De_Ciencias_Agrarias">Facultad de Ciencias Agrarias</option>
+                            <option value="Facultad_De_Ciencias_De_La_Salud">Facultad de Medicina</option>
+                            <option value="Facultad_De_Odontologia">Facultad de Odontología</option>
+                            <option value="Facultad_De_Veterinaria">Facultad de Medicina Veterinaria y de Zootecnia</option>
+                            <option value="Facultad_De_Derecho">Facultad de Derecho, Ciencias Politicas y Sociales</option>
+                            <option value="Facultad_De_Artes">Facultad de Artes</option>
+                        </select>
+                    </div>
+                    <div *ngIf="facultad.invalid && facultad.touched" class="error">
+                        Debe seleccionar alguna facultad para el evento
+                    </div>    
+                </div>
+                
                 <div class="Entrada">
-                    <label for="facultad">Facultad:</label>
-                    <select id="facultad" name="facultad" [(ngModel)]="Facultad" required>
-                        <option value="">Selecciona una Facultad</option>
-                        <option value="Facultad_De_Ingenieria">Facultad de Ingeniería</option>
-                        <option value="Facultad_De_Ciencias">Facultad de Ciencias</option>
-                        <option value="Facultad_De_Ciencias_Humanas">Facultad de Ciencias Humanas</option>
-                        <option value="Facultad_De_Ciencias_Economicas">Facultad de Ciencias Económicas</option>
-                        <option value="Facultad_De_Ciencias_Agrarias">Facultad de Ciencias Agrarias</option>
-                        <option value="Facultad_De_Ciencias_De_La_Salud">Facultad de Medicina</option>
-                        <option value="Facultad_De_Odontologia">Facultad de Odontología</option>
-                        <option value="Facultad_De_Veterinaria">Facultad de Medicina Veterinaria y de Zootecnia</option>
-                        <option value="Facultad_De_Derecho">Facultad de Derecho, Ciencias Politicas y Sociales</option>
-                        <option value="Facultad_De_Artes">Facultad de Artes</option>
+                    <label for="aforo">Aforo:</label>
+                    <input type="number" id="aforo" name="aforo" [(ngModel)]="Aforo" #aforo="ngModel" min="1" max="5000" step="1" value="1" oninput="validity.valid||(value='');">
+                </div>
+                <div *ngIf="Aforo==null && aforo.dirty" class="error">
+                    El Aforo no puede estar vacío
+                </div>                
+
+                <div class="Entrada">
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria" name="categoria" [(ngModel)]="Categoria" #categoria="ngModel" required>
+                        <option value="Actvidad_Cultural">Actividad Cultural</option>
+                        <option value="Actividad_Deportiva">Actividad Deportiva</option>
+                        <option value="Asamblea">Asamblea</option>
+                        <option value="Charla">Charla</option>
+                        <option value="Concierto">Concierto</option>
+                        <option value="Congreso">Congreso</option>
+                        <option value="Conferencia">Conferencia</option>
+                        <option value="Curso">Curso</option>
+                        <option value="Debate">Debate</option>
+                        <option value="Espectaculo_de_danzas_o_teatro">Espectáculo de danzas o teatro</option>
+                        <option value="Introduccion">Introduccion</option>
+                        <option value="Networking">Networking</option>
+                        <option value="Proyeccion_de_peliculas">Proyección de películas</option>
+                        <option value="Religioso_y_Espiritual">Religioso y Espiritual</option>
+                        <option value="Seminario">Seminario</option>
+                        <option value="Taller">Taller</option>
+                        <option value="Otro">Otro</option>
                     </select>
                 </div>
-                <div class="Entrada">
-
+                <div *ngIf="categoria.invalid && categoria.touched" class="error">
+                    Debe seleccionar alguna categoría para el evento
                 </div>
-
-                
-
-                
+                <div class="Entrada" style="margin-bottom: 0px;">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" [(ngModel)]="Descripcion" #descripcion="ngModel" maxlength="120" required></textarea>
+                </div>
+                <div *ngIf="descripcion.invalid && descripcion.touched" class="error">
+                    Debe escribir una descripción para el evento
+                </div>
                 <br>
         </div>
         <div class="ImageForms">
-
-            <div class="Entrada">
-                <label for="aforo">Aforo:</label>
-                <input type="number" id="aforo" name="aforo" [(ngModel)]="Aforo" min="0" max="5000" step="1" oninput="validity.valid||(value='');">
+            <input type="file" id="file-upload" name="file-upload" accept="image/*" (change)="handleImageUpload($event)" style="display: none;"><!-- Aceptar Solo Imágenes -->
+            <label for="file-upload" class="custom-file-upload">
+                Editar Imagen del Evento
+            </label>
+            <div class="profile-photo">
+                <div *ngIf="imageSrc" class="ImagenSeleccionada">
+                    <img [src]="imageSrc" alt="Vista previa de la imagen" style="max-width: 100%;">
+                </div>
             </div>
-
-            <div class="Entrada">
-                <label for="categoria">Categoria:</label>
-                <select id="categoria" name="categoria" [(ngModel)]="Categoria" required>
-                    <option value="">Selecciona una Categoría Asociada con el Evento</option>
-                    <option value="Conferencia">Conferencia</option>
-                    <option value="Seminario">Seminario</option>
-                    <option value="Congreso">Congreso</option>
-                    <option value="Curso">Curso</option>
-                    <option value="Taller">Taller</option>
-                    <option value="Networking">Networking</option>
-                    <option value="Cultural">Actividad Cultural</option>
-                    <option value="Deportiva">Actividad Deportiva</option>
-                    <option value="Otro">Otro</option>
-                </select>
-            </div>
-
-            <div class="Entrada" style="margin-bottom: 0px;">
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" [(ngModel)]="Descripcion" required></textarea>
-            </div>
-
-            <div style="align-items: center; display: flex; justify-content: center;">
-                <button type="submit" class="btn-crear-evento" [disabled]="!fechaValida">Modificar Evento</button>
+            <div class="btn-zone">
+                    <button type="submit" class="btn-modificar-evento" [disabled]="!fechaValida">Modificar Evento</button>
+                    <button type="button" class="btn-cancelar" (click)="onCancel()">Cancelar</button>
             </div>
         </div>
         

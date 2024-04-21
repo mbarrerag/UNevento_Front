@@ -6,7 +6,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8182'; 
+  private apiUrl = 'http://localhost:8180'; 
   private isAuthenticatedKey = 'isAuthenticated';
   private tokenKey = 'token'; 
   private idKey = 'id'; 
@@ -30,7 +30,7 @@ export class AuthService {
         localStorage.setItem(this.tokenKey, response.token);
         localStorage.setItem(this.idKey, response.id);
         this.isAuthenticatedSubject.next(true);
-  
+
         const jwtTokenString = response.jwtToken.toString(); // Convertir token a string
   
         console.log('Datos enviados a userinformation:', `${response.userId} ${jwtTokenString}`);
@@ -53,6 +53,8 @@ export class AuthService {
     
           });
         });
+
+
       })
     );
   }

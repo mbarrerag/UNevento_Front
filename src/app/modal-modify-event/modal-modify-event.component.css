@@ -1,4 +1,4 @@
-.CrearEvento {
+.ModificarEvento {
   position: fixed;
   top: 20px;
   left: 20px;
@@ -10,6 +10,7 @@
   background-image: url('../../assets/backgrounds/FondoconCirculo.jpeg');
   background-size: cover;
   z-index: 9999;
+  overflow-y: auto;
 }
 
 .Logo{
@@ -20,7 +21,7 @@
       flex-direction: column;
   }
   .Titulo{
-      text-align: right;
+      text-align: center !important;
   }
   form{
       flex-direction: column;
@@ -38,9 +39,8 @@ h1{
   align-items: center;
 }
 .Titulo{
-  width: 60%;
-  text-align: center;
-  height: 100%;
+  text-align: right;
+  width: 100% !important;
 }
 
 form{
@@ -53,7 +53,13 @@ form{
 }
 .ImageForms{
   width: 50%;
-  cursor: pointer;
+  align-items: center;
+  text-align: center;
+}
+.ImageForms img{
+  width: auto;
+  height:auto;
+  max-height: 600px;
 }
 
 .Entrada{
@@ -101,8 +107,41 @@ input{
   width: 100%;
 }
 
+.btn-zone{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/*Estilos botón Cancelar*/
+.btn-cancelar {
+  background-color: #cb210b;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  width: 50%; /* Modificado para ocupar el 100% del contenedor */
+  font-family: 'approach-black';
+}
+
+.btn-cancelar:hover {
+  background-color: #e63535;
+}
+
+.btn-cancelar:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(223, 30, 20, 0.5);
+}
+
 /*Estilos Boton de Crear Evento*/
-.btn-crear-evento {
+.btn-modificar-evento {
   background-color: #a1cb0b;
   border: none;
   color: white;
@@ -115,19 +154,64 @@ input{
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  width: 100%; /* Modificado para ocupar el 100% del contenedor */
+  width: 50%; /* Modificado para ocupar el 100% del contenedor */
   font-family: 'approach-black';
 }
 
-.btn-crear-evento:hover {
+.btn-modificar-evento:hover {
   background-color: #8fb209;
 }
 
-.btn-crear-evento:focus {
+.btn-modificar-evento:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(161, 203, 11, 0.5);
 }
 
+
+
 .ImagenSeleccionada{
   margin-top: 10px;
+}
+.error {
+  color: red;
+  margin-left: 150px;
+  margin-bottom: 5px;
+}
+
+.custom-file-upload {
+  appearance: button;
+  background-color: #1652F0;
+  border: 1px solid #1652F0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: "approach-regular";
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.15;
+  overflow: visible;
+  padding: 12px 16px;
+  text-transform: none;
+  transition: all 80ms ease-in-out;
+  margin-bottom: 10px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom-file-upload:disabled {
+  opacity: .5;
+}
+
+
+.custom-file-upload:hover {
+  background-color: #0A46E4;
+  border-color: #0A46E4;
+}
+
+.custom-file-upload:active {
+  background-color: #0039D7;
+  border-color: #0039D7;
 }

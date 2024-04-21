@@ -13,7 +13,7 @@ private http = inject(HttpClient)
   createUser(userData: any) {
   console.log(userData);
   
-    return this.http.post<any>('http://localhost:8182/newuser', userData);
+    return this.http.post<any>('http://localhost:8180/newuser', userData);
   }
 }
 

@@ -23,9 +23,22 @@ export class ModalModifyEventComponent {
   onCloseModify(): void {
     this.closeModalModify.emit();
     this.router.navigate(['/miseventos']);
+    this.showSuccessAlert('Evento Modificado', 'El evento ha sido modificado exitosamente')
+        .then((result) => {
+            if (result.isConfirmed) {
+                location.reload();
+            }
+        });
   }
 
+  onCancel(){
+    this.closeModalModify.emit();
+    this.router.navigate(['/miseventos']);
+  }
+
+
   fechaValida: boolean = true; // Propiedad para controlar la validez de la fecha
+  imageSrc: string  = "";
 
   IdEvento: number = 0;
   Titulo: string = '';
@@ -38,17 +51,35 @@ export class ModalModifyEventComponent {
   Aforo: number = 0;
   Categoria: string = '';
   Descripcion: string = '';
+  Imagen: any; // Initialize the "Imagen" property
+
+  handleImageUpload(event: any): void {
+    const file = event.target.files[0];//Acceder al archivo cargado por el usuario
+    this.Imagen = file;
+    const reader = new FileReader();//API que permite leer archivos
+    console.log(this.Imagen);
+    reader.onload = (e) => {///Controlador que se activará cuando la carga se ha realizado
+      this.imageSrc = e.target?.result as string || '';
+    };
+    reader.readAsDataURL(file);
+  }
 
   ngOnInit(): void {
     this.IdEvento = this.data.id;
     this.Titulo = this.data.nombre;
-    this.Fecha = this.data.fechaEvento;
+    this.Fecha = this.data.fechaEvento.slice(0,10);
     this.Hora = this.data.hora;
     this.Lugar = this.data.lugar;
     this.Facultad = this.data.facultad;
     this.Aforo = this.data.capacidad;
     this.Categoria = this.data.categoria;
     this.Descripcion = this.data.descripcion;
+    this.imageSrc = this.data.imageUrl;
+    this.modifyEventService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
+      this.Imagen = new File([response], this.imageSrc);
+      this.handleImageUpload({ target: { files: [this.Imagen] } });
+      console.log(this.Imagen);
+    });
   }
 
   // Función de validación para la fecha
@@ -58,6 +89,7 @@ export class ModalModifyEventComponent {
 
     const fechaActual = new Date();
     const fechaActualUTC = Date.UTC(fechaActual.getUTCFullYear(), fechaActual.getUTCMonth(), fechaActual.getUTCDate());
+    
 
     this.fechaValida = fechaIngresadaUTC >= fechaActualUTC;
 }
@@ -66,7 +98,10 @@ export class ModalModifyEventComponent {
   
   PutModifiedEvent(){
     
-    const formattedFechaEvento = this.Fecha.split('/').join('-');
+    const fechaEvento = new Date(this.Fecha);
+    fechaEvento.setDate(fechaEvento.getDate() + 1);
+    const formattedFechaEvento = fechaEvento.toISOString().slice(0,10);
+    
 
     let modifiedEvent = {
       id: this.IdEvento,
@@ -75,20 +110,19 @@ export class ModalModifyEventComponent {
       lugar: this.Lugar,
       categoria: this.Categoria,
       Facultad: this.Facultad,
-      fechaEvento: new Date(formattedFechaEvento),
+      fechaEvento: formattedFechaEvento,
       capacidad: this.Aforo,
       hora: this.Hora
     };
-    console.log('Ejecutando Petición Modificación de Evento Sin Imagen');
-    this.modifyEventService.updateEvent(modifiedEvent, this.IdUsuario, this.token).subscribe((response: any) => {
+    console.log('Ejecutando Petición Modificación de Evento', modifiedEvent);
+    this.modifyEventService.updateEvent(modifiedEvent, this.Imagen,this.IdUsuario, this.token).subscribe((response: any) => {
       console.log(response);
-      this.showSuccessAlert('Evento Modificado', 'El evento ha sido modificado exitosamente');
-      this.router.navigate(['/miseventos']);
+      this.onCloseModify();
+      
     }, (error: any) => {
       this.showErrorAlert('Error', 'No fue posible modificar el evento');
       console.error(error);
     });
-    this.onCloseModify();
   }
   
 
@@ -103,7 +137,7 @@ export class ModalModifyEventComponent {
     });
   }
   private showSuccessAlert(title: string, message: string) {
-    Swal.fire({
+    return Swal.fire({
       title: title,
       text: message,
       icon: 'success',

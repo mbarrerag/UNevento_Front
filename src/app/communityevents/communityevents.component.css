@@ -1,0 +1,20 @@
+.community-events {
+    background-image: url('../../assets/backgrounds/FondoBlancoConHexagonos.jpeg');
+    /* additional background properties */
+
+}
+.TituloComEvents{
+    text-align: center;
+    font-family: 'approach-black';
+    margin-top: 30px;
+    font-size: 2rem;
+}
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 24px;
+    padding: 24px;
+    flex-wrap: wrap;
+  }
