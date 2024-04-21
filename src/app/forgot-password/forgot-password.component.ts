@@ -1,34 +1,46 @@
 import { Component } from '@angular/core';
+import { ForgotService } from './Service/ForgotService';
+import { ModalForgotPassword } from '../modal-forgot-password/modalForgotPassword.component';
+import Swal from 'sweetalert2';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms'; // Importa FormsModule aquí
+
 
 @Component({
   selector: 'app-forgot-password',
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent {
   email: string = '';
   code: string = '';
-  newPassword: string = '';
- 
- 
-  
 
+  userData = {
+    "correo" : "",
+  };
 
-   
-
-  
-  requestPasswordReset() {
-    // Lógica para enviar una solicitud de restablecimiento de contraseña
-    // Aquí puedes hacer una llamada a tu servicio o API correspondiente
+  constructor(private _matDialog: MatDialog, private ForgotService: ForgotService) {} 
+  abrirModal(code: any, userData: any): void {
+    this._matDialog.open(ModalForgotPassword, {
+      data: { code: code, userData: userData }
+    });
   }
 
-  verifyCode() {
-    // Lógica para verificar el código recibido por el usuario
-    // Puedes llamar a una API o realizar la verificación en el cliente
-  }
+  submitForm() {
+    this.ForgotService.getCode(this.userData.correo).subscribe(
+      response => {
+        console.log('Código obtenido:', response);
+        // Open modal after code is obtained
+        this.abrirModal(response, this.userData);
+      },
+      error => {
+        console.error('Error al obtener el código:', error);
+      }
 
-  resetPassword() {
-    // Lógica para restablecer la contraseña
-    // Puedes hacer una llamada a tu servicio o API correspondiente
+    );
   }
 }

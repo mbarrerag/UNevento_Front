@@ -33,8 +33,6 @@ export class UserLoginComponent {
         console.error('Autenticado correctamente');
         localStorage.setItem('token', response.jwtToken);
         localStorage.setItem('id', response.userId);
-        localStorage.setItem('rol', response.rol);
-        localStorage.setItem('foto', response.foto);
         
 
 
