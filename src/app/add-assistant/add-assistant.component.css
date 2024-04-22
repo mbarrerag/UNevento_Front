@@ -1,0 +1,45 @@
+
+.whole {
+    position: fixed;
+    background-image: url('../../assets/backgrounds/FondoCirculos.jpeg');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.container {
+    margin-top: 80px;
+  }
+  
+  .evento-info {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+  }
+  
+  .evento-info h2 {
+    color: #007bff;
+  }
+  
+  .evento-info p {
+    margin-bottom: 10px;
+  }
+  
+  .evento-img {
+    text-align: center;
+  }
+  
+  .evento-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .btn-asistir {
+    margin-top: 20px;
+  }
+  

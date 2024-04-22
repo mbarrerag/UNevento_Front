@@ -1,0 +1,21 @@
+<div class="whole"> 
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="ruta/a/la/imagen.jpg" alt="Imagen del evento">
+          </div>
+          <div class="col-md-6">
+            <h2>{{ nombreEvento }}</h2>
+            <p>{{ descripcion }}</p>
+            <p><strong>Lugar:</strong> {{ lugar }}</p>
+            <p><strong>Categoría:</strong> {{ categoria }}</p>
+            <p><strong>Facultad:</strong> {{ facultad }}</p>
+            <p><strong>Fecha:</strong> {{ fecha }}</p>
+            <p><strong>Max. Asistentes:</strong> {{ maxAsistentes }}</p>
+            <p><strong>Hora:</strong> {{ hora }}</p>
+            <p><strong>Tipo de Evento:</strong> {{ tipoEvento }}</p>
+            <button (click)="asistir()" class="btn btn-primary">Asistir</button>
+          </div>
+        </div>
+    </div>    
+</div>
