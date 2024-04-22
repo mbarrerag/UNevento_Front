@@ -23,15 +23,54 @@ export class AuthService {
 
   login(correo: string, password: string): Observable<any> {
     const loginUrl = `${this.apiUrl}/login`;
+    
     return this.http.post<any>(loginUrl, { correo, password }).pipe(
       tap((response) => {
         localStorage.setItem(this.isAuthenticatedKey, 'true');
         localStorage.setItem(this.tokenKey, response.token);
         localStorage.setItem(this.idKey, response.id);
         this.isAuthenticatedSubject.next(true);
+
+        const jwtTokenString = response.jwtToken.toString(); // Convertir token a string
+  
+        console.log('Datos enviados a userinformation:', `${response.userId} ${jwtTokenString}`);
+        const userInfoUrl = `${this.apiUrl}/userinformation`;
+        const headers = new HttpHeaders({
+          'Authorization': `${response.userId}, ${jwtTokenString}` // Concatenar las cadenas de texto
+        });
+  
+        this.http.post<any>(userInfoUrl, { email: correo }, { headers }).subscribe(userInfoResponse => {
+          console.log(userInfoResponse);
+          localStorage.setItem(this.rolkey, userInfoResponse.rol);
+          localStorage.setItem(this.imagekey, userInfoResponse.imageUrl);
+  
+          const imageName = userInfoResponse.imageUrl.split('/').pop(); 
+          const imageUrl = `${this.apiUrl}/images/${imageName}`; 
+  
+          // Llamar a la tercera solicitud usando el nombre de la imagen retornado
+          this.http.get<any>(imageUrl).subscribe(thirdRequestResponse => {
+            console.log('Tercera solicitud completada:', thirdRequestResponse);
+    
+          });
+        });
+
+
       })
     );
   }
+  
+  
+
+
+      
+
+
+
+
+
+
+
+
 
   logout(): void {
     localStorage.removeItem(this.isAuthenticatedKey);
