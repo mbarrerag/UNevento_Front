@@ -69,7 +69,7 @@
        
         <li class="nav-item dropdown"  *ngIf="isLoggedIn$ | async">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="../../../assets/img-home/user-img.png" alt="Perfil" class="profile-image"> 
+            <img *ngIf="imageUrl" [src]="imageUrl" alt="User Image" class="profile-image"> 
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: white;">
             <a class="dropdown-item active" *ngIf="isLoggedIn$ | async" ariaCurrentWhenActive="page" routerLink="/profile">Perfil</a>

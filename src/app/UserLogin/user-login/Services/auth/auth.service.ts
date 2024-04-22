@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { NavbarComponent } from '../../../../commons/navbar/navbar.component';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8180'; 
+  private apiUrl = 'http://localhost:8182'; 
   private isAuthenticatedKey = 'isAuthenticated';
   private tokenKey = 'token'; 
   private idKey = 'id'; 
@@ -16,9 +18,21 @@ export class AuthService {
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isAuthenticatedSubject.asObservable();
 
+
+  private imageSubject = new BehaviorSubject<string>(''); // BehaviorSubject para la imagen
+  image$: Observable<string> = this.imageSubject.asObservable();
+
   constructor(private http: HttpClient) { 
-    // Al inicializar el servicio, verificar si el usuario está autenticado y actualizar el BehaviorSubject
+    const storedImage = localStorage.getItem(this.imagekey);
+    if (storedImage) {
+      this.imageSubject.next(storedImage);
+    }
+    
     this.isAuthenticatedSubject.next(this.isLoggedIn());
+  }
+
+  getImage(): string {
+    return this.imageSubject.value;
   }
 
   login(correo: string, password: string): Observable<any> {
@@ -55,8 +69,16 @@ export class AuthService {
         });
 
 
+
+
+        
+
+
       })
     );
+
+
+    
   }
   
   

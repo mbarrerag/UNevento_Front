@@ -17,12 +17,17 @@ import { RouterLink } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
+  imageUrl: string = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-   
-  }
+      // Suscripción al BehaviorSubject de la imagen en el servicio AuthService
+      this.authService.image$.subscribe(imageUrl => {
+        this.imageUrl = imageUrl; // Actualiza la variable local con la nueva URL de la imagen
+      });
+    }
+
 
   logout(): void {
     this.authService.logout();
