@@ -7,6 +7,10 @@
             <h1 class="Titulo">Modifica Tu Evento Comunitario</h1>
         </ng-template>
     </div>
+    <div *ngIf="errorOccurred" class="errorPeticion">
+        <img src="../../assets/img-buttons/Error.png" alt="Error" >
+        No fue posible modificar el evento debido a fallos en la información proporcionada
+      </div>
     <div class="Forms">
     <form (ngSubmit)="PutModifiedEvent()">
         <div class="TextForms">

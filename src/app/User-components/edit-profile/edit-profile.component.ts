@@ -40,7 +40,6 @@ export class EditProfileComponent {
       this.Editprofileservice.getImage(this.userData.imageUrl).subscribe((response: Blob) => {
         this.Imagen = new File([response], this.userData.imageUrl);
         this.handleImageUpload({ target: { files: [this.Imagen] } });
-        console.log(this.Imagen);
       });
     });
   }

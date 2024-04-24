@@ -8,7 +8,7 @@ export class ModifyEventServiceService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'http://localhost:8180/updatetevent'; 
+  private apiUrl = 'http://localhost:8180'; 
 
   
 
@@ -21,7 +21,7 @@ export class ModifyEventServiceService {
     formData.append('UpdateEvent',new Blob([JSON.stringify(UpdateEvent)], { type: 'application/json' }));
     formData.append('file', file);
 
-    const eventUrl = `${this.apiUrl}`;
+    const eventUrl = `${this.apiUrl}/updatetevent`;
     return this.http.put(eventUrl, formData, {headers: headers})
   }
   getImage(nombrearchivo:string): any {
