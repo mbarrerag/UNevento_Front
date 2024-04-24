@@ -18,6 +18,7 @@ import Swal from 'sweetalert2';
 export class ModalModifyEventComponent {
   @Input() data: any;
   @Output() closeModalModify = new EventEmitter<void>();
+  errorOccurred = false;
 
 
   onCloseModify(): void {
@@ -38,7 +39,7 @@ export class ModalModifyEventComponent {
 
 
   fechaValida: boolean = true; // Propiedad para controlar la validez de la fecha
-  imageSrc: string  = "";
+  imageSrc: string | ArrayBuffer | null = null;
 
   IdEvento: number = 0;
   Titulo: string = '';
@@ -76,9 +77,8 @@ export class ModalModifyEventComponent {
     this.Descripcion = this.data.descripcion;
     this.imageSrc = this.data.imageUrl;
     this.modifyEventService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
-      this.Imagen = new File([response], this.imageSrc);
+      this.Imagen = new File([response], this.data.imagenUrl);
       this.handleImageUpload({ target: { files: [this.Imagen] } });
-      console.log(this.Imagen);
     });
   }
 
@@ -117,10 +117,11 @@ export class ModalModifyEventComponent {
     console.log('Ejecutando Petición Modificación de Evento', modifiedEvent);
     this.modifyEventService.updateEvent(modifiedEvent, this.Imagen,this.IdUsuario, this.token).subscribe((response: any) => {
       console.log(response);
+      this.errorOccurred = false;
       this.onCloseModify();
       
     }, (error: any) => {
-      this.showErrorAlert('Error', 'No fue posible modificar el evento');
+      this.errorOccurred = true;
       console.error(error);
     });
   }
@@ -131,6 +132,7 @@ export class ModalModifyEventComponent {
       title: title,
       text: message,
       icon: 'error',
+      target:'body',
       confirmButtonText: 'Aceptar',
       // Other available icons: 'success', 'warning', 'info', 'question'
       // Example usage: icon: 'success'
