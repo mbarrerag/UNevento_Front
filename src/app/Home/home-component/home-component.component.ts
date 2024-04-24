@@ -18,7 +18,11 @@ import { CardBienestarComponent } from '../../commons/card-bienestar/card-bienes
   templateUrl: './home-component.component.html',
   styleUrl: './home-component.component.css'
 })
+
+
 export class HomeComponentComponent {
+
+
   title = 'UN-evento';
 
   onCategoryChange(event: Event) {
@@ -26,4 +30,9 @@ export class HomeComponentComponent {
     const category = target.value;
     console.log("Categoría seleccionada:", category);
   }
+
+
+
+
+  
 }
