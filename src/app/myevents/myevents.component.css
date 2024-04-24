@@ -1,22 +1,8 @@
-.background {
-    background: url(../../assets/img-home/Facultad\ de\ Enfermeria.JPG);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
+.contenedor{
+    background: url('../../assets/backgrounds/FondoConFigurasNegras.jpeg'); 
+    margin-bottom: 20px;
 }
 
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.container {
-    max-width: 1200px; /* Limitar el ancho del contenedor para que no se extienda demasiado */
-    margin: 0 auto; /* Centrar el contenedor en la pantalla */
-    padding: 0 15px; /* Añadir relleno a los lados del contenedor */
-}
 
 .cardsmiseventos {
     margin-top: 30px;
@@ -28,17 +14,14 @@
     padding: 0;
     display: flex;
     flex-wrap: wrap; /* Permitir que los elementos se envuelvan a una nueva línea cuando no haya suficiente espacio */
-    justify-content: space-between; /* Distribuir uniformemente los elementos en el contenedor */
+    justify-content: center; /* Distribuir uniformemente los elementos en el contenedor */
+    align-items: center;
+    gap: 5px;
 }
 
-.event-item {
-    width: calc(50% - 15px); /* Establecer el ancho de cada elemento al 50% del contenedor con un margen entre ellos */
-    margin-bottom: 30px;
-}
-
-/* Estilos para pantallas más pequeñas */
-@media screen and (max-width: 768px) {
-    .event-item {
-        width: 100%; /* En pantallas más pequeñas, cada evento ocupa todo el ancho del contenedor */
-    }
+.Titulo{
+    font-family: 'approach-black';
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 30px;
 }
