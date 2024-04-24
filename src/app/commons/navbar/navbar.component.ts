@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports:[CommonModule,RouterLink,RouterOutlet],
+  imports:[CommonModule,RouterLink,RouterOutlet, ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
@@ -20,6 +20,15 @@ export class NavbarComponent implements OnInit {
   imageUrl: string = '';
 
   constructor(private authService: AuthService) {}
+
+
+
+  isNavbarCollapsed = true;
+
+  toggleNavbar() {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+
 
   ngOnInit(): void {
       // Suscripción al BehaviorSubject de la imagen en el servicio AuthService
