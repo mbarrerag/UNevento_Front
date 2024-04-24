@@ -35,6 +35,8 @@ export class UserLoginComponent {
         localStorage.setItem('id', response.userId);
         localStorage.setItem('rol', response.rol);
         localStorage.setItem('foto', response.foto);
+        
+
 
         this.router.navigate(['/home']);
       },
