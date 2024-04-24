@@ -1,52 +1,33 @@
-
-<div class="nft">
-    <div class='main'>
-      <img class='tokenImage' src="{{this.eventImage}}" alt="NFT" />
-      <h2 class="card-title">{{data.nombre}}</h2>
-      <p *ngIf="data.facultad != 'No_Aplica'; else elseBlock" class="FacultyEvent">Evento de Facultad</p>
-        <ng-template #elseBlock>
-        <!-- Aquí va el contenido que se mostrará si data.facultad es igual a 'No_Aplica' -->
-        <p class="CommunityEvent">Evento de la Comunidad</p>
-        </ng-template>
-      <p class='card-description'><strong>Descripción del Evento:</strong> {{data.descripcion}}</p>
-      <div class='tokenInfo'>
-        <strong>Fecha:  </strong>{{data.fechaEvento.slice(0,10)}}
-        <strong>Hora:  </strong>{{data.hora}}
-        <br>
-        <strong>Lugar:  </strong>{{data.lugar}}
-        <br>
-        <p *ngIf="data.facultad != 'No_Aplica'"><strong>Facultad:</strong> {{this.Facultad}}</p>
-        <strong>Aforo:  </strong>{{data.capacidad}}
-        <br>
-        <strong>Categoría:  </strong>{{this.categoria}}
-        <br>
-      </div>
-      <hr />
-     <div class='actions'>
-        <button type="submit" class="btn-modificar-evento" (click)="onOpenModalModify()">Editar</button>
-        <button type="button" class="btn-eliminar" (click)="onOpenModalDelete()">Eliminar</button>
-    </div>
-    <img id="logo" src="../../assets/img-home/UNeventoBlanco.png" alt="LogoUNevento">
-  </div>
-  
-
-
-<!-- <div class="card">
-    <div class="card-header">
+<div class="ContenedorCard">
+    <div class="nft" >
+        <div class='main'>
+        <img class='tokenImage' src="{{this.eventImage}}" alt="NFT" />
+        <h2 class="card-title">{{data.nombre}}</h2>
+        <p *ngIf="data.facultad != 'No_Aplica'; else elseBlock" class="FacultyEvent">Evento de Facultad</p>
+            <ng-template #elseBlock>
+            <!-- Aquí va el contenido que se mostrará si data.facultad es igual a 'No_Aplica' -->
+            <p class="CommunityEvent">Evento de la Comunidad</p>
+            </ng-template>
+        <p class='card-description'><strong>Descripción del Evento:</strong> {{data.descripcion}}</p>
+        <div class='tokenInfo'>
+            <strong>Fecha:  </strong>{{data.fechaEvento.slice(0,10)}}
+            <strong>Hora:  </strong>{{data.hora}}
+            <br>
+            <strong>Lugar:  </strong>{{data.lugar}}
+            <br>
+            <p *ngIf="data.facultad != 'No_Aplica'"><strong>Facultad:</strong> {{this.Facultad}}</p>
+            <strong>Aforo:  </strong>{{data.capacidad}}
+            <br>
+            <strong>Categoría:  </strong>{{this.categoria}}
+            <br>
+        </div>
+        <hr />
+        <div class='actions'>
+            <button type="submit" class="btn-modificar-evento" (click)="onOpenModalModify()">Editar</button>
+            <button type="button" class="btn-eliminar" (click)="onOpenModalDelete()">Eliminar</button>
+        </div>
         <img id="logo" src="../../assets/img-home/UNeventoBlanco.png" alt="LogoUNevento">
-        <h2> {{data.nombre}} </h2>
-        <img (click)="onOpenModalDelete()" src="../../assets/img-myevents/eliminar(1).png" alt="Eliminar Evento" class="">
-        <img (click)="onOpenModalModify()" src="../../assets/img-myevents/boligrafo.png" alt="Modificar Evento" class="">
     </div>
-    <div class="card-content">
-        <p><strong>Fecha:</strong> {{data.fechaEvento.slice(0,10)}} </p>
-        <p><strong>Hora:</strong> {{data.hora}} </p>
-        <p><strong>Lugar:</strong> {{data.lugar}} </p>
-        <p *ngIf="data.facultad != 'No_Aplica'"><strong>Facultad:</strong> {{this.Facultad}} </p>
-        <p><strong>Categoría:</strong> {{this.categoria}} </p>
-        <p><strong>Aforo:</strong> {{data.capacidad}} </p>
-        <p><strong>Descripcion</strong> {{data.descripcion}} </p>
-    </div>
-</div> -->
-<app-modal-delete-event *ngIf ="showModalDelete==true"  (closeModalDelete)="onCloseModalDelete()"  [data]="data" ></app-modal-delete-event>
-<app-modal-modify-event *ngIf ="showModalModify==true"  (closeModalModify)="onCloseModalModify()"  [data]="data" ></app-modal-modify-event>
+    <app-modal-delete-event *ngIf ="showModalDelete==true"  (closeModalDelete)="onCloseModalDelete()"  [data]="data" ></app-modal-delete-event>
+    <app-modal-modify-event *ngIf ="showModalModify==true"  (closeModalModify)="onCloseModalModify()"  [data]="data" ></app-modal-modify-event>
+</div>

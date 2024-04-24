@@ -7,12 +7,13 @@ import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { FooterComponent } from '../commons/footer/footer.component'
 import { NgFor } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { GetUserInfoService } from './Services/get-user-info.service';
 
 @Component({
   selector: 'app-myevents',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, FooterComponent, NavbarComponent, CardMisEventosComponent,NgFor],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, FooterComponent, NavbarComponent, CardMisEventosComponent,NgFor,NgIf],
   templateUrl: './myevents.component.html',
   styleUrl: './myevents.component.css'
 })

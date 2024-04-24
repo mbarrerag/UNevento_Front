@@ -50,9 +50,7 @@ export class CardMisEventosComponent {
   showModalModify = false;
 
   onOpenModalModify(): void {
-    const modal = this.el.nativeElement.querySelector('.ModificarEvento');
-    this.renderer.appendChild(document.body, modal);
-    // Aquí va el resto de tu código para abrir el modal
+    this.showModalModify = true;
   }
 
   onCloseModalModify(): void {
