@@ -3,12 +3,13 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { NavbarComponent } from '../../../../commons/navbar/navbar.component';
+import { blob } from 'stream/consumers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8182'; 
+  private apiUrl = 'http://localhost:8180'; 
   private isAuthenticatedKey = 'isAuthenticated';
   private tokenKey = 'token'; 
   private idKey = 'id'; 
@@ -60,24 +61,14 @@ export class AuthService {
   
           const imageName = userInfoResponse.imageUrl.split('/').pop(); 
           const imageUrl = `${this.apiUrl}/images/${imageName}`; 
-  
-          // Llamar a la tercera solicitud usando el nombre de la imagen retornado
-          this.http.get<any>(imageUrl).subscribe(thirdRequestResponse => {
-            console.log('Tercera solicitud completada:', thirdRequestResponse);
-    
-          });
+
+          console.log("imagen:", imageUrl)
+          localStorage.setItem(this.imagekey, imageUrl);
+
         });
-
-
-
-
-        
-
 
       })
     );
-
-
     
   }
   
