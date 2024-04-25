@@ -33,7 +33,7 @@ export class CreateFacultyEventService {
     formData.append('file', emptyFile, 'empty.jpg'); */
 
 
-    const createFacEventUrl = `${this.apiUrl}/newevent`;//URL del endpoint para crear un nuevo evento
+    const createFacEventUrl = `${this.apiUrl}/neweventun`;//URL del endpoint para crear un nuevo evento
 
     
     return this.http.post(createFacEventUrl,formData,httpOptions);
