@@ -26,7 +26,6 @@
             <button type="submit" class="btn-modificar-evento" (click)="onOpenModalModify()">Editar</button>
             <button type="button" class="btn-eliminar" (click)="onOpenModalDelete()">Eliminar</button>
         </div>
-        <img id="logo" src="../../assets/img-home/UNeventoBlanco.png" alt="LogoUNevento">
     </div>
     <app-modal-delete-event *ngIf ="showModalDelete==true"  (closeModalDelete)="onCloseModalDelete()"  [data]="data" ></app-modal-delete-event>
     <app-modal-modify-event *ngIf ="showModalModify==true"  (closeModalModify)="onCloseModalModify()"  [data]="data" ></app-modal-modify-event>

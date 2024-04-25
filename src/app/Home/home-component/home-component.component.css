@@ -54,7 +54,7 @@ height: 100%;
     margin-top: 5%;
     margin: 3%;
     text-align: center;
-    font-family:"approach-italic";
+    font-family:"approach-regular";
 }
 
 .app-card-bienestar {
@@ -66,7 +66,7 @@ height: 100%;
   margin: 3%;
   font-size: 150%;
   text-align: center;
-  font-family:"approach-italic";
+  font-family:"approach-regular";
 
 }
 .card-events{
@@ -78,7 +78,7 @@ height: 100%;
 }
 .main-tittle{
     text-align: center;
-    font-family:"approach-italic";
+    font-family:"approach-regular";
     margin-top: 5%;
 }
 .contenedor-bienestar {
