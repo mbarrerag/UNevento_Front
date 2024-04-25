@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CreateComEventService {
-  private apiUrl = 'http://localhost:8180';
+  private apiUrl = 'https://uneventoback-production.up.railway.app';
   constructor(private http:HttpClient) {
 
    }

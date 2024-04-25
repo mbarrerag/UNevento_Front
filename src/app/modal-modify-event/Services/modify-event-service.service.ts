@@ -8,7 +8,7 @@ export class ModifyEventServiceService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'http://localhost:8180'; 
+  private apiUrl = 'https://uneventoback-production.up.railway.app'; 
 
   
 

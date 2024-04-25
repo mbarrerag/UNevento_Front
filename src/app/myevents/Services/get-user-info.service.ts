@@ -9,7 +9,7 @@ export class GetUserInfoService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'http://localhost:8180/getuserevents'; 
+  private apiUrl = 'https://uneventoback-production.up.railway.app/getuserevents'; 
 
 
   getUserEvents(userId: number, token: string): any {
