@@ -10,8 +10,11 @@
         </select>
         <button>Aplicar</button>
     </div> -->
-    <div class="wrap">
+    <div class="wrap" *ngIf="events && events.length > 0; else noEvents">
         <app-card-communityevents *ngFor="let event of events" [data]="event"></app-card-communityevents>
     </div>
+    <ng-template #noEvents>
+        <p class="MensajeVacio">Lastimosamente por el momento no contamos con eventos publicados en la plataforma que tengan fecha de realización superior a la actual.</p>
+    </ng-template>
 </div>
 <app-footer></app-footer>

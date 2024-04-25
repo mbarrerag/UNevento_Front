@@ -14,17 +14,22 @@ body {
   background: #232427;
 }
 
-.container {
+.Titulo{
+  font-family: 'approach-black';
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.contenedor {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1200px;
-  padding: 100px 0 50px;
-  margin-left: 17%;
+
 }
 
-.container .card {
+.contenedor .card {
   position: relative;
   min-width: 320px;
   height: 500px;
@@ -35,7 +40,7 @@ body {
   margin: 30px;
 }
 
-.container .card .box {
+.contenedor .card .box {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -51,17 +56,17 @@ body {
   transition: transform 0.4s, box-shadow 0.4s;
 }
 
-.container .card:hover .box {
+.contenedor .card:hover .box {
   transform: translateY(-50px);
   box-shadow: 0 40px 70px rgb(89, 255, 0);
 }
 
-.container .card .box .content {
+.contenedor .card .box .content {
   padding: 20px;
   text-align: center;
 }
 
-.container .card .box .content .icon {
+.contenedor .card .box .content .icon {
   position: relative;
   width: 80px;
   height: 80px;
@@ -74,47 +79,47 @@ body {
   margin-bottom: 10px;
 }
 
-.container .card .box .content .icon .fas {
+.contenedor .card .box .content .icon .fas {
   color: white;
   font-size: 2em;
 }
 
-.container .card .box .content h3 {
+.contenedor .card .box .content h3 {
   font-size: 1.8em;
   color: white;
   font-weight: 300;
 }
 
-.container .card .box .content h4 {
+.contenedor .card .box .content h4 {
   color: white;
   font-size: 3em;
   font-weight: 700;
 }
 
-.container .card .box .content h4 sup {
+.contenedor .card .box .content h4 sup {
   font-size: 0.75em;
   font-weight: 400;
 }
 
-.container .card .box .content ul {
+.contenedor .card .box .content ul {
   position: relative;
 }
 
-.container .card .box .content ul li {
+.contenedor .card .box .content ul li {
   list-style: none;
   color: white;
   margin: 5px 0;
 }
 
-.container .card .box .content ul li .fa-check {
+.contenedor .card .box .content ul li .fa-check {
   color: #0f0;
 }
 
-.container .card .box .content ul li .fa-times {
+.contenedor .card .box .content ul li .fa-times {
   color: #f00;
 }
 
-.container .card .box .content a {
+.contenedor .card .box .content a {
   position: relative;
   display: inline-block;
   padding: 8px 20px;
@@ -126,20 +131,20 @@ body {
   font-weight: 400;
 }
 
-.container .card:nth-child(1) .box .content a,
-.container .card:nth-child(1) .box .content .icon {
+.contenedor .card:nth-child(1) .box .content a,
+.contenedor .card:nth-child(1) .box .content .icon {
   background: #2196f3;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.container .card:nth-child(2) .box .content a,
-.container .card:nth-child(2) .box .content .icon {
+.contenedor .card:nth-child(2) .box .content a,
+.contenedor .card:nth-child(2) .box .content .icon {
   background: #e91e63;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.container .card:nth-child(3) .box .content a,
-.container .card:nth-child(3) .box .content .icon {
+.contenedor .card:nth-child(3) .box .content a,
+.contenedor .card:nth-child(3) .box .content .icon {
   background: #97dc47;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
@@ -179,26 +184,26 @@ body.light {
   background: #ebf5fc;
 }
 
-body.light .container .card {
+body.light .contenedor .card {
   box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.03),
     inset -10px -10px 15px rgba(255, 255, 255, 0.5),
     10px 10px 10px rgba(0, 0, 0, 0.03),
     -10px -10px 15px rgba(255, 255, 255, 0.5);
 }
 
-body.light .container .card .box {
+body.light .contenedor .card .box {
   background: #ebf5fc;
   border: none;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-body.light .container .card:hover .box {
+body.light .contenedor .card:hover .box {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-body.light .container .card .box .content h3,
-body.light .container .card .box .content h4,
-body.light .container .card .box .content ul li {
+body.light .contenedor .card .box .content h3,
+body.light .contenedor .card .box .content h4,
+body.light .contenedor .card .box .content ul li {
   color: #32a3b1;
 }
 .background{

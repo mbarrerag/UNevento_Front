@@ -6,7 +6,7 @@
 .profile-title {
     font-family: "approach-bold";
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
 }
 
 .profile-edit-info {
@@ -34,6 +34,10 @@
         text-align: center;
         align-self: center;
     }
+    .ButtonZone{
+        flex-direction: column;
+        gap: 0px;
+    }
 }
 
 .profile-edit-info:hover {
@@ -42,7 +46,7 @@
 
 .profile-subtitle {
     font-family: "approach-bold";
-    font-size: 30px;
+    font-size: 20px;
     text-align: left;
     align-self: flex-start;
     margin-bottom: 5px;
@@ -88,12 +92,11 @@
 
 .btn-save-profile {
     width: 200px;
-    height: 70px;
+    height: 50px;
     background-color: #a1cb0b;
     border: solid 0px;
     text-decoration: none;
     color: #fff;
-    margin: auto auto;
     border-radius: 5%;
     transition: transform 0.3s ease;
 }
@@ -102,9 +105,24 @@
     background-color: #8bae0e;
     transform: scale(1.1);
 }
+.btn-cancelar {
+    width: 100px;
+    height: 50px;
+    background-color: #cb2b0b;
+    border: solid 0px;
+    text-decoration: none;
+    color: #fff;
+    margin: auto auto;
+    border-radius: 5%;
+    transition: transform 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #ae0e0e;
+    transform: scale(1.1);
+}
 
 .button-editprofile-container {
-    margin-bottom: 30px;
     display: flex;
     padding-top: 30px;
     padding-bottom: 10px;
@@ -112,6 +130,13 @@
     height: 100%;
     justify-content: center;
     font-family: 'approach-regular';
+}
+
+.ButtonZone{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 a {

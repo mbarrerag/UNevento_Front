@@ -3,12 +3,13 @@ import { NavbarComponent } from '../commons/navbar/navbar.component';
 import { FooterComponent } from '../commons/footer/footer.component';
 import { CardCommunityeventsComponent } from '../card-communityevents/card-communityevents.component';
 import { NgFor } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { CommunityeventsService } from './Services/communityevents.service';
 
 @Component({
   selector: 'app-communityevents',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent,CardCommunityeventsComponent,NgFor],
+  imports: [NavbarComponent, FooterComponent,CardCommunityeventsComponent,NgFor,NgIf],
   templateUrl: './communityevents.component.html',
   styleUrl: './communityevents.component.css'
 })

@@ -18,3 +18,13 @@
     padding: 24px;
     flex-wrap: wrap;
   }
+
+.MensajeVacio{
+    text-align: center;
+    font-family: 'approach-regular';
+    margin-top: 30px;
+    font-size: 1.5rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.6;
+}

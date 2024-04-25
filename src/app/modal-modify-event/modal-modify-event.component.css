@@ -1,5 +1,5 @@
 .ModificarEvento {
-  position: fixed;
+  position: fixed !important;
   top: 20px;
   left: 20px;
   right: 20px;
@@ -41,8 +41,18 @@ h1{
 .Titulo{
   text-align: right;
   width: 100% !important;
+  font-size: 2rem;
 }
-
+.errorPeticion {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  gap: 5px;
+}
 form{
   font-family: 'approach-regular';
   display: flex;

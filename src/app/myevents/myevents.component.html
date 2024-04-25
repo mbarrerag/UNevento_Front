@@ -1,9 +1,9 @@
 <div>
     <app-navbar></app-navbar>
 </div>
-
-<div class="background">
-    <div class="container">
+<div class="contenedor">
+    <h1 class="Titulo">Mis Eventos</h1>
+    <div class="container" *ngIf="events && events.length > 0; else noEvents">
         <div class="cardsmiseventos">
             <ul class="events-list">
                 <li *ngFor="let event of events" class="event-item">
@@ -12,7 +12,12 @@
             </ul>
         </div>
     </div>
+    <ng-template #noEvents>
+        <p class="MensajeVacio">Hasta el Momento No Cuentas Con Eventos Creados en UNevento, te invitamos a que crees uno: <a routerLink="/createevent">Crear Un Evento</a></p>
+    </ng-template>
 </div>
+
+
 
 <div class="footer">
     <app-footer></app-footer>

@@ -1,53 +1,162 @@
-.card {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 95%;
-    background-image: url('../../assets/backgrounds/FondoconCirculo.jpeg');
-    font-family: 'approach-regular';
-    margin: 1% 1% 1% 1%;
-    float: left;
-}
-
-.card-header {
-    background-color: #000000;
-    color: #000;
-    padding: 15px;
+.FacultyEvent{
     text-align: center;
-    font-family: 'approach-bold';
-    float:inline-end;
-}
-
-#logo {
-    width: 20%;
-    cursor: none;
-    float: left;
-    text-align: left;
-}
-
-.card-content {
-    padding: 20px;
-}
-
-.card-content p {
-    margin: 0;
-}
-
-.card-header h2 {
-    display: flex;
+    background-color: #1f31be; /* Color de fondo */
+    border-radius: 20px; /* Borde redondeado */
     color: white;
-    position: absolute;
+}
+.CommunityEvent{
     text-align: center;
-    margin-left: 30%;    
+    background-color: #a1cb0b; /* Color de fondo */
+    border-radius: 20px; /* Borde redondeado */
 }
-
-.card-header img {
-    text-align: right;
-    vertical-align: middle;
-    float: right;
-    margin: 8px;
-}
-
-img {
+app-modal-delete-event, app-modal-modify-event {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* El resto de tus estilos van aquí */
+  }
+.btn-eliminar {
+    background-color: #cb210b;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
     cursor: pointer;
-}
+    border-radius: 4px;
+    width: 40%; /* Modificado para ocupar el 100% del contenedor */
+    height: auto;
+    font-family: 'approach-black';
+  }
+  
+  .btn-eliminar:hover {
+    background-color: #e63535;
+  }
+  .btn-modificar-evento {
+    background-color: #a1cb0b;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 40%; /* Modificado para ocupar el 100% del contenedor */
+    height: auto;
+    font-family: 'approach-black';
+  }
+
+  .btn-modificar-evento:hover {
+    background-color: #8fb209;
+  }
+  
+  .btn-modificar-evento:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(161, 203, 11, 0.5);
+  }
+
+.nft{
+    user-select: text;
+    font-family: 'approach-regular';
+    width:320px;
+    min-height:700px;
+    border: 1px solid #ffffff22;
+    background-color: #ffffff;
+    box-shadow: 0.5px 0.5px 15px 1px #8dcc00;
+    border-radius: .7rem;
+    z-index: 1000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    hr{
+      width: 100%;
+      border: none; 
+      border-bottom: 1px solid #88888855;
+      margin-top: 0;
+    }
+  .card-title{
+    font-family: 'approach-black';
+    font-size: 1.3rem;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  .card-item{
+    width: 100%;
+  }
+  
+    ins{
+      text-decoration: none;
+    }
+    .main{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 1rem;
+      .tokenImage{
+        border-radius: 5px;
+        max-width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+      .card-description{
+        margin: .5rem 0;
+        color: #a89ec9;
+        text-align: justify;
+        word-wrap: break-word;
+      }
+      .tokenInfo{
+        justify-content: space-between;
+        align-items: center;
+        .price{
+          display: flex;
+          align-items: center;
+          color: #000000;
+          font-weight: 700;
+          ins{
+            margin-left: -.3rem;
+            margin-right: .5rem;
+          }
+        }
+        .duration{
+          display: flex;
+          align-items: center;
+          color: #a89ec9;
+          margin-right: .2rem;
+          ins{
+            margin: .5rem;
+            margin-bottom: .4rem;
+          }
+        }
+      }
+      .actions{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: .2rem;
+        margin-bottom: -.3rem;
+        ins{
+          color: #a89ec9;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  
+  .bg{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h1{
+      font-size: 20rem;
+      filter: opacity(0.5);
+    }
+  
+  }
