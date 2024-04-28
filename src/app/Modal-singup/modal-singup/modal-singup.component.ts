@@ -39,6 +39,10 @@ export class ModalSingupComponent {
     if (sentCode === enteredCode) {
     
       this.createUser();
+
+
+
+      
     } else {
   
       Swal.fire({

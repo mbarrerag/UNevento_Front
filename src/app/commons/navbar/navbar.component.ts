@@ -20,9 +20,22 @@ export class NavbarComponent implements OnInit {
 
   constructor(private authService: AuthService, private sanitizer: DomSanitizer) {}
   ngOnInit(): void {
+<<<<<<< Updated upstream
     this.imgKey = localStorage.getItem('imgkey');
     console.log('Contenido de imgKey:', this.imgKey); 
+=======
+    this.imgKey = localStorage.getItem('imagekey');
+ 
+  
+  
+
+    console.log('imgKey:', this.imgKey);
+>>>>>>> Stashed changes
   }
+  
+
+
+
 
   isNavbarCollapsed = true;
   toggleNavbar() {
