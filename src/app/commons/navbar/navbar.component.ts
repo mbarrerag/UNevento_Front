@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   constructor(private authService: AuthService, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    this.imgKey = localStorage.getItem('imgkey'); 
+    this.imgKey = localStorage.getItem('imagekey'); 
   }
 
 
