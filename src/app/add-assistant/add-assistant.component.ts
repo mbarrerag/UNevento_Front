@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { GetParticularEventoService } from './Services/get-particular-evento.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-assistant',
@@ -24,22 +25,31 @@ export class AddAssistantComponent implements OnInit {
   tipoEvento: string = "Tipo de Evento";
   IdUsuario: number = parseInt(localStorage.getItem('id') || '0');
   token: string = localStorage.getItem('token') || '';
+  imageUrl: string = '';
+  eventImage: any = {};
 
-  constructor(private getParticularEventService: GetParticularEventoService) { }
+  constructor(private getParticularEventService: GetParticularEventoService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
 
-    this.getParticularEventService.getParticularEvent(this.IdUsuario, this.token, this.data.idEvento).subscribe(
+    this.getParticularEventService.getParticularEvent(this.IdUsuario, this.token, this.data.idEvento || 57).subscribe(
       (response: any) => {
-        this.nombreEvento = response.nombreEvento;
+        console.log(response)
+        this.nombreEvento = response.nombre;
         this.descripcion = response.descripcion;
         this.lugar = response.lugar;
-        this.categoria = response.categoria;
-        this.facultad = response.facultad;
-        this.fecha = response.fecha;
+        this.categoria = response.categoria.replace(/_/g,' ');
+        this.facultad = response.Facultad.replace(/_/g,' ');
+        this.fecha = (response.fechaEvento.split('T'))[0];
         this.hora = response.hora;
-        this.maxAsistentes = response.maxAsistentes;
-        this.tipoEvento = response.tipoEvento;
+        this.maxAsistentes = response.capacidad;
+        this.tipoEvento = response.tipo.replace(/_/g,' ');      
+        this.getParticularEventService.getImage(response.imageUrl).subscribe((image: Blob) => {
+          const objectUrl = URL.createObjectURL(image);
+          this.eventImage = objectUrl;
+        });
       }, () => {
         Swal.fire('Error',
           'Parece que este evento no está disponible',
@@ -50,6 +60,27 @@ export class AddAssistantComponent implements OnInit {
   }
 
   asistir(): void {
-
+    Swal.fire({
+      title: 'Confirmación Asistencia',
+      text: '¿Está seguro que asistirá a este evento?',
+      icon: 'info',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      showConfirmButton: true,
+      confirmButtonText: 'Confirmar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.getParticularEventService.assistEvent(this.IdUsuario, this.token, this.data.idEvento || 57).subscribe(
+          () => {
+            Swal.fire({
+              title: 'Confirmación Exitosa',
+              text: 'Se ha confirmado su asistencia a este evento',
+              icon: 'success'  
+            });
+            this.router.navigate(['/home'])
+          }
+        );
+      }
+    });
   }
 }

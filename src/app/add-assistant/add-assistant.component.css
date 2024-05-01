@@ -12,31 +12,34 @@
 }
 
 .container {
-    margin-top: 80px;
+    margin-top: 40px;
+    height: 100vh;
   }
   
-  .evento-info {
+  .row {
+    font-family: 'approach-regular';
     padding: 20px;
-    background-color: #f8f9fa;
     border-radius: 10px;
+    height: 80vh;
   }
   
-  .evento-info h2 {
-    color: #007bff;
+  h2 {
+    font-size: 60px;
+    font-family: 'approach-bold';
   }
   
-  .evento-info p {
+  p {
+    font-size: 25px;
+    line-height: 1.25;
     margin-bottom: 10px;
   }
   
-  .evento-img {
+  img {
     text-align: center;
-  }
-  
-  .evento-img img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    vertical-align: middle;
   }
   
   .btn-asistir {
