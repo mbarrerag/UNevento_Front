@@ -40,11 +40,14 @@ export class EditProfileComponent {
       this.Editprofileservice.getImage(this.userData.imageUrl).subscribe((response: Blob) => {
         this.Imagen = new File([response], this.userData.imageUrl);
         this.handleImageUpload({ target: { files: [this.Imagen] } });
-        console.log(this.Imagen);
       });
     });
   }
 
+  OnCancelar(){
+    this.router.navigate(['/profile']);
+  }
+  
   handleImageUpload(event: any): void {
     const file = event.target.files[0];//Acceder al archivo cargado por el usuario
     this.Imagen = file;

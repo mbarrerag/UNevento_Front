@@ -1,14 +1,16 @@
 <div class="ModificarEvento">
     <div class="Encabezado">
         <img src="../../assets/img-home/UNeventoBlanco.png" alt="LogoUNevento" class="Logo">
-        <div *ngIf="Facultad !== 'No_Aplica'; else otroCaso">
-            <h1 class="Titulo">Modifica Tu Evento de Facultad</h1>
-        </div>
+            <h1 class="Titulo" *ngIf="Facultad !== 'No_Aplica'; else otroCaso">Modifica Tu Evento de Facultad</h1>
         
         <ng-template #otroCaso>
             <h1 class="Titulo">Modifica Tu Evento Comunitario</h1>
         </ng-template>
     </div>
+    <div *ngIf="errorOccurred" class="errorPeticion">
+        <img src="../../assets/img-buttons/Error.png" alt="Error" >
+        No fue posible modificar el evento debido a fallos en la información proporcionada
+      </div>
     <div class="Forms">
     <form (ngSubmit)="PutModifiedEvent()">
         <div class="TextForms">
@@ -120,8 +122,9 @@
                     <img [src]="imageSrc" alt="Vista previa de la imagen" style="max-width: 100%;">
                 </div>
             </div>
-            <div style="align-items: center; display: flex; justify-content: center;">
-                <button type="submit" class="btn-crear-evento" [disabled]="!fechaValida">Modificar Evento</button>
+            <div class="btn-zone">
+                    <button type="submit" class="btn-modificar-evento" [disabled]="!fechaValida">Modificar Evento</button>
+                    <button type="button" class="btn-cancelar" (click)="onCancel()">Cancelar</button>
             </div>
         </div>
         

@@ -18,18 +18,28 @@ import Swal from 'sweetalert2';
 export class ModalModifyEventComponent {
   @Input() data: any;
   @Output() closeModalModify = new EventEmitter<void>();
+  errorOccurred = false;
 
 
   onCloseModify(): void {
     this.closeModalModify.emit();
     this.router.navigate(['/miseventos']);
-    location.reload();
+    this.showSuccessAlert('Evento Modificado', 'El evento ha sido modificado exitosamente')
+        .then((result) => {
+            if (result.isConfirmed) {
+                location.reload();
+            }
+        });
+  }
+
+  onCancel(){
+    this.closeModalModify.emit();
+    this.router.navigate(['/miseventos']);
   }
 
 
-
   fechaValida: boolean = true; // Propiedad para controlar la validez de la fecha
-  imageSrc: string  = "";
+  imageSrc: string | ArrayBuffer | null = null;
 
   IdEvento: number = 0;
   Titulo: string = '';
@@ -48,6 +58,7 @@ export class ModalModifyEventComponent {
     const file = event.target.files[0];//Acceder al archivo cargado por el usuario
     this.Imagen = file;
     const reader = new FileReader();//API que permite leer archivos
+    console.log(this.Imagen);
     reader.onload = (e) => {///Controlador que se activará cuando la carga se ha realizado
       this.imageSrc = e.target?.result as string || '';
     };
@@ -64,11 +75,10 @@ export class ModalModifyEventComponent {
     this.Aforo = this.data.capacidad;
     this.Categoria = this.data.categoria;
     this.Descripcion = this.data.descripcion;
-    this.imageSrc = this.data.imagenUrl;
+    this.imageSrc = this.data.imageUrl;
     this.modifyEventService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
-      this.Imagen = new File([response], this.imageSrc);
+      this.Imagen = new File([response], this.data.imagenUrl);
       this.handleImageUpload({ target: { files: [this.Imagen] } });
-      console.log(this.Imagen);
     });
   }
 
@@ -88,7 +98,9 @@ export class ModalModifyEventComponent {
   
   PutModifiedEvent(){
     
-    const formattedFechaEvento = this.Fecha.slice(0,10).split('/').join('-');
+    const fechaEvento = new Date(this.Fecha);
+    fechaEvento.setDate(fechaEvento.getDate() + 1);
+    const formattedFechaEvento = fechaEvento.toISOString().slice(0,10);
     
 
     let modifiedEvent = {
@@ -105,14 +117,13 @@ export class ModalModifyEventComponent {
     console.log('Ejecutando Petición Modificación de Evento', modifiedEvent);
     this.modifyEventService.updateEvent(modifiedEvent, this.Imagen,this.IdUsuario, this.token).subscribe((response: any) => {
       console.log(response);
-      this.showSuccessAlert('Evento Modificado', 'El evento ha sido modificado exitosamente');
-      this.router.navigate(['/miseventos']);
+      this.errorOccurred = false;
+      this.onCloseModify();
       
     }, (error: any) => {
-      this.showErrorAlert('Error', 'No fue posible modificar el evento');
+      this.errorOccurred = true;
       console.error(error);
     });
-    this.onCloseModify();
   }
   
 
@@ -121,13 +132,14 @@ export class ModalModifyEventComponent {
       title: title,
       text: message,
       icon: 'error',
+      target:'body',
       confirmButtonText: 'Aceptar',
       // Other available icons: 'success', 'warning', 'info', 'question'
       // Example usage: icon: 'success'
     });
   }
   private showSuccessAlert(title: string, message: string) {
-    Swal.fire({
+    return Swal.fire({
       title: title,
       text: message,
       icon: 'success',

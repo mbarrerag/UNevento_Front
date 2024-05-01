@@ -62,7 +62,9 @@ export class CreateCommunityEventsComponent {
     
     CreateComEvent(){
     
-      const formattedFechaEvento = this.Fecha.split('/').join('-');
+      const fechaEvento = new Date(this.Fecha);
+      fechaEvento.setDate(fechaEvento.getDate() + 1);
+      const formattedFechaEvento = fechaEvento.toISOString().slice(0,10);
   
       let newEvent = {
         userID: this.IdUsuario,

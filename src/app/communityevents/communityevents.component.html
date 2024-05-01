@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="community-events">
+    <h1 class="TituloComEvents">Eventos de la Comunidad</h1>
+
+    <!-- <div class="filter">
+        <select>
+            <option value="option1">Opción 1</option>
+            <option value="option2">Opción 2</option>
+            <option value="option3">Opción 3</option>
+        </select>
+        <button>Aplicar</button>
+    </div> -->
+    <div class="wrap" *ngIf="events && events.length > 0; else noEvents">
+        <app-card-communityevents *ngFor="let event of events" [data]="event"></app-card-communityevents>
+    </div>
+    <ng-template #noEvents>
+        <p class="MensajeVacio">Lastimosamente por el momento no contamos con eventos publicados en la plataforma que tengan fecha de realización superior a la actual.</p>
+    </ng-template>
+</div>
+<app-footer></app-footer>

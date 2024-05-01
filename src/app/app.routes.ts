@@ -6,6 +6,7 @@ import { UserLoginComponent } from './UserLogin/user-login/user-login.component'
 import { SingUpUserComponent } from './Singup/sing-up-user/sing-up-user.component';
 import { HomeComponentComponent } from './Home/home-component/home-component.component';
 import { MyeventsComponent } from './myevents/myevents.component'; 
+import { CommunityeventsComponent } from './communityevents/communityevents.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AboutUSComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './User-components/profile/profile.component';
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'login', component: UserLoginComponent }, 
   { path: 'home', component: HomeComponentComponent},
   { path: 'miseventos', component: MyeventsComponent },
+  { path: 'communityevents', component: CommunityeventsComponent },
   { path: 'home', component:HomeComponentComponent},
   { path: 'premium', component:PremiumComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},

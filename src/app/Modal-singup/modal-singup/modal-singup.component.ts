@@ -36,7 +36,7 @@ export class ModalSingupComponent {
     const enteredCode = parseInt(this.verificationCode); // Convert string to integer
   
     console.log(enteredCode, sentCode);
-    if (isNaN(sentCode) === isNaN(enteredCode)) {
+    if (sentCode === enteredCode) {
     
       this.createUser();
     } else {
@@ -58,6 +58,8 @@ export class ModalSingupComponent {
         });
         console.log('Usuario creado exitosamente:', response);
         this.router.navigate(['/login']);
+
+        this._matDialogRef.close();
       },
       error => {
         Swal.fire({
