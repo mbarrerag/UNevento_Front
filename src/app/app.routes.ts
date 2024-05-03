@@ -16,7 +16,7 @@ import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-co
 import {CreateEventsComponent} from './User-components/create-events/create-events.component';
 import { CreateFacultyEventsComponent } from './User-components/create-faculty-events/create-faculty-events.component';
 import { CreateCommunityEventsComponent } from './User-components/create-community-events/create-community-events.component';
-import { EventsComponent } from './events/events.component';
+import { AddAssistantComponent } from './add-assistant/add-assistant.component';
 
 
 export const routes: Routes = [
@@ -37,7 +37,7 @@ export const routes: Routes = [
   { path: 'createevent', component:CreateEventsComponent},
   { path: 'createfacultyevent', component:CreateFacultyEventsComponent},
   { path: 'createcommunityevent', component:CreateCommunityEventsComponent},
-   {path: 'events', component:EventsComponent},
+  { path: 'assist', component:AddAssistantComponent },
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
   { path: '**', component: NotFoundpageComponent } 
   // { path:'dashboard',
