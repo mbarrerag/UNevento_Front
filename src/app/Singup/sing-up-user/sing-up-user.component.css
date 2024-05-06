@@ -1,31 +1,42 @@
 
-.containerSingup {
+.containerbackground {
   height: 100vh;
   width: 100%;
   opacity: 1;
-  z-index: 2; /* Cambiado a 2 */
   background-image: url('../../../assets/img-singup/ciencias.JPG');
   background-size: cover; 
-  background-position: center; 
-  
+  background-position: center;
+  justify-content: center; 
+  display: flex;
 }
+.containerRegister{
+  width:40%;
+  min-height: auto;
+  border-radius: 10px; /* Ajusta este valor según tus necesidades */
+  background-color: white;
+  margin: 30px;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow: auto;
+  box-shadow: 0px 8px 15px rgba(44, 46, 42, 0.7);
+}
+@media screen and (max-width: 900px) {
+  .containerRegister {
+    width: 70%;
+  }
+}
+
 input{
   font-family: 'approach-regular';
+  border-radius: 5px;
+  border: solid 0.05px #9d9494;
+  padding-left: 5px;
 }
 label{
   font-family: 'approach-regular';
-  text-align: justify;
+  text-align: jus;
 }
 
-.fullWidthBackground {
-  position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-  
-} 
 
 .container-div{
   margin: auto auto;
@@ -37,13 +48,14 @@ label{
     text-align: center;
   }
   .logo-sing{
-    height: 150px;
-    width: 300px;
+    height: auto;
+    width: 50%;
   }
   .container-tittle-singUp{
     width: 50%;
    
 }
+
 
   .tittle-singUp{
     font-family: "approach-bold";
@@ -93,7 +105,7 @@ label{
 .input-field {
   margin: auto auto;
   margin-bottom: 20px;
-  width: 300px;
+  width: 80%;
   position: relative; 
 }
 
@@ -123,11 +135,23 @@ label{
   text-align: center;
     }
 
-.btn-aceptar{
-  background-color: #85d450;
-  color: #081f02;
+.btn-aceptar {
+  background-color: white;
+  color: #85d450;
+  width: auto;
+  border-radius: 5px;
+  border: 0.5px solid #9d9494;
+  transition: all 0.3s ease;
+  font-family: 'approach-bold';
+  padding: 10px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 5px;
+}
 
-  width: 200px;
+.btn-aceptar:hover {
+  background-color: #85d450;
+  color: white;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
 }
 .div-check{
   display: flex;
@@ -136,37 +160,6 @@ label{
 
 
 
-
-  @media screen and (max-width:1200px){
-  .tittle-singUp{
-       width: 100%;
-       margin: auto  auto;
-       justify-content: center;
-       text-align: center;
-       
-    }
-    .inputs-total,.input-field{
-      width: 100%;
-
-    }
-    .inputs-singUp{
- 
-      margin-top: 10%;
-    }
-
-    .inputs-total{
-      width: 100%;
-    }
-
-    .container-div{
-
-      width: 90%;
-    
-    }
-
-
-    
-  }
 
 
 
