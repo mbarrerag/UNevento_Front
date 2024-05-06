@@ -7,6 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { NavbarComponent } from '../../commons/navbar/navbar.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
 import { ProfileService } from './Services/profile.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -39,4 +40,66 @@ export class ProfileComponent {
     
   }
 
+
+  deleteUser():void{
+    Swal.fire({
+      title: '¿Estás seguro de que deseas eliminar tu cuenta?',
+      text: 'Esta acción no se puede deshacer y se perderán todos los datos asociados a tu cuenta.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const userID = parseInt(localStorage.getItem('id') || '0');
+        const token = localStorage.getItem('token') || '';
+        this.profileService.deleteUser(userID, token).subscribe((response: any) => {
+          console.log(response);
+          localStorage.clear();
+          Swal.fire({
+            title: 'Completado',
+            text: 'Usuario eliminado con éxito',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          }).then((result)=>{
+            if(result.isConfirmed){
+              window.location.href = '/';
+            }
+          });
+        });
+      }
+    });
+  }
+
+  private showErrorAlert(title: string, message: string) {
+    Swal.fire({
+      title: title,
+      text: message,
+      icon: 'error',
+      confirmButtonText: 'Aceptar',
+      // Other available icons: 'success', 'warning', 'info', 'question'
+      // Example usage: icon: 'success'
+    });
+  }
+  private showSuccessAlert(title: string, message: string) {
+    Swal.fire({
+      title: title,
+      text: message,
+      icon: 'success',
+      confirmButtonText: 'Aceptar',
+      // Other available icons: 'success', 'warning', 'info', 'question'
+      // Example usage: icon: 'success'
+    });
+  }
+
+  private showWarningAlert(title: string, message: string) {
+    Swal.fire({
+      title: title,
+      text: message,
+      icon: 'warning',
+      confirmButtonText: 'Aceptar',
+    });
+}
 }

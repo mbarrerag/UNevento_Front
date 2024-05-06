@@ -1,14 +1,20 @@
 
 .containerSingup {
   height: 100vh;
-  position: absolute;
   width: 100%;
   opacity: 1;
   z-index: 2; /* Cambiado a 2 */
   background-image: url('../../../assets/img-singup/ciencias.JPG');
   background-size: cover; 
   background-position: center; 
-
+  
+}
+input{
+  font-family: 'approach-regular';
+}
+label{
+  font-family: 'approach-regular';
+  text-align: justify;
 }
 
 .fullWidthBackground {

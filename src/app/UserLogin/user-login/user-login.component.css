@@ -4,6 +4,10 @@
 	color: #000000;
 } 
 
+input{
+    font-family: 'approach-regular';
+}
+
 /* Login styles */
 .containerLog {
     background-image: url('../../../assets/img-login/n.jpg');
