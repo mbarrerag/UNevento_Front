@@ -3,13 +3,18 @@
 </div>
 <div class="contenedor">
     <h1 class="Titulo">Mis Eventos</h1>
-    <div class="container" *ngIf="events && events.length > 0; else noEvents">
+    <div class="container" *ngIf="events && events.content.length > 0; else noEvents">
         <div class="cardsmiseventos">
             <ul class="events-list">
-                <li *ngFor="let event of events" class="event-item">
+                <li *ngFor="let event of events.content" class="event-item">
                     <app-card-mis-eventos [data]="event"></app-card-mis-eventos>
                 </li>
             </ul>
+        </div>
+        <div class="pagination">
+            <button class="PreviousButton" (click)="prevPage()" [disabled]="events.number === 0">< Anterior</button>
+            <span>Página {{events.number + 1}} de {{events.totalPages}}</span>
+            <button class="NextButton" (click)="nextPage()" [disabled]="events.number + 1 === events.totalPages">Siguiente ></button>
         </div>
     </div>
     <ng-template #noEvents>
@@ -17,12 +22,8 @@
     </ng-template>
 </div>
 
-
-
 <div class="footer">
     <app-footer></app-footer>
 </div>
 
 <div>
-    <router-outlet></router-outlet>
-</div>
