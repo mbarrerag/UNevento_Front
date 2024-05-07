@@ -35,7 +35,7 @@ export class MyeventsComponent implements OnInit {
     const userId = parseInt(localStorage.getItem('id') || '0');
     const token = localStorage.getItem('token') || '';
 
-    this.loadPage(this.currentPage);
+    this.loadPage(this.currentPage);//Cargar la Página 0
   }
   
   loadPage(page: number) {
@@ -49,14 +49,14 @@ export class MyeventsComponent implements OnInit {
     );
   }
 
-  prevPage() {
+  prevPage() {//Retroceder a la Anterior Página de los eventos
     if (this.currentPage > 0) {
       this.currentPage--;
       this.loadPage(this.currentPage);
     }
   }
 
-  nextPage() {
+  nextPage() {//Retroceder a la Anterior Página de los eventos
     if (this.currentPage < this.events.totalPages - 1) {
       this.currentPage++;
       this.loadPage(this.currentPage);

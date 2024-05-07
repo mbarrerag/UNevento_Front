@@ -10,11 +10,16 @@
         </select>
         <button>Aplicar</button>
     </div> -->
-    <div class="wrap" *ngIf="events && events.length > 0; else noEvents">
-        <app-card-communityevents *ngFor="let event of events" [data]="event"></app-card-communityevents>
+    <div class="wrap" *ngIf="events && events.content.length > 0; else noEvents">
+        <app-card-communityevents *ngFor="let event of events.content" [data]="event"></app-card-communityevents>
     </div>
     <ng-template #noEvents>
         <p class="MensajeVacio">Lastimosamente por el momento no contamos con eventos publicados en la plataforma que tengan fecha de realización superior a la actual.</p>
     </ng-template>
+    <div class="pagination">
+        <button class="PreviousButton" (click)="prevPage()" [disabled]="events.number === 0">< Anterior</button>
+        <span>Página {{events.number + 1}} de {{events.totalPages}}</span>
+        <button class="NextButton" (click)="nextPage()" [disabled]="events.number + 1 === events.totalPages">Siguiente ></button>
+    </div>
 </div>
 <app-footer></app-footer>
