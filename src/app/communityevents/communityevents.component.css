@@ -28,3 +28,47 @@
     margin-right: 20px;
     line-height: 1.6;
 }
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 5px;
+    font-family: 'approach-regular';
+    margin-bottom: 10px;
+}
+.PreviousButton {
+    background-color: #0b28cb;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    height: auto;
+    font-family: 'approach-black';
+  }
+  
+.PreviousButton:hover {
+    background-color: #868282;
+    color: black;
+}
+.NextButton {
+    background-color: #a1cb0b;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    height: auto;
+    font-family: 'approach-black';
+  }
+  
+.NextButton:hover {
+    background-color: #a7a3a3;
+    color: black;
+}

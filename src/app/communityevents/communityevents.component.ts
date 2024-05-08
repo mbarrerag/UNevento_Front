@@ -4,7 +4,7 @@ import { FooterComponent } from '../commons/footer/footer.component';
 import { CardCommunityeventsComponent } from '../card-communityevents/card-communityevents.component';
 import { NgFor } from '@angular/common';
 import { NgIf } from '@angular/common';
-import { CommunityeventsService } from './Services/communityevents.service';
+import { CommunityeventsService, Page } from './Services/communityevents.service';
 
 @Component({
   selector: 'app-communityevents',
@@ -15,18 +15,49 @@ import { CommunityeventsService } from './Services/communityevents.service';
 })
 export class CommunityeventsComponent {
 
-  constructor(private communityeventsService: CommunityeventsService) { }
+  constructor(private communityeventsService: CommunityeventsService) { 
+    this.events = {} as Page<any>;
+    this.userId = parseInt(localStorage.getItem('id') || '0');
+    this.token = localStorage.getItem('token') || '';
+  }
 
-  events: any = [];
+  result: any;
+  userId: number;
+  token: string;
+
+  events: Page<any>;//Manejar las Páginas de los eventos, de 10 en 10
+  currentPage: number = 0;//Identificador de la página Actual de los Eventos
+
 
   ngOnInit(): void {
     const userID = parseInt(localStorage.getItem('id') || '0');
     const token = localStorage.getItem('token') || '';
 
-    this.communityeventsService.getCommunityEvents(userID, token).subscribe((response: any) => {
-      this.events = response.content;
-      console.log(this.events);
-    });
-  
+    this.loadPage(this.currentPage);//Cargar la Página 0
+  }
+
+  loadPage(page: number) {
+    this.communityeventsService.getCommunityEvents(this.userId, this.token, page).subscribe(
+      data => {
+        this.events = data;
+      },
+      error => {
+        console.error('Error:', error);
+      }
+    );
+  }
+
+  prevPage() {//Retroceder a la Anterior Página de los eventos
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.loadPage(this.currentPage);
+    }
+  }
+
+  nextPage() {//Avanzar a la siguiente página de los eventos
+    if (this.currentPage < this.events.totalPages - 1) {
+      this.currentPage++;
+      this.loadPage(this.currentPage);
+    }
   }
 }

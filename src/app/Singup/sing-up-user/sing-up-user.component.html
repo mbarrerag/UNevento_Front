@@ -1,58 +1,49 @@
 <div class="containerbackground">
-  <div class="fullWidthBackground">
-      <div class="containerSingup">
-       
-              <div class="container-div card">
-                  <div class="inputs-singUp">
-
+    <div class="containerRegister">
+            <div class="container-logo-sing">
+                <img src="../../../assets/img-home/UNeventoBlanco.png" alt="" class="logo-sing">
+            </div>
+            <div class="contaner-tittle-singUp">
+                <h2 class="tittle-singUp">Ingresa tus datos</h2>
+            </div>
+            <div class="text-welcome">
+                Bienvenido a UNevento, por favor ingresa la siguiente información para crear tu cuenta y acceder a los distintos servicios de la plataforma.
+            </div>
+            <div class="inputs-total">
+                <form (ngSubmit)="submitForm()">
+                    <div class="input-field">
+                        <input placeholder="Nombre" class="input-name input-global" name="nombre" type="text" required [(ngModel)]="userData.nombre">
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="Apellido" class="input-lastname input-global" name="apellido" type="text" required [(ngModel)]="userData.apellido">
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="Correo electrónico" class="input-email input-global" name="correo" type="email" required [(ngModel)]="userData.correo">
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="Contraseña" class="input-password input-global" name="contrasena" pattern="(?=.*[a-z])(?=.*[A-Z]).*" [type]="showPassword ? 'text' : 'password'" required [(ngModel)]="userData.contrasena">
+                        <span class="password-toggle" (click)="togglePasswordVisibility2()">
+                            <i class="fa fa-eye" [class.fa-eye-slash]="!showPassword"></i>
+                        </span>
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="Confirmar Contraseña" class="input-confirmPassword input-global" name="confirmPassword" pattern="(?=.*[a-z])(?=.*[A-Z]).*" [type]="showConfirmPassword ? 'text' : 'password'" required [(ngModel)]="confirmPassword">
+                        <span class="password-toggle" (click)="togglePasswordVisibility()">
+                            <i class="fa fa-eye" [class.fa-eye-slash]="!showConfirmPassword"></i>
+                        </span>
+                    </div>
+                    <div class="input-field div-check">
+                        <input type="checkbox" id="termsCheckbox" name="check" required [(ngModel)]="acceptTerms">
+                        <label for="termsCheckbox" class="terminos-condiciones">Para crear una cuenta debes aceptar los términos del servicio y <a href="/termsofservice" target="_blank">las políticas de manejo de datos</a></label>
+                    </div>
+                    <div class="container-btn">
                     
-                      <div class="container-logo-sing">
-                          <img src="../../../assets/img-home/UNeventoBlanco.png" alt="" class="logo-sing">
-                      </div>
-                      <div class="contaner-tittle-singUp">
-                          <h2 class="tittle-singUp">Ingresa tus datos</h2>
-                      </div>
-                      <div class="inputs-total">
-                          <form (ngSubmit)="submitForm()">
-                              <div class="input-field">
-                                  <input placeholder="Nombre" class="input-name input-global" name="nombre" type="text" required [(ngModel)]="userData.nombre">
-                              </div>
-                              <div class="input-field">
-                                  <input placeholder="Apellido" class="input-lastname input-global" name="apellido" type="text" required [(ngModel)]="userData.apellido">
-                              </div>
-                              <div class="input-field">
-                                  <input placeholder="Correo electrónico" class="input-email input-global" name="correo" type="email" required [(ngModel)]="userData.correo">
-                              </div>
-                              <div class="input-field">
-                                  <input placeholder="Contraseña" class="input-password input-global" name="contrasena" pattern="(?=.*[a-z])(?=.*[A-Z]).*" [type]="showPassword ? 'text' : 'password'" required [(ngModel)]="userData.contrasena">
-                                  <span class="password-toggle" (click)="togglePasswordVisibility2()">
-                                      <i class="fa fa-eye" [class.fa-eye-slash]="!showPassword"></i>
-                                  </span>
-                              </div>
-                              <div class="input-field">
-                                  <input placeholder="Confirmar Contraseña" class="input-confirmPassword input-global" name="confirmPassword" pattern="(?=.*[a-z])(?=.*[A-Z]).*" [type]="showConfirmPassword ? 'text' : 'password'" required [(ngModel)]="confirmPassword">
-                                  <span class="password-toggle" (click)="togglePasswordVisibility()">
-                                      <i class="fa fa-eye" [class.fa-eye-slash]="!showConfirmPassword"></i>
-                                  </span>
-                              </div>
-                              <div class="input-field div-check">
-                                  <input type="checkbox" id="termsCheckbox" name="check" required [(ngModel)]="acceptTerms">
-                                  <label for="termsCheckbox" class="terminos-condiciones">Para crear una cuenta debes aceptar los términos del servicio y <a href="/termsofservice" target="_blank">las políticas de manejo de datos</a></label>
-                              </div>
-                              <div class="container-btn">
-                                 
-                                  
-                                <button mat-raised-button  class="btn-aceptar" type="submit" routerLink="/home"  >Crear cuenta</button>
-                           
-                              </div>
+                        
+                    <button class="btn-aceptar" type="submit" routerLink="/home"  >Crear cuenta</button>
+                
+                    </div>
 
-                          </form>
-                          
-                          <br/>
-                      </div>
-                  </div>
-             
-          </div>
-      </div>
-  </div>
+                </form>
+            </div>
+    </div>
 </div>

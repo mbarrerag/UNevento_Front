@@ -8,7 +8,7 @@ import { RouterLinkActive } from '@angular/router';
 import { FooterComponent } from '../commons/footer/footer.component'
 import { NgFor } from '@angular/common';
 import { NgIf } from '@angular/common';
-import { GetUserInfoService } from './Services/get-user-info.service';
+import { GetUserInfoService, Page } from './Services/get-user-info.service';
 
 @Component({
   selector: 'app-myevents',
@@ -19,18 +19,47 @@ import { GetUserInfoService } from './Services/get-user-info.service';
 })
 export class MyeventsComponent implements OnInit {
   
-  constructor(private getUserInfoService: GetUserInfoService) {}
+  constructor(private getUserInfoService: GetUserInfoService) {
+    this.events = {} as Page<any>;
+    this.userId = parseInt(localStorage.getItem('id') || '0');
+    this.token = localStorage.getItem('token') || '';
+  }
   result: any;
-  events = [];
+  userId: number;
+  token: string;
+
+  events: Page<any>;//Manejar las Páginas de los eventos, de 10 en 10
+  currentPage: number = 0;//Identificador de la página Actual de los Eventos
 
   ngOnInit(): void {
     const userId = parseInt(localStorage.getItem('id') || '0');
     const token = localStorage.getItem('token') || '';
 
+    this.loadPage(this.currentPage);//Cargar la Página 0
+  }
+  
+  loadPage(page: number) {
+    this.getUserInfoService.getUserEvents(this.userId, this.token, page).subscribe(
+      data => {
+        this.events = data;
+      },
+      error => {
+        console.error('Error:', error);
+      }
+    );
+  }
 
-    this.getUserInfoService.getUserEvents(userId, token).subscribe((response: any) => {
-      this.events = response.content;
-      console.log(this.events);
-    });
+  prevPage() {//Retroceder a la Anterior Página de los eventos
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.loadPage(this.currentPage);
+    }
+  }
+
+  nextPage() {//Retroceder a la Anterior Página de los eventos
+    if (this.currentPage < this.events.totalPages - 1) {
+      this.currentPage++;
+      this.loadPage(this.currentPage);
+    }
   }
 }
