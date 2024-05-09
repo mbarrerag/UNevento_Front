@@ -19,15 +19,6 @@
     flex-wrap: wrap;
   }
 
-.MensajeVacio{
-    text-align: center;
-    font-family: 'approach-regular';
-    margin-top: 30px;
-    font-size: 1.5rem;
-    margin-left: 20px;
-    margin-right: 20px;
-    line-height: 1.6;
-}
 .pagination{
     display: flex;
     justify-content: center;
@@ -71,4 +62,77 @@
 .NextButton:hover {
     background-color: #a7a3a3;
     color: black;
+}
+
+
+.filter-categoria {
+    height: 35px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #333;
+    background-color: #f8f8f8;
+    font-family: 'approach-regular';
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.filter-categoria:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px #007BFF;
+}
+
+
+.filter{
+    margin-left: 24px;
+    margin-right: 24px;
+    font-family: 'approach-regular';
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.NoContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.ImageNoContent img{
+    max-width: 100%;
+    height: auto;
+    flex: 0 0 auto;
+}
+
+.ImageNoContent{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.MensajeVacio{
+    text-align: center;
+    font-family: 'approach-regular';
+    margin-top: 30px;
+    font-size: 1.5rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.TextNoContent{
+    width: 80%;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    border: none;
+    text-align: center;
 }
