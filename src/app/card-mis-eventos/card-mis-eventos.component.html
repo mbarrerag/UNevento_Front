@@ -1,4 +1,3 @@
-<div class="ContenedorCard">
     <div class="nft" >
         <div class='main'>
         <img class='tokenImage' src="{{this.eventImage}}" alt="NFT" />
@@ -29,4 +28,3 @@
     </div>
     <app-modal-delete-event *ngIf ="showModalDelete==true"  (closeModalDelete)="onCloseModalDelete()"  [data]="data" ></app-modal-delete-event>
     <app-modal-modify-event *ngIf ="showModalModify==true"  (closeModalModify)="onCloseModalModify()"  [data]="data" ></app-modal-modify-event>
-</div>
