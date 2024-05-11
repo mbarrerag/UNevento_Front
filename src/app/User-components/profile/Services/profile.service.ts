@@ -26,4 +26,12 @@ export class ProfileService {
     return this.http.get(getUserDataUrl, { responseType: 'blob' });
   }
 
+
+  deleteUser(userID:number,token:string):any{
+    const deleteUserUrl = `${this.apiUrl}/deletedUser/${userID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `${userID}, ${token}`,
+    });
+    return this.http.delete(deleteUserUrl, {headers: headers});
+  }
 }

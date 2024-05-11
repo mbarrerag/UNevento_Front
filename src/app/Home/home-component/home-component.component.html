@@ -6,15 +6,6 @@
     Your browser does not support the video tag.
 </video>
 
-
-
-
-
-
-
-
-
-
     <div class="contenido">
         <img src="../../../assets/img-home/UNeventoBlanco.png" alt="" class="superpuesta">
     </div>
@@ -24,7 +15,7 @@
 <h1 class="facultad-tittle">Eventos por Facultad y/o Auditorio </h1>
 <p class="explanation">Seleccione algunas de las siguientes opciones para consultar los eventos disponibles:</p>
 <div class="container-cards-facultad">
-<app-card-faculties></app-card-faculties>
+  <app-card-faculties (facultySelected)="handleFacultySelection($event)"></app-card-faculties>
 </div>
 <div class="contenedor-bienestar">
   <p>Bienestar</p>
@@ -36,16 +27,10 @@
 
 <div class="container cards-eventos">
   <div class="row row-cols-1 row-cols-md-3 gx-5 gy-5"> <!-- Ajuste de gx-5 y gy-5 -->
-    <div class="col">
-      <app-card-event></app-card-event>
-    </div>
-    <div class="col">
-      <app-card-event></app-card-event>
-    </div>
-    <div class="col">
-      <app-card-event></app-card-event>
-    </div>
-
+    <div class="wrap">
+      <app-card-event *ngFor="let event of events.content" [data]="event"></app-card-event>
+  </div>
+ 
   </div>
 </div>
 </div>

@@ -1,20 +1,63 @@
 <app-navbar></app-navbar>
 <div class="community-events">
     <h1 class="TituloComEvents">Eventos de la Comunidad</h1>
-
-    <!-- <div class="filter">
-        <select>
-            <option value="option1">Opción 1</option>
-            <option value="option2">Opción 2</option>
-            <option value="option3">Opción 3</option>
-        </select>
-        <button>Aplicar</button>
-    </div> -->
-    <div class="wrap" *ngIf="events && events.length > 0; else noEvents">
-        <app-card-communityevents *ngFor="let event of events" [data]="event"></app-card-communityevents>
+        
+    <div *ngIf="(events?.content?.length ?? 0) > 0; else noEvents">
+        <div class="filter">
+            Filtra los eventos por categoría:
+            <select id="filter-categoria" class="filter-categoria" [(ngModel)]="OptionFilterCategoria">
+                <option value=""></option>        
+                <option value="Actvidad_Cultural">Actividad Cultural</option>
+                <option value="Actividad_Deportiva">Actividad Deportiva</option>
+                <option value="Actividad_LudicoCreativa">Actividad Lúdico-Creativa</option>
+                <option value="Actividad_Departamento">Actividad de Departamento</option>
+                <option value="Asamblea">Asamblea</option>
+                <option value="Charla">Charla</option>
+                <option value="Concierto">Concierto</option>
+                <option value="Congreso">Congreso</option>
+                <option value="Conferencia">Conferencia</option>
+                <option value="Curso">Curso</option>
+                <option value="Debate">Debate</option>
+                <option value="Espectaculo_de_danzas_o_teatro">Espectáculo de danzas o teatro</option>
+                <option value="Introduccion">Introduccion</option>
+                <option value="Networking">Networking</option>
+                <option value="Proyeccion_de_peliculas">Proyección de películas</option>
+                <option value="Religioso_y_Espiritual">Religioso y Espiritual</option>
+                <option value="Seminario">Seminario</option>
+                <option value="Taller">Taller</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+        <div *ngIf="OptionFilterCategoria === ''; else EventsFilter">
+            <ng-container *ngIf="events && events.content.length > 0; else noEvents">
+                <div class="wrap">
+                    <app-card-communityevents *ngFor="let event of events.content" [data]="event"></app-card-communityevents>
+                </div>
+            </ng-container>
+            
+        </div>
+        <ng-template #EventsFilter>
+            <div class="wrap">
+                <ng-container *ngFor="let event of events.content">
+                    <app-card-communityevents [data]="event" *ngIf="event.categoria === OptionFilterCategoria"></app-card-communityevents>
+                </ng-container>
+            </div>
+        </ng-template>
+        <div class="pagination">
+            <button class="PreviousButton" (click)="prevPage()" [disabled]="events.number === 0">< Anterior</button>
+            <span>Página {{events.number + 1}} de {{events.totalPages}}</span>
+            <button class="NextButton" (click)="nextPage()" [disabled]="events.number + 1 === events.totalPages">Siguiente ></button>
+        </div>
     </div>
     <ng-template #noEvents>
-        <p class="MensajeVacio">Lastimosamente por el momento no contamos con eventos publicados en la plataforma que tengan fecha de realización superior a la actual.</p>
+        <div class="NoContent">
+            <div class="TextNoContent">
+                <p class="MensajeVacio">Lastimosamente por el momento no contamos con eventos publicados en la plataforma que tengan fecha de realización superior a la actual.</p>
+            </div>
+            <div class="ImageNoContent">
+                <img src="../../assets/backgrounds/AdvertenciaPagina.png">
+            </div>
+        </div>
     </ng-template>
 </div>
 <app-footer></app-footer>
