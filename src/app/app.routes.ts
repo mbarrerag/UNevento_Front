@@ -17,6 +17,7 @@ import {CreateEventsComponent} from './User-components/create-events/create-even
 import { CreateFacultyEventsComponent } from './User-components/create-faculty-events/create-faculty-events.component';
 import { CreateCommunityEventsComponent } from './User-components/create-community-events/create-community-events.component';
 import { EventsComponent } from './events/events.component';
+import { AuthGuard } from './commons/Security/AuthGuard';
 
 
 export const routes: Routes = [
@@ -24,27 +25,26 @@ export const routes: Routes = [
 
   { path: 'singup', component: SingUpUserComponent }, 
   { path: 'login', component: UserLoginComponent }, 
-  { path: 'home', component: HomeComponentComponent},
-  { path: 'miseventos', component: MyeventsComponent },
+  { path: 'home', component: HomeComponentComponent},  
   { path: 'communityevents', component: CommunityeventsComponent },
   { path: 'home', component:HomeComponentComponent},
-  { path: 'premium', component:PremiumComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},
   { path: 'aboutus', component:AboutUSComponent },
-  { path: 'profile', component:ProfileComponent},
-  { path: 'editprofile', component:EditProfileComponent},
-  { path: 'termsofservice', component:TermsAndConditionsComponent },
-  { path: 'createevent', component:CreateEventsComponent},
-  { path: 'createfacultyevent', component:CreateFacultyEventsComponent},
-  { path: 'createcommunityevent', component:CreateCommunityEventsComponent},
-   {path: 'events', component:EventsComponent},
+
+  { path: 'premium', component: PremiumComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
+  { path: 'termsofservice', component: TermsAndConditionsComponent, canActivate: [AuthGuard] },
+  { path: 'createevent', component: CreateEventsComponent, canActivate: [AuthGuard] },
+  { path: 'createfacultyevent', component: CreateFacultyEventsComponent, canActivate: [AuthGuard] },
+  { path: 'createcommunityevent', component: CreateCommunityEventsComponent, canActivate: [AuthGuard] },
+  { path: 'events', component: EventsComponent, canActivate: [AuthGuard] },
+  { path: 'miseventos', component: MyeventsComponent, canActivate: [AuthGuard] },
+
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
+  
   { path: '**', component: NotFoundpageComponent } 
-  // { path:'dashboard',
-  //   loadComponent: () => import(),
-  //   children:[
-  //   ]
-  // },
+
 
 
 
