@@ -43,6 +43,7 @@ export class CommunityeventsComponent {
     this.communityeventsService.getCommunityEvents(this.userId, this.token, page).subscribe(
       data => {
         this.events = data;
+        console.log(data);
       },
       error => {
         console.error('Error:', error);

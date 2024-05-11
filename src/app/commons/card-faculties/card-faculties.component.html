@@ -1,5 +1,5 @@
 <div class="l-container">
-  <div class="b-game-card">
+  <div class="b-game-card" (click)="selectFaculty('Facultad_De_Ingenieria')">
     <div class="b-game-card__cover">
       <img class="image-facultad" src="../../../assets/img-home/Viejo.jpg" alt="Facultad de Humanas">
       <div class="card-body">
@@ -7,7 +7,8 @@
       </div>
     </div>
   </div>
-  <div class="b-game-card">
+  
+  <div class="b-game-card" (click)="selectFaculty('Facultad_De_Ciencias')">
     <div class="b-game-card__cover">
       <img class="image-facultad" src="../../../assets/img-home/FacultadCiencias.JPG" alt="Facultad de Humanas">
       <div class="card-body">
@@ -15,25 +16,26 @@
       </div>
     </div>
   </div>
-  <div class="b-game-card">
+  
+  <div class="b-game-card" (click)="selectFaculty('Facultad_De_Ciencias_Humanas')">
     <div class="b-game-card__cover">
-
       <img class="image-facultad" src="../../../assets/img-home/Facultad Humanas.JPG" alt="Facultad de Humanas">
       <div class="card-body">
         <h4 class="title-card">CIENCIAS HUMANAS</h4>
       </div>
     </div>
   </div>
-  <div class="b-game-card">
+  
+  <div class="b-game-card" (click)="selectFaculty('Facultad_De_Ciencias_Economicas')">
     <div class="b-game-card__cover">
-
       <img class="image-facultad" src="../../../assets/img-home/economicas.jpg" alt="Facultad de Humanas">
       <div class="card-body">
         <h4 class="title-card">CIENCIAS ECONOMICAS</h4>
       </div>
     </div>
   </div>
-  <div class="b-game-card">
+  
+  <div class="b-game-card" (click)="selectFaculty('Facultad_De_Ciencias_Agrarias')">
     <div class="b-game-card__cover">
       <img class="image-facultad" src="../../../assets/img-home/Facultad Agraria.JPG" alt="Facultad de Humanas">
       <div class="card-body">
@@ -41,7 +43,8 @@
       </div>
     </div>
   </div>
-  <div class="b-game-card">
+  
+  <div class="b-game-card" (click)="selectFaculty('Facultad_De_Medicina')">
     <div class="b-game-card__cover">
       <img class="image-facultad" src="../../../assets/img-home/Facultad Medicina.JPG" alt="Facultad de Humanas">
       <div class="card-body">
@@ -49,60 +52,56 @@
       </div>
     </div>
   </div>
-  <div class="b-game-card">
+  
+  <div class="b-game-card" (click)="selectFaculty('Facultad_De_Enfermeria')">
     <div class="b-game-card__cover">
-
       <img class="image-facultad" src="../../../assets/img-home/Facultad de Enfermeria.JPG" alt="Facultad de Humanas">
       <div class="card-body">
         <h4 class="title-card">ENFERMERIA</h4>
       </div>
     </div>
   </div>
-  <div class="b-game-card">
+  
+  <div class="b-game-card" (click)="selectFaculty('Facultad_De_Odontologia')">
     <div class="b-game-card__cover">
-
       <img class="image-facultad" src="../../../assets/img-home/Facultad Odontologia.JPG" alt="Facultad de Humanas">
       <div class="card-body">
         <h4 class="title-card">ODONTOLOGIA</h4>
       </div>
     </div>
   </div>
-  <div class="b-game-card">
+  
+  <div class="b-game-card" (click)="selectFaculty('Facultad_De_Veterinaria')">
     <div class="b-game-card__cover">
-
       <img class="image-facultad" src="../../../assets/img-home/Facultad Veterinaria.JPG" alt="Facultad de Humanas">
       <div class="card-body">
         <h4 class="title-card">VETERINARIA</h4>
-        
-      </div>
-    </div>
-  </div>
-  <div class="b-game-card">
-    <div class="b-game-card__cover">
-
-      <img class="image-facultad" src="../../../assets/img-home/Facultad Artes.JPG" alt="Facultad de Humanas">
-      <div class="card-body">
-        <h4 class="title-card">ARTES</h4>
-      </div>
-    </div>
-  </div>
-  <div class="b-game-card">
-    <div class="b-game-card__cover">
-
-      <img class="image-facultad" src="../../../assets/img-home/Facultad Derecho.JPG" alt="Facultad de Humanas">
-      <div class="card-body">
-        <h4 class="title-card">DERECHO Y CIENCIAS POLITICAS</h4>
       </div>
     </div>
   </div>
   
-  <div class="b-game-card">
+  <div class="b-game-card" (click)="selectFaculty('Facultad_De_Artes')">
     <div class="b-game-card__cover">
-
-      <img class="image-facultad" src="../../../assets/img-home/Leon de greiff.jpg" alt="Facultad de Humanas">
-      <div class="card-body">
-        <h4 class="title-card">LEON DE GREIFF</h4>
-      </div>
-    </div>
+  <img class="image-facultad" src="../../../assets/img-home/Facultad Artes.JPG" alt="Facultad de Humanas">
+  <div class="card-body">
+    <h4 class="title-card">ARTES</h4>
   </div>
+  </div>
+</div>
+<div class="b-game-card" (click)="selectFaculty('Facultad_De_Derecho')">
+  <div class="b-game-card__cover">
+  <img class="image-facultad" src="../../../assets/img-home/Facultad Derecho.JPG" alt="Facultad de Humanas">
+  <div class="card-body">
+    <h4 class="title-card">DERECHO Y CIENCIAS POLITICAS</h4>
+  </div>
+</div>
+</div>
+
+<div class="b-game-card" (click)="selectFaculty('Leon_De_Greiff')">
+  <div class="b-game-card__cover">
+  <img class="image-facultad" src="../../../assets/img-home/Leon de greiff.jpg" alt="Facultad de Humanas">
+  <div class="card-body">
+    <h4 class="title-card">LEON DE GREIFF</h4>
+  </div>
+</div>
 </div>
