@@ -3,11 +3,12 @@ import { OnInit } from '@angular/core';
 import { GetParticularEventoService } from './Services/get-particular-evento.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-add-assistant',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './add-assistant.component.html',
   styleUrl: './add-assistant.component.css'
 })
@@ -27,6 +28,7 @@ export class AddAssistantComponent implements OnInit {
   token: string = localStorage.getItem('token') || '';
   imageUrl: string = '';
   eventImage: any = {};
+  assisting: boolean = false;
 
   constructor(private getParticularEventService: GetParticularEventoService,
     private router: Router
@@ -57,9 +59,40 @@ export class AddAssistantComponent implements OnInit {
         )
       }
     );
+
+    this.getParticularEventService.assistingEvent(this.IdUsuario, this.token, this.data.idEvent || 57).subscribe(
+      (response: any) => {
+        this.assisting = response.answer
+      }
+    )
   }
 
   asistir(): void {
+    Swal.fire({
+      title: 'Confirmación Asistencia',
+      text: '¿Está seguro que asistirá a este evento?',
+      icon: 'info',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      showConfirmButton: true,
+      confirmButtonText: 'Confirmar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.getParticularEventService.assistEvent(this.IdUsuario, this.token, this.data.idEvento || 57).subscribe(
+          () => {
+            Swal.fire({
+              title: 'Confirmación Exitosa',
+              text: 'Se ha confirmado su asistencia a este evento',
+              icon: 'success'  
+            });
+            this.router.navigate(['/home'])
+          }
+        );
+      }
+    });
+  }
+
+  noAsistir(): void {
     Swal.fire({
       title: 'Confirmación Asistencia',
       text: '¿Está seguro que asistirá a este evento?',
