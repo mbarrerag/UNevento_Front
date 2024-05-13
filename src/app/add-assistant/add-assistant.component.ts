@@ -13,7 +13,7 @@ import { NgIf } from '@angular/common';
   styleUrl: './add-assistant.component.css'
 })
 export class AddAssistantComponent implements OnInit {
-  @Input() data: any = {idEvent: 1};
+  @Input() data: any = {idEvent: 57};
 
   nombreEvento: string = "Nombre del Evento";
   descripcion: string = "Descripción del evento";
@@ -52,19 +52,19 @@ export class AddAssistantComponent implements OnInit {
           const objectUrl = URL.createObjectURL(image);
           this.eventImage = objectUrl;
         });
+        this.getParticularEventService.assistingEvent(this.IdUsuario, this.token, this.data.idEvent || 57).subscribe(
+          (response: any) => {
+            console.log(response);
+            this.assisting = response.asnwer;
+          }
+        );
       }, () => {
         Swal.fire('Error',
           'Parece que este evento no está disponible',
           'error'
         )
       }
-    );
-
-    this.getParticularEventService.assistingEvent(this.IdUsuario, this.token, this.data.idEvent || 57).subscribe(
-      (response: any) => {
-        this.assisting = response.answer
-      }
-    )
+    );    
   }
 
   asistir(): void {
@@ -85,7 +85,8 @@ export class AddAssistantComponent implements OnInit {
               text: 'Se ha confirmado su asistencia a este evento',
               icon: 'success'  
             });
-            this.router.navigate(['/home'])
+            this.router.navigate(['/home']);
+            this.assisting = true;
           }
         );
       }

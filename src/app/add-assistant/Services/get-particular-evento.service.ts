@@ -24,20 +24,10 @@ export class GetParticularEventoService{
 
   assistingEvent(userId: number, token: string, idEvent: number): any {
     const headers = {
-      'Authorization': `${userId},${token}`,
+      'Authorization': `${userId}, ${token}`,
     }
-    const data = JSON.stringify({
-      idEvento: idEvent,
-      idUsuario: userId
-    })
-    
-    const options: RequestInit = {
-      method: 'GET',
-      headers: headers,
-      body: data
-    }
-
-    return from(fetch(this.urlValidate, options).then((response) => response.json()))
+    const urlRequest: string = `${this.urlValidate}`;
+    return this.http.post(urlRequest,{idUsuario: userId, idEvento: idEvent} ,{headers: headers});
   }
 
   getImage(nombrearchivo:string): any {
