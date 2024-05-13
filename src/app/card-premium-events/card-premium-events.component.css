@@ -8,7 +8,7 @@
     border: 1px solid #ffffff22;
     background: linear-gradient(to right, #FFD700, #FFA500);
     cursor: pointer;
-    box-shadow: 0 0 20px #FFD700;
+    box-shadow: 0 0 20px #ffae00c6;
     border-radius: .7rem;
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(7px);
@@ -52,7 +52,7 @@
       }
       .card-description{
         margin: .5rem 0;
-        color: #ffffff;
+        color: #000000;
         text-align: justify;
         word-wrap: break-word;
       }
