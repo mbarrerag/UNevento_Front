@@ -38,7 +38,7 @@ export const routes: Routes = [
   { path: 'createevent', component:CreateEventsComponent},
   { path: 'createfacultyevent', component:CreateFacultyEventsComponent},
   { path: 'createcommunityevent', component:CreateCommunityEventsComponent},
-  { path: 'assist', component:AddAssistantComponent },
+  { path: 'assist/:idEvento', component:AddAssistantComponent },
   { path: 'events', component:EventsComponent},
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
   { path: '**', component: NotFoundpageComponent } 

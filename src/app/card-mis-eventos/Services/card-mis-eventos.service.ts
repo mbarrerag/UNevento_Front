@@ -8,7 +8,7 @@ export class CardMisEventosService {
 
   constructor(private http:HttpClient) { }
 
-  private apiUrl = 'https://uneventoback-production.up.railway.app';
+  private apiUrl = 'http://localhost:8180';
   
   getImage(nombrearchivo:string): any {
 
