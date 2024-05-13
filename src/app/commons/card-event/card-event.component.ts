@@ -17,13 +17,15 @@ export class CardEventComponent {
   eventImage: any = {};
   categoria: string = '';
   creatorImageUrl: string | undefined;
+  idevento:number = 0;
+
 
   constructor(private sanitizer:DomSanitizer,private cardeventsService: CardeventsService, private router:Router) { }
 
   ngOnInit(): void {
     const userID = parseInt(localStorage.getItem('id') || '0');
     const token = localStorage.getItem('token') || '';
-
+    this.idevento = this.data.id;
     //Consultar Datos de creador de evento
     this.cardeventsService.getCreatorData(userID, token, this.data.idUsuario).subscribe((response: any) => {
       this.creatorData = response;
@@ -43,7 +45,11 @@ export class CardEventComponent {
     this.categoria = this.translateCategory(this.data.categoria);
   }
 
-  
+  navigateToAddAssistant() {
+    this.router.navigate(['/assist', this.idevento]);
+    console.log(this.idevento);
+  }
+
   //Pasar Categoría Almacenada a un String Adecuado
   translateCategory(category: string): string {
     switch (category) {
@@ -85,12 +91,5 @@ export class CardEventComponent {
         return 'Categoría no definida';
     }
   }
-  
-  goToAssistance(): void {
-    // Navigate to the add assistance view with the event ID as a parameter
-    this.router.navigate(['assist'], { state: {event: this.data.idEvento } });
-    console.log('Go to assistance with event ID:', this.data.idEvento);
-    //Here pass the parameter
-    console.log('Go to assistance');
-  }
+
 }

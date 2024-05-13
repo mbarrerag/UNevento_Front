@@ -6,9 +6,9 @@
     max-width: 100%;
     min-height:700px;
     border: 1px solid #ffffff22;
-    background: linear-gradient(to right, #FFD700, #FFA500);
+    background: linear-gradient(to right, #ffffff, #ffffff);
     cursor: pointer;
-    box-shadow: 0 0 20px #ffae00c6;
+    box-shadow: 0 0 20px #8000ffc6;
     border-radius: .7rem;
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(7px);
@@ -112,7 +112,7 @@
     ::before {
         position: fixed;
         content: "";
-        box-shadow: 0 0 50px 40px #ffffff; /* Cambia el color de la sombra a verde */
+        box-shadow: 0 0 50px 40px #760ae9; /* Cambia el color de la sombra a verde */
         opacity: 0.1;
         top: -10%;
         left: -100%;
@@ -125,11 +125,7 @@
       box-shadow: 0 7px 30px 5px #f9fafd; /*Wrapper iamges*/
       transform: scale(1.015);
   
-      ::before{
-     
-        top: -100%;
-        left: 200%;
-      }
+
     }
   }
   
