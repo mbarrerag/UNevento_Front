@@ -1,16 +1,19 @@
-import { Component, Input } from '@angular/core';
-import { on } from 'events';
-import { CardCommunityeventsService } from './Services/card-communityevents.service';
+import { Component } from '@angular/core';
+import { CardPremiumEventsService } from './Services/card-premium-events.service';
+import { Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-card-communityevents',
+  selector: 'app-card-premium-events',
   standalone: true,
   imports: [],
-  templateUrl: './card-communityevents.component.html',
-  styleUrl: './card-communityevents.component.css'
+  templateUrl: './card-premium-events.component.html',
+  styleUrl: './card-premium-events.component.css'
 })
-export class CardCommunityeventsComponent {
+export class CardPremiumEventsComponent {
+
+  constructor(private sanitizer:DomSanitizer,private cardPremiumEventsService: CardPremiumEventsService) { }
+
   @Input() data: any;
   creatorImage: any = {};
   creatorData: any = {};
@@ -18,33 +21,31 @@ export class CardCommunityeventsComponent {
   categoria: string = '';
   creatorImageUrl: string | undefined;
 
-  constructor(private sanitizer:DomSanitizer,private cardCommunityeventsService: CardCommunityeventsService) { }
-
-  ngOnInit(): void {
+  ngOnInit():void{
     const userID = parseInt(localStorage.getItem('id') || '0');
     const token = localStorage.getItem('token') || '';
 
-    //Consultar Datos de creador de evento
-    this.cardCommunityeventsService.getCreatorData(userID, token, this.data.idUsuario).subscribe((response: any) => {
+
+    /* this.cardPremiumEventsService.getCreatorData(userID, token, this.data.idUsuario).subscribe((response: any) => {
       this.creatorData = response;
-      this.cardCommunityeventsService.getImage(this.creatorData.imageUrl).subscribe((response: Blob) => {
+      this.cardPremiumEventsService.getImage(this.creatorData.imageUrl).subscribe((response: Blob) => {
         const objectUrl = URL.createObjectURL(response);
         this.creatorImage = objectUrl;
       });
     });
+
     //Consultar imagen de evento
-    this.cardCommunityeventsService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
+    this.cardPremiumEventsService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
       const objectUrl = URL.createObjectURL(response);
       this.eventImage = objectUrl;
-    });
+    }); */
 
-    
     //Asignar Categoría
     this.categoria = this.translateCategory(this.data.categoria);
+
   }
 
-  
-  //Pasar Categoría Almacenada a un String Adecuado
+
   translateCategory(category: string): string {
     switch (category) {
       case 'Conferencia':
