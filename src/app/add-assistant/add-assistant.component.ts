@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrl: './add-assistant.component.css'
 })
 export class AddAssistantComponent implements OnInit {
+  
   @Input() data: any = {idEvent: 1};
 
   nombreEvento: string = "Nombre del Evento";
