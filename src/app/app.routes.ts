@@ -18,6 +18,7 @@ import { CreateFacultyEventsComponent } from './User-components/create-faculty-e
 import { CreateCommunityEventsComponent } from './User-components/create-community-events/create-community-events.component';
 import { AddAssistantComponent } from './add-assistant/add-assistant.component';
 import { AdminVistaUsuariosComponent } from './admin-vista-usuarios/admin-vista-usuarios.component';
+import { AdminVistaEventosComponent } from './admin-vista-eventos/admin-vista-eventos.component';
 
 
 export const routes: Routes = [
@@ -40,6 +41,7 @@ export const routes: Routes = [
   { path: 'createcommunityevent', component:CreateCommunityEventsComponent},
   { path: 'assist', component:AddAssistantComponent },
   { path: 'adminusers', component: AdminVistaUsuariosComponent },
+  { path: 'adminevents', component: AdminVistaEventosComponent },
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
   { path: '**', component: NotFoundpageComponent } 
   // { path:'dashboard',
