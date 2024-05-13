@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CreateFacultyEventService {
-  private apiUrl = 'https://uneventoback-production.up.railway.app';
+  private apiUrl = 'http://localhost:8180';
   constructor(private http:HttpClient) {
 
    }
