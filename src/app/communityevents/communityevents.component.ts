@@ -79,7 +79,7 @@ export class CommunityeventsComponent {
       {
         descripcion: 'Descripción del Evento 6, donde se simula un evento en el cual se cuenta con una descripción considerable',
         fechaEvento: new Date().toISOString(),
-        nombre: 'Evento 6 Con Un Titulo Gigante → Esta es una prueba',
+        nombre: 'Evento 6',
         hora: '15:00',
         lugar: 'Lugar 6',
         capacidad: 600,
