@@ -19,7 +19,7 @@ export class CommunityeventsService {
 
   constructor(private http:HttpClient) { }
 
-  private apiUrl = 'http://localhost:8180';
+  private apiUrl = 'https://uneventoback-production.up.railway.app';
 
   getCommunityEvents(userID:number, token:string, page:number): Observable<Page<any>> {
     const headers = new HttpHeaders({
