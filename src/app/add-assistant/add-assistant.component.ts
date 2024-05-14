@@ -104,7 +104,7 @@ export class AddAssistantComponent implements OnInit {
       confirmButtonText: 'Confirmar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.getParticularEventService.assistEvent(this.IdUsuario, this.token, this.data.idEvento || 57).subscribe(
+        this.getParticularEventService.notAssistEvent(this.IdUsuario, this.token, this.data.idEvento || 57).subscribe(
           () => {
             Swal.fire({
               title: 'Confirmación Exitosa',

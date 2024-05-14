@@ -15,7 +15,7 @@
             <p><strong>Hora:</strong> {{ hora }}</p>
             <p><strong>Tipo de Evento:</strong> {{ tipoEvento }}</p>
             <button *ngIf='!assisting' (click)="asistir()" class="btn btn-primary">Asistir</button>
-            <button *ngIf='assisting' class='btn btn-secondary'>No asisitir</button> 
+            <button *ngIf='assisting' (click)="noAsistir()" class='btn btn-danger'>No asisitir</button> 
           </div>
         </div>
     </div>    

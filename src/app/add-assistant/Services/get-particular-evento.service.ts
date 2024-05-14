@@ -11,6 +11,7 @@ export class GetParticularEventoService{
   private urlValidate: string = 'http://localhost:8180/validateEvent'
   private imageUrl: string = 'http://localhost:8180/';
   private assistUrl: string = 'http://localhost:8180/assistevent';
+  private declineUrl: string = 'http://localhost:8180/deletedassistance';
   
   constructor(private http: HttpClient) { }
 
@@ -50,6 +51,13 @@ export class GetParticularEventoService{
   }
 
   notAssistEvent(userId: number, token: string, idEvent: number): any {
-    
+    const headers = new HttpHeaders({
+      'Authorization': `${userId}, ${token}`,
+    });
+    const message: any = {
+      idusuario: userId,
+      eventoid: idEvent
+    }
+    return this.http.post(this.declineUrl, message, {headers: headers})
   }
 }
