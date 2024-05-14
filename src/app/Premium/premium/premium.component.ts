@@ -46,6 +46,8 @@ export class PremiumComponent {
     
       window.open(response.initPoint, '_blank');
 
+      
+
 
       
     } catch (error) {
