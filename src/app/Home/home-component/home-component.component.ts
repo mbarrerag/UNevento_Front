@@ -18,17 +18,43 @@ import { FooterComponent } from '../../commons/footer/footer.component';
 })
 export class HomeComponentComponent {
 
+  formattedFaculty: string = ""; // Nueva propiedad para almacenar el nombre formateado de la facultad
   faculties: string = "";
   title: string = 'UN-evento';
   events: Page<any> = {} as Page<any>; // Manejar las Páginas de los eventos, de 10 en 10
   currentPage: number = 0; // Identificador de la página Actual de los Eventos
+  fixFaculty: string = '';
+
+
+
 
   constructor(private oficialEventService: OficialEventService) {}
 
   handleFacultySelection(facultyName: string) {
     // Do something with the selected faculty, such as making a request or updating state
     this.faculties = facultyName;
+    this.formattedFaculty = this.fixFaculties(facultyName); // Asignar el nombre formateado
     this.loadPage(0); // Cargar la primera página al seleccionar una facultad
+  }
+
+  fixFaculties(faculty: string): string {
+    switch(faculty) {
+      case 'Facultad_De_Ingenieria': return 'Facultad de Ingeniería';
+      case 'Facultad_De_Ciencias': return 'Facultad de Ciencias';
+      case 'Facultad_De_Ciencias_Humanas': return 'Facultad de Ciencias Humanas';
+      case 'Facultad_De_Ciencias_Economicas': return 'Facultad de Ciencias Económicas';
+      case 'Facultad_De_Ciencias_Agrarias': return 'Facultad de Ciencias Agrarias';
+      case 'Facultad_De_Ciencias_De_La_Salud': return 'Facultad de Ciencias de la Salud';
+      case 'Facultad_De_Odontologia': return 'Facultad de Odontología';
+      case 'Facultad_De_Veterinaria': return 'Facultad de Veterinaria';
+      case 'Facultad_De_Derecho': return 'Facultad de Derecho';
+      case 'Facultad_De_Artes': return 'Facultad de Artes';
+      case 'Bienestar': return 'Bienestar';
+      case 'Idiomas': return 'Idiomas';
+      case 'Relaciones_Internacionales': return 'Relaciones Internacionales';
+      case 'No_Aplica': return 'No Aplica';
+      default: return faculty;
+    }
   }
 
   loadPage(page: number) {
