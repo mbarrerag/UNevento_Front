@@ -3,6 +3,7 @@ import { OnInit } from '@angular/core';
 import { GetParticularEventoService } from './Services/get-particular-evento.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { NavbarComponent } from '../commons/navbar/navbar.component';
 import { FooterComponent } from '../commons/footer/footer.component';
@@ -10,12 +11,16 @@ import { FooterComponent } from '../commons/footer/footer.component';
 @Component({
   selector: 'app-add-assistant',
   standalone: true,
+  imports: [NgIf],
   imports: [NavbarComponent, FooterComponent],
+
   templateUrl: './add-assistant.component.html',
   styleUrl: './add-assistant.component.css'
 })
 export class AddAssistantComponent implements OnInit {
-  
+
+  @Input() data: any = {idEvent: 57};
+
 
   nombreEvento: string = "Nombre del Evento";
   descripcion: string = "Descripción del evento";
@@ -30,7 +35,9 @@ export class AddAssistantComponent implements OnInit {
   token: string = localStorage.getItem('token') || '';
   imageUrl: string = '';
   eventImage: any = {};
+  assisting: boolean = false;
   idEvento: number = 0;
+
 
   constructor(private getParticularEventService: GetParticularEventoService,
     private router: Router,private route: ActivatedRoute
@@ -59,13 +66,19 @@ export class AddAssistantComponent implements OnInit {
           const objectUrl = URL.createObjectURL(image);
           this.eventImage = objectUrl;
         });
+        this.getParticularEventService.assistingEvent(this.IdUsuario, this.token, this.data.idEvent || 57).subscribe(
+          (response: any) => {
+            console.log(response);
+            this.assisting = response.asnwer;
+          }
+        );
       }, () => {
         Swal.fire('Error',
           'Parece que este evento no está disponible',
           'error'
         )
       }
-    );
+    );    
   }
 
   asistir(): void {
@@ -80,6 +93,32 @@ export class AddAssistantComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.getParticularEventService.assistEvent(this.IdUsuario, this.token, this.idEvento || 57).subscribe(
+          () => {
+            Swal.fire({
+              title: 'Confirmación Exitosa',
+              text: 'Se ha confirmado su asistencia a este evento',
+              icon: 'success'  
+            });
+            this.router.navigate(['/home']);
+            this.assisting = true;
+          }
+        );
+      }
+    });
+  }
+
+  noAsistir(): void {
+    Swal.fire({
+      title: 'Confirmación Asistencia',
+      text: '¿Está seguro que asistirá a este evento?',
+      icon: 'info',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      showConfirmButton: true,
+      confirmButtonText: 'Confirmar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.getParticularEventService.notAssistEvent(this.IdUsuario, this.token, this.data.idEvento || 57).subscribe(
           () => {
             Swal.fire({
               title: 'Confirmación Exitosa',
