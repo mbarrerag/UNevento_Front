@@ -9,7 +9,16 @@ app-navbar {
   }
 
 
-
+  .wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 5%;
+    padding: 24px;
+    flex-wrap: wrap;
+   
+  }
 
 
   

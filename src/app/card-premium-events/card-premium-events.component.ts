@@ -1,56 +1,51 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { CardPremiumEventsService } from './Services/card-premium-events.service';
+import { Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { CardeventsService } from './Services/card-events.component.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-card-event',
+  selector: 'app-card-premium-events',
   standalone: true,
   imports: [],
-  templateUrl: './card-event.component.html',
-  styleUrl: './card-event.component.css'
+  templateUrl: './card-premium-events.component.html',
+  styleUrl: './card-premium-events.component.css'
 })
-export class CardEventComponent {
+export class CardPremiumEventsComponent {
+
+  constructor(private sanitizer:DomSanitizer,private cardPremiumEventsService: CardPremiumEventsService) { }
+
   @Input() data: any;
   creatorImage: any = {};
   creatorData: any = {};
   eventImage: any = {};
   categoria: string = '';
   creatorImageUrl: string | undefined;
-  idevento:number = 0;
 
-
-  constructor(private sanitizer:DomSanitizer,private cardeventsService: CardeventsService, private router:Router) { }
-
-  ngOnInit(): void {
+  ngOnInit():void{
     const userID = parseInt(localStorage.getItem('id') || '0');
     const token = localStorage.getItem('token') || '';
-    this.idevento = this.data.id;
-    //Consultar Datos de creador de evento
-    this.cardeventsService.getCreatorData(userID, token, this.data.idUsuario).subscribe((response: any) => {
+
+
+    /* this.cardPremiumEventsService.getCreatorData(userID, token, this.data.idUsuario).subscribe((response: any) => {
       this.creatorData = response;
-      this.cardeventsService.getImage(this.creatorData.imageUrl).subscribe((response: Blob) => {
+      this.cardPremiumEventsService.getImage(this.creatorData.imageUrl).subscribe((response: Blob) => {
         const objectUrl = URL.createObjectURL(response);
         this.creatorImage = objectUrl;
       });
     });
+
     //Consultar imagen de evento
-    this.cardeventsService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
+    this.cardPremiumEventsService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
       const objectUrl = URL.createObjectURL(response);
       this.eventImage = objectUrl;
-    });
+    }); */
 
-    
     //Asignar Categoría
     this.categoria = this.translateCategory(this.data.categoria);
+
   }
 
-  navigateToAddAssistant() {
-    this.router.navigate(['/assist', this.idevento]);
-    console.log(this.idevento);
-  }
 
-  //Pasar Categoría Almacenada a un String Adecuado
   translateCategory(category: string): string {
     switch (category) {
       case 'Conferencia':
@@ -81,6 +76,10 @@ export class CardEventComponent {
         return 'Actividad Cultural';
       case 'Actividad_Deportiva':
         return 'Actividad Deportiva';
+      case 'Actividad_LudicoCreativa':
+        return 'Actividad Lúdico-Creativa';
+      case 'Actividad_Departamento':
+        return 'Actividad de Departamento';
       case 'Proyeccion_de_peliculas':
         return 'Proyección de películas';
       case 'Religioso_y_Espiritual':
@@ -91,5 +90,4 @@ export class CardEventComponent {
         return 'Categoría no definida';
     }
   }
-
 }

@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
@@ -19,22 +19,24 @@ export class NavbarComponent implements OnInit {
   imgKey: string | null = null; 
 
   constructor(private authService: AuthService, private sanitizer: DomSanitizer) {}
-
   ngOnInit(): void {
     this.imgKey = localStorage.getItem('imagekey'); 
+   
+ 
+  
+  
+
+    console.log('imgKey:', this.imgKey);
   }
-
-
+  
 
 
 
 
   isNavbarCollapsed = true;
-
   toggleNavbar() {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
   }
-
   logout(): void {
     this.authService.logout();
   }

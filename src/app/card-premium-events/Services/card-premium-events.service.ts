@@ -4,9 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class CardeventsService {
+export class CardPremiumEventsService {
 
   private apiUrl = 'http://localhost:8180';
+
   constructor(private http:HttpClient) { }
 
   getCreatorData(userID:number, token:string,creatorID:number): any {

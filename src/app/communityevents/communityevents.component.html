@@ -1,8 +1,26 @@
 <app-navbar></app-navbar>
 <div class="community-events">
     <h1 class="TituloComEvents">Eventos de la Comunidad</h1>
-        
+    <div class="PremiumEvents">
+        <h2 class="TitleEvents">
+            Eventos Promocionados de la Semana en UNevento
+        </h2>
+        <div class="wrap">
+            <app-card-premium-events *ngFor="let premiumevent of premiumevents" [data]="premiumevent"></app-card-premium-events>
+        </div>
+        <div *ngIf="premiumevents && premiumevents.length < 8" class="TextPromotion">
+            <p>¡Aprovecha ahora la oportunidad de destacar tu evento en nuestra sección premium! Espacios limitados disponibles. ¡Destaca entre la multitud y asegura la máxima visibilidad para tu evento comunitario!</p>
+            <br>
+            <button class="btn-premium-events" routerLink="/premium">¡Promocionar Mis Eventos!</button>
+        </div>
+    </div>
+    <h2 class="TitleEvents">
+        Eventos que pueden llegar a ser de tu interés
+    </h2>
     <div *ngIf="(events?.content?.length ?? 0) > 0; else noEvents">
+        <div class="Text">
+            <p>Desde actividades culturales que celebran la diversidad hasta eventos deportivos que promueven un estilo de vida activo y saludable, encontrarás oportunidades para conectarte, aprender y crecer.</p>
+        </div>
         <div class="filter">
             Filtra los eventos por categoría:
             <select id="filter-categoria" class="filter-categoria" [(ngModel)]="OptionFilterCategoria">

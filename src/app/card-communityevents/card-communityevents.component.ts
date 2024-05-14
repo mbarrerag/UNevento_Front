@@ -1,12 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { on } from 'events';
 import { CardCommunityeventsService } from './Services/card-communityevents.service';
+import { AddAssistantComponent } from '../add-assistant/add-assistant.component';
+import { Router , NavigationExtras} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-card-communityevents',
   standalone: true,
-  imports: [],
+  imports: [AddAssistantComponent],
   templateUrl: './card-communityevents.component.html',
   styleUrl: './card-communityevents.component.css'
 })
@@ -17,13 +19,14 @@ export class CardCommunityeventsComponent {
   eventImage: any = {};
   categoria: string = '';
   creatorImageUrl: string | undefined;
+  idevento:number = 0;
 
-  constructor(private sanitizer:DomSanitizer,private cardCommunityeventsService: CardCommunityeventsService) { }
+  constructor(private sanitizer:DomSanitizer,private cardCommunityeventsService: CardCommunityeventsService, private router: Router) { }
 
   ngOnInit(): void {
     const userID = parseInt(localStorage.getItem('id') || '0');
     const token = localStorage.getItem('token') || '';
-
+    this.idevento = this.data.id;
     //Consultar Datos de creador de evento
     this.cardCommunityeventsService.getCreatorData(userID, token, this.data.idUsuario).subscribe((response: any) => {
       this.creatorData = response;
@@ -43,6 +46,9 @@ export class CardCommunityeventsComponent {
     this.categoria = this.translateCategory(this.data.categoria);
   }
 
+  navigateToAddAssistant() {
+    this.router.navigate(['/assist', this.idevento]);
+  }
   
   //Pasar Categoría Almacenada a un String Adecuado
   translateCategory(category: string): string {
@@ -75,6 +81,10 @@ export class CardCommunityeventsComponent {
         return 'Actividad Cultural';
       case 'Actividad_Deportiva':
         return 'Actividad Deportiva';
+      case 'Actividad_LudicoCreativa':
+        return 'Actividad Lúdico-Creativa';
+      case 'Actividad_Departamento':
+        return 'Actividad de Departamento';
       case 'Proyeccion_de_peliculas':
         return 'Proyección de películas';
       case 'Religioso_y_Espiritual':

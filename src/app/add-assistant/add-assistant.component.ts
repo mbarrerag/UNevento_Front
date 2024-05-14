@@ -3,16 +3,19 @@ import { OnInit } from '@angular/core';
 import { GetParticularEventoService } from './Services/get-particular-evento.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { NavbarComponent } from '../commons/navbar/navbar.component';
+import { FooterComponent } from '../commons/footer/footer.component';
 
 @Component({
   selector: 'app-add-assistant',
   standalone: true,
-  imports: [],
+  imports: [NavbarComponent, FooterComponent],
   templateUrl: './add-assistant.component.html',
   styleUrl: './add-assistant.component.css'
 })
 export class AddAssistantComponent implements OnInit {
-  @Input() data: any = {idEvent: 1};
+  
 
   nombreEvento: string = "Nombre del Evento";
   descripcion: string = "Descripción del evento";
@@ -27,14 +30,20 @@ export class AddAssistantComponent implements OnInit {
   token: string = localStorage.getItem('token') || '';
   imageUrl: string = '';
   eventImage: any = {};
+  idEvento: number = 0;
 
   constructor(private getParticularEventService: GetParticularEventoService,
-    private router: Router
+    private router: Router,private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    //Obtener el id del evento a partír de la ruta
+    this.route.paramMap.subscribe(params => {
+      const idEvento = params.get('idEvento');
+      this.idEvento = idEvento ? +idEvento : 0;
+    });
 
-    this.getParticularEventService.getParticularEvent(this.IdUsuario, this.token, this.data.idEvento || 57).subscribe(
+    this.getParticularEventService.getParticularEvent(this.IdUsuario, this.token, this.idEvento || 57).subscribe(
       (response: any) => {
         console.log(response)
         this.nombreEvento = response.nombre;
@@ -70,7 +79,7 @@ export class AddAssistantComponent implements OnInit {
       confirmButtonText: 'Confirmar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.getParticularEventService.assistEvent(this.IdUsuario, this.token, this.data.idEvento || 57).subscribe(
+        this.getParticularEventService.assistEvent(this.IdUsuario, this.token, this.idEvento || 57).subscribe(
           () => {
             Swal.fire({
               title: 'Confirmación Exitosa',
