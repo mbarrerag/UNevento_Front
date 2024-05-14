@@ -7,6 +7,12 @@
 .containerbox{
   background-repeat: no-repeat; /* Para que el logo no se repita */
   background-position: top center; /* Para centrar el logo */
+  text-align: center;
+}
+
+.img-fluid{
+  width: 70%;
+  border-radius: 25px;
 }
 
 .cards-people{
