@@ -68,12 +68,14 @@ app-modal-delete-event, app-modal-modify-event {
     border: 1px solid #ffffff22;
     background-color: #ffffff;
     box-shadow: 0.5px 0.5px 15px 1px #8dcc00;
+    cursor: pointer;
     border-radius: .7rem;
     z-index: 1000;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-top: 20px;
     hr{
       width: 100%;
       border: none; 

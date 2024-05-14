@@ -87,6 +87,10 @@ export class CardMisEventosComponent {
         return 'Actividad Cultural';
       case 'Actividad_Deportiva':
         return 'Actividad Deportiva';
+      case 'Actividad_LudicoCreativa':
+        return 'Actividad Lúdico-Creativa';
+      case 'Actividad_Departamento':
+        return 'Actividad de Departamento';
       case 'Proyeccion_de_peliculas':
         return 'Proyección de películas';
       case 'Religioso_y_Espiritual':

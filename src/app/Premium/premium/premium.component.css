@@ -14,6 +14,20 @@ body {
   background: #232427;
 }
 
+ .button-mercado{
+
+  background-color: rgb(111, 250, 93);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 20px;
+  transition: background 0.3s;
+ }
+
 .Titulo{
   font-family: 'approach-black';
   font-size: 2rem;
@@ -56,10 +70,23 @@ body {
   transition: transform 0.4s, box-shadow 0.4s;
 }
 
-.contenedor .card:hover .box {
+.contenedor .card1:hover .box {
   transform: translateY(-50px);
-  box-shadow: 0 40px 70px rgb(89, 255, 0);
+  box-shadow: 0 40px 70px rgb(98, 242, 58);
 }
+
+.contenedor .card2:hover .box {
+  transform: translateY(-50px);
+  box-shadow: 0 40px 70px rgb(60, 203, 194);
+}
+
+.contenedor .card3:hover .box {
+  transform: translateY(-50px);
+  box-shadow: 0 40px 70px rgb(242, 255, 0);
+}
+
+
+
 
 .contenedor .card .box .content {
   padding: 20px;
@@ -133,19 +160,19 @@ body {
 
 .contenedor .card:nth-child(1) .box .content a,
 .contenedor .card:nth-child(1) .box .content .icon {
-  background: #2196f3;
+  background: #97dc47;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .contenedor .card:nth-child(2) .box .content a,
 .contenedor .card:nth-child(2) .box .content .icon {
-  background: #e91e63;
+  background: #1ee9ac;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .contenedor .card:nth-child(3) .box .content a,
 .contenedor .card:nth-child(3) .box .content .icon {
-  background: #97dc47;
+  background: #a89e34;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 

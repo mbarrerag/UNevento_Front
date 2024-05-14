@@ -19,6 +19,9 @@ import { CreateCommunityEventsComponent } from './User-components/create-communi
 import { AddAssistantComponent } from './add-assistant/add-assistant.component';
 import { AdminVistaUsuariosComponent } from './admin-vista-usuarios/admin-vista-usuarios.component';
 import { AdminVistaEventosComponent } from './admin-vista-eventos/admin-vista-eventos.component';
+import { EventsComponent } from './events/events.component';
+import { AuthGuard } from './commons/Security/AuthGuard';
+
 
 
 export const routes: Routes = [
@@ -26,11 +29,9 @@ export const routes: Routes = [
 
   { path: 'singup', component: SingUpUserComponent }, 
   { path: 'login', component: UserLoginComponent }, 
-  { path: 'home', component: HomeComponentComponent},
-  { path: 'miseventos', component: MyeventsComponent },
+  { path: 'home', component: HomeComponentComponent},  
   { path: 'communityevents', component: CommunityeventsComponent },
   { path: 'home', component:HomeComponentComponent},
-  { path: 'premium', component:PremiumComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},
   { path: 'aboutus', component:AboutUSComponent },
   { path: 'profile', component:ProfileComponent},
@@ -42,13 +43,22 @@ export const routes: Routes = [
   { path: 'assist', component:AddAssistantComponent },
   { path: 'adminusers', component: AdminVistaUsuariosComponent },
   { path: 'adminevents', component: AdminVistaEventosComponent },
+  { path: 'assist/:idEvento', component:AddAssistantComponent },
+  { path: 'premium', component: PremiumComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
+  { path: 'termsofservice', component: TermsAndConditionsComponent, canActivate: [AuthGuard] },
+  { path: 'createevent', component: CreateEventsComponent, canActivate: [AuthGuard] },
+  { path: 'createfacultyevent', component: CreateFacultyEventsComponent, canActivate: [AuthGuard] },
+  { path: 'createcommunityevent', component: CreateCommunityEventsComponent, canActivate: [AuthGuard] },
+  { path: 'events', component: EventsComponent, canActivate: [AuthGuard] },
+  { path: 'miseventos', component: MyeventsComponent, canActivate: [AuthGuard] },
+
+
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
+  
   { path: '**', component: NotFoundpageComponent } 
-  // { path:'dashboard',
-  //   loadComponent: () => import(),
-  //   children:[
-  //   ]
-  // },
+
 
 
 

@@ -68,6 +68,17 @@ input{
     border: 1px solid rgba(0, 0, 0, 0.3); /* Cambia el último valor (0.5) para ajustar la opacidad */
 }
 
+
+.validator{
+	font-size: 12px;
+	color: #71ef54;
+
+}
+
+
+
+
+
 .RecoverPassword {
 	text-decoration: none;
 	font-size: 14px;	

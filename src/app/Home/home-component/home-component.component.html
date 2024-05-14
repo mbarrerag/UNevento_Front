@@ -6,15 +6,6 @@
     Your browser does not support the video tag.
 </video>
 
-
-
-
-
-
-
-
-
-
     <div class="contenido">
         <img src="../../../assets/img-home/UNeventoBlanco.png" alt="" class="superpuesta">
     </div>
@@ -24,30 +15,36 @@
 <h1 class="facultad-tittle">Eventos por Facultad y/o Auditorio </h1>
 <p class="explanation">Seleccione algunas de las siguientes opciones para consultar los eventos disponibles:</p>
 <div class="container-cards-facultad">
-<app-card-faculties></app-card-faculties>
+  <app-card-faculties (facultySelected)="handleFacultySelection($event)"></app-card-faculties>
 </div>
 <div class="contenedor-bienestar">
   <p>Bienestar</p>
 </div>
-<app-card-bienestar class="app-card-bienestar"></app-card-bienestar>
+<app-card-bienestar class="app-card-bienestar" (BienestarSelected)="handleFacultySelection($event)"></app-card-bienestar>
 
 <div class="events">
   <h1 class="main-tittle">Eventos disponibles Universidad Nacional de Colombia</h1>
+  <h1 class="main-tittle">{{ formattedFaculty }}</h1> <!-- Aquí se muestra el nombre de la facultad seleccionada -->
 
 <div class="container cards-eventos">
-  <div class="row row-cols-1 row-cols-md-3 gx-5 gy-5"> <!-- Ajuste de gx-5 y gy-5 -->
-    <div class="col">
-      <app-card-event></app-card-event>
+  <ng-container *ngIf="events && events.content.length > 0; else noEvents">
+    <div class="wrap">
+        <app-card-event *ngFor="let event of events.content" [data]="event"></app-card-event>
     </div>
-    <div class="col">
-      <app-card-event></app-card-event>
-    </div>
-    <div class="col">
-      <app-card-event></app-card-event>
-    </div>
-
+</ng-container>
+<ng-template #noEvents>
+  <div class="NoContent">
+      <div class="TextNoContent">
+          <p class="MensajeVacio">Lastimosamente por el momento no contamos con eventos publicados en la plataforma que tengan fecha de realización superior a la actual.</p>
+      </div>
+      <div class="ImageNoContent">
+          <img src="../../assets/backgrounds/AdvertenciaPagina.png">
+      </div>
   </div>
-</div>
+</ng-template>
+
+ 
+  </div>
 </div>
 
 

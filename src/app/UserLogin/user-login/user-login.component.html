@@ -20,8 +20,15 @@
                   <label    class="label-email"  for="username">Correo:</label>
 
                   <div class="container-inputs">
-                    <input    class="input1"  placeholder="Ingresa tu correo"  type="text" id="username" name="username" [(ngModel)]="correo" required>
+                   
+                    <div  class="validator"   *ngIf="correo && correo.indexOf('@') === -1">
+                      Por favor, ingresa un correo electrónico válido.
                   </div>
+                    <input class="input1" placeholder="Ingresa tu correo" type="email" id="correo" name="correo" [(ngModel)]="correo" required>
+                    <!-- Muestra un mensaje de error si el campo está inválido -->
+                    
+                </div>
+                
                 
                   
                   <label class="label-password"for="password">Contraseña:</label>

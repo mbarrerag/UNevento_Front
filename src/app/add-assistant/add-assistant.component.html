@@ -1,6 +1,8 @@
+
 <div class="whole"> 
+  <app-navbar></app-navbar>
     <div class="container">
-        <div class="row vh-100">
+        <div class="row">
           <div class="col-md-6">
             <img src="{{eventImage}}" alt="Imagen del evento">
           </div>
@@ -18,5 +20,6 @@
             <button *ngIf='assisting' (click)="noAsistir()" class='btn btn-danger'>No asisitir</button> 
           </div>
         </div>
-    </div>    
+    </div>  
+  <app-footer></app-footer> 
 </div>
