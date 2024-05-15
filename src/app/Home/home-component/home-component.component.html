@@ -28,12 +28,11 @@
   <h1 class="main-tittle">{{ formattedFaculty }}</h1> <!-- Aquí se muestra el nombre de la facultad seleccionada -->
 
 <div class="container cards-eventos">
-  <ng-container *ngIf="events && events.content.length > 0; else noEvents">
+  <!-- <ng-container *ngIf="events && events.content.length > 0; else noEvents"> -->
     <div class="wrap">
         <app-card-event *ngFor="let event of events.content" [data]="event"></app-card-event>
-    </div>
-</ng-container>
-<ng-template #noEvents>
+   </div>
+<!-- </ng-container> --> <ng-template #noEvents>
   <div class="NoContent">
       <div class="TextNoContent">
           <p class="MensajeVacio">Lastimosamente por el momento no contamos con eventos publicados en la plataforma que tengan fecha de realización superior a la actual.</p>
