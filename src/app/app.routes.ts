@@ -17,8 +17,11 @@ import {CreateEventsComponent} from './User-components/create-events/create-even
 import { CreateFacultyEventsComponent } from './User-components/create-faculty-events/create-faculty-events.component';
 import { CreateCommunityEventsComponent } from './User-components/create-community-events/create-community-events.component';
 import { AddAssistantComponent } from './add-assistant/add-assistant.component';
+import { AdminVistaUsuariosComponent } from './admin-vista-usuarios/admin-vista-usuarios.component';
+import { AdminVistaEventosComponent } from './admin-vista-eventos/admin-vista-eventos.component';
 import { EventsComponent } from './events/events.component';
 import { AuthGuard } from './commons/Security/AuthGuard';
+
 
 
 export const routes: Routes = [
@@ -31,6 +34,15 @@ export const routes: Routes = [
   { path: 'home', component:HomeComponentComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},
   { path: 'aboutus', component:AboutUSComponent },
+  { path: 'profile', component:ProfileComponent},
+  { path: 'editprofile', component:EditProfileComponent},
+  { path: 'termsofservice', component:TermsAndConditionsComponent },
+  { path: 'createevent', component:CreateEventsComponent},
+  { path: 'createfacultyevent', component:CreateFacultyEventsComponent},
+  { path: 'createcommunityevent', component:CreateCommunityEventsComponent},
+  { path: 'assist', component:AddAssistantComponent },
+  { path: 'adminusers', component: AdminVistaUsuariosComponent },
+  { path: 'adminevents', component: AdminVistaEventosComponent },
   { path: 'assist/:idEvento', component:AddAssistantComponent },
   { path: 'premium', component: PremiumComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
@@ -41,6 +53,7 @@ export const routes: Routes = [
   { path: 'createcommunityevent', component: CreateCommunityEventsComponent, canActivate: [AuthGuard] },
   { path: 'events', component: EventsComponent, canActivate: [AuthGuard] },
   { path: 'miseventos', component: MyeventsComponent, canActivate: [AuthGuard] },
+
 
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
   
