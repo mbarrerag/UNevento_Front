@@ -29,6 +29,12 @@ app-navbar {
     font-family: 'approach-regular';
     margin: 20px;
 }
+.TextNoContent{
+    font-size: 1.5rem;
+    color: #a1cb0b;
+    line-height: 1.5;
+    text-align: center;
+}
 
 .btn-login {
   background-color: #a1cb0b;

@@ -32,16 +32,16 @@
     <div class="wrap">
         <app-card-event *ngFor="let event of events.content" [data]="event"></app-card-event>
    </div>
-<!-- </ng-container> --> <ng-template #noEvents>
-  <div class="NoContent">
+<!-- </ng-container> -->  
+  <div class="NoContent" *ngIf="(formattedFaculty.trim() == '')">
       <div class="TextNoContent">
-          <p class="MensajeVacio">Lastimosamente por el momento no contamos con eventos publicados en la plataforma que tengan fecha de realización superior a la actual.</p>
+          <p class="MensajeVacio">Por favor, seleccione una facultad para mostrar los eventos correspondientes.</p>
       </div>
       <div class="ImageNoContent">
           <img src="../../assets/backgrounds/AdvertenciaPagina.png">
       </div>
   </div>
-</ng-template>
+
 
  
   </div>
