@@ -11,7 +11,9 @@ import { FooterComponent } from '../commons/footer/footer.component';
 @Component({
   selector: 'app-add-assistant',
   standalone: true,
+
   imports: [NavbarComponent, FooterComponent, NgIf],
+
 
   templateUrl: './add-assistant.component.html',
   styleUrl: './add-assistant.component.css'
