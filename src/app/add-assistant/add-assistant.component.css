@@ -48,6 +48,12 @@
     margin-bottom: 20px;
     font-family: 'approach-bold';
   }
+
+  .btn-danger{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'approach-bold';
+  }
   
   app-footer {
     min-height: 100vh;

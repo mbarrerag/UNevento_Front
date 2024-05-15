@@ -11,8 +11,7 @@ import { FooterComponent } from '../commons/footer/footer.component';
 @Component({
   selector: 'app-add-assistant',
   standalone: true,
-  imports: [NgIf],
-  imports: [NavbarComponent, FooterComponent],
+  imports: [NavbarComponent, FooterComponent, NgIf],
 
   templateUrl: './add-assistant.component.html',
   styleUrl: './add-assistant.component.css'
@@ -66,7 +65,7 @@ export class AddAssistantComponent implements OnInit {
           const objectUrl = URL.createObjectURL(image);
           this.eventImage = objectUrl;
         });
-        this.getParticularEventService.assistingEvent(this.IdUsuario, this.token, this.data.idEvent || 57).subscribe(
+        this.getParticularEventService.assistingEvent(this.IdUsuario, this.token, this.idEvento || 57).subscribe(
           (response: any) => {
             console.log(response);
             this.assisting = response.asnwer;
@@ -109,20 +108,20 @@ export class AddAssistantComponent implements OnInit {
 
   noAsistir(): void {
     Swal.fire({
-      title: 'Confirmación Asistencia',
-      text: '¿Está seguro que asistirá a este evento?',
-      icon: 'info',
+      title: 'Anulación Asistencia',
+      text: '¿Está seguro que anulará la asistencia a este evento?',
+      icon: 'warning',
       showCancelButton: true,
       cancelButtonText: 'Cancelar',
       showConfirmButton: true,
       confirmButtonText: 'Confirmar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.getParticularEventService.notAssistEvent(this.IdUsuario, this.token, this.data.idEvento || 57).subscribe(
+        this.getParticularEventService.notAssistEvent(this.IdUsuario, this.token, this.idEvento || 57).subscribe(
           () => {
             Swal.fire({
-              title: 'Confirmación Exitosa',
-              text: 'Se ha confirmado su asistencia a este evento',
+              title: 'Cancelación Exitosa',
+              text: 'Se ha cancelado su asistencia a este evento',
               icon: 'success'  
             });
             this.router.navigate(['/home'])
