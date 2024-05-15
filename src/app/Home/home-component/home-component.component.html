@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div *ngIf="isLoggedin(); else NoLoggedIn">
+
 
 <h1 class="facultad-tittle">Eventos por Facultad y/o Auditorio </h1>
 <p class="explanation">Seleccione algunas de las siguientes opciones para consultar los eventos disponibles:</p>
@@ -22,7 +22,7 @@
   <p>Bienestar</p>
 </div>
 <app-card-bienestar class="app-card-bienestar" (BienestarSelected)="handleFacultySelection($event)"></app-card-bienestar>
-
+<div *ngIf="isLoggedin(); else NoLoggedIn">
 <div class="events">
   <h1 class="main-tittle">Eventos disponibles Universidad Nacional de Colombia</h1>
   <h1 class="main-tittle">{{ formattedFaculty }}</h1> <!-- Aquí se muestra el nombre de la facultad seleccionada -->
