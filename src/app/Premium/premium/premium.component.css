@@ -35,6 +35,13 @@ body {
   margin-top: 30px;
 }
 
+.WelcomeText{
+  font-family: 'approach-regular';
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+}
+
 .contenedor {
   display: flex;
   justify-content: center;

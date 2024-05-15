@@ -11,6 +11,7 @@
     </div>
 </div>
 
+<div *ngIf="isLoggedin(); else NoLoggedIn">
 
 <h1 class="facultad-tittle">Eventos por Facultad y/o Auditorio </h1>
 <p class="explanation">Seleccione algunas de las siguientes opciones para consultar los eventos disponibles:</p>
@@ -46,10 +47,14 @@
  
   </div>
 </div>
-
-
-
-
+</div>
+<ng-template #NoLoggedIn>
+  <div class="NoContent">
+      <div class="TextNoContent">
+          <p class="MensajeVacio">No has Iniciado Sesión actualmente, por favor inicie sesión para poder hacer uso de los servicios ofrecidos por UNevento.</p>
+      </div>
+      <button class="btn-login" routerLink="/premium">Iniciar Sesión</button>
+  </div>
 
 
 <app-footer></app-footer>
