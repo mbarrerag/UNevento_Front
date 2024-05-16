@@ -8,7 +8,7 @@ export class DeleteEventServiceService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'http://localhost:8180/deletedevent';
+  private apiUrl = 'https://uneventoback-production-3c28.up.railway.app/deletedevent';
 
   deleteUserEvent(userId: number, token: string, eventId: Number): any {
     const headers = new HttpHeaders ({

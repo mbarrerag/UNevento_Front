@@ -9,7 +9,7 @@ import { blob } from 'stream/consumers';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8180'; 
+  private apiUrl = 'https://uneventoback-production-3c28.up.railway.app'; 
   private isAuthenticatedKey = 'isAuthenticated';
   private tokenKey = 'token'; 
   private idKey = 'id'; 

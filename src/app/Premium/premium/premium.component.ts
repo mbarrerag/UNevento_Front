@@ -32,7 +32,7 @@ export class PremiumComponent {
 
   async realizarPago(id: number, precio: number) {
 
-    const url = "http://localhost:8180/create-preference";
+    const url = "https://uneventoback-production-3c28.up.railway.app/create-preference";
 
     try {
       console.log('Realizando pago por plan UNevento...');
