@@ -9,11 +9,14 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../commons/navbar/navbar.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
 import { NavbarAdminComponent } from '../../commons/navbar-admin/navbar-admin.component';
+import { AuthService } from '../../UserLogin/user-login/Services/auth/auth.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-home-component',
   standalone: true,
-  imports: [CardBienestarComponent,CardFacultiesComponent,CommonModule, CardEventComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FooterComponent, NavbarAdminComponent],
+  imports: [CardBienestarComponent,CardFacultiesComponent,CommonModule, CardEventComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FooterComponent, NavbarAdminComponent, NgIf],
+
   templateUrl: './home-component.component.html',
   styleUrl: './home-component.component.css'
 })
@@ -30,7 +33,7 @@ export class HomeComponentComponent {
 
 
 
-  constructor(private oficialEventService: OficialEventService) {}
+  constructor(private oficialEventService: OficialEventService, private authService: AuthService) {}
 
   handleFacultySelection(facultyName: string) {
     // Do something with the selected faculty, such as making a request or updating state
@@ -83,4 +86,14 @@ export class HomeComponentComponent {
       this.loadPage(this.currentPage + 1);
     }
   }
+
+  //Consultar si está loggeado o no
+  isLoggedin(): boolean{
+    if (this.authService.isLoggedIn()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

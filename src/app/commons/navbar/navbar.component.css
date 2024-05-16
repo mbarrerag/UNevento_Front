@@ -4,8 +4,6 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.9s ease;
     justify-items: end;
-
-
 }
 
 .navbar-collapse.show {
@@ -15,23 +13,27 @@
 }
 
 
-.container-logo{
-  width: 600px;
 
 
-}
   
-  .navbar-nav > li {
+.navbar-nav > li {
     width: 130px;
     margin-top: 5px;
     font-size: 60px;
     justify-content: end;
 }
 
+.navbar-nav{
+    margin-left: auto;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+}
+
 .logo{
-    width: 10%;
+    width: 80px;
     height: 10%;
-    margin-left: 5%;
+    margin-left: 17%;
 }
 .container-navbar{
     justify-content: end;
@@ -53,9 +55,11 @@
 .prenavbar{
     background-color:rgb(242, 242, 242);
     height: 34px;
-    width: 100%;
     text-align: center;
     box-shadow: 15px 100px 16px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .p-developedby{
@@ -115,4 +119,7 @@
     color: #f6cf5b;
     text-decoration: none;
     animation: titileo 1.5s infinite;
+}
+.dropdown-menu{
+    font-family: 'approach-regular';
 }

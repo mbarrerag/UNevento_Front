@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProfileService {
-  private apiUrl = 'http://localhost:8180';
+  private apiUrl = 'https://uneventoback-production-3c28.up.railway.app';
   constructor(private http:HttpClient) { }
 
   getUserData(userID:number, token:string): any {

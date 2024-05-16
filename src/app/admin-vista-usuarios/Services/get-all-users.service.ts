@@ -8,9 +8,9 @@ export class GetAllUsersService {
 
   constructor(private http: HttpClient) { }
 
-  private url : string = 'http://localhost:8180/allusers';
-  private imageUrl: string = 'http://localhost:8180/images/';
-  private deleteUrl: string = 'http://localhost:8180/deletedUser/';
+  private url : string = 'https://uneventoback-production-3c28.up.railway.app/allusers';
+  private imageUrl: string = 'https://uneventoback-production-3c28.up.railway.app/images/';
+  private deleteUrl: string = 'https://uneventoback-production-3c28.up.railway.app/deletedUser/';
 
   getAllUsers(userId: number, token: string, page: number) : any {
     const headers = new HttpHeaders ({

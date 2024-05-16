@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CardCommunityeventsService {
 
-  private apiUrl = 'http://localhost:8180';
+  private apiUrl = 'https://uneventoback-production-3c28.up.railway.app';
   constructor(private http:HttpClient) { }
 
   getCreatorData(userID:number, token:string,creatorID:number): any {

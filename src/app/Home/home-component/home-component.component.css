@@ -20,6 +20,40 @@ app-navbar {
    
   }
 
+.NoContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: 'approach-regular';
+    margin: 20px;
+}
+.TextNoContent{
+    font-size: 1.5rem;
+    color: #a1cb0b;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.btn-login {
+  background-color: #a1cb0b;
+  color: #ffffff;
+  width: auto;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s ease;
+  font-family: 'approach-bold';
+  padding: 10px;
+  box-shadow: 0px 5px 5px #a1cb0b;
+  margin-bottom: 5px;
+}
+
+.btn-login:hover {
+  background-color: #ffffff;
+  color: #a1cb0b;
+  box-shadow: 0px 15px 25px #a1cb0b;
+}
 
   
   .video-container {
