@@ -34,6 +34,7 @@ export const routes: Routes = [
   { path: 'home', component:HomeComponentComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},
   { path: 'aboutus', component:AboutUSComponent },
+<<<<<<< Updated upstream
   { path: 'profile', component:ProfileComponent},
   { path: 'editprofile', component:EditProfileComponent},
   { path: 'termsofservice', component:TermsAndConditionsComponent },
@@ -45,6 +46,10 @@ export const routes: Routes = [
   { path: 'adminevents', component: AdminVistaEventosComponent },
   { path: 'assist/:idEvento', component:AddAssistantComponent },
   { path: 'premium', component: PremiumComponent, canActivate: [AuthGuard] },
+=======
+
+  { path: 'premium', component: PremiumComponent },
+>>>>>>> Stashed changes
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
   { path: 'termsofservice', component: TermsAndConditionsComponent, canActivate: [AuthGuard] },
