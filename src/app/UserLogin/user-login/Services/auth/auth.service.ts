@@ -56,7 +56,7 @@ export class AuthService {
   
         this.http.post<any>(userInfoUrl, { email: correo }, { headers }).subscribe(userInfoResponse => {
           console.log(userInfoResponse);
-          localStorage.setItem(this.rolkey, userInfoResponse.rol);
+          localStorage.setItem(this.rolkey, userInfoResponse.role);
           localStorage.setItem(this.imagekey, userInfoResponse.imageUrl);
   
           const imageName = userInfoResponse.imageUrl.split('/').pop(); 

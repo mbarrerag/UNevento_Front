@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { GetAllEventsService } from './Services/get-all-events.service';
 import Swal from 'sweetalert2';
 import { GetAllUsersService } from '../admin-vista-usuarios/Services/get-all-users.service';
-import { NavbarComponent } from '../commons/navbar/navbar.component';
+import { NavbarAdminComponent } from '../commons/navbar-admin/navbar-admin.component';
 import { FooterComponent } from '../commons/footer/footer.component';
 import { NgFor } from '@angular/common';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-vista-eventos',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent, NgFor],
+  imports: [NavbarAdminComponent, FooterComponent, NgFor],
   templateUrl: './admin-vista-eventos.component.html',
   styleUrl: './admin-vista-eventos.component.css'
 })

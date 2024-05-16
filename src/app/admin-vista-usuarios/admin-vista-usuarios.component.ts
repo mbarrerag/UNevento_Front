@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../commons/navbar/navbar.component';
+import { NavbarAdminComponent } from '../commons/navbar-admin/navbar-admin.component';
 import { GetAllUsersService } from './Services/get-all-users.service';
 import { NgFor } from '@angular/common';
 import { FooterComponent } from '../commons/footer/footer.component';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-vista-usuarios',
   standalone: true,
-  imports: [NavbarComponent, NgFor, FooterComponent],
+  imports: [NavbarAdminComponent, NgFor, FooterComponent],
   templateUrl: './admin-vista-usuarios.component.html',
   styleUrl: './admin-vista-usuarios.component.css'
 })
