@@ -19,7 +19,7 @@
         <td>{{ evento.lugar }}</td>
         <td>{{ evento.capacidad }}</td>
         <td>{{ evento.categoria }}</td>
-        <td>{{ evento.fecha }}</td>
+        <td>{{ evento.fechaEvento.split('T')[0]}}</td>
         <td>{{ evento.hora }}</td>
         <td>{{ evento.descripcion }}</td>
         <td><img [src]="evento.imagenUrl" alt="Imagen de {{ evento.nombre }}" class="ImagenEvento"></td>
