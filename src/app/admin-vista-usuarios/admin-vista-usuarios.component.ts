@@ -4,6 +4,7 @@ import { GetAllUsersService } from './Services/get-all-users.service';
 import { NgFor } from '@angular/common';
 import { FooterComponent } from '../commons/footer/footer.component';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-vista-usuarios',
@@ -19,7 +20,9 @@ export class AdminVistaUsuariosComponent implements OnInit {
   page: number = 1;
   totalPages: number = 0;
 
-  constructor(private getAllUsersService: GetAllUsersService) { }
+  constructor(private getAllUsersService: GetAllUsersService,
+    private router : Router
+  ) { }
 
   getAllUsers() : void {
     this.getAllUsersService.getAllUsers(this.userId, this.token, this.page - 1).subscribe(
@@ -72,6 +75,14 @@ export class AdminVistaUsuariosComponent implements OnInit {
   }  
 
   ngOnInit(): void {
-      this.getAllUsers()
+    if (parseInt(localStorage.getItem('rol') || '0') !== 10) {
+      this.router.navigate(['/home']);      
+      Swal.fire({
+        title: 'Información',
+        text: 'Este apartado es solo para administradores',
+        icon: 'info'
+      });
+    }
+    this.getAllUsers()
   }
 }

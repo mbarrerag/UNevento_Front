@@ -1,0 +1,118 @@
+.navbar {
+    background-color: #fff;     
+    height: 90px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.9s ease;
+    justify-items: end;
+
+
+}
+
+.navbar-collapse.show {
+    background-color: #fff; 
+    opacity: 0.9;
+    border: none;
+}
+
+
+.container-logo{
+  width: 600px;
+
+
+}
+  
+  .navbar-nav > li {
+    width: 130px;
+    margin-top: 5px;
+    font-size: 60px;
+    justify-content: end;
+}
+
+.logo{
+    width: 10%;
+    height: 10%;
+    margin-left: 5%;
+}
+.container-navbar{
+    justify-content: end;
+}
+
+.nav-link, .navbar-brand{
+    color: rgb(0, 0, 0);
+    font-family: "approach-medium";
+    cursor: pointer;
+    font-size: 32%;
+}
+
+.nav-link:hover, .navbar-brand:hover{
+    color: #acff07;
+    font-family: "approach-medium";
+    cursor: pointer; 
+}
+
+.prenavbar{
+    background-color:rgb(242, 242, 242);
+    height: 34px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 15px 100px 16px rgba(0, 0, 0, 0.2);
+}
+
+.p-developedby{
+    font-family: "ancizar-regular";
+    font-size: 20px;
+}
+
+.p-allrights{
+    font-family: "ancizar-italic";
+    font-size: 20px;
+}
+
+.icons-social{
+    justify-content: center;
+    display: flex;
+}
+
+.icon-facebook{
+    margin-left: 20px;
+}
+
+.icon-x{
+    margin-left: 20px;
+}
+
+.icon-tik{
+    margin-left: 20px;
+}
+
+.icons-general{
+    color:  #000000;
+}
+
+.icons-general:hover{
+   color: #acff07;
+}
+
+.profile-image {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+  }
+  
+
+
+
+
+  
+
+@keyframes titileo {
+    0% { color: #000; }
+    50% { color: #ffdd77; }
+    100% { color: #000; }
+}
+
+.Premium {
+    color: #f6cf5b;
+    text-decoration: none;
+    animation: titileo 1.5s infinite;
+}
