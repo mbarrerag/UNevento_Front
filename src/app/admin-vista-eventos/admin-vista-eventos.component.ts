@@ -5,6 +5,7 @@ import { GetAllUsersService } from '../admin-vista-usuarios/Services/get-all-use
 import { NavbarComponent } from '../commons/navbar/navbar.component';
 import { FooterComponent } from '../commons/footer/footer.component';
 import { NgFor } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-vista-eventos',
@@ -21,7 +22,7 @@ export class AdminVistaEventosComponent {
   totalPages: number = 0;
 
   constructor(private getAllEventsService: GetAllEventsService,
-    private getAllUsersService: GetAllUsersService
+    private router: Router
   ) { }
 
   getAllEvents() : void {
@@ -75,6 +76,14 @@ export class AdminVistaEventosComponent {
   }  
 
   ngOnInit(): void {
-      this.getAllEvents()
+    if (parseInt(localStorage.getItem('rol') || '0') !== 10) {
+      this.router.navigate(['/home']);      
+      Swal.fire({
+        title: 'Información',
+        text: 'Este apartado es solo para administradores',
+        icon: 'info'
+      });
+    }
+    this.getAllEvents()
   }
 }
