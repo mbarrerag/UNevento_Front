@@ -54,10 +54,8 @@ export class AuthService {
 
         this.http.post<any>(userInfoUrl, { email: correo }, { headers }).subscribe(userInfoResponse => {
           console.log(userInfoResponse);
-
           this.cookieService.set(this.rolkey, userInfoResponse.rol);
           this.cookieService.set(this.imagekey, userInfoResponse.imageUrl);
-
 
           const imageName = userInfoResponse.imageUrl.split('/').pop(); 
           const imageUrl = `${this.apiUrl}/images/${imageName}`; 
