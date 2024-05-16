@@ -5,29 +5,32 @@ import { GetAllUsersService } from '../admin-vista-usuarios/Services/get-all-use
 import { NavbarComponent } from '../commons/navbar/navbar.component';
 import { FooterComponent } from '../commons/footer/footer.component';
 import { NgFor } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-admin-vista-eventos',
   standalone: true,
   imports: [NavbarComponent, FooterComponent, NgFor],
   templateUrl: './admin-vista-eventos.component.html',
-  styleUrl: './admin-vista-eventos.component.css'
+  styleUrls: ['./admin-vista-eventos.component.css']
 })
 export class AdminVistaEventosComponent {
-  events : any[] = [];
-  userId: number = parseInt(localStorage.getItem('id') || '0');
-  token: string = localStorage.getItem('token') || '';
+  events: any[] = [];
+  userId: number = parseInt(this.cookieService.get('id') || '0');
+  token: string = this.cookieService.get('token') || '';
   page: number = 1;
   totalPages: number = 0;
 
-  constructor(private getAllEventsService: GetAllEventsService,
-    private getAllUsersService: GetAllUsersService
+  constructor(
+    private getAllEventsService: GetAllEventsService,
+    private getAllUsersService: GetAllUsersService,
+    private cookieService: CookieService
   ) { }
 
-  getAllEvents() : void {
+  getAllEvents(): void {
     this.getAllEventsService.getAllEvents(this.userId, this.token, this.page - 1).subscribe(
       (response: any) => {
-        console.log(response)
+        console.log(response);
         this.totalPages = Math.floor(parseInt(response.totalElements) / 8) + 1;
         this.events = response.content;
         for (let event of this.events) {
@@ -36,15 +39,14 @@ export class AdminVistaEventosComponent {
               const objectUrl = URL.createObjectURL(image);
               event.imagenUrl = objectUrl;
             }
-          )
+          );
         }
       }
-    )
+    );
   }
 
-
-  deleteEvent(selectedEvent: string) : void {
-    const deleteEventId : number = parseInt(selectedEvent || '0');
+  deleteEvent(selectedEvent: string): void {
+    const deleteEventId: number = parseInt(selectedEvent || '0');
     Swal.fire({
       title: '¿Está seguro que quiere eliminar este usuario?',
       text: '¡No podrá revertir esta acción una vez se haya llevado a cabo!',
@@ -64,17 +66,17 @@ export class AdminVistaEventosComponent {
     });
   }
 
-  nextPage() : void {
-    this.page++; 
+  nextPage(): void {
+    this.page++;
     this.getAllEvents();
   }
 
   prevPage(): void {
     this.page--;
     this.getAllEvents();
-  }  
+  }
 
   ngOnInit(): void {
-      this.getAllEvents()
+    this.getAllEvents();
   }
 }

@@ -8,31 +8,32 @@ import { NavbarComponent } from '../../commons/navbar/navbar.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
 import { ProfileService } from './Services/profile.service';
 import Swal from 'sweetalert2';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [NavbarComponent,FooterComponent,RouterLink,RouterLinkActive,CommonModule,RouterOutlet],
+  imports: [CommonModule,NavbarComponent,FooterComponent],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  styleUrls: ['./profile.component.css'] // Corregí el nombre de la propiedad styleUrl a styleUrls
 })
 export class ProfileComponent {
 
-  constructor(private sanitizer: DomSanitizer, private profileService: ProfileService) { }
+  constructor(private sanitizer: DomSanitizer, private profileService: ProfileService, private cookieService: CookieService) { } // Corregí el nombre de la propiedad cookieService
 
   userData: any = {};
   userImage: any = {};
 
   ngOnInit(): void {
-    const userID = parseInt(localStorage.getItem('id') || '0');
-    const token = localStorage.getItem('token') || '';
+    const userID = parseInt(this.cookieService.get('id') || '0'); // Corregí el acceso a cookieService
+    const token = this.cookieService.get('token') || '';
 
     this.profileService.getUserData(userID, token).subscribe((response: any) => {
       this.userData = response;
       console.log(this.userData);
       this.profileService.getImage(this.userData.imageUrl).subscribe((response: Blob) => {
         const objectUrl = URL.createObjectURL(response);
-        this.userImage = objectUrl
+        this.userImage = this.sanitizer.bypassSecurityTrustUrl(objectUrl); // Sanitizo la URL
         console.log(this.userImage);
       });
     });
@@ -41,7 +42,7 @@ export class ProfileComponent {
   }
 
 
-  deleteUser():void{
+  deleteUser(): void {
     Swal.fire({
       title: '¿Estás seguro de que deseas eliminar tu cuenta?',
       text: 'Esta acción no se puede deshacer y se perderán todos los datos asociados a tu cuenta.',
@@ -53,11 +54,11 @@ export class ProfileComponent {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        const userID = parseInt(localStorage.getItem('id') || '0');
-        const token = localStorage.getItem('token') || '';
+        const userID = parseInt(this.cookieService.get('id') || '0');
+        const token = this.cookieService.get('token') || '';
         this.profileService.deleteUser(userID, token).subscribe((response: any) => {
           console.log(response);
-          localStorage.clear();
+          this.cookieService.deleteAll(); // Utiliza el método deleteAll() en lugar de clear() para borrar todas las cookies.
           Swal.fire({
             title: 'Completado',
             text: 'Usuario eliminado con éxito',
@@ -101,5 +102,5 @@ export class ProfileComponent {
       icon: 'warning',
       confirmButtonText: 'Aceptar',
     });
-}
+  }
 }

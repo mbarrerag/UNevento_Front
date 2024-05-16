@@ -7,21 +7,17 @@ import { NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { NavbarComponent } from '../commons/navbar/navbar.component';
 import { FooterComponent } from '../commons/footer/footer.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-add-assistant',
   standalone: true,
-
   imports: [NavbarComponent, FooterComponent, NgIf],
-
-
   templateUrl: './add-assistant.component.html',
-  styleUrl: './add-assistant.component.css'
+  styleUrls: ['./add-assistant.component.css']
 })
 export class AddAssistantComponent implements OnInit {
-
-  @Input() data: any = {idEvent: 57};
-
+  @Input() data: any = { idEvent: 57 };
 
   nombreEvento: string = "Nombre del Evento";
   descripcion: string = "Descripción del evento";
@@ -32,20 +28,22 @@ export class AddAssistantComponent implements OnInit {
   maxAsistentes: number = 100;
   hora: string = "Hora del evento";
   tipoEvento: string = "Tipo de Evento";
-  IdUsuario: number = parseInt(localStorage.getItem('id') || '0');
-  token: string = localStorage.getItem('token') || '';
+  IdUsuario: number = parseInt(this.cookieService.get('id') || '0');
+  token: string = this.cookieService.get('token') || '';
   imageUrl: string = '';
   eventImage: any = {};
   assisting: boolean = false;
   idEvento: number = 0;
 
-
-  constructor(private getParticularEventService: GetParticularEventoService,
-    private router: Router,private route: ActivatedRoute
+  constructor(
+    private getParticularEventService: GetParticularEventoService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private cookieService: CookieService
   ) { }
 
   ngOnInit(): void {
-    //Obtener el id del evento a partír de la ruta
+    // Obtener el id del evento a partir de la ruta
     this.route.paramMap.subscribe(params => {
       const idEvento = params.get('idEvento');
       this.idEvento = idEvento ? +idEvento : 0;
@@ -53,16 +51,16 @@ export class AddAssistantComponent implements OnInit {
 
     this.getParticularEventService.getParticularEvent(this.IdUsuario, this.token, this.idEvento || 57).subscribe(
       (response: any) => {
-        console.log(response)
+        console.log(response);
         this.nombreEvento = response.nombre;
         this.descripcion = response.descripcion;
         this.lugar = response.lugar;
-        this.categoria = response.categoria.replace(/_/g,' ');
-        this.facultad = response.Facultad.replace(/_/g,' ');
+        this.categoria = response.categoria.replace(/_/g, ' ');
+        this.facultad = response.Facultad.replace(/_/g, ' ');
         this.fecha = (response.fechaEvento.split('T'))[0];
         this.hora = response.hora;
         this.maxAsistentes = response.capacidad;
-        this.tipoEvento = response.tipo.replace(/_/g,' ');      
+        this.tipoEvento = response.tipo.replace(/_/g, ' ');
         this.getParticularEventService.getImage(response.imageUrl).subscribe((image: Blob) => {
           const objectUrl = URL.createObjectURL(image);
           this.eventImage = objectUrl;
@@ -70,16 +68,13 @@ export class AddAssistantComponent implements OnInit {
         this.getParticularEventService.assistingEvent(this.IdUsuario, this.token, this.idEvento || 57).subscribe(
           (response: any) => {
             console.log(response);
-            this.assisting = response.asnwer;
+            this.assisting = response.answer;
           }
         );
       }, () => {
-        Swal.fire('Error',
-          'Parece que este evento no está disponible',
-          'error'
-        )
+        Swal.fire('Error', 'Parece que este evento no está disponible', 'error');
       }
-    );    
+    );
   }
 
   asistir(): void {
@@ -98,7 +93,7 @@ export class AddAssistantComponent implements OnInit {
             Swal.fire({
               title: 'Confirmación Exitosa',
               text: 'Se ha confirmado su asistencia a este evento',
-              icon: 'success'  
+              icon: 'success'
             });
             this.router.navigate(['/home']);
             this.assisting = true;
@@ -124,9 +119,9 @@ export class AddAssistantComponent implements OnInit {
             Swal.fire({
               title: 'Cancelación Exitosa',
               text: 'Se ha cancelado su asistencia a este evento',
-              icon: 'success'  
+              icon: 'success'
             });
-            this.router.navigate(['/home'])
+            this.router.navigate(['/home']);
           }
         );
       }

@@ -10,6 +10,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { EditProfileService } from './Services/edit-profile.service';
 import Swal from 'sweetalert2';
 import { error } from 'console';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-edit-profile',
@@ -19,7 +21,7 @@ import { error } from 'console';
   styleUrl: './edit-profile.component.css'
 })
 export class EditProfileComponent {
-  constructor(private Editprofileservice: EditProfileService, private router:Router) { }
+  constructor(private Editprofileservice: EditProfileService, private router:Router, private cookiesService:CookieService) { }
 
   userData: any = {};
   
@@ -30,8 +32,8 @@ export class EditProfileComponent {
   Imagen: any; // Initialize the "Imagen" property
 
   ngOnInit(): void {
-    const userID = parseInt(localStorage.getItem('id') || '0');
-    const token = localStorage.getItem('token') || '';
+    const userID = parseInt(this.cookiesService.get('id') || '0');
+    const token = this.cookiesService.get('token') || '';
 
     this.Editprofileservice.getUserData(userID, token).subscribe((response: any) => {
       this.userData = response;
@@ -64,12 +66,12 @@ export class EditProfileComponent {
       return;
     }
     let userData={
-      id:parseInt(localStorage.getItem('id') || '0'),
+      id:parseInt(this.cookiesService.get('id') || '0'),
       nombre:this.NuevoNombre,
       apellido:this.NuevoApellido
     }
 
-    this.Editprofileservice.editData(userData,this.Imagen, parseInt(localStorage.getItem('id') || '0'), localStorage.getItem('token') || '').subscribe((response: any) => {
+    this.Editprofileservice.editData(userData,this.Imagen, parseInt(this.cookiesService.get('id') || '0'), this.cookiesService.get('token') || '').subscribe((response: any) => {
       this.showSuccessAlert('Datos actualizados', 'Los datos se han actualizado correctamente');
       this.router.navigate(['/profile']);
     }, (error: any) => {

@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CardPremiumEventsService } from './Services/card-premium-events.service';
-import { Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-card-premium-events',
   standalone: true,
-  imports: [],
   templateUrl: './card-premium-events.component.html',
-  styleUrl: './card-premium-events.component.css'
+  styleUrls: ['./card-premium-events.component.css']
 })
 export class CardPremiumEventsComponent {
 
-  constructor(private sanitizer:DomSanitizer,private cardPremiumEventsService: CardPremiumEventsService) { }
+  constructor(
+    private sanitizer: DomSanitizer,
+    private cardPremiumEventsService: CardPremiumEventsService,
+    private cookieService: CookieService
+  ) { }
 
   @Input() data: any;
   creatorImage: any = {};
@@ -21,28 +24,26 @@ export class CardPremiumEventsComponent {
   categoria: string = '';
   creatorImageUrl: string | undefined;
 
-  ngOnInit():void{
-    const userID = parseInt(localStorage.getItem('id') || '0');
-    const token = localStorage.getItem('token') || '';
-
-
-    /* this.cardPremiumEventsService.getCreatorData(userID, token, this.data.idUsuario).subscribe((response: any) => {
-      this.creatorData = response;
-      this.cardPremiumEventsService.getImage(this.creatorData.imageUrl).subscribe((response: Blob) => {
-        const objectUrl = URL.createObjectURL(response);
-        this.creatorImage = objectUrl;
-      });
-    });
-
-    //Consultar imagen de evento
-    this.cardPremiumEventsService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
-      const objectUrl = URL.createObjectURL(response);
-      this.eventImage = objectUrl;
-    }); */
+  ngOnInit(): void {
+    const userID = parseInt(this.cookieService.get('id') || '0');
+    const token = this.cookieService.get('token') || '';
 
     //Asignar Categoría
     this.categoria = this.translateCategory(this.data.categoria);
 
+    // this.cardPremiumEventsService.getCreatorData(userID, token, this.data.idUsuario).subscribe((response: any) => {
+    //   this.creatorData = response;
+    //   this.cardPremiumEventsService.getImage(this.creatorData.imageUrl).subscribe((response: Blob) => {
+    //     const objectUrl = URL.createObjectURL(response);
+    //     this.creatorImage = objectUrl;
+    //   });
+    // });
+
+    //Consultar imagen de evento
+    // this.cardPremiumEventsService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
+    //   const objectUrl = URL.createObjectURL(response);
+    //   this.eventImage = objectUrl;
+    // });
   }
 
 

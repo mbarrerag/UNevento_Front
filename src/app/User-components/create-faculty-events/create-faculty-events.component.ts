@@ -10,6 +10,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CreateFacultyEventService } from './Services/CreateFacEvent/create-faculty-event.service';
 import Swal from 'sweetalert2';
 import { response } from 'express';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-create-faculty-events',
@@ -39,8 +40,8 @@ export class CreateFacultyEventsComponent {
   Hora: string = '';
   Lugar: string = '';
   Facultad: string = '';
-  IdUsuario: number = parseInt(localStorage.getItem('id') || '0');
-  token: string = localStorage.getItem('token') || '';
+  IdUsuario: number = parseInt(this.cookieService.get('id') || '0');
+  token: string = this.cookieService.get('token') || '';
   Aforo: number = 1;
   Categoria: string = '';
   Descripcion: string = '';
@@ -57,7 +58,7 @@ export class CreateFacultyEventsComponent {
     this.fechaValida = fechaIngresadaUTC >= fechaActualUTC;
 }
 
-  constructor(private createFacEventService: CreateFacultyEventService, private router:Router) { }
+  constructor(private createFacEventService: CreateFacultyEventService, private router:Router,  private cookieService: CookieService) { }
   CreateFacEvent(){
     
     const fechaEvento = new Date(this.Fecha);
