@@ -54,6 +54,9 @@
     width: 100%;
     text-align: center;
     box-shadow: 15px 100px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .p-developedby{
