@@ -8,13 +8,15 @@ import { CardEventComponent } from '../../commons/card-event/card-event.componen
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../commons/navbar/navbar.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
+import { NavbarAdminComponent } from '../../commons/navbar-admin/navbar-admin.component';
 import { AuthService } from '../../UserLogin/user-login/Services/auth/auth.service';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-home-component',
   standalone: true,
-  imports: [CardBienestarComponent,CardFacultiesComponent,CommonModule, CardEventComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FooterComponent, NgIf],
+  imports: [CardBienestarComponent,CardFacultiesComponent,CommonModule, CardEventComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FooterComponent, NavbarAdminComponent, NgIf],
+
   templateUrl: './home-component.component.html',
   styleUrl: './home-component.component.css'
 })
@@ -26,6 +28,7 @@ export class HomeComponentComponent {
   events: Page<any> = {} as Page<any>; // Manejar las Páginas de los eventos, de 10 en 10
   currentPage: number = 0; // Identificador de la página Actual de los Eventos
   fixFaculty: string = '';
+  isAdmin: boolean = parseInt(localStorage.getItem('rol') || '0') === 10;
 
 
 
