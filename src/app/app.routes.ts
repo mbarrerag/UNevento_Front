@@ -34,9 +34,7 @@ export const routes: Routes = [
   { path: 'home', component:HomeComponentComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},
   { path: 'aboutus', component:AboutUSComponent },
-  { path: 'adminusers',component:AdminVistaUsuariosComponent},
-  { path: 'adminevents', component:AdminVistaEventosComponent},
-  { path: 'assist/:idEvento', component: AddAssistantComponent, canActivate: [AuthGuard]},
+
   { path: 'premium', component: PremiumComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },

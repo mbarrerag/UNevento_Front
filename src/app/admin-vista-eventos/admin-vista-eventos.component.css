@@ -30,8 +30,6 @@
 .pagination {
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 20px;
-  justify-content: center;
 }
 
 .pagination button {
@@ -60,17 +58,6 @@
 .pagination button[disabled] {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-td{
-  justify-content: center;
-  text-align: center;
-}
-
-.ImagenEvento{
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
 }
 
   

@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarAdminComponent } from '../commons/navbar-admin/navbar-admin.component';
+import { NavbarComponent } from '../commons/navbar/navbar.component';
 import { GetAllUsersService } from './Services/get-all-users.service';
 import { NgFor } from '@angular/common';
 import { FooterComponent } from '../commons/footer/footer.component';
 import Swal from 'sweetalert2';
 import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-admin-vista-usuarios',
   standalone: true,
-  imports: [NavbarAdminComponent, NgFor, FooterComponent],
+  imports: [NavbarComponent, NgFor, FooterComponent],
   templateUrl: './admin-vista-usuarios.component.html',
   styleUrls: ['./admin-vista-usuarios.component.css']
 })
@@ -22,12 +20,9 @@ export class AdminVistaUsuariosComponent implements OnInit {
   page: number = 1;
   totalPages: number = 0;
 
-
   constructor(
     private getAllUsersService: GetAllUsersService,
-    private cookieService: CookieService,
-    private router : Router
-
+    private cookieService: CookieService
   ) { }
 
   getAllUsers(): void {
@@ -80,15 +75,6 @@ export class AdminVistaUsuariosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    if (parseInt(this.cookieService.get('rol') || '0') !== 10) {
-      this.router.navigate(['/home']);      
-      Swal.fire({
-        title: 'Información',
-        text: 'Este apartado es solo para administradores',
-        icon: 'info'
-      });
-    }
-    this.getAllUsers()
+    this.getAllUsers();
   }
 }

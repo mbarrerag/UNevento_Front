@@ -1,16 +1,16 @@
-<app-navbar-admin></app-navbar-admin>
+<app-navbar></app-navbar>
 
 <table class="table">
     <thead>
       <tr>
-        <th style="background-color: #a1cb0b; text-align:center;">Nombre</th>
-        <th style="background-color: #a1cb0b; text-align:center;">Lugar</th>
-        <th style="background-color: #a1cb0b; text-align:center;">Capacidad</th>
-        <th style="background-color: #a1cb0b; text-align:center;">Categoría</th>
-        <th style="background-color: #a1cb0b; text-align:center;">Fecha</th>
-        <th style="background-color: #a1cb0b; text-align:center;">Hora</th>
-        <th style="background-color: #a1cb0b; text-align:center;">Descripcion</th>
-        <th style="background-color: #a1cb0b; text-align:center;">Imagen</th>
+        <th style="background-color: #a1cb0b;">Nombre</th>
+        <th style="background-color: #a1cb0b;">Lugar</th>
+        <th style="background-color: #a1cb0b;">Capacidad</th>
+        <th style="background-color: #a1cb0b;">Categoría</th>
+        <th style="background-color: #a1cb0b;">Fecha</th>
+        <th style="background-color: #a1cb0b;">Hora</th>
+        <th style="background-color: #a1cb0b;">Descripcion</th>
+        <th style="background-color: #a1cb0b;">Imagen</th>
       </tr>
     </thead>
     <tbody>
@@ -19,10 +19,10 @@
         <td>{{ evento.lugar }}</td>
         <td>{{ evento.capacidad }}</td>
         <td>{{ evento.categoria }}</td>
-        <td>{{ evento.fechaEvento.split('T')[0]}}</td>
+        <td>{{ evento.fecha }}</td>
         <td>{{ evento.hora }}</td>
         <td>{{ evento.descripcion }}</td>
-        <td><img [src]="evento.imagenUrl" alt="Imagen de {{ evento.nombre }}" class="ImagenEvento"></td>
+        <td><img [src]="evento.imagenUrl" alt="Imagen de {{ evento.nombre }}"></td>
         <td><i class="fas fa-trash-alt" (click)="deleteEvent(evento.id)"></i></td>
       </tr>
     </tbody>

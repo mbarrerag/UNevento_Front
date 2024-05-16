@@ -2,19 +2,15 @@ import { Component } from '@angular/core';
 import { GetAllEventsService } from './Services/get-all-events.service';
 import Swal from 'sweetalert2';
 import { GetAllUsersService } from '../admin-vista-usuarios/Services/get-all-users.service';
-import { NavbarAdminComponent } from '../commons/navbar-admin/navbar-admin.component';
+import { NavbarComponent } from '../commons/navbar/navbar.component';
 import { FooterComponent } from '../commons/footer/footer.component';
 import { NgFor } from '@angular/common';
-
 import { CookieService } from 'ngx-cookie-service';
-
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-admin-vista-eventos',
   standalone: true,
-  imports: [NavbarAdminComponent, FooterComponent, NgFor],
+  imports: [NavbarComponent, FooterComponent, NgFor],
   templateUrl: './admin-vista-eventos.component.html',
   styleUrls: ['./admin-vista-eventos.component.css']
 })
@@ -25,13 +21,10 @@ export class AdminVistaEventosComponent {
   page: number = 1;
   totalPages: number = 0;
 
-
   constructor(
     private getAllEventsService: GetAllEventsService,
     private getAllUsersService: GetAllUsersService,
-    private cookieService: CookieService,
-    private router: Router
-
+    private cookieService: CookieService
   ) { }
 
   getAllEvents(): void {
@@ -84,16 +77,6 @@ export class AdminVistaEventosComponent {
   }
 
   ngOnInit(): void {
-
-    if (parseInt(this.cookieService.get('rol') || '0') !== 10) {
-      this.router.navigate(['/home']);      
-      Swal.fire({
-        title: 'Información',
-        text: 'Este apartado es solo para administradores',
-        icon: 'info'
-      });
-    }
-    this.getAllEvents()
-
+    this.getAllEvents();
   }
 }
