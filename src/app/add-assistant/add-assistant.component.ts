@@ -68,7 +68,7 @@ export class AddAssistantComponent implements OnInit {
         this.getParticularEventService.assistingEvent(this.IdUsuario, this.token, this.idEvento || 57).subscribe(
           (response: any) => {
             console.log(response);
-            this.assisting = response.answer;
+            this.assisting = response.asnwer;
           }
         );
       }, () => {

@@ -13,7 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule,NavbarComponent,FooterComponent],
+  imports: [CommonModule,NavbarComponent,FooterComponent,RouterOutlet,RouterLink,RouterLinkActive],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'] // Corregí el nombre de la propiedad styleUrl a styleUrls
 })

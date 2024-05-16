@@ -55,7 +55,7 @@ export class AuthService {
         this.http.post<any>(userInfoUrl, { email: correo }, { headers }).subscribe(userInfoResponse => {
           console.log(userInfoResponse);
 
-          this.cookieService.set(this.rolkey, userInfoResponse.rol);
+          this.cookieService.set(this.rolkey, userInfoResponse.role);
           this.cookieService.set(this.imagekey, userInfoResponse.imageUrl);
 
 
