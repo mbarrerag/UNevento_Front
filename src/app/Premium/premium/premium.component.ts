@@ -20,11 +20,13 @@ export class PremiumComponent {
 constructor(private http: HttpClient, private authService: AuthService, private Router: Router){}
 
 
+
   async realizarPago(id: number, precio: number) {
 
    
   if (this.authService.isLoggedIn()) { // Corrige el acceso a isLoggedIn()
     const url = "https://uneventoback-production-3c28.up.railway.app/create-preference";
+
 
     try {
       console.log('Realizando pago por plan UNevento...');
@@ -42,10 +44,8 @@ constructor(private http: HttpClient, private authService: AuthService, private 
     } catch (error) {
       console.error('Error al procesar el pago:', error);
     }
-  } else {
-    this.Router.navigate(['/login']);
-  }
-}}
+  } 
+}
 
 
   

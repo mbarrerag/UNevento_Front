@@ -1,4 +1,5 @@
-<app-navbar></app-navbar>
+<app-navbar *ngIf="!isAdmin"></app-navbar>
+<app-navbar-admin *ngIf="isAdmin"></app-navbar-admin>
 
 <div class="video-container">
   <video autoplay muted loop playsinline preload id="video-background" class="video">

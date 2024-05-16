@@ -13,6 +13,10 @@ body {
   background: #232427;
 }
 
+.Background{
+  margin-top: 100px;
+}
+
  .button-mercado{
 
   background-color: rgb(111, 250, 93);
@@ -39,6 +43,8 @@ body {
   margin-left: 5%;
   margin-right: 5%;
   text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.5;
 }
 
 .contenedor {
@@ -46,7 +52,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
+  margin-bottom: 125px;
 }
 
 .contenedor .card {
