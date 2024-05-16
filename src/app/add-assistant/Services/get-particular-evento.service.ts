@@ -7,11 +7,11 @@ import { from } from 'rxjs';
 })
 export class GetParticularEventoService{
 
-  private url: string = 'http://localhost:8180/getevent/';
-  private urlValidate: string = 'http://localhost:8180/validateEvent'
-  private imageUrl: string = 'http://localhost:8180/';
-  private assistUrl: string = 'http://localhost:8180/assistevent';
-  private declineUrl: string = 'http://localhost:8180/deletedassistance';
+  private url: string = 'https://uneventoback-production-3c28.up.railway.app/getevent/';
+  private urlValidate: string = 'https://uneventoback-production-3c28.up.railway.app/validateEvent'
+  private imageUrl: string = 'https://uneventoback-production-3c28.up.railway.app/';
+  private assistUrl: string = 'https://uneventoback-production-3c28.up.railway.app/assistevent';
+  private declineUrl: string = 'https://uneventoback-production-3c28.up.railway.app/deletedassistance';
   
   constructor(private http: HttpClient) { }
 

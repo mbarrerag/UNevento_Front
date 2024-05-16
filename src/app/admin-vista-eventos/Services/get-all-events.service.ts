@@ -8,9 +8,9 @@ export class GetAllEventsService {
 
   constructor(private http: HttpClient) { }
 
-  private url : string = 'http://localhost:8180/publicevents'
-  private imageUrl: string = 'http://localhost:8180/images/';
-  private deleteUrl: string = 'http://localhost:8180/deletedevent/';
+  private url : string = 'https://uneventoback-production-3c28.up.railway.app/publicevents'
+  private imageUrl: string = 'https://uneventoback-production-3c28.up.railway.app/images/';
+  private deleteUrl: string = 'https://uneventoback-production-3c28.up.railway.app/deletedevent/';
 
   getAllEvents(userId: number, token: string, page: number) : any {
     const headers = new HttpHeaders ({
