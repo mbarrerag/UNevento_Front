@@ -3,10 +3,10 @@
 <table class="table">
     <thead>
       <tr>
-        <th style="background-color: #a1cb0b;">Nombre</th>
-        <th style="background-color: #a1cb0b;">Apellido</th>
-        <th style="background-color: #a1cb0b;">Email</th>
-        <th style="background-color: #a1cb0b;">Foto de Perfil</th>
+        <th style="background-color: #a1cb0b; text-align:center;">Nombre</th>
+        <th style="background-color: #a1cb0b; text-align:center;">Apellido</th>
+        <th style="background-color: #a1cb0b; text-align:center;">Email</th>
+        <th style="background-color: #a1cb0b; text-align:center;">Foto de Perfil</th>
       </tr>
     </thead>
     <tbody>
@@ -14,7 +14,7 @@
         <td>{{ persona.nombre }}</td>
         <td>{{ persona.apellido }}</td>
         <td>{{ persona.email }}</td>
-        <td><img [src]="persona.imageUrl" alt="Imagen de {{ persona.nombre }}"></td>
+        <td><img [src]="persona.imageUrl" alt="Imagen de {{ persona.nombre }}" class="ImagenPersona"></td>
         <td><i class="fas fa-trash-alt" (click)="deleteUser(persona.id)"></i></td>
       </tr>
     </tbody>

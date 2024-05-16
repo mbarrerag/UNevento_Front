@@ -22,14 +22,10 @@ constructor(private http: HttpClient, private authService: AuthService, private 
 
 
 
-  constructor(private http: HttpClient){}
 
   async realizarPago(id: number, precio: number) {
 
     const url = "https://uneventoback-production-3c28.up.railway.app/create-preference";
-async realizarPago(id: number, precio: number) {
-  if (this.authService.isLoggedIn()) { // Corrige el acceso a isLoggedIn()
-    const url = "http://localhost:8180/create-preference";
 
 
     try {
@@ -54,10 +50,8 @@ async realizarPago(id: number, precio: number) {
     } catch (error) {
       console.error('Error al procesar el pago:', error);
     }
-  } else {
-    this.Router.navigate(['/login']);
-  }
-}}
+  } 
+}
 
 
   

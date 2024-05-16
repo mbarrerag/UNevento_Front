@@ -60,4 +60,15 @@
   cursor: not-allowed;
 }
 
+td{
+  justify-content: center;
+  text-align: center;
+}
+
+.ImagenEvento{
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+
   
