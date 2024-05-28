@@ -9,6 +9,31 @@
     background-color: #a1cb0b; /* Color de fondo */
     border-radius: 20px; /* Borde redondeado */
 }
+
+.TextAsistentes{
+  margin: 5px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid  black;
+  
+}
+
+.TextConAsistentes{
+  color: black;
+  cursor: pointer;
+  transition: color 0.5s ease;
+  border-radius: 10px;
+}
+
+.TextConAsistentes:hover{
+  color: white; 
+  background-color: black;
+  
+}
+
+.TextSinAsistentes{
+  color: grey;
+}
 app-modal-delete-event, app-modal-modify-event {
     position: fixed;
     top: 0;

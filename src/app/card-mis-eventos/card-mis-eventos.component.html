@@ -19,8 +19,19 @@
             <br>
             <strong>Categoría:  </strong>{{this.categoria}}
             <br>
+            <div class="TextAsistentes">
+                <div class="TextConAsistentes" *ngIf="this.numAttendance>0; else NoAsistentes" (click)="onOpenModalAttendance()">
+                    <strong>Asistentes:  </strong>{{this.numAttendance}}
+                </div>
+                <ng-template #NoAsistentes>
+                    <strong class="TextSinAsistentes">
+                        Sin Asistentes
+                    </strong>
+                </ng-template>
+            </div>
+            
         </div>
-        <hr />
+        <hr/>
         <div class='actions'>
             <button type="submit" class="btn-modificar-evento" (click)="onOpenModalModify()">Editar</button>
             <button type="button" class="btn-eliminar" (click)="onOpenModalDelete()">Eliminar</button>
@@ -28,3 +39,4 @@
     </div>
     <app-modal-delete-event *ngIf ="showModalDelete==true"  (closeModalDelete)="onCloseModalDelete()"  [data]="data" ></app-modal-delete-event>
     <app-modal-modify-event *ngIf ="showModalModify==true"  (closeModalModify)="onCloseModalModify()"  [data]="data" ></app-modal-modify-event>
+    <app-modal-my-event-attendance *ngIf="showModalAttendance==true" (closeModalAttendance)="onCloseModalAttendance()" [data]="this.Attendance" [Titulo]="this.data.nombre"></app-modal-my-event-attendance>
