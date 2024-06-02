@@ -21,6 +21,7 @@ import { AdminVistaUsuariosComponent } from './admin-vista-usuarios/admin-vista-
 import { AdminVistaEventosComponent } from './admin-vista-eventos/admin-vista-eventos.component';
 import { EventsComponent } from './events/events.component';
 import { AuthGuard } from './commons/Security/AuthGuard';
+import { UsermanualComponent } from './usermanual/usermanual.component';
 import { MyassistsComponent } from './myassists/myassists.component';
 
 
@@ -47,6 +48,7 @@ export const routes: Routes = [
   { path: 'events', component: EventsComponent, canActivate: [AuthGuard] },
   { path: 'miseventos', component: MyeventsComponent, canActivate: [AuthGuard] },
   { path: 'myassists', component: MyassistsComponent, canActivate: [AuthGuard]},
+  { path: 'usermanual', component: UsermanualComponent},
 
 
   { path: '', redirectTo: 'home',  pathMatch: 'full', },

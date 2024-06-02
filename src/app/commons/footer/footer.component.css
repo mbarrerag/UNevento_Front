@@ -16,6 +16,31 @@
     font-family: "approach-light-italic";
     font-size: 20px;
 }
+.p-manual{
+    font-family: "approach-regular";
+    font-size: 16px;
+    color: #363935;
+    text-align: center;
+    align-items: center;
+    padding: 7px;
+    background-color: #acff07;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease; /* Añade esta línea */
+}
+
+.p-manual:hover{
+    background-color: #363935;
+    border: solid 0.5px #acff07;
+    color: #acff07;
+}
+
+.manual-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
 
 .icons-social{
     justify-content: center;
