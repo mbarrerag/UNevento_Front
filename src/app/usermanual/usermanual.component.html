@@ -1,3 +1,63 @@
 <app-navbar></app-navbar>
-<p>usermanual works!</p>
+
+<div class="ContenedorFondo">
+    <div class="ContenedorManual">
+        <h1 class="Titulo"> Manual de Usuario</h1>
+        <nav>
+            <ul class="menu">
+                <li (click)="seccionSeleccionada = 'SeccionRegistro'">Registrarme en UNevento</li>
+                <li (click)="seccionSeleccionada = 'SeccionLogin'">Iniciar Sesión</li>
+                <li (click)="seccionSeleccionada = 'seccion3'">Olvidé Mi Contraseña</li>
+                <li (click)="seccionSeleccionada = 'seccion3'">Editar mi Perfil</li>
+                <li (click)="seccionSeleccionada = 'seccion3'">Eliminar Mi Cuenta</li>
+                <li (click)="seccionSeleccionada = 'seccion3'">Crear Evento</li>
+                <li (click)="seccionSeleccionada = 'seccion3'">Editar Mi Evento</li>
+                <li (click)="seccionSeleccionada = 'seccion3'">Eliminar Mi Evento</li>
+                <li (click)="seccionSeleccionada = 'seccion3'">Asistentes a Mi Evento</li>
+                <li (click)="seccionSeleccionada = 'seccion3'">Mis Asistencias</li>
+                <!-- Añade más secciones según sea necesario -->
+            </ul>
+        </nav>
+        <div *ngIf="seccionSeleccionada === ''" class="SinSeccion">
+            <p class="Parrafo">Bienvenido al Manual de Usuario de UNevento. Aquí encontrarás información detallada sobre cómo utilizar las diferentes funcionalidades de la plataforma.</p>
+            <p class="Parrafo">Para comenzar, selecciona una de las opciones del menú ubicado en la parte superior de esta pantalla que sea de tu interés o utilidad.</p>
+            <div class="ContenedorImagen">
+                <img src="../../assets/img-home/UNeventoBlanco.png" alt="Logo UNevento" class="Imagen">
+            </div>
+        </div>
+        <div *ngIf="seccionSeleccionada === 'SeccionRegistro'">
+            <h2 class="Subtitulo">Registro en UNevento</h2>
+            <p class="Parrafo">Para registrarte en UNevento, sigue los siguientes pasos:</p>
+                <ol>
+                    <li>Ingresa a la página de inicio de UNevento.</li>
+                    <li>Selecciona la opción "Registrarse" en la esquina superior derecha de la pantalla, o bien has click sobre el siguiente enlace <a routerLink="/singup" target="_blank">Registrarse</a>.</li>
+                    <li>Completa el formulario de registro con tu información personal.</li>
+                    <ol>
+                        <li>Ingresa tu nombre y apellido.</li>
+                        <li>Ingresa tu dirección de correo electrónico.<strong>&nbsp; ¡Recuerda! debe ser un Correo Electrónico Válido.</strong></li>
+                        <li>Ingresa una contraseña segura.<strong> &nbsp; Uso de Letras, Números, Caracteres Especiales y una longitud mayor a 8.</strong></li>
+                        <li>Ingresa de nuevo la Contraseña.&nbsp; (Debe Coincidir con la Ingresada en el campo anterior)</li>
+                        <li>Da Click en el Botón Crear Cuenta.</li>
+                    </ol>
+                    <li>Posteriormente se abrirá una nueva pantalla en la que se te solicitará un código de verificación que debío haber sido enviado al correo ingresado.</li>
+                    <li>Ingresa el código de verificación y da click en el botón "Verificar".</li>
+                    <li>En Caso de que hayas ingresado el código correctamente te habrás registrado correctamente y serás redireccionado a la página de Inicio de Sesión.</li>                </ol>
+            <h3 class="Titulo3">¿Que debo tener en cuenta a la hora de registrarme?</h3>
+            <ul>
+                <li>La dirección de correo electrónico debe ser válida, ya que se utilizará para enviar notificaciones y confirmaciones de eventos. Con válida hacemos referencia a un correo electrónico que no se encuentre registrado con otra cuenta y que además sea una dirección real.</li>
+                <li>La contraseña debe ser segura y debe cumplir con los requisitos de seguridad establecidos.</li>
+                <li>Es importante verificar la bandeja de entrada de tu correo electrónico para obtener el código de verificación. Al ingresarlo en el aplicativo debe escribirse exactamente igual que el que fue suministrado.</li>
+            </ul>
+        </div>
+        <div *ngIf="seccionSeleccionada === 'SeccionLogin'">
+            Holaaa 2
+        </div>
+        <div *ngIf="seccionSeleccionada === 'seccion3'">
+            Holaaaaa 3
+        </div>
+        <!-- Añade más secciones según sea necesario -->
+
+        
+    </div>
+</div>
 <app-footer></app-footer>

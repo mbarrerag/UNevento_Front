@@ -66,6 +66,7 @@ body {
   margin-top: 10%; /* Espacio después del título */
   z-index: 2;
   font-family: 'approach-bold';
+  line-height: 1;
 }
 .texto {
   font-size: 150%; /* Tamaño de fuente */

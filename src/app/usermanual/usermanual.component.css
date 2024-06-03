@@ -1,0 +1,87 @@
+.ContenedorFondo{
+    background: url('../../assets/backgrounds/FondoCirculos.jpeg');
+    height: 100%;
+}
+
+.ContenedorManual{
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
+.Titulo{
+    font-family: 'approach-bold';
+    text-align: center;
+    font-size: 2rem;
+    color: #667d15;
+    margin-top: 10px;
+}
+
+.Subtitulo{
+    font-family: 'approach-bold';
+    font-size: 1.5rem;
+    color: #000000;
+}
+.Titulo3{
+    font-family: 'approach-bold';
+    font-size: 1.2rem;
+    color: #000000;
+}
+
+.Parrafo{
+    font-family: 'approach-regular';
+    font-size: 1rem;
+    color: #000000;
+
+}
+
+.Imagen{
+    width: 70%;
+    max-width: 1000px; 
+}
+
+.ContenedorImagen{
+    text-align: center;
+}
+
+ol, ul{
+    font-family: 'approach-regular';
+}
+
+a{
+    color: #a1cb0b;
+}
+.menu {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Hace que los elementos de la lista se muestren en horizontal */
+    justify-content: space-around; /* Distribuye los elementos de la lista uniformemente a lo largo del contenedor */
+    background-color: #f8f8f8; /* Añade un color de fondo al menú */
+    border-radius: 5px; /* Redondea las esquinas del menú */
+    margin-bottom: 20px; /* Añade un poco de espacio debajo del menú */
+    font-family: 'approach-regular';
+    overflow-x: auto;
+    border: solid 0.5px #a1cb0b;
+}
+
+.menu li {
+    padding: 10px 20px; /* Añade un poco de relleno a cada elemento de la lista */
+    cursor: pointer; /* Cambia el cursor a un puntero al pasar el ratón sobre un elemento de la lista */
+    text-align: center;
+    border: solid 0.5px #a1cb0b;
+    justify-content: center;
+    align-items: center;
+    color: #667d15;
+}
+
+.menu li:hover {
+    background-color: #a1cb0b; /* Cambia el color de fondo del elemento de la lista al pasar el ratón sobre él */
+    color: white;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #000;
+}
+
