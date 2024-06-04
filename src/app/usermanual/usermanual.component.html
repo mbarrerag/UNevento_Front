@@ -24,7 +24,7 @@
             <p class="Parrafo">Bienvenido al Manual de Usuario de UNevento. Aquí encontrarás información detallada sobre cómo utilizar las diferentes funcionalidades de la plataforma.</p>
             <p class="Parrafo">Para comenzar, selecciona una de las opciones del menú ubicado en la parte superior de esta pantalla que sea de tu interés o utilidad.</p>
             <div class="ContenedorImagen">
-                <img src="../../assets/img-home/UNeventoBlanco.png" alt="Logo UNevento" class="Imagen">
+                <img src="../../assets/img-home/UNeventoBlanco.png" alt="Logo UNevento" class="ImagenLogo">
             </div>
         </div>
         <div *ngIf="seccionSeleccionada === 'SeccionRegistro'">
@@ -39,6 +39,7 @@
                         <li>Ingresa tu dirección de correo electrónico.<strong>&nbsp; ¡Recuerda! debe ser un Correo Electrónico Válido.</strong></li>
                         <li>Ingresa una contraseña segura.<strong> &nbsp; Uso de Letras, Números, Caracteres Especiales y una longitud mayor a 8.</strong></li>
                         <li>Ingresa de nuevo la Contraseña.&nbsp; (Debe Coincidir con la Ingresada en el campo anterior)</li>
+                        <li>Acepta los términos y Condiciones del manejo de datos del aplicativo, los puedes consultar dando click en <a routerLink="/termsofservice" target="_blank">Políticas de Manejo de Datos</a>.</li>
                         <li>Da Click en el Botón Crear Cuenta.</li>
                     </ol>
                     <div class="ContenedorImagen">
@@ -294,7 +295,7 @@
             <h2 class="Subtitulo">Ver Eventos</h2>
             <ol>
                 <li><p class="Parrafo">Para ver los eventos disponibles en UNevento, lo podrás hacer en los siguientes apartados:</p></li>
-                <uL>
+                <ul>
                     <li><a routerLink="/home" target="_blank">Ver Eventos de Facultad</a></li>
                     <ul>
                         <li>Selecciona una facultad y entonces se abrirán los eventos correspondientes.</li>
@@ -302,7 +303,8 @@
                     <li><a routerLink="/communityevents" target="_blank">Ver Eventos de la Comunidad</a></li>
                     <li><a routerLink="/miseventos" target="_blank">Ver Mis Eventos</a></li>
                     <li><a routerLink="/myassists" target="_blank">Ver Mis Asistencias a eventos</a></li>
-                </uL>
+                </ul>
+                <li>En todos los casos debes haber <a routerLink="/login" target="_blank">iniciado sesión</a> previamente para lograr interactuar con los eventos publicados en cada uno de las Secciones.</li>
                 <li>En Cada uno de estos apartados encontrarás eventos que estarán divididos por páginas en grupos de 10 las cuales tu podrás ir saltando a través de los controles y que además podrás aplicar un filtro en base a la categoría de evento de tu preferencia.</li>
                 <div class="ContenedorImagen">
                     <img src="../../assets/img-usermanual/FiltroEventos.png" style="max-width: 200px;" alt="Filtro Eventos" class="Imagen">
@@ -337,7 +339,7 @@
 
         <div *ngIf="seccionSeleccionada === 'SeccionPromocionEvento'">
             <h2 class="Subtitulo">Promocionar Mi Evento</h2>
-            <p class="Parrafo">En el apartado de <a routerLink="/communityevents" target="_blank">Eventos Comunitarios</a> de UNevento contamos con una sección denominada eventos promocionados actualmente en UNevento, lo que permitirá a tu evento sobresalir con respecto a los demás eventos de la comunidad publicados en la plataforma. Eso sí, UNevento solo permite promocionar 8 eventos a la vez.</p>
+            <p class="Parrafo">En el apartado de <a routerLink="/communityevents" target="_blank">Eventos Comunitarios</a> de UNevento contamos con una sección denominada <strong>Eventos Promocionados Actualmente en UNevento</strong>, lo que permitirá a tu evento sobresalir con respecto a los demás eventos de la comunidad publicados en la plataforma. Eso sí, UNevento solo permite promocionar 8 eventos a la vez.</p>
             <div class="ContenedorImagen">
                 <img src="../../assets/img-usermanual/EventosPromocionados.png" alt="Eventos Comunitarios Promocionados" class="Imagen">
             </div>

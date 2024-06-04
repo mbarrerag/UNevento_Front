@@ -42,6 +42,20 @@
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
+    box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.2); 
+    transition: 0.3s;
+}
+
+.ImagenLogo{
+    width: 70%;
+    max-width: 1000px; 
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Imagen:hover{
+    box-shadow: 0 20px 40px 20px rgba(0, 0, 0, 0.2);
 }
 
 .ContenedorImagen{
@@ -53,7 +67,7 @@ ol, ul{
 }
 
 a{
-    color: #a1cb0b;
+    color: #6e8909;
 }
 .menu {
     list-style-type: none;
