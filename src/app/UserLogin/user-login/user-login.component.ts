@@ -7,7 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './Services/auth/auth.service';
 import Swal from 'sweetalert2';
-
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class UserLoginComponent {
 
 
 
-  constructor(private authService: AuthService, private router: Router,private formBuilder: FormBuilder) { }
+  constructor(private authService: AuthService, private router: Router,private formBuilder: FormBuilder, private cookieService:CookieService) { }
 
 
 
@@ -43,8 +43,8 @@ export class UserLoginComponent {
 
         console.log(response)
         console.error('Autenticado correctamente');
-        localStorage.setItem('token', response.jwtToken);
-        localStorage.setItem('id', response.userId);
+        this.cookieService.set('token', response.jwtToken);
+        this.cookieService.set('id', response.userId.toString());
         
 
 

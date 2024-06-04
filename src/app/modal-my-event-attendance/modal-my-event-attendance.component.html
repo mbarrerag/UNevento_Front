@@ -1,0 +1,26 @@
+<div class="Contenedor">
+    <div class="Encabezado">
+        <h1 class="Titulo">Asistentes Registrados en el Evento: {{this.Titulo}}</h1>
+        <p style="text-align: center;">{{this.data.length}} Asistentes Registrados</p>
+        <div class="Buttons">
+            <button class="botonCerrar" (click)="onClose()">Cerrar</button>
+            <button class="botonDescargar" (click)="descargarExcel()"><img src="../../assets/img-buttons/Excel-Icon.png" style="margin: 3px;">Descargar Hoja de Cálculo con los Asistentes</button>
+        </div>
+    </div>
+    <table class="ContenedorTabla">
+        <thead>
+            <tr style="background-color: #a1cb0b;">
+                <th><h1>Nombre</h1></th>
+                <th><h1>Apellido</h1></th>
+                <th><h1>Correo Electrónico</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of data">
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.apellido}}</td>
+                <td>{{usuario.correo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

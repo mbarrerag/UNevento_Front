@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { NavbarComponent } from '../../../../commons/navbar/navbar.component';
-import { blob } from 'stream/consumers';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +18,11 @@ export class AuthService {
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isAuthenticatedSubject.asObservable();
 
-
   private imageSubject = new BehaviorSubject<string>(''); // BehaviorSubject para la imagen
   image$: Observable<string> = this.imageSubject.asObservable();
 
-  constructor(private http: HttpClient) { 
-    const storedImage = localStorage.getItem(this.imagekey);
+  constructor(private http: HttpClient, private cookieService: CookieService) { 
+    const storedImage = this.cookieService.get(this.imagekey);
     if (storedImage) {
       this.imageSubject.next(storedImage);
     }
@@ -41,66 +39,47 @@ export class AuthService {
     
     return this.http.post<any>(loginUrl, { correo, password }).pipe(
       tap((response) => {
-        localStorage.setItem(this.isAuthenticatedKey, 'true');
-        localStorage.setItem(this.tokenKey, response.token);
-        localStorage.setItem(this.idKey, response.id);
+        this.cookieService.set(this.isAuthenticatedKey, 'true');
+        this.cookieService.set(this.tokenKey, response.token);
+        this.cookieService.set(this.idKey, response.id);
         this.isAuthenticatedSubject.next(true);
 
         const jwtTokenString = response.jwtToken.toString(); // Convertir token a string
-  
+
         console.log('Datos enviados a userinformation:', `${response.userId} ${jwtTokenString}`);
         const userInfoUrl = `${this.apiUrl}/userinformation`;
         const headers = new HttpHeaders({
           'Authorization': `${response.userId}, ${jwtTokenString}` // Concatenar las cadenas de texto
         });
-  
+
         this.http.post<any>(userInfoUrl, { email: correo }, { headers }).subscribe(userInfoResponse => {
           console.log(userInfoResponse);
-          localStorage.setItem(this.rolkey, userInfoResponse.rol);
-          localStorage.setItem(this.imagekey, userInfoResponse.imageUrl);
-  
+
+          this.cookieService.set(this.rolkey, userInfoResponse.role);
+          this.cookieService.set(this.imagekey, userInfoResponse.imageUrl);
+
+
           const imageName = userInfoResponse.imageUrl.split('/').pop(); 
           const imageUrl = `${this.apiUrl}/images/${imageName}`; 
 
-          console.log("imagen:", imageUrl)
-          localStorage.setItem(this.imagekey, imageUrl);
-
+          console.log("imagen:", imageUrl);
+          this.cookieService.set(this.imagekey, imageUrl);
+          this.imageSubject.next(imageUrl); // Actualiza el BehaviorSubject con la URL de la imagen
         });
-
       })
     );
-    
   }
-  
-  
-
-
-      
-
-
-
-
-
-
-
-
 
   logout(): void {
-    localStorage.removeItem(this.isAuthenticatedKey);
-    localStorage.removeItem(this.tokenKey); 
-    localStorage.removeItem(this.idKey); 
-    localStorage.removeItem(this.rolkey); 
-    localStorage.removeItem(this.imagekey); 
+    this.cookieService.delete(this.isAuthenticatedKey);
+    this.cookieService.delete(this.tokenKey); 
+    this.cookieService.delete(this.idKey); 
+    this.cookieService.delete(this.rolkey); 
+    this.cookieService.delete(this.imagekey); 
     this.isAuthenticatedSubject.next(false);
   }
 
   isLoggedIn(): boolean {
-    // Verifica si localStorage está definido antes de intentar acceder a él
-    if (typeof localStorage !== 'undefined') {
-      return localStorage.getItem(this.isAuthenticatedKey) === 'true';
-    } else {
-      // Si localStorage no está definido, devuelve false
-      return false;
-    }
+    return this.cookieService.get(this.isAuthenticatedKey) === 'true';
   }
 }

@@ -2,33 +2,42 @@ import { Component } from '@angular/core';
 import { GetAllEventsService } from './Services/get-all-events.service';
 import Swal from 'sweetalert2';
 import { GetAllUsersService } from '../admin-vista-usuarios/Services/get-all-users.service';
-import { NavbarComponent } from '../commons/navbar/navbar.component';
+import { NavbarAdminComponent } from '../commons/navbar-admin/navbar-admin.component';
 import { FooterComponent } from '../commons/footer/footer.component';
 import { NgFor } from '@angular/common';
+
+import { CookieService } from 'ngx-cookie-service';
+
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin-vista-eventos',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent, NgFor],
+  imports: [NavbarAdminComponent, FooterComponent, NgFor],
   templateUrl: './admin-vista-eventos.component.html',
-  styleUrl: './admin-vista-eventos.component.css'
+  styleUrls: ['./admin-vista-eventos.component.css']
 })
 export class AdminVistaEventosComponent {
-  events : any[] = [];
-  userId: number = parseInt(localStorage.getItem('id') || '0');
-  token: string = localStorage.getItem('token') || '';
+  events: any[] = [];
+  userId: number = parseInt(this.cookieService.get('id') || '0');
+  token: string = this.cookieService.get('token') || '';
   page: number = 1;
   totalPages: number = 0;
 
-  constructor(private getAllEventsService: GetAllEventsService,
+
+  constructor(
+    private getAllEventsService: GetAllEventsService,
+    private getAllUsersService: GetAllUsersService,
+    private cookieService: CookieService,
     private router: Router
+
   ) { }
 
-  getAllEvents() : void {
+  getAllEvents(): void {
     this.getAllEventsService.getAllEvents(this.userId, this.token, this.page - 1).subscribe(
       (response: any) => {
-        console.log(response)
+        console.log(response);
         this.totalPages = Math.floor(parseInt(response.totalElements) / 8) + 1;
         this.events = response.content;
         for (let event of this.events) {
@@ -37,15 +46,14 @@ export class AdminVistaEventosComponent {
               const objectUrl = URL.createObjectURL(image);
               event.imagenUrl = objectUrl;
             }
-          )
+          );
         }
       }
-    )
+    );
   }
 
-
-  deleteEvent(selectedEvent: string) : void {
-    const deleteEventId : number = parseInt(selectedEvent || '0');
+  deleteEvent(selectedEvent: string): void {
+    const deleteEventId: number = parseInt(selectedEvent || '0');
     Swal.fire({
       title: '¿Está seguro que quiere eliminar este usuario?',
       text: '¡No podrá revertir esta acción una vez se haya llevado a cabo!',
@@ -65,18 +73,19 @@ export class AdminVistaEventosComponent {
     });
   }
 
-  nextPage() : void {
-    this.page++; 
+  nextPage(): void {
+    this.page++;
     this.getAllEvents();
   }
 
   prevPage(): void {
     this.page--;
     this.getAllEvents();
-  }  
+  }
 
   ngOnInit(): void {
-    if (parseInt(localStorage.getItem('rol') || '0') !== 10) {
+
+    if (parseInt(this.cookieService.get('rol') || '0') !== 10) {
       this.router.navigate(['/home']);      
       Swal.fire({
         title: 'Información',
@@ -85,5 +94,6 @@ export class AdminVistaEventosComponent {
       });
     }
     this.getAllEvents()
+
   }
 }

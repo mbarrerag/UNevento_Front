@@ -2,15 +2,15 @@ import { Component, Input } from '@angular/core';
 import { on } from 'events';
 import { CardCommunityeventsService } from './Services/card-communityevents.service';
 import { AddAssistantComponent } from '../add-assistant/add-assistant.component';
-import { Router , NavigationExtras} from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-card-communityevents',
   standalone: true,
-  imports: [AddAssistantComponent],
   templateUrl: './card-communityevents.component.html',
-  styleUrl: './card-communityevents.component.css'
+  styleUrls: ['./card-communityevents.component.css']
 })
 export class CardCommunityeventsComponent {
   @Input() data: any;
@@ -19,13 +19,18 @@ export class CardCommunityeventsComponent {
   eventImage: any = {};
   categoria: string = '';
   creatorImageUrl: string | undefined;
-  idevento:number = 0;
+  idevento: number = 0;
 
-  constructor(private sanitizer:DomSanitizer,private cardCommunityeventsService: CardCommunityeventsService, private router: Router) { }
+  constructor(
+    private sanitizer: DomSanitizer,
+    private cardCommunityeventsService: CardCommunityeventsService,
+    private router: Router,
+    private cookieService: CookieService
+  ) { }
 
   ngOnInit(): void {
-    const userID = parseInt(localStorage.getItem('id') || '0');
-    const token = localStorage.getItem('token') || '';
+    const userID = parseInt(this.cookieService.get('id') || '0');
+    const token = this.cookieService.get('token') || '';
     this.idevento = this.data.id;
     //Consultar Datos de creador de evento
     this.cardCommunityeventsService.getCreatorData(userID, token, this.data.idUsuario).subscribe((response: any) => {
@@ -41,7 +46,6 @@ export class CardCommunityeventsComponent {
       this.eventImage = objectUrl;
     });
 
-    
     //Asignar Categoría
     this.categoria = this.translateCategory(this.data.categoria);
   }
@@ -49,7 +53,7 @@ export class CardCommunityeventsComponent {
   navigateToAddAssistant() {
     this.router.navigate(['/assist', this.idevento]);
   }
-  
+
   //Pasar Categoría Almacenada a un String Adecuado
   translateCategory(category: string): string {
     switch (category) {

@@ -21,7 +21,7 @@ import { AdminVistaUsuariosComponent } from './admin-vista-usuarios/admin-vista-
 import { AdminVistaEventosComponent } from './admin-vista-eventos/admin-vista-eventos.component';
 import { EventsComponent } from './events/events.component';
 import { AuthGuard } from './commons/Security/AuthGuard';
-
+import { MyassistsComponent } from './myassists/myassists.component';
 
 
 export const routes: Routes = [
@@ -34,16 +34,19 @@ export const routes: Routes = [
   { path: 'home', component:HomeComponentComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},
   { path: 'aboutus', component:AboutUSComponent },
-
-  { path: 'premium', component: PremiumComponent },
+  { path: 'adminusers',component:AdminVistaUsuariosComponent},
+  { path: 'adminevents', component:AdminVistaEventosComponent},
+  { path: 'assist/:idEvento', component: AddAssistantComponent, canActivate: [AuthGuard]},
+  { path: 'premium', component: PremiumComponent, canActivate: [AuthGuard]  },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
-  { path: 'termsofservice', component: TermsAndConditionsComponent, canActivate: [AuthGuard] },
+  { path: 'termsofservice', component: TermsAndConditionsComponent},
   { path: 'createevent', component: CreateEventsComponent, canActivate: [AuthGuard] },
   { path: 'createfacultyevent', component: CreateFacultyEventsComponent, canActivate: [AuthGuard] },
   { path: 'createcommunityevent', component: CreateCommunityEventsComponent, canActivate: [AuthGuard] },
   { path: 'events', component: EventsComponent, canActivate: [AuthGuard] },
   { path: 'miseventos', component: MyeventsComponent, canActivate: [AuthGuard] },
+  { path: 'myassists', component: MyassistsComponent, canActivate: [AuthGuard]},
 
 
   { path: '', redirectTo: 'home',  pathMatch: 'full', },

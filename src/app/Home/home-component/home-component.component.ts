@@ -11,6 +11,7 @@ import { FooterComponent } from '../../commons/footer/footer.component';
 import { NavbarAdminComponent } from '../../commons/navbar-admin/navbar-admin.component';
 import { AuthService } from '../../UserLogin/user-login/Services/auth/auth.service';
 import { NgIf } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-home-component',
@@ -28,12 +29,12 @@ export class HomeComponentComponent {
   events: Page<any> = {} as Page<any>; // Manejar las Páginas de los eventos, de 10 en 10
   currentPage: number = 0; // Identificador de la página Actual de los Eventos
   fixFaculty: string = '';
-  isAdmin: boolean = parseInt(localStorage.getItem('rol') || '0') === 10;
+  isAdmin: boolean = parseInt(this.cookieService.get('rol') || '0') === 10;
 
 
 
 
-  constructor(private oficialEventService: OficialEventService, private authService: AuthService) {}
+  constructor(private oficialEventService: OficialEventService, private authService: AuthService, private cookieService: CookieService) {}
 
   handleFacultySelection(facultyName: string) {
     // Do something with the selected faculty, such as making a request or updating state

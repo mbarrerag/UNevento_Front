@@ -10,6 +10,7 @@ import { NgFor } from '@angular/common';
 import { NgIf } from '@angular/common';
 import { CommunityeventsService, Page } from './Services/communityevents.service';
 import { FormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service'; // Importar CookieService
 
 @Component({
   selector: 'app-communityevents',
@@ -20,10 +21,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class CommunityeventsComponent {
 
-  constructor(private communityeventsService: CommunityeventsService) { 
+  constructor(
+    private communityeventsService: CommunityeventsService,
+    private cookieService: CookieService // Inyectar CookieService
+  ) { 
     this.events = {} as Page<any>;
-    this.userId = parseInt(localStorage.getItem('id') || '0');
-    this.token = localStorage.getItem('token') || '';
+    this.userId = parseInt(this.cookieService.get('id') || '0');
+    this.token = this.cookieService.get('token') || '';
     this.OptionFilterCategoria="";
     this.premiumevents = [
       {
@@ -43,7 +47,7 @@ export class CommunityeventsComponent {
         hora: '11:00',
         lugar: 'Lugar 2',
         capacidad: 200,
-        categoria: 'Concierto',
+        categoria: 'Seminario',
         nombrecreador: 'Creador 2'
       },
       {
@@ -53,7 +57,7 @@ export class CommunityeventsComponent {
         hora: '12:00',
         lugar: 'Lugar 3',
         capacidad: 300,
-        categoria: 'Charla',
+        categoria: 'Taller',
         nombrecreador: 'Creador 3'
       },
       {
@@ -63,7 +67,7 @@ export class CommunityeventsComponent {
         hora: '13:00',
         lugar: 'Lugar 4',
         capacidad: 400,
-        categoria: 'Introduccion',
+        categoria: 'Webinar',
         nombrecreador: 'Creador 4'
       },
       {
@@ -73,18 +77,38 @@ export class CommunityeventsComponent {
         hora: '14:00',
         lugar: 'Lugar 5',
         capacidad: 500,
-        categoria: 'Debate',
+        categoria: 'Conferencia',
         nombrecreador: 'Creador 5'
       },
       {
-        descripcion: 'Descripción del Evento 6, donde se simula un evento en el cual se cuenta con una descripción considerable',
-        fechaEvento: new Date().toISOString(),
         nombre: 'Evento 6',
+        descripcion: 'Descripción del Evento 6',
+        fechaEvento: new Date().toISOString(),
         hora: '15:00',
         lugar: 'Lugar 6',
         capacidad: 600,
-        categoria: 'Asamblea',
+        categoria: 'Seminario',
         nombrecreador: 'Creador 6'
+      },
+      {
+        nombre: 'Evento 7',
+        descripcion: 'Descripción del Evento 7',
+        fechaEvento: new Date().toISOString(),
+        hora: '16:00',
+        lugar: 'Lugar 7',
+        capacidad: 700,
+        categoria: 'Taller',
+        nombrecreador: 'Creador 7'
+      },
+      {
+        nombre: 'Evento 8',
+        descripcion: 'Descripción del Evento 8',
+        fechaEvento: new Date().toISOString(),
+        hora: '17:00',
+        lugar: 'Lugar 8',
+        capacidad: 800,
+        categoria: 'Webinar',
+        nombrecreador: 'Creador 8'
       }
     ];
   }
@@ -102,8 +126,8 @@ export class CommunityeventsComponent {
   OptionFilterCategoria:string;
 
   ngOnInit(): void {
-    const userID = parseInt(localStorage.getItem('id') || '0');
-    const token = localStorage.getItem('token') || '';
+    const userID = parseInt(this.cookieService.get('id') || '0');
+    const token = this.cookieService.get('token') || '';
 
     this.loadPage(this.currentPage);//Cargar la Página 0
   }
