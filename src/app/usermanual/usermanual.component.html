@@ -5,17 +5,19 @@
         <h1 class="Titulo"> Manual de Usuario</h1>
         <nav>
             <ul class="menu">
-                <li (click)="seccionSeleccionada = 'SeccionRegistro'">Registrarme en UNevento</li>
-                <li (click)="seccionSeleccionada = 'SeccionLogin'">Iniciar Sesión</li>
-                <li (click)="seccionSeleccionada = 'seccion3'">Olvidé Mi Contraseña</li>
-                <li (click)="seccionSeleccionada = 'seccion3'">Editar mi Perfil</li>
-                <li (click)="seccionSeleccionada = 'seccion3'">Eliminar Mi Cuenta</li>
-                <li (click)="seccionSeleccionada = 'seccion3'">Crear Evento</li>
-                <li (click)="seccionSeleccionada = 'seccion3'">Editar Mi Evento</li>
-                <li (click)="seccionSeleccionada = 'seccion3'">Eliminar Mi Evento</li>
-                <li (click)="seccionSeleccionada = 'seccion3'">Asistentes a Mi Evento</li>
-                <li (click)="seccionSeleccionada = 'seccion3'">Mis Asistencias</li>
-                <!-- Añade más secciones según sea necesario -->
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionRegistro' }" (click)="seccionSeleccionada = 'SeccionRegistro'">Registrarme en UNevento</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionLogin' }" (click)="seccionSeleccionada = 'SeccionLogin'">Iniciar Sesión</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionForgotPassword' }" (click)="seccionSeleccionada = 'SeccionForgotPassword'">Olvidé Mi Contraseña</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionEditarPerfil' }" (click)="seccionSeleccionada = 'SeccionEditarPerfil'">Editar Mi Perfil</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionEliminarCuenta' }" (click)="seccionSeleccionada = 'SeccionEliminarCuenta'">Eliminar Mi Cuenta</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionCrearEvento' }" (click)="seccionSeleccionada = 'SeccionCrearEvento'">Crear Evento</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionEditarEvento' }" (click)="seccionSeleccionada = 'SeccionEditarEvento'">Editar Mi Evento</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionEliminarEvento' }" (click)="seccionSeleccionada = 'SeccionEliminarEvento'">Eliminar Mi Evento</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionAsistentesEvento' }" (click)="seccionSeleccionada = 'SeccionAsistentesEvento'">Asistentes a Mi Evento</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionMisAsistencias' }" (click)="seccionSeleccionada = 'SeccionMisAsistencias'">Mis Asistencias</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionVerEventos' }" (click)="seccionSeleccionada = 'SeccionVerEventos'">Ver Eventos</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionPremium' }" (click)="seccionSeleccionada = 'SeccionPremium'">Acceso a Planes Premium</li>
+                <li [ngClass]="{ 'selected': seccionSeleccionada === 'SeccionPromocionEvento' }" (click)="seccionSeleccionada = 'SeccionPromocionEvento'">Promocionar Mi Evento</li>
             </ul>
         </nav>
         <div *ngIf="seccionSeleccionada === ''" class="SinSeccion">
@@ -39,6 +41,9 @@
                         <li>Ingresa de nuevo la Contraseña.&nbsp; (Debe Coincidir con la Ingresada en el campo anterior)</li>
                         <li>Da Click en el Botón Crear Cuenta.</li>
                     </ol>
+                    <div class="ContenedorImagen">
+                        <img src="../../assets/img-usermanual/Registro.png" alt="Registro UNevento" style="max-width: 400px;" class="Imagen">
+                    </div>
                     <li>Posteriormente se abrirá una nueva pantalla en la que se te solicitará un código de verificación que debío haber sido enviado al correo ingresado.</li>
                     <li>Ingresa el código de verificación y da click en el botón "Verificar".</li>
                     <li>En Caso de que hayas ingresado el código correctamente te habrás registrado correctamente y serás redireccionado a la página de Inicio de Sesión.</li>                </ol>
@@ -50,14 +55,303 @@
             </ul>
         </div>
         <div *ngIf="seccionSeleccionada === 'SeccionLogin'">
-            Holaaa 2
+            <h2 class="Subtitulo">Iniciar Sesión en Mi Cuenta</h2>
+            <p class="Parrafo">Para Iniciar Sesión en tu cuenta registrada en UNevento, debes seguir los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Selecciona la opción "Iniciar Sesión" en la esquina superior derecha de la pantalla, o bien has click sobre el siguiente enlace <a routerLink="/login" target="_blank">Iniciar Sesión</a>.</li>
+                <li>Ingresa el Correo Electrónico que colocaste al momento de registrarte en la plataforma.</li>
+                <li>Ingresa la Contraseña asociada a tu cuenta. &nbsp; <strong>No necesariamente es la misma que ingresaste al momento del registro.</strong></li>
+                <li>Da Click en el Botón Iniciar Sesión.</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/Login.png" alt="Inicio de Sesión UNevento" style="max-width: 400px;" class="Imagen">
+                </div>
+                <li>En caso de que hayas ingresado correctamente los datos, serás redireccionado a la página de inicio de la plataforma, de lo contrario has ingresado de manera incorrecta el usuario y/o contraseña.</li>
+            </ol>
+            <h3 class="Titulo3">¿Qué debo tener en cuenta a la hora de iniciar sesión?</h3>
+            <ul>
+                <li>Es importante que ingreses la dirección de correo electrónico que utilizaste al momento de registrarte en la plataforma.</li>
+                <li>Debes ingresar la última versión de la contraseña en caso de que hayas realizado alguna actualización posterior al registro.</li>
+                <li>En caso de que hayas olvidado tu contraseña, puedes recuperarla haciendo click en la opción "¿Olvidaste tu contraseña?" al momento de Iniciar Sesión, o bien dirigete al siguiente enlace <a routerLink="/forgotpassword" target="_blank">Olvidé Mi Contraseña</a>.</li>
+            </ul>
         </div>
-        <div *ngIf="seccionSeleccionada === 'seccion3'">
-            Holaaaaa 3
+        <div *ngIf="seccionSeleccionada === 'SeccionForgotPassword'">
+            <h2 class="Subtitulo">Recuperar la Contraseña de la Cuenta</h2>
+            <p class="Parrafo">Si has olvidado la contraseña de tu cuenta en UNevento, puedes recuperarla siguiendo los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Selecciona la opción "Iniciar Sesión" en la esquina superior derecha de la pantalla, o bien has click sobre el siguiente enlace <a routerLink="/login" target="_blank">Iniciar Sesión</a>.</li>
+                <li>Selecciona la opción "¿Olvidaste tu contraseña?" ubicada debajo del botón "Iniciar Sesión", o bien has click en el siguiente enlace <a routerLink="/forgotpassword" target="_blank">Olvidé Mi Contraseña</a>.</li>
+                <li>Ingresa la dirección de correo electrónico asociada a tu cuenta.</li>
+                <li>Da Click en el Botón "Recuperar Contraseña".</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/OlvideMiContraseña.png" alt="Olvidé MI Contraseña" class="Imagen">
+                </div>
+                <li>Se te enviará un correo electrónico con un código de verificación que nos permita comprobar que tu eres el que quiere cambiar la contraseña.</li>
+                <li>Ingresa el código en la nueva ventana que se ha desplegado, si el código fue ingresado correctamente entonces se redirigirá un nuevo apartado del proceso.</li>
+                <li>Ingresa la nueva contraseña y confírmala. <strong>Ten encuenta el uso de Letras, Números, Caracteres Especiales y una longitud mayor a 8 para que la contraseña sea más segura.</strong></li>
+                <li>Da Click en el Botón "Restablecer Contraseña",.</li>
+            </ol>    
+            <h3 class="Titulo3">¿Qué debo tener en cuenta a la hora de recuperar mi contraseña?</h3>
+            <ul>
+                <li>Es importante que ingreses la dirección de correo electrónico que utilizaste al momento de registrarte en la plataforma y que se encuentra asociada a la cuenta.</li>
+                <li>Es importante verificar la bandeja de entrada de tu correo electrónico para obtener el código de verificación. Al ingresarlo en el aplicativo debe escribirse exactamente igual que el que fue suministrado.</li>
+                <li>La contraseña debe ser segura y debe cumplir con los requisitos de seguridad establecidos.</li>
+            </ul>    
         </div>
-        <!-- Añade más secciones según sea necesario -->
+        <div *ngIf="seccionSeleccionada === 'SeccionEditarPerfil'">
+            <h2 class="Subtitulo">Editar Información de Mi Perfil</h2>
+            <p class="Parrafo">Para editar tu perfil en UNevento, sigue los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Inicia sesión en tu cuenta.</li>
+                <li>Selecciona la opción "Mi Perfil" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/profile">Mi perfil</a>.</li>
+                <li>Selecciona la opción "Editar Perfil".</li>
+                <li>Realiza los cambios que desees en tu perfil, sea de Nombre, Apellido o de Imagen de Perfil (Puede no estar disponible debido a tu rol actual dentro del sistema).</li>
+                <li>Guarda los cambios realizados.</li>
+                <li>En dado caso que te arrepientas de realizar cambios presiona el botón de <strong>Cancelar</strong>.</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/EditarPerfil.png" alt="Editar Perfil" style="max-width: 500px;" class="Imagen">
+                </div>
+            </ol>
+            <h3 class="Titulo3">¿Qué debo tener en cuenta al editar mi perfil?</h3>
+            <ul>
+                <li>Es importante que la información que ingreses en tu perfil sea verídica y actualizada.</li>
+                <li>Recuerda que la información que compartas en tu perfil será visible para otros usuarios de la plataforma.</li>
+                <li>Es recomendable que mantengas actualizada tu información para que los demás usuarios tengan un mejor conocimiento de las personas que crean eventos dentro de UNevento.</li>
+                <li>Es imposible modificar el correo electrónico.</li>
+                <li>Si quieres actualizar tu contraseña dirígete a <a routerLink="/usermanual" (click)="seccionSeleccionada = 'SeccionForgotPassword'">Olvidé Mi Contraseña</a>.</li>
+            </ul>
+        </div>
 
-        
+        <div *ngIf="seccionSeleccionada === 'SeccionEliminarCuenta'">
+            <h2 class="Subtitulo">Eliminar Mi Cuenta</h2>
+            <p class="Parrafo">Si deseas eliminar tu cuenta en UNevento, sigue los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Inicia sesión en tu cuenta.</li>
+                <li>Selecciona la opción "Mi Perfil" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/profile" target="_blank">Mi perfil</a>.</li>
+                <li>Selecciona la opción "Eliminar Cuenta".</li>
+                <li>Se abrirá un cuadro de diálogo de advertencia en donde se Confirma que deseas eliminar tu cuenta.</li>
+                <li>En dado caso que la decisión siga siendo así Da Click en el Botón "Si,eliminar".</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/EliminarCuenta.png" style="max-width: 400px;" alt="Eliminar Cuenta" class="Imagen">
+                </div>
+            </ol>    
+            <h3 class="Titulo3">¿Qué debo tener en cuenta al eliminar mi cuenta?</h3>
+            <ul>
+                <li>Una vez eliminada tu cuenta, no podrás recuperar la información ni los eventos que hayas creado.</li>
+                <li>Si deseas volver a utilizar la plataforma, deberás registrarte nuevamente.</li>
+                <li><strong style="color: red;"> Es importante que estés seguro de querer eliminar tu cuenta, ya que esta acción no se puede deshacer, y al confirmarla, toda la información que se haya registrado cuando se hacía uso de esta cuenta será eliminada.</strong> </li>
+            </ul>    
+        </div>
+
+        <div *ngIf="seccionSeleccionada === 'SeccionCrearEvento'">
+            <h2 class="Subtitulo">Crear un Evento</h2>
+            <p class="Parrafo">Para crear un evento en UNevento, sigue los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Inicia sesión en tu cuenta.</li>
+                <li>Selecciona la opción "Crear Evento" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/createevent" target="_blank">Crear Evento</a>.</li>
+                <li>En Dado Caso que tu rol/plan actual dentro del sistema permita la creación de Eventos de Facultad, se te permitirá elegir el tipo de evento que deseas crear, de lo contrario solo tendrás la opción de creación de Eventos Comunitarios.</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/CrearEvento1.png" alt="Crear Evento" class="Imagen">
+                </div>
+                <li>Completa el formulario de creación de evento con la información solicitada.</li>
+                <li>Ingresa el nombre del evento, la descripción, la fecha, la hora, la ubicación, la categoría, una breve descripción de lo que tratará el evento y en dado caso que se quiera una Imagen Representativa del Evento.</li>
+                <li>Selecciona la opción "Crear Evento".</li>
+                <li>En caso de que hayas ingresado correctamente los datos, el evento será creado, serás redirigido a la pestaña de <a routerLink="/miseventos" target="_blank">Mis Eventos</a> y se mostrará en la lista de eventos de la plataforma.</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/CrearEvento2.png" alt="Crear Evento" class="Imagen">
+                </div>
+            </ol>
+            <h3 class="Titulo3">¿Qué debo tener en cuenta al crear un evento?</h3>
+            <ul>
+                <li><strong style="color: #7d9e07;">Si No Tienes Habilitada la Creación de Un Evento se deberá a que tu plan/rol actual no te permite la creación de más eventos y por lo tanto será imposible de realizar la acción a menos de que <a routerLink="/premium" target="_blank">actualices tu plan</a>.</strong></li>
+                <li>Es importante que la información que ingreses en el evento sea verídica, actualizada y que describa tu evento de la mejor manera para atraer más usuarios.</li>
+                <li>Recuerda que la información que compartas en el evento será visible para otros usuarios de la plataforma.</li>
+                <li>Es recomendable que mantengas actualizada la información de tus eventos para que los demás usuarios tengan un mejor conocimiento de los eventos que se publican dentro de UNevento.</li>
+                <li>Es importante que la imagen que selecciones para tu evento sea representativa y de buena calidad.</li>
+                <li>En los campos del evento debes tener en cuenta lo siguiente:</li>
+                <ul>
+                    <li>El nombre del evento no debe superar los 50 caracteres.<strong>&nbsp; No debe estar vacío.</strong></li>
+                    <li>La descripción del evento no debe superar los 120 caracteres. <strong>&nbsp; No debe estar vacío.</strong></li>
+                    <li>El lugar no debe superar los 50 caracteres. <strong>&nbsp; No debe estar vacío.</strong></li>
+                    <li>Debes seleccionar alguna categoría para el evento.</li>
+                    <li>La Fecha del evento debe ser superior a la del momento en que estás creando el evento. <strong>&nbsp; No debe estar vacío.</strong></li>
+                    <li>La Hora del evento no puede estar vacía.</li>
+                    <li>El aforo no puede ser superior a las 5000 personas. <strong>&nbsp; No debe estar vacío.</strong></li>
+                    <li>La Imagen no puede superar los 5 MB de peso.</li>
+                    <li>En el caso de los eventos de facultad debes seleccionar alguna de las opciones en el campo de Facultad. <strong>&nbsp; No debe estar vacío.</strong></li>
+                </ul>
+                <li><strong style="color: red;">Ten mucho cuidado con la información e imágenes que colocas en tu evento, ya que en dado caso que detectemos irregularidades o cosas inapropiadas, tu cuenta será eliminada de la plataforma.</strong></li>
+            </ul>    
+        </div>
+
+        <div *ngIf="seccionSeleccionada === 'SeccionEditarEvento'">
+            <h2 class="Subtitulo">Editar Mi Evento</h2>
+            <p class="Parrafo">Para editar un evento que has creado en UNevento, sigue los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Inicia sesión en tu cuenta.</li>
+                <li>Selecciona la opción "Mis Eventos" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/miseventos" target="_blank">Mis Eventos</a>.</li>
+                <li>Selecciona el evento que deseas editar.</li>
+                <li>Selecciona la opción "Editar Evento".</li>
+                <li>Realiza los cambios que desees en tu evento, ya sea en el nombre, la descripción, la fecha, la hora, la ubicación, la categoría, la descripción del evento o la imagen representativa.</li>
+                <li>Guarda los cambios realizados, si la información es válida serás redirigido a la pestaña de <a routerLink="/miseventos" target="_blank">Mis Eventos</a>.</li>
+                <li>En dado caso que te arrepientas de realizar cambios presiona el botón de <strong>Cancelar</strong>.</li>
+            </ol>
+
+            <div class="ContenedorImagen">
+                <img src="../../assets/img-usermanual/EditarEvento.png" alt="Editar Evento" class="Imagen">
+            </div>
+
+            <h3 class="Titulo3">¿Qué debo tener en cuenta al editar mi evento?</h3>
+            <ul>
+                <li>Si no encuentras el evento que deseas editar, seguramente se deba a que la fecha en la que iba a ocurrir el evento ya ha pasado.</li>
+                <li>Es importante que la información que ingreses en tu evento sea verídica, actualizada y que describa tu evento de la mejor manera para atraer más usuarios.</li>
+                <li>Recuerda que la información que compartas en tu evento será visible para otros usuarios de la plataforma.</li>
+                <li>Es recomendable que mantengas actualizada la información de tus eventos para que los demás usuarios tengan un mejor conocimiento de los eventos que se publican dentro de UNevento.</li>
+                <li>Es importante que la imagen que selecciones para tu evento sea representativa y de buena calidad.</li>
+                <li>En los campos del evento debes tener en cuenta lo siguiente:</li>
+                <ul>
+                    <li>El nombre del evento no debe superar los 50 caracteres.<strong>&nbsp; No debe estar vacío.</strong></li>
+                    <li>La descripción del evento no debe superar los 120 caracteres. <strong>&nbsp; No debe estar vacío.</strong></li>
+                    <li>El lugar no debe superar los 50 caracteres. <strong>&nbsp; No debe estar vacío.</strong></li>
+                    <li>Debes seleccionar alguna categoría para el evento.</li>
+                    <li>La Fecha del evento debe ser superior a la del momento en que estás creando el evento. <strong>&nbsp; No debe estar vacío.</strong></li>
+                    <li>La Hora del evento no puede estar vacía.</li>
+                    <li>El aforo no puede ser superior a las 5000 personas. <strong>&nbsp; No debe estar vacío.</strong></li>
+                    <li>La Imagen no puede superar los 5 MB de peso.</li>
+                    <li>En el caso de los eventos de facultad debes seleccionar alguna de las opciones en el campo de Facultad. <strong>&nbsp; No debe estar vacío.</strong></li>
+                </ul>
+                <li><strong style="color: red;">Ten mucho cuidado con la información e imágenes que colocas en tu evento, ya que en dado caso que detectemos irregularidades o cosas inapropiadas, tu cuenta será eliminada de la plataforma.</strong></li>
+            </ul>
+        </div>
+
+        <div *ngIf="seccionSeleccionada === 'SeccionEliminarEvento'">
+            <h2 class="Subtitulo">Eliminar Mi Evento</h2>
+            <p class="Parrafo">Si deseas eliminar un evento que has creado en UNevento, sigue los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Inicia sesión en tu cuenta.</li>
+                <li>Selecciona la opción "Mis Eventos" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/miseventos" target="_blank">Mis Eventos</a>.</li>
+                <li>Selecciona el evento que deseas eliminar.</li>
+                <li>Selecciona la opción "Eliminar Evento".</li>
+                <li>Se abrirá un cuadro de diálogo de advertencia en donde se Confirma que deseas eliminar tu evento.</li>
+                <li>En dado caso que la decisión siga siendo así da click en el Botón "Confirmar".</li>
+            </ol>
+            <h3 class="Titulo3">¿Qué debo tener en cuenta al eliminar mi evento?</h3>
+            <ul>
+                <li>Si no encuentras el evento que deseas eliminar, seguramente se deba a que la fecha en la que iba a ocurrir el evento ya ha pasado.</li>
+                <li>Una vez eliminado el evento, no podrás recuperar la información ni los asistentes que se hayan registrado.</li>
+                <li>Si deseas volver a publicar el evento, deberás crearlo nuevamente.</li>
+                <li><strong style="color: red;">Es importante que estés seguro de querer eliminar tu evento, ya que esta acción no se puede deshacer, y al confirmarla, toda la información que se haya registrado asociada al evento será eliminada.</strong></li>
+            </ul>
+        </div>
+
+        <div *ngIf="seccionSeleccionada === 'SeccionAsistentesEvento'">
+            <h2 class="Subtitulo">Asistentes a Mi Evento</h2>
+            <p class="Parrafo">Para ver los asistentes a un evento que has creado en UNevento, sigue los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Inicia sesión en tu cuenta.</li>
+                <li>Selecciona la opción "Mis Eventos" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/miseventos" target="_blank">Mis Eventos</a>.</li>
+                <li>Selecciona el evento del cual deseas ver los asistentes.</li>
+                <li>Selecciona la opción "Asistentes".</li>
+                <li>Se abrirá una lista con los nombres de los asistentes al evento.</li>
+                <li>Podrás descargar la información de los asistentes mediante el botón llamado "Descargar Lista de Asistentes en Excel".</li>
+            </ol>
+            <div class="ContenedorImagen">
+                <img src="../../assets/img-usermanual/AsistentesaEventos.png" alt="Asistentes a Evento" class="Imagen">
+            </div>
+            <h3 class="Titulo3">¿Qué debo tener en cuenta al ver los asistentes de mi evento?</h3>
+            <ul>
+                <li>Si un evento ya caducó su fecha de ocurrencia entonces no podrás consultar la lista de asistentes.</li>
+                <li>El Evento no tendrá habilitada esta opción si el evento no cuenta con asistentes actualmente.</li>
+            </ul>
+        </div>
+
+        <div *ngIf="seccionSeleccionada === 'SeccionMisAsistencias'">
+            <h2 class="Subtitulo">Mis Asistencias a Eventos</h2>
+            <p class="Parrafo"><strong>Para asistir a un evento simplemente da click sobre algún evento que te interese dentro de la plataforma y presiona el botón Asistir, en dado caso que ya hayas asistido podrás dejar de asistir dando click en el botón No Asistir.</strong></p>
+            <p class="Parrafo">Para ver los eventos a los que has asistido en UNevento, sigue los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Inicia sesión en tu cuenta.</li>
+                <li>Selecciona la opción "Mis Asistencias" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/myassists" target="_blank">Mis Asistencias</a>.</li>
+                <li>Se abrirá una lista con los eventos a los que has asistido.</li>
+                <li>Podrás ver la información de los eventos y en dado caso acceder a un mayor detalle dando click sobre el evento de interés.</li>
+            </ol>
+            <h3 class="Titulo3">¿Qué debo tener en cuenta al ver mis asistencias?</h3>
+            <ul>
+                <li>Si no encuentras eventos en la lista, seguramente se deba a que no has asistido a ningún evento, o los eventos a los que has asistido ya caducaron.</li>
+                <li>Recuerda que la información de los eventos a los que has asistido es privada y solo tú puedes verla.</li>
+            </ul>
+        </div>
+
+        <div *ngIf="seccionSeleccionada === 'SeccionVerEventos'">
+            <h2 class="Subtitulo">Ver Eventos</h2>
+            <ol>
+                <li><p class="Parrafo">Para ver los eventos disponibles en UNevento, lo podrás hacer en los siguientes apartados:</p></li>
+                <uL>
+                    <li><a routerLink="/home" target="_blank">Ver Eventos de Facultad</a></li>
+                    <ul>
+                        <li>Selecciona una facultad y entonces se abrirán los eventos correspondientes.</li>
+                    </ul>
+                    <li><a routerLink="/communityevents" target="_blank">Ver Eventos de la Comunidad</a></li>
+                    <li><a routerLink="/miseventos" target="_blank">Ver Mis Eventos</a></li>
+                    <li><a routerLink="/myassists" target="_blank">Ver Mis Asistencias a eventos</a></li>
+                </uL>
+                <li>En Cada uno de estos apartados encontrarás eventos que estarán divididos por páginas en grupos de 10 las cuales tu podrás ir saltando a través de los controles y que además podrás aplicar un filtro en base a la categoría de evento de tu preferencia.</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/FiltroEventos.png" style="max-width: 200px;" alt="Filtro Eventos" class="Imagen">
+                </div>
+                <li>Podrás abrir un evento en mayor detalle dando click sobre el, además de marcar/anular tu asistencia dentro del evento.</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/EventoAlDetalle.png" style="max-width: 600px;" alt="Detalle de Evento" class="Imagen">
+                </div>
+                <li>Si no aparece algún evento dentro de estos apartados, entonces quiere decir que el evento ya ha caducado.</li>
+            </ol>            
+            
+        </div>
+
+        <div *ngIf="seccionSeleccionada === 'SeccionPremium'">
+            <h2 class="Subtitulo">Acceso a Planes Premium</h2>
+            <p class="Parrafo">En UNevento tendrás restricciones de creación de eventos a la semana en la plataforma, además de restricción en la edición de algunos aspectos del perfil dependiendo del rol que tenga el usuario actualmente dentro del sistema.</p>
+            <p class="Parrafo">Si deseas acceder a los planes premium de UNevento, sigue los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Inicia sesión en tu cuenta.</li>
+                <li>Selecciona la opción "Planes Premium" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/premium" target="_blank">Planes Premium</a>.</li>
+                <li>Selecciona el plan que deseas adquirir.</li>
+                <li>Selecciona la opción "Adquirir Plan".</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/Premium1.png" alt="Apartado Premium UNevento" class="Imagen">
+                </div>
+                <li>Ingresa los datos de tu tarjeta de crédito o débito a través de Mercado Pago.</li>
+                <li>Selecciona la opción "Pagar".</li>
+                <li>En caso de que hayas ingresado correctamente los datos y el pago se haya podido realizar de manera correcta, el plan premium será adquirido y tendrás acceso a las funcionalidades exclusivas de UNevento, además de recibir un comprobante de pago exitoso a través del correo electrónico.</li>
+            </ol>
+        </div>
+
+        <div *ngIf="seccionSeleccionada === 'SeccionPromocionEvento'">
+            <h2 class="Subtitulo">Promocionar Mi Evento</h2>
+            <p class="Parrafo">En el apartado de <a routerLink="/communityevents" target="_blank">Eventos Comunitarios</a> de UNevento contamos con una sección denominada eventos promocionados actualmente en UNevento, lo que permitirá a tu evento sobresalir con respecto a los demás eventos de la comunidad publicados en la plataforma. Eso sí, UNevento solo permite promocionar 8 eventos a la vez.</p>
+            <div class="ContenedorImagen">
+                <img src="../../assets/img-usermanual/EventosPromocionados.png" alt="Eventos Comunitarios Promocionados" class="Imagen">
+            </div>
+            <p class="Parrafo">Si deseas promocionar un evento que has creado en UNevento, sigue los siguientes pasos:</p>
+            <ol>
+                <li>Ingresa a la página de inicio de UNevento.</li>
+                <li>Inicia sesión en tu cuenta.</li>
+                <li>Selecciona la opción "Mis Eventos" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/miseventos" target="_blank">Mis Eventos</a>.</li>
+                <li>Selecciona el evento que deseas promocionar.</li>
+                <li>Selecciona la opción "Promocionar Evento".</li>
+                <li>En caso de que aún queden cupos para promocionar tu evento podrás continuar a realizar el respectivo pago.</li>
+                <li>Si el pago pudo llevarse a cabo de manera adecuada, te llegará una confirmación al correo electrónico de la promoción del evento, además de que te permitirá aparecer destacado dentro de los eventos de la comunidad.</li>
+            </ol>
+        </div>
     </div>
 </div>
 <app-footer></app-footer>
