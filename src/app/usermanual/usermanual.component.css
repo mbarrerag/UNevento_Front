@@ -108,3 +108,43 @@ a{
     color: #000;
 }
 
+.Precios{
+    text-align: center;
+    font-family: 'approach-black';
+}
+
+.TablaPremium{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #a1cb0b;
+    border-radius: 5px;
+    background-color: white;
+    font-family: 'approach-regular';
+    width: 70%;
+    box-shadow: 0 0px 5px 5px #a1cb0b; /* Aumenta la sombra */
+    transition: 0.3s;
+}
+.TablaPremium:hover{
+    box-shadow: 0 3px 10px 8px #a1cb0b; /* Aumenta la sombra */
+} 
+
+.TablaPremium td{
+    border: 1px solid #a1cb0b;
+    padding: 10px;
+}
+
+.TablaPremium thead{
+    text-align: center;
+}
+
+.TablaPremium th{
+    border: 1px solid #a1cb0b;
+    padding: 10px;
+    font-family: 'approach-black';
+}
+

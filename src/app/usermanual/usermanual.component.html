@@ -46,6 +46,12 @@
                         <img src="../../assets/img-usermanual/Registro.png" alt="Registro UNevento" style="max-width: 400px;" class="Imagen">
                     </div>
                     <li>Posteriormente se abrirá una nueva pantalla en la que se te solicitará un código de verificación que debío haber sido enviado al correo ingresado.</li>
+                    <div class="ContenedorImagen">
+                        <img src="../../assets/img-usermanual/CodigodeVerificacion.png" alt="Modal del Código de Verificación" style="max-width: 300px;" class="Imagen">
+                    </div>
+                    <div class="ContenedorImagen">
+                        <img src="../../assets/img-usermanual/CorreoCodigo.png" alt="Codigo Correo Electrónico" style="max-width: 300px;" class="Imagen">
+                    </div>
                     <li>Ingresa el código de verificación y da click en el botón "Verificar".</li>
                     <li>En Caso de que hayas ingresado el código correctamente te habrás registrado correctamente y serás redireccionado a la página de Inicio de Sesión.</li>                </ol>
             <h3 class="Titulo3">¿Que debo tener en cuenta a la hora de registrarme?</h3>
@@ -83,10 +89,13 @@
                 <li>Ingresa a la página de inicio de UNevento.</li>
                 <li>Selecciona la opción "Iniciar Sesión" en la esquina superior derecha de la pantalla, o bien has click sobre el siguiente enlace <a routerLink="/login" target="_blank">Iniciar Sesión</a>.</li>
                 <li>Selecciona la opción "¿Olvidaste tu contraseña?" ubicada debajo del botón "Iniciar Sesión", o bien has click en el siguiente enlace <a routerLink="/forgotpassword" target="_blank">Olvidé Mi Contraseña</a>.</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/OlvideMiContraseñaLogin.png" alt="Olvidé Mi Contraseña" style="max-width: 300px;" class="Imagen">
+                </div>
                 <li>Ingresa la dirección de correo electrónico asociada a tu cuenta.</li>
                 <li>Da Click en el Botón "Recuperar Contraseña".</li>
                 <div class="ContenedorImagen">
-                    <img src="../../assets/img-usermanual/OlvideMiContraseña.png" alt="Olvidé MI Contraseña" class="Imagen">
+                    <img src="../../assets/img-usermanual/OlvideMiContraseña.png" alt="Olvidé Mi Contraseña" class="Imagen">
                 </div>
                 <li>Se te enviará un correo electrónico con un código de verificación que nos permita comprobar que tu eres el que quiere cambiar la contraseña.</li>
                 <li>Ingresa el código en la nueva ventana que se ha desplegado, si el código fue ingresado correctamente entonces se redirigirá un nuevo apartado del proceso.</li>
@@ -107,6 +116,9 @@
                 <li>Ingresa a la página de inicio de UNevento.</li>
                 <li>Inicia sesión en tu cuenta.</li>
                 <li>Selecciona la opción "Mi Perfil" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/profile">Mi perfil</a>.</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/Perfil.png" style="max-width: 500px;" alt="Perfil" class="Imagen">
+                </div>
                 <li>Selecciona la opción "Editar Perfil".</li>
                 <li>Realiza los cambios que desees en tu perfil, sea de Nombre, Apellido o de Imagen de Perfil (Puede no estar disponible debido a tu rol actual dentro del sistema).</li>
                 <li>Guarda los cambios realizados.</li>
@@ -132,6 +144,9 @@
                 <li>Ingresa a la página de inicio de UNevento.</li>
                 <li>Inicia sesión en tu cuenta.</li>
                 <li>Selecciona la opción "Mi Perfil" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/profile" target="_blank">Mi perfil</a>.</li>
+                <div class="ContenedorImagen">
+                    <img src="../../assets/img-usermanual/Perfil.png" style="max-width: 500px;" alt="Perfil" class="Imagen">
+                </div>
                 <li>Selecciona la opción "Eliminar Cuenta".</li>
                 <li>Se abrirá un cuadro de diálogo de advertencia en donde se Confirma que deseas eliminar tu cuenta.</li>
                 <li>En dado caso que la decisión siga siendo así Da Click en el Botón "Si,eliminar".</li>
@@ -321,6 +336,41 @@
         <div *ngIf="seccionSeleccionada === 'SeccionPremium'">
             <h2 class="Subtitulo">Acceso a Planes Premium</h2>
             <p class="Parrafo">En UNevento tendrás restricciones de creación de eventos a la semana en la plataforma, además de restricción en la edición de algunos aspectos del perfil dependiendo del rol que tenga el usuario actualmente dentro del sistema.</p>
+            <p class="Parrafo">Los planes Premium con los que contamos en UNevento son:</p>
+            <table class="TablaPremium" style="border-radius: 10px;">
+                <thead>
+                    <tr>
+                        <th style="background-color: #97dc47;">Plan Básico</th>
+                        <th style="background-color: #1de9ac;">Plan Mediano</th>
+                        <th style="background-color: #a99e34;">Plan Premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="text-align: justify;">
+                        <td>
+                            Incrementamos tu límite de Creación de eventos a 2 por semana. <br>
+                            Habilitamos la opción de editar la imagen de tu perfil.<br>
+                            Te damos un cupón para promocionar un evento en la pestaña de eventos comunitarios.
+                        </td>
+                        <td>
+                            Incrementamos tu límite de Creación de eventos a 3 por semana. <br>
+                            Habilitamos la opción de editar la imagen de tu perfil.<br>
+                            Te damos un cupón para promocionar dos eventos en la pestaña de eventos comunitarios.
+                        </td>
+                        <td>
+                            Incrementamos tu límite de Creación de eventos a 4 por semana. <br>
+                            Habilitamos la opción de editar la imagen de tu perfil.<br>
+                            La edición de Eventos se podrá realizar de manera ilimitada.<br>
+                            Te damos un cupón para promocionar tres eventos en la pestaña de eventos comunitarios.
+                        </td>
+                    </tr>
+                    <tr class="Precios">
+                        <td style="background-color: #97dc47;">$7.500 COP</td>
+                        <td style="background-color: #1de9ac;">$15.000 COP</td>
+                        <td style="background-color: #7d9e07;">$25.000 COP</td>
+                    </tr>
+                </tbody>
+            </table>
             <p class="Parrafo">Si deseas acceder a los planes premium de UNevento, sigue los siguientes pasos:</p>
             <ol>
                 <li>Ingresa a la página de inicio de UNevento.</li>
@@ -331,7 +381,7 @@
                 <div class="ContenedorImagen">
                     <img src="../../assets/img-usermanual/Premium1.png" alt="Apartado Premium UNevento" class="Imagen">
                 </div>
-                <li>Ingresa los datos de tu tarjeta de crédito o débito a través de Mercado Pago.</li>
+                <li>Ingresa los datos para llevar a cabo tu pago, ten en cuenta que puedes realizar el proceso mediante una tarjeta de crédito, a través de tu cuenta de mercado pago, o mediante PSE que te permite pagar a través de distintos Bancos y aplicaciones como Nequi, Daviplata, etc.</li>
                 <li>Selecciona la opción "Pagar".</li>
                 <li>En caso de que hayas ingresado correctamente los datos y el pago se haya podido realizar de manera correcta, el plan premium será adquirido y tendrás acceso a las funcionalidades exclusivas de UNevento, además de recibir un comprobante de pago exitoso a través del correo electrónico.</li>
             </ol>
@@ -350,7 +400,7 @@
                 <li>Selecciona la opción "Mis Eventos" en la esquina superior derecha de la pantalla, o directamente dirígete a el siguiente enlace <a routerLink="/miseventos" target="_blank">Mis Eventos</a>.</li>
                 <li>Selecciona el evento que deseas promocionar.</li>
                 <li>Selecciona la opción "Promocionar Evento".</li>
-                <li>En caso de que aún queden cupos para promocionar tu evento podrás continuar a realizar el respectivo pago.</li>
+                <li>En caso de que aún queden cupos para promocionar tu evento podrás continuar a realizar el respectivo pago mediante una tarjeta de crédito, a través de tu cuenta de mercado pago, o mediante PSE que te permite pagar a través de distintos Bancos y aplicaciones como Nequi, Daviplata, etc.</li>
                 <li>Si el pago pudo llevarse a cabo de manera adecuada, te llegará una confirmación al correo electrónico de la promoción del evento, además de que te permitirá aparecer destacado dentro de los eventos de la comunidad.</li>
             </ol>
         </div>
