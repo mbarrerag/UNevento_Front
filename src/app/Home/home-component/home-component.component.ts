@@ -34,7 +34,7 @@ export class HomeComponentComponent {
 
   ngOnInit() {
     this.isAdmin = parseInt(this.cookieService.get('rol') || '0') === 10;
-    
+    this.formattedFaculty="";
   }
 
 
@@ -55,10 +55,13 @@ export class HomeComponentComponent {
       case 'Facultad_De_Ciencias_Economicas': return 'Facultad de Ciencias Económicas';
       case 'Facultad_De_Ciencias_Agrarias': return 'Facultad de Ciencias Agrarias';
       case 'Facultad_De_Ciencias_De_La_Salud': return 'Facultad de Ciencias de la Salud';
+      case 'Facultad_De_Medicina': return 'Facultad de Medicina';
+      case 'Facultad_De_Enfermeria': return 'Facultad de Enfermeria';
       case 'Facultad_De_Odontologia': return 'Facultad de Odontología';
       case 'Facultad_De_Veterinaria': return 'Facultad de Veterinaria';
       case 'Facultad_De_Derecho': return 'Facultad de Derecho';
       case 'Facultad_De_Artes': return 'Facultad de Artes';
+      case 'Leon_De_Greiff': return 'Leon De Greiff';
       case 'Bienestar': return 'Bienestar';
       case 'Idiomas': return 'Idiomas';
       case 'Relaciones_Internacionales': return 'Relaciones Internacionales';

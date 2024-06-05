@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import {LazyLoadImageModule} from 'ng-lazyload-image';
 
 @Component({
   selector: 'app-card-faculties',
   standalone: true,
-  imports: [],
+  imports: [LazyLoadImageModule],
   templateUrl: './card-faculties.component.html',
   styleUrl: './card-faculties.component.scss'
 })
