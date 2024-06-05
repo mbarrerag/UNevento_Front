@@ -21,6 +21,7 @@ import { AdminVistaUsuariosComponent } from './admin-vista-usuarios/admin-vista-
 import { AdminVistaEventosComponent } from './admin-vista-eventos/admin-vista-eventos.component';
 import { EventsComponent } from './events/events.component';
 import { AuthGuard } from './commons/Security/AuthGuard';
+import { UsermanualComponent } from './usermanual/usermanual.component';
 import { MyassistsComponent } from './myassists/myassists.component';
 
 
@@ -30,12 +31,12 @@ export const routes: Routes = [
   { path: 'singup', component: SingUpUserComponent }, 
   { path: 'login', component: UserLoginComponent }, 
   { path: 'home', component: HomeComponentComponent},  
-  { path: 'communityevents', component: CommunityeventsComponent },
+  { path: 'communityevents', component: CommunityeventsComponent, canActivate: [AuthGuard] },
   { path: 'home', component:HomeComponentComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},
   { path: 'aboutus', component:AboutUSComponent },
-  { path: 'adminusers',component:AdminVistaUsuariosComponent},
-  { path: 'adminevents', component:AdminVistaEventosComponent},
+  { path: 'adminusers',component:AdminVistaUsuariosComponent, canActivate: [AuthGuard]},
+  { path: 'adminevents', component:AdminVistaEventosComponent, canActivate: [AuthGuard]},
   { path: 'assist/:idEvento', component: AddAssistantComponent, canActivate: [AuthGuard]},
   { path: 'premium', component: PremiumComponent, canActivate: [AuthGuard]  },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
@@ -47,6 +48,7 @@ export const routes: Routes = [
   { path: 'events', component: EventsComponent, canActivate: [AuthGuard] },
   { path: 'miseventos', component: MyeventsComponent, canActivate: [AuthGuard] },
   { path: 'myassists', component: MyassistsComponent, canActivate: [AuthGuard]},
+  { path: 'usermanual', component: UsermanualComponent},
 
 
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
