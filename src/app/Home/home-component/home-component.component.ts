@@ -32,7 +32,10 @@ export class HomeComponentComponent {
   fixFaculty: string = '';
   isAdmin: boolean = parseInt(this.cookieService.get('rol') || '0') === 10;
 
-
+  ngOnInit() {
+    this.isAdmin = parseInt(this.cookieService.get('rol') || '0') === 10;
+    
+  }
 
 
   constructor(private oficialEventService: OficialEventService, private authService: AuthService, private cookieService: CookieService) {}

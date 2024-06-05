@@ -87,7 +87,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: white;">
             <a class="dropdown-item active" *ngIf="isLoggedIn$ | async" ariaCurrentWhenActive="page" routerLink="/profile">Perfil</a>
-            <a class="dropdown-item" *ngIf="isLoggedIn$ | async" ariaCurrentWhenActive="page" routerLink="/miseventos">Mis eventos</a>
+            <a class="dropdown-item" *ngIf="isLoggedIn$ | async" ariaCurrentWhenActive="page" routerLink="/miseventos">Mis Eventos</a>
             <a class="dropdown-item" *ngIf="isLoggedIn$ | async" ariaCurrentWhenActive="page" routerLink="/myassists">Mis Asistencias</a>
             <a class="dropdown-item " (click)="logout()" style="color: red;" routerLink="/home">Cerrar sesión</a>
           </div>
