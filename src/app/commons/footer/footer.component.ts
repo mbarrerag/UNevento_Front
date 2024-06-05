@@ -18,7 +18,15 @@ export class FooterComponent {
     window.open('/usermanual', '_blank');
   }
 
+  openTerms(){
+    window.open('/termsofservice', '_blank');
+  }
+
   isUserManualRoute() {
     return this.router.url === '/usermanual';
+  }
+
+  isTermsOfConditions(){
+    return this.router.url === '/termsofservice';
   }
 }

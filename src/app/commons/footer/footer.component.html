@@ -2,6 +2,9 @@
     <div class="footer-container">
         <p class="p-developedby">Desarrollado por UNevento </p>    
         <p class="p-allrights">Todos los derechos reservados ©</p>
+        <div class="terms-container" *ngIf="!isTermsOfConditions()">
+            <p class="p-terms" (click)="openTerms()">Términos y Condiciones</p>
+        </div>    
         <div class="manual-container" *ngIf="!isUserManualRoute()">
             <p class="p-manual" (click)="openUserManual()">Manual de Usuario</p>
         </div>
