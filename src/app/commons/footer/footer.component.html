@@ -2,8 +2,10 @@
     <div class="footer-container">
         <p class="p-developedby">Desarrollado por UNevento </p>    
         <p class="p-allrights">Todos los derechos reservados ©</p>
-    
-    
+        <div class="manual-container" *ngIf="!isUserManualRoute()">
+            <p class="p-manual" (click)="openUserManual()">Manual de Usuario</p>
+        </div>
+        
     
         <div class="icons-social">
     

@@ -1,0 +1,150 @@
+.ContenedorFondo{
+    background: url('../../assets/backgrounds/FondoCirculos.jpeg');
+    height: 100%;
+}
+
+.ContenedorManual{
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
+.Titulo{
+    font-family: 'approach-bold';
+    text-align: center;
+    font-size: 2rem;
+    color: #667d15;
+    margin-top: 10px;
+}
+
+.Subtitulo{
+    font-family: 'approach-bold';
+    font-size: 1.5rem;
+    color: #000000;
+}
+.Titulo3{
+    font-family: 'approach-bold';
+    font-size: 1.2rem;
+    color: #000000;
+}
+
+.Parrafo{
+    font-family: 'approach-regular';
+    font-size: 1rem;
+    color: #000000;
+
+}
+
+.Imagen{
+    width: 70%;
+    max-width: 1000px; 
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.2); 
+    transition: 0.3s;
+}
+
+.ImagenLogo{
+    width: 70%;
+    max-width: 1000px; 
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Imagen:hover{
+    box-shadow: 0 20px 40px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ContenedorImagen{
+    text-align: center;
+}
+
+ol, ul{
+    font-family: 'approach-regular';
+}
+
+a{
+    color: #6e8909;
+}
+.menu {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Hace que los elementos de la lista se muestren en horizontal */
+    justify-content: space-around; /* Distribuye los elementos de la lista uniformemente a lo largo del contenedor */
+    background-color: #f8f8f8; /* Añade un color de fondo al menú */
+    border-radius: 5px; /* Redondea las esquinas del menú */
+    margin-bottom: 20px; /* Añade un poco de espacio debajo del menú */
+    font-family: 'approach-regular';
+    overflow-x: auto;
+    border: solid 0.5px #a1cb0b;
+}
+
+.menu li {
+    padding: 10px 20px; /* Añade un poco de relleno a cada elemento de la lista */
+    cursor: pointer; /* Cambia el cursor a un puntero al pasar el ratón sobre un elemento de la lista */
+    text-align: center;
+    border: solid 0.5px #a1cb0b;
+    justify-content: center;
+    align-items: center;
+    color: #667d15;
+}
+
+.menu li:hover {
+    background-color: #a1cb0b; /* Cambia el color de fondo del elemento de la lista al pasar el ratón sobre él */
+    color: white;
+}
+
+.selected{
+    background-color: #a1cb0b; /* Cambia el color de fondo del elemento de la lista al pasar el ratón sobre él */
+    color: white !important;
+    border: 1px solid white !important;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.Precios{
+    text-align: center;
+    font-family: 'approach-black';
+}
+
+.TablaPremium{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #a1cb0b;
+    border-radius: 5px;
+    background-color: white;
+    font-family: 'approach-regular';
+    width: 70%;
+    box-shadow: 0 0px 5px 5px #a1cb0b; /* Aumenta la sombra */
+    transition: 0.3s;
+}
+.TablaPremium:hover{
+    box-shadow: 0 3px 10px 8px #a1cb0b; /* Aumenta la sombra */
+} 
+
+.TablaPremium td{
+    border: 1px solid #a1cb0b;
+    padding: 10px;
+}
+
+.TablaPremium thead{
+    text-align: center;
+}
+
+.TablaPremium th{
+    border: 1px solid #a1cb0b;
+    padding: 10px;
+    font-family: 'approach-black';
+}
+
