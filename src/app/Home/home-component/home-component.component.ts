@@ -8,6 +8,7 @@ import { CardEventComponent } from '../../commons/card-event/card-event.componen
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../commons/navbar/navbar.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
+import { ToggleIFrameComponent } from '../../toggle-iframe/toggle-iframe.component';
 import { NavbarAdminComponent } from '../../commons/navbar-admin/navbar-admin.component';
 import { AuthService } from '../../UserLogin/user-login/Services/auth/auth.service';
 import { NgIf } from '@angular/common';
@@ -16,7 +17,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-home-component',
   standalone: true,
-  imports: [CardBienestarComponent,CardFacultiesComponent,CommonModule, CardEventComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FooterComponent, NavbarAdminComponent, NgIf],
+  imports: [CardBienestarComponent,CardFacultiesComponent,CommonModule, CardEventComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FooterComponent, NavbarAdminComponent, NgIf, ToggleIFrameComponent],
 
   templateUrl: './home-component.component.html',
   styleUrl: './home-component.component.css'
