@@ -32,6 +32,21 @@
   width: 100%;
 }
 
+.Asistentes{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    border:solid 1px #a1cb0b;
+    padding: 2px;
+    width: 60%;
+    color: #a1cb0b;
+}
+
   ins{
     text-decoration: none;
   }
