@@ -41,10 +41,22 @@ export class HomeComponentComponent {
   constructor(private oficialEventService: OficialEventService, private authService: AuthService, private cookieService: CookieService) {}
 
   handleFacultySelection(facultyName: string) {
+
     // Do something with the selected faculty, such as making a request or updating state
     this.faculties = facultyName;
     this.formattedFaculty = this.fixFaculties(facultyName); // Asignar el nombre formateado
     this.loadPage(0); // Cargar la primera página al seleccionar una facultad
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollTop = document.documentElement.scrollTop;
+    const clientHeight = document.documentElement.clientHeight;
+    
+    // Calculate the position to scroll to (e.g., 90% of the page)
+    const scrollPosition = scrollHeight - clientHeight * 0.1;
+    
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: 'smooth' // Optional: smooth scroll animation
+    });
   }
 
   fixFaculties(faculty: string): string {
