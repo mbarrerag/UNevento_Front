@@ -1,3 +1,31 @@
+#toggleButton {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: #a1cb0b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#iframeContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: block; /* Oculto por defecto */
+  z-index: 90;
+}
+
 
 app-navbar {
     position: fixed;
@@ -193,4 +221,6 @@ height: 100%;
 }
 
 }
+
+
 

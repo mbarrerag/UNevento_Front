@@ -10,10 +10,11 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-premium',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent],
+  imports: [FooterComponent, NavbarComponent],
   templateUrl: './premium.component.html',
   styleUrl: './premium.component.css'
 })
+
 
 
 export class PremiumComponent {

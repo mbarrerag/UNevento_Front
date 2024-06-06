@@ -1,0 +1,163 @@
+.Contenedor{
+    margin: 20px;
+    height: auto;
+    z-index: 9999;
+    font-family: 'approach-regular';
+    overflow-y: auto;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    padding: 20px;
+    position: fixed !important;
+    background-image: url('../../assets/backgrounds/BlancoConRayas.jpg');
+    background-size: cover;
+    border-radius: 10px;
+    border: 1px solid #a1cb0b;
+}
+
+.Titulo{
+    font-family: 'approach-bold';
+    text-align: center;
+    font-size: 1.25rem;
+}
+.Buttons{
+    text-align: center;
+}
+
+.Buttons > *{
+    margin: 10px;
+}
+
+.botonCerrar {
+    background-color: #f44336; /* Color de fondo rojo */
+    color: white; /* Color de texto blanco */
+    font-size: 18px; /* Tamaño de la fuente */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando se pasa por encima */
+    padding: 10px 20px; /* Espaciado interno alrededor del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centra el texto horizontalmente */
+    width: auto;
+    margin-bottom: 30px;
+    font-family: 'approach-bold';
+}
+
+.botonCerrar:hover {
+    background-color: #da190b; /* Cambia el color de fondo a un rojo más oscuro cuando se pasa el cursor por encima */
+} 
+.botonDescargar{
+    background-color: #1D6F42; /* Color de fondo rojo */
+    color: white; /* Color de texto blanco */
+    font-size: 18px; /* Tamaño de la fuente */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando se pasa por encima */
+    padding: 10px 20px; /* Espaciado interno alrededor del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centra el texto horizontalmente */
+    width: auto;
+    margin-bottom: 30px;
+    font-family: 'approach-bold';
+}
+
+.botonDescargar:hover {
+    background-color: #ffffff; /* Cambia el color de fondo a un rojo más oscuro cuando se pasa el cursor por encima */
+    color: #1D6F42;
+    border: 1px solid #1D6F42;
+    box-shadow: 0px 4px 8px 0px #1D6F42;
+} 
+
+table{
+    border-radius: 15px;
+    border: 1px solid black !important;
+    font-family: 'approach-regular';
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+} 
+
+table td {
+    border: 1px solid #a1cb0b;
+}
+
+thead{
+    font-family: 'approach-bold' !important;
+    color: #a1cb0b !important;
+}
+ h2 {
+   font-size:1em; 
+   font-weight: 300;
+   text-align: center;
+   display: block;
+   line-height:1em;
+   color: #FB667A;
+ }
+ 
+ 
+ .blue { color: #a1cb0b; }
+ .yellow { color: #FFF842; }
+ 
+ .ContenedorTabla th h1 {
+       font-weight: bold;
+       font-size: 1em;
+       text-align: center;
+       color: white;
+       border: 1px white;
+       font-family: 'approach-bold';
+ }
+
+ 
+ .ContenedorTabla td {
+       font-weight: normal;
+       font-size: 1em;
+   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+        -moz-box-shadow: 0 2px 2px -2px #0E1119;
+             box-shadow: 0 2px 2px -2px #0E1119;
+ }
+ tr th{
+    border: 1px solid white;
+ }
+
+.Encabezado{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+ .ContenedorTabla {
+       text-align:  center;
+       overflow: hidden;
+       width: 80%;
+       margin: 0 auto;
+       display: table;
+   padding: 0 0 8em 0;
+ }
+ 
+ .ContenedorTabla td, .ContenedorTabla th {
+       padding-bottom: 1%;
+       padding-top: 1%;
+       padding-left:1%;  
+ }
+ 
+ /* Background-color of the odd rows */
+ .ContenedorTabla tr:nth-child(odd) {
+       background-color: white;
+ }
+ 
+ /* Background-color of the even rows */
+ .ContenedorTabla tr:nth-child(even) {
+       background-color: rgb(201, 198, 198);
+ }
+ 
+ 
+ 
+ .ContenedorTabla tr:hover {
+    background-color: #000000;
+    color: white;
+ -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+             box-shadow: 0 6px 6px -6px #0E1119;
+ }
+
+ 
+ @media (max-width: 800px) {
+ .ContenedorTabla td:nth-child(4),
+ .ContenedorTabla th:nth-child(4) { display: none; }
+ }

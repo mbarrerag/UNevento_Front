@@ -1,0 +1,33 @@
+<div class="nft" (click)="navigateToAddAssistant()">
+    <div class='main'>
+        <img class='tokenImage' src="{{this.eventImage}}" alt="NFT" />
+        <h2 class="card-title">{{data.nombre}}</h2>
+        <p *ngIf="data.facultad != 'No_Aplica'; else elseBlock" class="FacultyEvent">Evento de Facultad</p>
+            <ng-template #elseBlock>
+            <!-- Aquí va el contenido que se mostrará si data.facultad es igual a 'No_Aplica' -->
+            <p class="CommunityEvent">Evento de la Comunidad</p>
+            </ng-template>
+        <p class='card-description'><strong>Descripción del Evento:</strong> {{data.descripcion}}</p>
+        <div class='tokenInfo'>
+            <strong>Fecha:  </strong>{{data.fechaEvento.slice(0,10)}}
+            <strong>Hora:  </strong>{{data.hora}}
+            <br>
+            <strong>Lugar:  </strong>{{data.lugar}}
+            <br>
+            <p *ngIf="data.facultad != 'No_Aplica'"><strong>Facultad:</strong> {{this.faculty}}</p>
+            <strong>Aforo:  </strong>{{data.capacidad}}
+            <br>
+            <strong>Categoría:  </strong>{{this.categoria}}
+            <br>
+            <div class="Asistentes">
+                <strong>{{data.asistentesCount}} Asistentes Registrados</strong>
+            </div>
+        </div>
+        <hr/>
+        <div class='creator'>
+            <div class='wrapper'>
+              <img src="{{this.creatorImage}}" alt="Creator" />
+            </div> 
+            <p><ins>Creado por </ins>{{creatorData.nombre+" "+creatorData.apellido}}</p>
+        </div>
+</div>

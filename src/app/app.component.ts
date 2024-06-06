@@ -9,6 +9,7 @@ import { FooterComponent } from './commons/footer/footer.component';
 import { HomeComponentComponent } from './Home/home-component/home-component.component';
 import { CardFacultiesComponent } from './commons/card-faculties/card-faculties.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ToggleIFrameComponent } from './toggle-iframe/toggle-iframe.component';
 
 
 
@@ -17,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,HomeComponentComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent,CardEventComponent,FooterComponent,HttpClientModule],
+  imports: [CommonModule,HomeComponentComponent, RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent,CardEventComponent,FooterComponent,HttpClientModule,ToggleIFrameComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

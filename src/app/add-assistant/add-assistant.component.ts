@@ -95,7 +95,7 @@ export class AddAssistantComponent implements OnInit {
               text: 'Se ha confirmado su asistencia a este evento',
               icon: 'success'
             });
-            this.router.navigate(['/home']);
+            this.router.navigate(['/myassists']);
             this.assisting = true;
           }
         );
@@ -121,7 +121,7 @@ export class AddAssistantComponent implements OnInit {
               text: 'Se ha cancelado su asistencia a este evento',
               icon: 'success'
             });
-            this.router.navigate(['/home']);
+            this.router.navigate(['/myassists']);
           }
         );
       }

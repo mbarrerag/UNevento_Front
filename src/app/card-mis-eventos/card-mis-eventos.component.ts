@@ -4,16 +4,18 @@ import { Input } from '@angular/core';
 
 import { NgIf } from '@angular/common';
 import { ModalModifyEventComponent } from '../modal-modify-event/modal-modify-event.component';
+import { ModalMyEventAttendanceComponent } from '../modal-my-event-attendance/modal-my-event-attendance.component';
 import { CardMisEventosService } from './Services/card-mis-eventos.service';
 import { Renderer2 } from '@angular/core';
 import { ElementRef } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
 @Component({
   selector: 'app-card-mis-eventos',
   standalone: true,
-  imports: [ModalDeleteEventComponent, NgIf, ModalModifyEventComponent],
+  imports: [ModalDeleteEventComponent, NgIf, ModalModifyEventComponent, ModalMyEventAttendanceComponent],
   templateUrl: './card-mis-eventos.component.html',
   styleUrl: './card-mis-eventos.component.css'
 })
@@ -27,16 +29,31 @@ export class CardMisEventosComponent {
   showModalDelete = false;
   eventImage: any = {};
 
-  constructor(private cardMisEventosService: CardMisEventosService,private renderer: Renderer2, private el: ElementRef) { }
+  numAttendance:number=0;
+
+  Attendance: any=[];
+
+
+
+  constructor(private cardMisEventosService: CardMisEventosService,private renderer: Renderer2, private el: ElementRef, private cookiesService: CookieService) { }
 
   ngOnInit(): void {
     this.categoria = this.translateCategory(this.data.categoria);
     this.Facultad = this.translateFaculty(this.data.facultad);
+
+
+
     this.cardMisEventosService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
       const objectUrl = URL.createObjectURL(response);
       this.eventImage = objectUrl;
     });
+    const userId= parseInt(this.cookiesService.get('id') || '0');
+    const userToken= this.cookiesService.get('token') || '';
 
+    this.cardMisEventosService.getAttendance(this.data.id, userId, userToken).subscribe((response: any) =>{
+      this.Attendance=response;
+      this.numAttendance=this.Attendance.length;
+    })
   }
 
   onOpenModalDelete(): void {
@@ -55,6 +72,16 @@ export class CardMisEventosComponent {
 
   onCloseModalModify(): void {
     this.showModalModify = false;
+  }
+
+  showModalAttendance = false;
+
+  onOpenModalAttendance(): void {
+    this.showModalAttendance = true;
+  }
+
+  onCloseModalAttendance(): void {
+    this.showModalAttendance = false;
   }
 
   translateCategory(category: string): string {
@@ -124,6 +151,14 @@ export class CardMisEventosComponent {
         return 'Facultad de Derecho, Ciencias Politicas y Sociales';
       case 'Facultad_De_Artes':
         return 'Facultad de Artes';
+      case 'Bienestar':
+        return 'Bienestar';
+      case 'Relaciones_Internacionales':
+        return 'Relaciones Internacionales';
+      case 'Idiomas':
+        return 'Idiomas';
+      case 'Leon_De_Greiff':
+        return 'Auditorio Leon de Greiff';
       case 'No_Aplica':
         return 'Evento Comunitario';
       default:
