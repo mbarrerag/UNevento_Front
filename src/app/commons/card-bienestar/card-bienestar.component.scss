@@ -25,7 +25,7 @@ body {
   font: size 5%;;
   align-items: center;
   text-align: center;
-  font: "approch-black-italic";
+  font-family: "approach-regular";
   margin-top: 3%;
 }
 
@@ -77,6 +77,7 @@ body {
   margin-left: 1%;
   padding-bottom: 130%;
   perspective: 400px;
+  cursor: pointer;
    
   &__cover {
     border-radius: .7rem;

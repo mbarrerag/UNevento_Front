@@ -26,7 +26,7 @@
 <div *ngIf="isLoggedin(); else NoLoggedIn">
 <div class="events">
   <h1 class="main-tittle">Eventos disponibles Universidad Nacional de Colombia</h1>
-  <h1 class="main-tittle">{{ formattedFaculty }}</h1> <!-- Aquí se muestra el nombre de la facultad seleccionada -->
+  <h1 class="main-tittle"><strong>{{ formattedFaculty }}</strong></h1> <!-- Aquí se muestra el nombre de la facultad seleccionada -->
 
 <div class="container cards-eventos">
   <!-- <ng-container *ngIf="events && events.content.length > 0; else noEvents"> -->
@@ -55,7 +55,7 @@
       </div>
       <button class="btn-login" routerLink="/login">Iniciar Sesión</button>
   </div>
-
+</ng-template>
 
 <app-footer></app-footer>
 <router-outlet></router-outlet>
