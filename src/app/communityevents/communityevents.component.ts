@@ -70,46 +70,6 @@ export class CommunityeventsComponent {
         categoria: 'Webinar',
         nombrecreador: 'Creador 4'
       },
-      {
-        nombre: 'Evento 5',
-        descripcion: 'Descripción del Evento 5',
-        fechaEvento: new Date().toISOString(),
-        hora: '14:00',
-        lugar: 'Lugar 5',
-        capacidad: 500,
-        categoria: 'Conferencia',
-        nombrecreador: 'Creador 5'
-      },
-      {
-        nombre: 'Evento 6',
-        descripcion: 'Descripción del Evento 6',
-        fechaEvento: new Date().toISOString(),
-        hora: '15:00',
-        lugar: 'Lugar 6',
-        capacidad: 600,
-        categoria: 'Seminario',
-        nombrecreador: 'Creador 6'
-      },
-      {
-        nombre: 'Evento 7',
-        descripcion: 'Descripción del Evento 7',
-        fechaEvento: new Date().toISOString(),
-        hora: '16:00',
-        lugar: 'Lugar 7',
-        capacidad: 700,
-        categoria: 'Taller',
-        nombrecreador: 'Creador 7'
-      },
-      {
-        nombre: 'Evento 8',
-        descripcion: 'Descripción del Evento 8',
-        fechaEvento: new Date().toISOString(),
-        hora: '17:00',
-        lugar: 'Lugar 8',
-        capacidad: 800,
-        categoria: 'Webinar',
-        nombrecreador: 'Creador 8'
-      }
     ];
   }
 
