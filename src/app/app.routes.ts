@@ -39,7 +39,7 @@ export const routes: Routes = [
   { path: 'adminusers',component:AdminVistaUsuariosComponent, canActivate: [AuthGuard]},
   { path: 'adminevents', component:AdminVistaEventosComponent, canActivate: [AuthGuard]},
   { path: 'assist/:idEvento', component: AddAssistantComponent, canActivate: [AuthGuard,AdminCheck]},
-  { path: 'premium', component: PremiumComponent, canActivate: [AuthGuard,AdminCheck]  },
+ 
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard,AdminCheck] },
   { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard,AdminCheck] },
   { path: 'termsofservice', component: TermsAndConditionsComponent},
@@ -51,7 +51,7 @@ export const routes: Routes = [
   { path: 'myassists', component: MyassistsComponent, canActivate: [AuthGuard,AdminCheck]},
   { path: 'usermanual', component: UsermanualComponent},
 
-
+  { path: 'premium', component: PremiumComponent},
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
   
   { path: '**', component: NotFoundpageComponent } 
