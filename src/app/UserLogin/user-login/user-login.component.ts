@@ -48,7 +48,11 @@ export class UserLoginComponent {
         
 
 
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home']).then(() => {
+          setTimeout(() => {
+            window.location.reload();
+          }, 300); 
+        });
       },
       (error) => {
         console.error('Error de inicio de sesión:', error);
