@@ -73,6 +73,7 @@ export class EditProfileComponent {
 
     this.Editprofileservice.editData(userData,this.Imagen, parseInt(this.cookiesService.get('id') || '0'), this.cookiesService.get('token') || '').subscribe((response: any) => {
       this.showSuccessAlert('Datos actualizados', 'Los datos se han actualizado correctamente');
+      this.cookiesService.set('imagekey', `https://uneventoback-production-3c28.up.railway.app/images/${response.imageUrl}`);
       this.router.navigate(['/profile']);
     }, (error: any) => {
       this.showErrorAlert('Error', 'Ha ocurrido un error al actualizar los datos');
