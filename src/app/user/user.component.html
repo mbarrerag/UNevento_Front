@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+<div class="Contenedor">
+    <div class="UserInfo">
+        <div class="ContenedorInfo">
+            <div class="UserImage">
+                <img [src]="userImage" alt="Imagen de Perfil">
+            </div>
+            <div class="UserDetails">
+                <h2>{{userData.nombre}} {{userData.apellido}}</h2>
+                <p>{{userData.email}}</p>
+                <p>Cuenta con {{userevents.totalElements}} eventos vigentes</p>
+            </div>
+        </div>
+    </div>
+    <div class="UserEvents">
+            <h1>Eventos</h1>
+            <ng-container *ngIf="userevents && userevents.content && userevents.content.length > 0; else noEvents">
+                <ul class="events-list">
+                    <li *ngFor="let event of userevents.content" class="event-item">
+                        <app-card-user-events [data]="event"></app-card-user-events>
+                    </li>
+                </ul>
+            </ng-container>
+            <ng-template #noEvents>
+                <div class="NoContent">
+                    <div class="TextNoContent">
+                        <p class="MensajeVacio">Por el momento, este usuario no cuenta con eventos registrados en UNevento.</p>
+                    </div>
+                    <div class="ImageNoContent">
+                        <img src="../../assets/backgrounds/AdvertenciaPagina.png">
+                    </div>
+                </div>
+            </ng-template>
+            <div class="pagination" *ngIf="userevents && userevents.content.length > 0">
+                <button class="PreviousButton" (click)="prevPage()" [disabled]="userevents.number === 0">< Anterior</button>
+                <span>Página {{userevents.number + 1}} de {{userevents.totalPages}}</span>
+                <button class="NextButton" (click)="nextPage()" [disabled]="userevents.number + 1 === userevents.totalPages">Siguiente ></button>
+            </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

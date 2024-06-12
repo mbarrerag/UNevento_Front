@@ -1,0 +1,179 @@
+.Contenedor{
+    display: flex;
+    flex-direction: row;
+    background: url('../../assets/backgrounds/FondoconCirculo.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+@media screen and (max-width: 800px) {
+    .Contenedor {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .ContenedorInfo{
+        width: 50% !important;
+    }
+    .UserInfo{
+        width: 90% !important;
+        border-right: none !important;
+        border-bottom: 2px solid #cab1b1 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .UserEvents{
+        width: 100% !important;
+    }
+}
+
+.UserInfo{
+    width: 30%;
+    height: auto;
+    border-right: 2px solid #cab1b1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ContenedorInfo{
+    margin: 15px;
+    border: 1px solid #acff07;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #acff07;
+    background-color: rgb(255, 255, 255);
+}
+
+.UserImage img{
+    width: 90%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: solid 3px #acff07;
+    max-height: 300px;
+}
+
+.UserImage{
+    margin: 10px;
+    display: block;
+    text-align: center;
+}
+
+.UserDetails{
+    margin: 10px;
+    display: block;
+    text-align: center;
+    font-family: 'approach-regular';
+    word-wrap: break-word;
+}
+
+.UserEvents{
+    width: 70%;
+    margin: 15px;
+    overflow-y: auto;
+}
+
+h2{
+    font-family: 'approach-bold';
+}
+
+h1{
+    font-family: 'approach-black';
+    text-align: center;
+}
+
+.events-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan a una nueva línea cuando no haya suficiente espacio */
+    justify-content: center; /* Distribuir uniformemente los elementos en el contenedor */
+    align-items: center;
+    gap: 5px;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 5px;
+    font-family: 'approach-regular';
+}
+.PreviousButton {
+    background-color: #0b28cb;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    height: auto;
+    font-family: 'approach-black';
+  }
+  
+.PreviousButton:hover {
+    background-color: #868282;
+    color: black;
+}
+.NextButton {
+    background-color: #a1cb0b;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    height: auto;
+    font-family: 'approach-black';
+  }
+  
+.NextButton:hover {
+    background-color: #a7a3a3;
+    color: black;
+}
+
+.NoContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.ImageNoContent img{
+    width:50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.ImageNoContent{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.TextNoContent{
+    width: 80%;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    border: none;
+    text-align: center;
+}
+
+.MensajeVacio{
+    text-align: center;
+    font-family: 'approach-regular';
+    margin-top: 30px;
+    font-size: 1.5rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -3,46 +3,36 @@ import { CookieService } from 'ngx-cookie-service';
 import { Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { CardMyAssistsService } from './Services/card-my-assists.service';
+import { CardUserEventServiceService } from './Services/card-user-event-service.service';
 import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-card-my-assists',
+  selector: 'app-card-user-events',
   standalone: true,
   imports: [NgIf],
-  templateUrl: './card-my-assists.component.html',
-  styleUrl: './card-my-assists.component.css'
+  templateUrl: './card-user-events.component.html',
+  styleUrl: './card-user-events.component.css'
 })
-export class CardMyAssistsComponent {
+export class CardUserEventsComponent {
+
   @Input() data: any;
-  creatorImage: any = {};
-  creatorData: any = {};
   eventImage: any = {};
   categoria: string = '';
   faculty: string = '';
-  creatorImageUrl: string | undefined;
   idevento: number = 0;
 
   constructor(private sanitizer: DomSanitizer,
-    private cardMyAssistService: CardMyAssistsService,
+    private cardUserEventService: CardUserEventServiceService,
     private router: Router,
     private cookieService: CookieService) { }
-
 
   ngOnInit(): void {
     const userID = parseInt(this.cookieService.get('id') || '0');
     const token = this.cookieService.get('token') || '';
     this.idevento = this.data.id;
-    //Consultar Datos de creador de evento
-    this.cardMyAssistService.getCreatorData(userID, token, this.data.idUsuario).subscribe((response: any) => {
-      this.creatorData = response;
-      this.cardMyAssistService.getImage(this.creatorData.imageUrl).subscribe((response: Blob) => {
-        const objectUrl = URL.createObjectURL(response);
-        this.creatorImage = objectUrl;
-      });
-    });
+    
     //Consultar imagen de evento
-    this.cardMyAssistService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
+    this.cardUserEventService.getImage(this.data.imagenUrl).subscribe((response: Blob) => {
       const objectUrl = URL.createObjectURL(response);
       this.eventImage = objectUrl;
     });
@@ -57,11 +47,8 @@ export class CardMyAssistsComponent {
       this.router.navigate(['/assist', this.idevento]);
   }
 
-  navigateToUserProfile() {
-    this.router.navigate(['/user', this.data.idUsuario]);
-  }
 
-  //Pasar Categoría Almacenada a un String Adecuado
+   //Pasar Categoría Almacenada a un String Adecuado
   translateCategory(category: string): string {
     switch (category) {
       case 'Conferencia':
@@ -142,5 +129,5 @@ export class CardMyAssistsComponent {
       default:
         return 'Facultad no definida';
     }
-  }
+  } 
 }
