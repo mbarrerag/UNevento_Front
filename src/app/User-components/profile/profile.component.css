@@ -82,8 +82,9 @@
 
 .profile-photo img {
     height: auto;
-    width: 300px;
+    max-width: 300px;
     transition: transform 0.3s ease; 
+    max-height: 300px;
 }
 
 .profile-photo:hover img {

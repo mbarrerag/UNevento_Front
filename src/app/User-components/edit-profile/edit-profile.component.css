@@ -59,6 +59,12 @@
     margin-bottom: 10px;
 }
 
+input[type="file"]:disabled + label {
+    background-color: #7d9ff3; /* Cambia esto al color que desees */
+    color: #ffffff; /* Cambia esto al color que desees */
+    border: none;
+}
+
 .form-control {
     width: 100%;
     margin-top: 10px;
@@ -66,17 +72,20 @@
 
 .profile-photo {
     border-radius: 30%;
-    width: auto;
-    height: auto;
+    width: 300px;
+    max-height: 350px;
     overflow: hidden;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .profile-photo img {
-    width: 100%;
-    height: auto;
     transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 .photo{
     width: 300px;
