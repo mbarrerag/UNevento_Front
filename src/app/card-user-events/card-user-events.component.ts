@@ -20,6 +20,9 @@ export class CardUserEventsComponent {
   categoria: string = '';
   faculty: string = '';
   idevento: number = 0;
+  numAttendance:number=0;
+
+  Attendance: any=[];
 
   constructor(private sanitizer: DomSanitizer,
     private cardUserEventService: CardUserEventServiceService,
@@ -36,6 +39,12 @@ export class CardUserEventsComponent {
       const objectUrl = URL.createObjectURL(response);
       this.eventImage = objectUrl;
     });
+
+    //Consultar Asistentes
+    this.cardUserEventService.getAttendance(this.data.id, userID, token).subscribe((response: any) =>{
+      this.Attendance=response;
+      this.numAttendance=this.Attendance.length;
+    })
 
     //Asignar Correcta Categoria y En Dado Caso Facultad
     this.categoria = this.translateCategory(this.data.categoria);
