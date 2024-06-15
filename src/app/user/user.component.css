@@ -22,18 +22,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative !important;
     }
     .UserEvents{
         width: 100% !important;
+        margin-left: 15px !important;
     }
 }
 
 .UserInfo{
     width: 30%;
     height: auto;
-    border-right: 2px solid #cab1b1;
+    /* border-right: 2px solid #cab1b1; */
     margin-top: 10px;
     margin-bottom: 10px;
+    position: fixed;
 }
 
 .ContenedorInfo{
@@ -69,7 +72,9 @@
 .UserEvents{
     width: 70%;
     margin: 15px;
+    margin-left: 30%;
     overflow-y: auto;
+    border-left: 2px solid #cab1b1;
 }
 
 h2{
