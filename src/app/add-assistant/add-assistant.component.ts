@@ -17,7 +17,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./add-assistant.component.css']
 })
 export class AddAssistantComponent implements OnInit {
-  @Input() data: any = { idEvent: 57 };
+  
 
   nombreEvento: string = "Nombre del Evento";
   descripcion: string = "Descripción del evento";

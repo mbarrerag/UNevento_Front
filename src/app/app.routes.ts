@@ -24,6 +24,7 @@ import { AuthGuard } from './commons/Security/AuthGuard';
 import { AdminCheck } from './commons/Security/AdminCheck';
 import { UsermanualComponent } from './usermanual/usermanual.component';
 import { MyassistsComponent } from './myassists/myassists.component';
+import { UserComponent } from './user/user.component';
 
 
 export const routes: Routes = [
@@ -50,6 +51,7 @@ export const routes: Routes = [
   { path: 'miseventos', component: MyeventsComponent, canActivate: [AuthGuard,AdminCheck] },
   { path: 'myassists', component: MyassistsComponent, canActivate: [AuthGuard,AdminCheck]},
   { path: 'usermanual', component: UsermanualComponent},
+  { path: 'user/:userId', component: UserComponent, canActivate: [AuthGuard,AdminCheck]},
 
   { path: 'premium', component: PremiumComponent},
   { path: '', redirectTo: 'home',  pathMatch: 'full', },

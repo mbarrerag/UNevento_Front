@@ -20,14 +20,8 @@
             <strong>Categoría:  </strong>{{this.categoria}}
             <br>
             <div class="Asistentes">
-                <strong>{{data.asistentesCount}} Asistentes Registrados</strong>
+                <strong>{{this.numAttendance}} Asistentes Registrados</strong>
             </div>
         </div>
         <hr/>
-        <div class='creator' (click)="navigateToUserProfile()">
-            <div class='wrapper'>
-              <img src="{{this.creatorImage}}" alt="Creator" />
-            </div> 
-            <p><ins>Creado por </ins>{{creatorData.nombre+" "+creatorData.apellido}}</p>
-        </div>
 </div>

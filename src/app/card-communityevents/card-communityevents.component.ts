@@ -53,6 +53,9 @@ export class CardCommunityeventsComponent {
   navigateToAddAssistant() {
     this.router.navigate(['/assist', this.idevento]);
   }
+  navigateToUserProfile() {
+    this.router.navigate(['/user', this.data.idUsuario]);
+  }
 
   //Pasar Categoría Almacenada a un String Adecuado
   translateCategory(category: string): string {

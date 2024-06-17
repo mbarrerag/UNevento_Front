@@ -28,38 +28,38 @@
     height: 40px;
 	background-color: #416be8;
     border: 0px;
-    box-shadow: 0 2px 4px rgb(0, 0, 0);
+    /* box-shadow: 0 2px 4px rgb(0, 0, 0); */
     text-decoration: none;
 	color: #fff;
 	margin: auto auto;
-    border-radius: 5%;
+    border-radius: 5px;
     transition: transform 0.3s ease;
 }
 .btn-edit-profile:hover{
-    background-color: #504e4f;
-    transform: scale(1.1);
+    background-color: #2c458f;
 }
 .btn-delete-profile{
     width: auto;
     height: 40px;
 	background-color: #ef2f2f;
     border: 0px;
-    box-shadow: 0 2px 4px rgb(0, 0, 0);
+    /* box-shadow: 0 2px 4px rgb(0, 0, 0); */
 	color: #fff;
 	margin: auto auto;
-    border-radius: 5%;
+    border-radius: 5px;
     transition: transform color 0.3s ease;
 }
 .btn-delete-profile:hover{
-    background-color: #ffffff;
-    color: black;
-    transform: scale(1.1); 
+    background-color: white;
+    border: solid 1px #901c1c;
+    color: #901c1c;
+    
 }
 .button-container{
     padding-top: 30px;
     padding-bottom: 10px;
     text-align: center;
-    font-family: "approach-regular";
+    font-family: "approach-black";
 }
 .button-profile-container{
     margin-bottom: 10%;
@@ -82,8 +82,9 @@
 
 .profile-photo img {
     height: auto;
-    width: 300px;
+    max-width: 300px;
     transition: transform 0.3s ease; 
+    max-height: 300px;
 }
 
 .profile-photo:hover img {

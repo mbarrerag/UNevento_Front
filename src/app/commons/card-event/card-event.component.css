@@ -143,3 +143,6 @@
   }
 
 }
+.creator:hover {
+  text-decoration: underline;
+}

@@ -31,6 +31,8 @@ export class EditProfileComponent {
   imageSrc: string | ArrayBuffer | null = null;
   Imagen: any; // Initialize the "Imagen" property
 
+  rol:number=0;
+
   ngOnInit(): void {
     const userID = parseInt(this.cookiesService.get('id') || '0');
     const token = this.cookiesService.get('token') || '';
@@ -44,6 +46,8 @@ export class EditProfileComponent {
         this.handleImageUpload({ target: { files: [this.Imagen] } });
       });
     });
+
+    this.rol=parseInt(this.cookiesService.get('rol') || '0');
   }
 
   OnCancelar(){
