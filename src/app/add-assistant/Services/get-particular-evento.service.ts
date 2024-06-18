@@ -60,4 +60,15 @@ export class GetParticularEventoService{
     }
     return this.http.post(this.declineUrl, message, {headers: headers})
   }
+
+
+
+
+
+
+
+
+
+
+  
 }

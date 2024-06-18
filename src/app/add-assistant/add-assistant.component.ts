@@ -8,11 +8,16 @@ import { ActivatedRoute } from '@angular/router';
 import { NavbarComponent } from '../commons/navbar/navbar.component';
 import { FooterComponent } from '../commons/footer/footer.component';
 import { CookieService } from 'ngx-cookie-service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { GetCommentsInfo } from './Services/get-comments-info';
+import { NgFor } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-assistant',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent, NgIf],
+  imports: [CommonModule,NavbarComponent, FooterComponent, NgIf,FormsModule,NgFor],
   templateUrl: './add-assistant.component.html',
   styleUrls: ['./add-assistant.component.css']
 })
@@ -34,20 +39,182 @@ export class AddAssistantComponent implements OnInit {
   eventImage: any = {};
   assisting: boolean = false;
   idEvento: number = 0;
+  imgKey: string | null = null; 
+
+
+  newComment: string="";
+  newAnswer: string="";
+  comments: any[] = [];
+  showResponses: { [key: number]: boolean } = {};
+  showReplyForm: { [key: number]: boolean } = {};
 
   constructor(
+    private http: HttpClient,
     private getParticularEventService: GetParticularEventoService,
     private router: Router,
     private route: ActivatedRoute,
-    private cookieService: CookieService
-  ) { }
+    private cookieService: CookieService,
+    private getCommentsInfo: GetCommentsInfo
+    
+  ) {}
+
+  toggleResponses(commentId: number) {
+    this.showResponses[commentId] = !this.showResponses[commentId];
+  }
+
+  toggleReplyForm(commentId: number) {
+    this.showReplyForm[commentId] = !this.showReplyForm[commentId];
+  }
+
+
+
+
+  addComment() {
+    if (this.newComment.trim() === '') {
+      Swal.fire('Error', 'El comentario no puede estar vacío', 'error');
+      return;
+    }
+    this.getCommentsInfo.addcomments(this.IdUsuario, this.token, this.idEvento, this.newComment).subscribe(
+      (response: any) => {
+        console.log('Respuesta al agregar comentario:', response);
+  
+        if (!response) {
+          Swal.fire('Éxito', 'Comentario agregado exitosamente', 'success');
+          this.newComment = ''; 
+        } else {
+          Swal.fire('Error', 'No se pudo agregar el comentario', 'error');
+        }
+      },
+      (error: any) => {
+        console.error('Error al agregar comentario:', error);
+        Swal.fire('Error', 'No se pudo agregar el comentario', 'error');
+      }
+    );
+  }
+
+
+
+  submitReply(commentId: number) {
+
+    console.log("id  usuario:",this.IdUsuario);
+    console.log('id_copmentario:',commentId);
+    console.log('Respuesta:', this.newAnswer);
+
+
+    if (this.newAnswer.trim() === '') {
+      Swal.fire('Error', 'La respuesta no puede estar vacía', 'error');
+      return;
+    }
+
+    this.getCommentsInfo.replycomment(commentId, this.token, this.IdUsuario, this.newAnswer).subscribe(
+
+      (response: any) => {
+        console.log('Respuesta al agregar comentario:', response);
+  
+        if (!response) {
+          Swal.fire('Éxito', 'Respuesta agregada exitosamente', 'success');
+          this.newAnswer = ''; 
+        } else {
+          Swal.fire('Error', 'No se pudo agregar la respuesta', 'error');
+        }
+      },
+      (error: any) => {
+        console.error('Error al agregar comentario:', error);
+        Swal.fire('Error', 'No se pudo agregar la respuesta', 'error');
+      }
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+  
 
   ngOnInit(): void {
+    this.imgKey = this.cookieService.get('imagekey'); 
     // Obtener el id del evento a partir de la ruta
     this.route.paramMap.subscribe(params => {
       const idEvento = params.get('idEvento');
       this.idEvento = idEvento ? +idEvento : 0;
     });
+
+
+
+
+
+    
+
+    this.getCommentsInfo.getcomment(this.IdUsuario, this.token, this.idEvento).subscribe(
+      (response: any) => {
+        this.comments = response.content;
+    
+        // Itera sobre los comentarios para obtener las imágenes de usuario
+        for (let comment of this.comments) {
+          // Obtener la imagen del usuario del comentario
+          this.getCommentsInfo.getImage(comment.usuario.path).subscribe(
+            (image: Blob) => {
+              const objectUrl = URL.createObjectURL(image);
+              comment.usuario.path = objectUrl;
+            },
+            (imageError: any) => {
+              console.error('Error al obtener la imagen del usuario del comentario:', imageError);
+            }
+          );
+    
+          // Verifica si hay respuestas antes de iterar sobre ellas
+          if (comment.respuestas && comment.respuestas.length > 0) {
+            for (let respuesta of comment.respuestas) {
+              // Obtener la imagen del usuario de la respuesta
+              this.getCommentsInfo.getImage(respuesta.getUser.path).subscribe(
+                (image: Blob) => {
+                  const objectUrl = URL.createObjectURL(image);
+                  respuesta.getUser.path = objectUrl;
+                },
+                (imageError: any) => {
+                  console.error('Error al obtener la imagen del usuario en la respuesta:', imageError);
+                }
+              );
+            }
+          }
+        }
+    
+        console.log('Comentarios:', this.comments);
+      },
+      (error: any) => {
+        console.error('Error al obtener comentarios:', error);
+      }
+    );
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
 
     this.getParticularEventService.getParticularEvent(this.IdUsuario, this.token, this.idEvento || 57).subscribe(
       (response: any) => {
@@ -76,6 +243,23 @@ export class AddAssistantComponent implements OnInit {
       }
     );
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   asistir(): void {
     Swal.fire({

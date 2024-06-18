@@ -1,7 +1,7 @@
 
 .whole {
     position: fixed;
-    background-image: url('../../assets/backgrounds/FondoCirculos.jpeg');
+    background-image: url('../../assets/backgrounds/a.jpg');
     background-size: cover;
     width: 100%;
     height: auto;
@@ -22,17 +22,59 @@
     border-radius: 10px;
   }
   
-  h2 {
-    font-size: 60px;
-    font-family: 'approach-bold';
-    line-height: 1;
-  }
+.event-name{
+  font-size: 40px;
+  font-family:'approach-bold';
+  font-weight: bolder;
+  line-height: 1;
+}
+
+.text-commnent{
+  font-style: italic;
+}
+
+.btn-asistir{
+  background-color:rgb(70, 214, 77) ;
+}
+
+.btn-comentario{
+  background-color:rgb(70, 214, 77) ;
+}
+
+.container-event-info{
+  display: flex;
+}
+
+.event-info2{
+  margin-left: 50px;
+}
+
+
+.container-buttons{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: auto auto;
+}
+
+.container-info{
+  padding: 20px;
+}
+
+button{
+  width:300px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
   
   p {
-    font-size: 25px;
+    font-size: 18px;
     line-height: 1.25;
     margin-bottom: 10px;
   }
+
+
   
   img {
     text-align: center;
@@ -48,13 +90,158 @@
     margin-bottom: 20px;
     font-family: 'approach-bold';
   }
-
   .btn-danger{
     margin-top: 20px;
     margin-bottom: 20px;
     font-family: 'approach-bold';
   }
-  
   app-footer {
     min-height: 100vh;
   }
+
+  .profile-image {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+  }
+
+.container-comment-text{
+  margin-left: 60px;
+  
+}
+  .container-comment-input {
+    width:95%; 
+    display: flex;
+    align-items: center; 
+    margin-top: 10px;
+
+    
+  }
+  
+  .comment-input {
+    margin-left: 60px;
+    width:100%; 
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none; 
+    box-sizing: border-box;
+    transition: width 0.3s, height 0.3s; 
+
+  }
+  
+  .btn-comentario {
+    width: 200px;
+    border: none;
+    background-color:rgb(70, 214, 77) ;
+    color: white;
+    border-radius:0.2rem;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+
+.comment-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 9px 9px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  width: 100%;
+  padding: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin: auto auto;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.user-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info div {
+  font-size: 16px;
+}
+
+.comment-content {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.view-responses {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: rgb(54, 171, 33);
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.reply-button{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: rgb(15, 21, 136);
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 10px;
+
+}
+
+.container-responses{
+  display: flex;
+}
+
+
+.responses {
+  margin-top: 20px;
+}
+
+.response {
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.reply-form {
+  margin-top: 10px;
+}
+
+.reply-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.reply-form button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.reply-form button:hover {
+  background-color: #218838;
+}
+
