@@ -48,6 +48,14 @@ export class AddAssistantComponent implements OnInit {
   showResponses: { [key: number]: boolean } = {};
   showReplyForm: { [key: number]: boolean } = {};
 
+  currentPage: number = 1;
+  maxCommentsPerPage: number = 15;
+  totalPages: number = 0;
+  totalElements: number = 0;
+
+  isNextDisabled: boolean = false;
+  isPrevDisabled: boolean = true;
+
   constructor(
     private http: HttpClient,
     private getParticularEventService: GetParticularEventoService,
@@ -65,6 +73,15 @@ export class AddAssistantComponent implements OnInit {
   toggleReplyForm(commentId: number) {
     this.showReplyForm[commentId] = !this.showReplyForm[commentId];
   }
+
+
+
+  hayRespuestas(idComentario: number): boolean {
+    const comentario = this.comments.find(comment => comment.idComentario === idComentario);
+  
+    return comentario && comentario.respuestas && comentario.respuestas.length > 0;
+  }
+  
 
 
 
@@ -93,34 +110,30 @@ export class AddAssistantComponent implements OnInit {
   }
 
 
-
   submitReply(commentId: number) {
-
-    console.log("id  usuario:",this.IdUsuario);
-    console.log('id_copmentario:',commentId);
-    console.log('Respuesta:', this.newAnswer);
-
-
-    if (this.newAnswer.trim() === '') {
-      Swal.fire('Error', 'La respuesta no puede estar vacía', 'error');
+    console.log("id usuario:", this.IdUsuario);
+    console.log("id_comentario:", commentId);
+    console.log("Respuesta:", this.newAnswer);
+  
+    if (this.newAnswer.trim() === "") {
+      Swal.fire("Error", "La respuesta no puede estar vacía", "error");
       return;
     }
-
+  
     this.getCommentsInfo.replycomment(commentId, this.token, this.IdUsuario, this.newAnswer).subscribe(
-
       (response: any) => {
-        console.log('Respuesta al agregar comentario:', response);
+        console.log("Respuesta al agregar comentario:", response);
   
         if (!response) {
-          Swal.fire('Éxito', 'Respuesta agregada exitosamente', 'success');
-          this.newAnswer = ''; 
+          Swal.fire("Éxito", "Respuesta agregada exitosamente", "success");
+          this.newAnswer = "";
         } else {
-          Swal.fire('Error', 'No se pudo agregar la respuesta', 'error');
+          Swal.fire("Error", "No se pudo agregar la respuesta", "error");
         }
       },
       (error: any) => {
-        console.error('Error al agregar comentario:', error);
-        Swal.fire('Error', 'No se pudo agregar la respuesta', 'error');
+        console.error("Error al agregar comentario:", error);
+        Swal.fire("Error", "No se pudo agregar la respuesta", "error");
       }
     );
   }
@@ -128,89 +141,18 @@ export class AddAssistantComponent implements OnInit {
 
 
 
+    ngOnInit()  {
 
-
-
-
-
-
+      this.loadComments();
+  
+      this.imgKey = this.cookieService.get('imagekey'); 
+      // Obtener el id del evento a partir de la ruta
+      this.route.paramMap.subscribe(params => {
+        const idEvento = params.get('idEvento');
+        this.idEvento = idEvento ? +idEvento : 0;
+      });
   
 
-  ngOnInit(): void {
-    this.imgKey = this.cookieService.get('imagekey'); 
-    // Obtener el id del evento a partir de la ruta
-    this.route.paramMap.subscribe(params => {
-      const idEvento = params.get('idEvento');
-      this.idEvento = idEvento ? +idEvento : 0;
-    });
-
-
-
-
-
-    
-
-    this.getCommentsInfo.getcomment(this.IdUsuario, this.token, this.idEvento).subscribe(
-      (response: any) => {
-        this.comments = response.content;
-    
-        // Itera sobre los comentarios para obtener las imágenes de usuario
-        for (let comment of this.comments) {
-          // Obtener la imagen del usuario del comentario
-          this.getCommentsInfo.getImage(comment.usuario.path).subscribe(
-            (image: Blob) => {
-              const objectUrl = URL.createObjectURL(image);
-              comment.usuario.path = objectUrl;
-            },
-            (imageError: any) => {
-              console.error('Error al obtener la imagen del usuario del comentario:', imageError);
-            }
-          );
-    
-          // Verifica si hay respuestas antes de iterar sobre ellas
-          if (comment.respuestas && comment.respuestas.length > 0) {
-            for (let respuesta of comment.respuestas) {
-              // Obtener la imagen del usuario de la respuesta
-              this.getCommentsInfo.getImage(respuesta.getUser.path).subscribe(
-                (image: Blob) => {
-                  const objectUrl = URL.createObjectURL(image);
-                  respuesta.getUser.path = objectUrl;
-                },
-                (imageError: any) => {
-                  console.error('Error al obtener la imagen del usuario en la respuesta:', imageError);
-                }
-              );
-            }
-          }
-        }
-    
-        console.log('Comentarios:', this.comments);
-      },
-      (error: any) => {
-        console.error('Error al obtener comentarios:', error);
-      }
-    );
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 
 
 
@@ -243,19 +185,6 @@ export class AddAssistantComponent implements OnInit {
       }
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -311,4 +240,64 @@ export class AddAssistantComponent implements OnInit {
       }
     });
   }
+
+
+
+  loadComments() {
+    this.getCommentsInfo.getcomment(this.IdUsuario, this.token, this.idEvento, this.currentPage).subscribe(
+      (response: any) => {
+        this.comments = response.content ; 
+
+        this.isPrevDisabled = this.currentPage === 1;
+        this.isNextDisabled = this.comments.length >= this.maxCommentsPerPage;
+
+        for (let comment of this.comments) {
+          this.getCommentsInfo.getImage(comment.usuario.path).subscribe(
+            (image: Blob) => {
+              const objectUrl = URL.createObjectURL(image);
+              comment.usuario.path = objectUrl;
+            },
+            (imageError: any) => {
+              console.error('Error al obtener la imagen del usuario del comentario:', imageError);
+            }
+          );
+
+          if (comment.respuestas && comment.respuestas.length > 0) {
+            for (let respuesta of comment.respuestas) {
+              this.getCommentsInfo.getImage(respuesta.getUser.path).subscribe(
+                (image: Blob) => {
+                  const objectUrl = URL.createObjectURL(image);
+                  respuesta.getUser.path = objectUrl;
+                },
+                (imageError: any) => {
+                  console.error('Error al obtener la imagen del usuario en la respuesta:', imageError);
+                }
+              );
+            }
+          }
+        }
+
+        console.log('Comentarios:', this.comments);
+      },
+      (error: any) => {
+        console.error('Error al obtener comentarios:', error);
+      }
+    );
+  }
+
+  nextPage() {
+    if (!this.isNextDisabled) {
+      this.currentPage++;
+      this.loadComments();
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.loadComments();
+    }
+  }
+
+
 }

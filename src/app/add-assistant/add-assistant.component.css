@@ -1,4 +1,11 @@
 
+
+.container-event-all{
+  z-index: -2000;
+}
+
+
+
 .whole {
     position: fixed;
     background-image: url('../../assets/backgrounds/a.jpg');
@@ -245,3 +252,61 @@ button{
   background-color: #218838;
 }
 
+
+
+.response{
+  margin-left: 50px;
+}
+
+.name{
+  font-size: 14px;
+ 
+}
+
+
+.btn-paginacion1, .btn-paginacion2{
+  width: 120px;
+  border-radius: 0.4rem;
+  font-size: 17px;
+  border: none;
+  padding: 5px;
+  
+  margin: auto auto;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.container-pagination{
+  width: 100%;
+  margin: auto auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+ margin-bottom: 25px;
+
+}
+
+.btn-paginacion1{
+  background-color: #02390e;
+  color: #fff;
+}
+
+.btn-paginacion2{
+  background-color: #28a745;
+  color: #fff;
+  margin-left: 20px;
+}
+
+
+.btn-paginacion1:hover{
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-paginacion2:hover{
+  background-color: #02390e;
+
+  color: #fff;
+  margin-left: 20px;
+}

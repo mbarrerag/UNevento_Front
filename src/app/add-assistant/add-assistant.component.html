@@ -1,7 +1,7 @@
 
 <div class="whole"> 
   <app-navbar></app-navbar>
-    <div class="container card">
+    <div class="container card container-event-all">
         <div class="row container container-info">
           <div class="col-md-6">
             <img src="{{eventImage}}" alt="Imagen del evento">
@@ -41,15 +41,6 @@
           </div>
         </div>
 
-
-
-
-
-
-      
-
-
-
         <div class="container-comments">
           <div class="card">
             <br/>
@@ -74,7 +65,7 @@
                   <div class="user-info">
                     <img [src]="comment.usuario.path" alt="User Photo">
                     <div>
-                      <strong>{{ comment.usuario.nombre}} {{ comment.usuario.apellido}}</strong>
+                     <p class="name"><strong>{{ comment.usuario.nombre}} {{ comment.usuario.apellido}}</strong></p> 
                     </div>
                   </div>
                   <div class="comment-content">
@@ -84,11 +75,12 @@
 
 
                         <div class="container-responses">
-                          <div>
+                          <div  *ngIf="hayRespuestas(comment.idComentario)">
                             <a class="view-responses" (click)="toggleResponses(comment.idComentario)">
-                              Mostrar respuestas
+                              {{ showResponses[comment.idComentario] ? 'Ocultar respuestas' : 'Mostrar respuestas' }}
                             </a>
                           </div>
+                        
                         
                          <div>
                           <a class="reply-button" (click)="toggleReplyForm(comment.idComentario)">
@@ -111,7 +103,7 @@
                       <div class="user-info">
                         <img [src]="response.getUser.path" alt="User Photo">
                         <div>
-                          <strong> {{ response.getUser.nombre }} {{ response.getUser.apellido }}:</strong> 
+                         <p class="name"><strong> {{ response.getUser.nombre }} {{ response.getUser.apellido }}:</strong> </p> 
                           {{ response.contenido }}
                         </div>
                       </div>
@@ -125,12 +117,16 @@
 
 
 
+                <div class="container-pagination">
+                  <div>
+                    <button class="btn-paginacion1" (click)="prevPage()" [disabled]="isPrevDisabled">Anterior</button>
 
-                <!-- <div class="pagination">
-                  <button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
-                  <button (click)="nextPage()" [disabled]="page === totalPages">Siguiente</button>
-              </div> -->
+                  </div>
+                  <div>
+                    <button class="btn-paginacion2"  (click)="nextPage()" [disabled]="isNextDisabled">Siguiente</button>
 
+                  </div>
+                </div>  
 
               </div> 
 
