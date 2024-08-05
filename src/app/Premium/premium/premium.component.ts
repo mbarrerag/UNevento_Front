@@ -10,10 +10,11 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-premium',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent],
+  imports: [FooterComponent, NavbarComponent],
   templateUrl: './premium.component.html',
   styleUrl: './premium.component.css'
 })
+
 
 
 export class PremiumComponent {
@@ -23,9 +24,8 @@ constructor(private http: HttpClient, private authService: AuthService, private 
 
   async realizarPago(id: number, precio: number) {
 
-   
+  const url = "https://uneventoback-production-58ed.up.railway.app/create-preference";
   if (this.authService.isLoggedIn()) { // Corrige el acceso a isLoggedIn()
-    const url = "https://uneventoback-production-3c28.up.railway.app/create-preference";
 
 
     try {
@@ -37,6 +37,12 @@ constructor(private http: HttpClient, private authService: AuthService, private 
 
       const id_preference = response.id;    
       window.open(response.initPoint, '_blank');
+
+
+
+
+    // const url2 = "https://uneventoback-production-58ed.up.railway.app/Succes-update";
+    // const responsew: any = await this.http.post(url, { id:id}).toPromise();
     
 
 
@@ -44,9 +50,13 @@ constructor(private http: HttpClient, private authService: AuthService, private 
     } catch (error) {
       console.error('Error al procesar el pago:', error);
     }
-  } 
+    } else {
+      this.Router.navigate(['/login']);
+    }
+  }
+
+
 }
 
 
   
-
