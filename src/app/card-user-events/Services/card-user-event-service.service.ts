@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CardUserEventServiceService {
 
-  private apiUrl = 'https://uneventoback-production-3c28.up.railway.app';
+  private apiUrl = 'https://uneventoback-production-58ed.up.railway.app';
 
   constructor(private http:HttpClient) { }
 

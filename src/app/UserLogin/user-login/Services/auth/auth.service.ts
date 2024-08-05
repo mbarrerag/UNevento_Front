@@ -8,7 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://uneventoback-production-3c28.up.railway.app'; 
+  private apiUrl = 'https://uneventoback-production-58ed.up.railway.app'; 
   private isAuthenticatedKey = 'isAuthenticated';
   private tokenKey = 'token'; 
   private idKey = 'id'; 

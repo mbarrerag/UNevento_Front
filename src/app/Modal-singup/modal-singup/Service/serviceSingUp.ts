@@ -13,7 +13,7 @@ private http = inject(HttpClient)
   createUser(userData: any) {
   console.log(userData);
   
-    return this.http.post<any>('https://uneventoback-production-3c28.up.railway.app/newuser', userData);
+    return this.http.post<any>('https://uneventoback-production-58ed.up.railway.app/newuser', userData);
   }
 }
 

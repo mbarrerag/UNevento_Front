@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class GetCommentsInfo{
 
-    private getcommentsurl: string = 'https://uneventoback-production-3c28.up.railway.app/comments';
-    private replyurl: string = 'https://uneventoback-production-3c28.up.railway.app/response';
-    private addcommentUrl : string = 'https://uneventoback-production-3c28.up.railway.app/addcomment';
-    private imageUrl: string = 'https://uneventoback-production-3c28.up.railway.app/images/';
+    private getcommentsurl: string = 'https://uneventoback-production-58ed.up.railway.app/comments';
+    private replyurl: string = 'https://uneventoback-production-58ed.up.railway.app/response';
+    private addcommentUrl : string = 'https://uneventoback-production-58ed.up.railway.app/addcomment';
+    private imageUrl: string = 'https://uneventoback-production-58ed.up.railway.app/images/';
 
 
 

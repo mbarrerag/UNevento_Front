@@ -18,7 +18,7 @@ export class UserserviceService {
 
   constructor(private http:HttpClient) { }
 
-  private  apiUrl = 'https://uneventoback-production-3c28.up.railway.app';
+  private  apiUrl = 'https://uneventoback-production-58ed.up.railway.app';
 
 
 
