@@ -64,7 +64,9 @@ export class AdminVistaUsuariosComponent implements OnInit {
         this.getAllUsersService.deleteUser(this.userId, this.token, deleteUserId).subscribe(
           () => {}
         );
-        window.location.reload();
+        setTimeout(() => {
+          location.reload();
+        }, 3000); 
       }
     });
   }

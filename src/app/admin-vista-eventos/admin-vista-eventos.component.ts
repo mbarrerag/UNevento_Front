@@ -68,7 +68,9 @@ export class AdminVistaEventosComponent {
         this.getAllEventsService.deleteEvent(this.userId, this.token, deleteEventId).subscribe(
           () => {}
         );
-        window.location.reload();
+        setTimeout(() => {
+          location.reload();
+        }, 3000); 
       }
     });
   }
