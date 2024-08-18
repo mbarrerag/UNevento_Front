@@ -26,6 +26,7 @@ import { UsermanualComponent } from './usermanual/usermanual.component';
 import { MyassistsComponent } from './myassists/myassists.component';
 import { UserComponent } from './user/user.component';
 
+import { ContactComponent } from './commons/Contact/contact.component';
 
 export const routes: Routes = [
 
@@ -55,6 +56,8 @@ export const routes: Routes = [
 
   { path: 'premium', component: PremiumComponent},
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
+  
+  { path: 'contact', component: ContactComponent },
   
   { path: '**', component: NotFoundpageComponent } 
 
