@@ -81,7 +81,7 @@ export class SingUpUserComponent {
 
     this.serviceSingUp.getCode(this.userData.correo).subscribe(
       response => {
-        console.log('Código obtenido:', response);
+        // console.log('Código obtenido:', response);
         // Open modal after code is obtained
         this.abrirModal(response, this.userData);
       },

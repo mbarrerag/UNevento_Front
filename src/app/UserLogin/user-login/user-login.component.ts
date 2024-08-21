@@ -36,7 +36,7 @@ export class UserLoginComponent {
 
 
     
-    console.log('Datos enviados al backend:', { correo: this.correo, password: this.password });
+    // console.log('Datos enviados al backend:', { correo: this.correo, password: this.password });
   
     this.authService.login(this.correo, this.password).subscribe(
       (response) => {

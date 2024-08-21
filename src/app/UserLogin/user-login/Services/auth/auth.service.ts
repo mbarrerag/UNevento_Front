@@ -46,14 +46,14 @@ export class AuthService {
 
         const jwtTokenString = response.jwtToken.toString(); // Convertir token a string
 
-        console.log('Datos enviados a userinformation:', `${response.userId} ${jwtTokenString}`);
+        // console.log('Datos enviados a userinformation:', `${response.userId} ${jwtTokenString}`);
         const userInfoUrl = `${this.apiUrl}/userinformation`;
         const headers = new HttpHeaders({
           'Authorization': `${response.userId}, ${jwtTokenString}` // Concatenar las cadenas de texto
         });
 
         this.http.post<any>(userInfoUrl, { email: correo }, { headers }).subscribe(userInfoResponse => {
-          console.log(userInfoResponse);
+          // console.log(userInfoResponse);
 
           this.cookieService.set(this.rolkey, userInfoResponse.role);
           this.cookieService.set(this.imagekey, userInfoResponse.imageUrl);
@@ -62,7 +62,7 @@ export class AuthService {
           const imageName = userInfoResponse.imageUrl.split('/').pop(); 
           const imageUrl = `${this.apiUrl}/images/${imageName}`; 
 
-          console.log("imagen:", imageUrl);
+          // console.log("imagen:", imageUrl);
           this.cookieService.set(this.imagekey, imageUrl);
           this.imageSubject.next(imageUrl); // Actualiza el BehaviorSubject con la URL de la imagen
         });
