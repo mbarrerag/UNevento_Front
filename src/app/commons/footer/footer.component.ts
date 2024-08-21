@@ -26,7 +26,7 @@ export class FooterComponent {
   }
 
   openFrequentlyAskedQuestions() {
-    window.open('/frequently-asked-questions', '_self');
+    window.open('/frequently-asked-questions', '_blank');
   }
 
   openContact() {

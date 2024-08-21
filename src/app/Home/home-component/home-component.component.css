@@ -15,6 +15,37 @@
   align-items: center;
   justify-content: center;
 }
+.information{
+  font-family: 'approach-regular';
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  color: #82a409;
+  text-align: center;
+  border: solid 2px #82a409;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .information {
+      width: auto;
+  }
+}
+
+.information:hover{
+  transform: scale(1.01);
+  background-color: #a1cb0b;
+  color: white;
+  border-color: white;
+}
+
+.no-style-link {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Mantiene el color del texto */
+  display: block; /* Asegúrate de que el enlace se comporte como un bloque */
+}
 
 #iframeContainer {
   position: fixed;

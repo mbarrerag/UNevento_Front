@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener,OnInit } from '@angular/core';
 import { OficialEventService } from './Services/home-component.service.component';
 import { Page } from '../../myevents/Services/get-user-info.service';
 import { CardBienestarComponent } from '../../commons/card-bienestar/card-bienestar.component';
@@ -35,8 +35,22 @@ export class HomeComponentComponent {
   ngOnInit() {
     this.isAdmin = parseInt(this.cookieService.get('rol') || '0') === 10;
     this.formattedFaculty="";
+    this.updateWelcomeText();
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.updateWelcomeText();
+  }
+
+  updateWelcomeText() {
+    const welcomeTextElement = document.getElementById('welcome-text');
+    if (window.innerWidth < 600) {
+      welcomeTextElement!.innerText = 'Sobre Nosotros →';
+    } else {
+      welcomeTextElement!.innerText = '¡Bienvenido! UNevento es una plataforma web que centraliza y facilita la organización y participación en eventos académicos, culturales y deportivos en la Universidad Nacional de Colombia, sede Bogotá.';
+    }
+  }
 
   constructor(private oficialEventService: OficialEventService, private authService: AuthService, private cookieService: CookieService) {}
 
