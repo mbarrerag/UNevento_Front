@@ -25,6 +25,7 @@ import { AdminCheck } from './commons/Security/AdminCheck';
 import { UsermanualComponent } from './usermanual/usermanual.component';
 import { MyassistsComponent } from './myassists/myassists.component';
 import { UserComponent } from './user/user.component';
+import { FrequentlyAskedQuestionsComponent } from './frequently-asked-questions/frequently-asked-questions.component';
 
 import { ContactComponent } from './commons/Contact/contact.component';
 
@@ -57,6 +58,7 @@ export const routes: Routes = [
   { path: 'premium', component: PremiumComponent},
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
   
+  { path: 'frequently-asked-questions', component: FrequentlyAskedQuestionsComponent },
   { path: 'contact', component: ContactComponent },
   
   { path: '**', component: NotFoundpageComponent } 

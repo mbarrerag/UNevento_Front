@@ -25,6 +25,14 @@ export class FooterComponent {
     window.open('/termsofservice', '_blank');
   }
 
+  openFrequentlyAskedQuestions() {
+    window.open('/frequently-asked-questions', '_self');
+  }
+
+  openContact() {
+    window.open('/contact', '_blank');
+  }
+
   isUserManualRoute() {
     return this.router.url === '/usermanual';
   }
@@ -33,4 +41,7 @@ export class FooterComponent {
     return this.router.url === '/termsofservice';
   }
 
+  isFrequentlyAskedQuestions() {
+    return this.router.url === '/frequently-asked-questions';
+  }
 }
