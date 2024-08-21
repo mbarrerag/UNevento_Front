@@ -4,10 +4,7 @@
         <p class="p-allrights">Todos los derechos reservados ©</p>
         <div class="terms-container" *ngIf="!isTermsOfConditions()">
             <p class="p-terms" (click)="openTerms()">Términos y Condiciones</p>
-        </div>    
-        <div class="terms-container" *ngIf="!isTermsOfConditions()">
-            <p class="p-terms" (click)="openTerms()">Términos y Condiciones</p>
-        </div>    
+        </div>   
         <div>
             <div class="manual-container">
                 <p class="p-manual" (click)="openUserManual()"  *ngIf="!isUserManualRoute()">Manual de Usuario</p>
