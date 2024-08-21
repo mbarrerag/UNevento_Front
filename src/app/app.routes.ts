@@ -58,6 +58,7 @@ export const routes: Routes = [
   { path: 'premium', component: PremiumComponent},
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
   
+  { path: 'frequently-asked-questions', component: FrequentlyAskedQuestionsComponent },
   { path: 'contact', component: ContactComponent },
   
   { path: '**', component: NotFoundpageComponent } 
