@@ -42,6 +42,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.5s ease; /* Añade esta línea */
+    margin: 5px;
 }
 
 .p-manual:hover{

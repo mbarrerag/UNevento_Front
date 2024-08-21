@@ -18,6 +18,18 @@ interface FAQ {
 export class FrequentlyAskedQuestionsComponent {
   faqs: FAQ[] = [
     {
+      question: '¿Por qué no puedo registrarme en UNevento?',
+      answer: [
+        'Verifica que hayas ingresado todos los campos que se te solicitan a la hora de Registrarte y que además hayas aceptados los términos y condiciones.',
+        'Comprueba que no estés ingresando palabras ofensivas en los campos de Nombre o Apellido. Recuerda que en UNevento promovemos la convivencia y el respeto entre los usuarios de la plataforma.',
+        'Verifica que la dirección de correo electrónico que estás ingresando sea válida y que no esté asociada a otra cuenta en la plataforma.',
+        'Valida que la contraseña que estás ingresando cumpla con los requisitos de seguridad establecidos por la plataforma. La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un carácter especial.',
+        'Confirma que al volver a ingresar la contraseña, ambas coincidan.',
+        'Revisa que estés ingresando correctamente el código de verificación que se te envía al correo electrónico.',
+        'Si después de realizar estos pasos sigues teniendo problemas para registrarte, te recomendamos intentar en otro momento o contactar al soporte técnico de la plataforma a través del apartado de Contáctanos.'      
+      ]
+    },
+    {
       question: '¿Cómo puedo crear un evento en UNevento?',
       answer: [
         'Ingresa a la página de inicio de UNevento.',
@@ -27,6 +39,17 @@ export class FrequentlyAskedQuestionsComponent {
         'Ingresa el nombre, descripción, fecha, hora, ubicación, categoría y una breve descripción del evento.',
         'Selecciona la opción "Crear Evento".',
         'Si los datos se ingresaron correctamente, el evento será creado y se mostrará en la lista de eventos de la plataforma.'
+      ]
+    },
+    {
+      question: '¿Por qué no puedo crear un Evento?',
+      answer: [
+        'En primer lugar debes verificar que estes logueado en la plataforma.',
+        'En segundo lugar verifica que hayas rellenado todos los campos asociados a la Información del Evento. Recuerda, ¡No puede haber Campos Vacíos!',
+        'En tercer lugar verifica que no hayas ingresado palabras ofensivas dentro de los campos del evento. Recuerda que en UNevento promovemos la convivencia y el respeto entre los usuarios de la plataforma.',
+        'En cuarto lugar verifica que no hayas ingresado fechas pasadas, ya que no se pueden crear eventos en el pasado.',
+        'En quinto lugar verifica que la imagen que subiste sea de un formato válido y que no pese más de 5MB.',
+        'Si los anteriores pasos no fueron útiles, lo más probable sea que ya hayas alcanzado el límite de eventos permitidos en tu cuenta. Para poder crear más eventos, debes adquirir un Plan Superior al Actual.',
       ]
     },
     {
@@ -72,6 +95,14 @@ export class FrequentlyAskedQuestionsComponent {
         'Selecciona la opción "Mis Asistencias" en la esquina superior derecha de la pantalla o dirígete al enlace "Mis Asistencias".',
         'Se abrirá una lista con los eventos a los que has asistido.',
         'Podrás ver la información de los eventos y acceder a un mayor detalle haciendo clic sobre el evento de interés.'
+      ]
+    },
+    {
+      question: '¿Por qué no puedo ver un evento que había observado anteriormente en UNevento?',
+      answer: [
+        'El evento ya ha ocurrido, por lo tanto este ya no se mostrará dentro de la plataforma.',
+        'El evento ha sido ocultado por el administrador, debido a que mostraba información confusa u ofensiva.',
+        'Si consideras que el evento debería seguir mostrándose, te recomendamos contactar al soporte técnico de la plataforma a través del apartado de Contáctanos.'
       ]
     },
     {
@@ -153,6 +184,13 @@ export class FrequentlyAskedQuestionsComponent {
         'Selecciona la opción "Asistentes".',
         'Se mostrará una lista con los nombres de los asistentes al evento.',
         'Si deseas, puedes descargar la lista de asistentes en formato Excel.'
+      ]
+    },
+    {
+      question: '¿Por qué no puedo cambiar mi foto de perfil en UNevento?',
+      answer: [
+        'Seguramente sea porque no cuentas con un Plan activo en tu cuenta. Recuerda que para poder cambiar tu foto de perfil, tu cuenta debe tener un Plan Básico o Superior activo.',
+        'Si ya cuentas con un plan activo, debes verificar que la imagen que el peso de la imagen que estás tratando de subir no sea superior a 5 MB.',
       ]
     }
   ];

@@ -47,7 +47,7 @@
         <div class="container-input">
           <textarea id="message" formControlName="message" name="message" class="input-contact"></textarea>
           <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
-            <small *ngIf="contactForm.get('message')?.hasError('required')">El mensaje es requerido.</small>
+            <small *ngIf="contactForm.get('message')?.hasError('required')">*El mensaje es requerido.*</small>
           </div>
         </div>
       
@@ -66,6 +66,4 @@
 
 </div>
 </div>
-
-
 <router-outlet></router-outlet>
