@@ -5,6 +5,9 @@
         <div class="terms-container" *ngIf="!isTermsOfConditions()">
             <p class="p-terms" (click)="openTerms()">Términos y Condiciones</p>
         </div>    
+        <div class="terms-container" *ngIf="!isTermsOfConditions()">
+            <p class="p-terms" (click)="openTerms()">Términos y Condiciones</p>
+        </div>    
         <div>
             <div class="manual-container">
                 <p class="p-manual" (click)="openUserManual()"  *ngIf="!isUserManualRoute()">Manual de Usuario</p>
@@ -45,9 +48,12 @@
 
 
 
-    
+    <div>
+        <a routerLink="/contact">Contáctanos</a>
+    </div>
 
     </div>
     
     </footer>
+    <router-outlet></router-outlet>
     

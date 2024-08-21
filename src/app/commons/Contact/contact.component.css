@@ -1,0 +1,92 @@
+.container-box {
+    position: absolute;
+    background-image: url('../../../assets/backgrounds/c.jpg');
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+}
+
+
+
+.container-pqrs{
+    width: 60%;
+    justify-content: center;
+    margin: auto auto;
+    background-color: rgba(17, 17, 17, 0.766);
+    color: white;
+   
+    margin-bottom: 200px;
+}
+
+
+.container-form{
+    margin-top: 50px;
+
+}
+
+
+.tittle-pqrs{
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 35px;
+    font-family: "approach-bold";
+}
+
+
+.container-text-pqrs{
+    width: 80%;
+    text-align: justify;
+    margin: auto auto;
+}
+
+
+
+.container-input{
+text-align: center;
+margin: auto auto;
+}
+
+.input-contact{
+
+    padding: 10px;
+    outline: none;
+    width: 90%;
+    margin: auto auto;
+    border-radius: 0.4rem;
+    border-width: 0.1%;
+    margin-bottom: 10px;
+     
+}
+
+.label-text{
+    font-family: "approach-bold" ;
+    font-size: 15px;
+    margin-left: 5%;
+}
+
+
+.btn-contact{
+    width: 70%;
+    background-color: rgb(0, 255, 60);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 0.6rem;
+    border: none;
+    margin: auto auto;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.3); 
+    outline: unset;
+    cursor: pointer;
+}
+
+.container-btn{
+    margin: auto auto;
+    justify-content: center;
+    text-align: center;
+
+}

@@ -24,9 +24,8 @@ constructor(private http: HttpClient, private authService: AuthService, private 
 
   async realizarPago(id: number, precio: number) {
 
-  const url = "https://uneventoback-production-3c28.up.railway.app/create-preference";
+  const url = "https://uneventoback-production-58ed.up.railway.app/create-preference";
   if (this.authService.isLoggedIn()) { // Corrige el acceso a isLoggedIn()
-    const url = "http://localhost:8180/create-preference";
 
 
     try {
@@ -42,7 +41,7 @@ constructor(private http: HttpClient, private authService: AuthService, private 
 
 
 
-    // const url2 = "http://localhost:8180/Succes-update";
+    // const url2 = "https://uneventoback-production-58ed.up.railway.app/Succes-update";
     // const responsew: any = await this.http.post(url, { id:id}).toPromise();
     
 
@@ -61,4 +60,3 @@ constructor(private http: HttpClient, private authService: AuthService, private 
 
 
   
-

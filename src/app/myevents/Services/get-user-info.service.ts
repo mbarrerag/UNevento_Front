@@ -20,7 +20,7 @@ export class GetUserInfoService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'https://uneventoback-production-3c28.up.railway.app/getuserevents'; 
+  private apiUrl = 'https://uneventoback-production-58ed.up.railway.app/getuserevents'; 
 
 
   getUserEvents(userId: number, token: string, page:number): Observable<Page<any>> {

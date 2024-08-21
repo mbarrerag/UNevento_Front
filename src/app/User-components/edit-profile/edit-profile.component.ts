@@ -31,6 +31,8 @@ export class EditProfileComponent {
   imageSrc: string | ArrayBuffer | null = null;
   Imagen: any; // Initialize the "Imagen" property
 
+  rol:number=0;
+
   ngOnInit(): void {
     const userID = parseInt(this.cookiesService.get('id') || '0');
     const token = this.cookiesService.get('token') || '';
@@ -44,6 +46,8 @@ export class EditProfileComponent {
         this.handleImageUpload({ target: { files: [this.Imagen] } });
       });
     });
+
+    this.rol=parseInt(this.cookiesService.get('rol') || '0');
   }
 
   OnCancelar(){
@@ -73,6 +77,7 @@ export class EditProfileComponent {
 
     this.Editprofileservice.editData(userData,this.Imagen, parseInt(this.cookiesService.get('id') || '0'), this.cookiesService.get('token') || '').subscribe((response: any) => {
       this.showSuccessAlert('Datos actualizados', 'Los datos se han actualizado correctamente');
+      this.cookiesService.set('imagekey', `https://uneventoback-production-58ed.up.railway.app/images/${response.imageUrl}`);
       this.router.navigate(['/profile']);
     }, (error: any) => {
       this.showErrorAlert('Error', 'Ha ocurrido un error al actualizar los datos');

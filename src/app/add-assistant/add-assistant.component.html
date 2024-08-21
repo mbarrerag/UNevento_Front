@@ -1,25 +1,140 @@
 
 <div class="whole"> 
   <app-navbar></app-navbar>
-    <div class="container">
-        <div class="row">
+    <div class="container card container-event-all">
+        <div class="row container container-info">
           <div class="col-md-6">
             <img src="{{eventImage}}" alt="Imagen del evento">
           </div>
           <div class="col-md-6">
-            <h2>{{ nombreEvento }}</h2>
+            <h2 class="event-name">{{ nombreEvento }}</h2>
+            <br/>
             <p>{{ descripcion }}</p>
-            <p><strong>Lugar:</strong> {{ lugar }}</p>
-            <p><strong>Categoría:</strong> {{ categoria }}</p>
-            <p><strong>Facultad:</strong> {{ facultad }}</p>
-            <p><strong>Fecha:</strong> {{ fecha }}</p>
-            <p><strong>Cantidad Máxima de Asistentes:</strong> {{ maxAsistentes }}</p>
-            <p><strong>Hora:</strong> {{ hora }}</p>
-            <p><strong>Tipo de Evento:</strong> {{ tipoEvento }}</p>
-            <button *ngIf='!assisting' (click)="asistir()" class="btn btn-primary">Asistir</button>
+            <br/>
+
+            
+            <div class="container-event-info">
+
+              <div class="event-info1">
+                <p><strong>Lugar:</strong> {{ lugar }}</p>
+                <p><strong>Categoría:</strong> {{ categoria }}</p>
+                <p><strong>Facultad:</strong> {{ facultad }}</p>
+                <p><strong>Fecha:</strong> {{ fecha }}</p>
+              </div>
+
+              <div class="event-info2">
+                <p><strong>Cantidad Máxima de Asistentes:</strong> {{ maxAsistentes }}</p>
+                <p><strong>Hora:</strong> {{ hora }}</p>
+                <p><strong>Tipo de Evento:</strong> {{ tipoEvento }}</p>
+              </div>
+
+            </div>
+            <br/>
+
+            <div class="container-buttons">
+              <button *ngIf='!assisting' (click)="asistir()" class="btn btn-asistir">Asistir</button>
             <button *ngIf='assisting' (click)="noAsistir()" class='btn btn-danger'>No asisitir</button> 
+            </div>
+            
+          
+          
           </div>
         </div>
+
+        <div class="container-comments">
+          <div class="card">
+            <br/>
+            <br/>
+            <div class="container-comment-text">
+              <p class="text-commnent">¿Tienes alguna pregunta, duda o inquietud?:</p>
+            </div>
+
+            <div class="container-comment-input">
+                <input
+                [(ngModel)]="newComment"
+                class="comment-input"
+                placeholder="Añadir un comentario"
+              />
+            <button class="btn btn-comentario" (click)="addComment()">Comentar</button>
+            </div>
+
+            <br/>
+
+              <div>
+                <div *ngFor="let comment of comments" class="comment-container">
+                  <div class="user-info">
+                    <img [src]="comment.usuario.path" alt="User Photo">
+                    <div>
+                     <p class="name"><strong>{{ comment.usuario.nombre}} {{ comment.usuario.apellido}}</strong></p> 
+                    </div>
+                  </div>
+                  <div class="comment-content">
+                    {{ comment.comentario }}
+                  </div>
+
+
+
+                        <div class="container-responses">
+                          <div  *ngIf="hayRespuestas(comment.idComentario)">
+                            <a class="view-responses" (click)="toggleResponses(comment.idComentario)">
+                              {{ showResponses[comment.idComentario] ? 'Ocultar respuestas' : 'Mostrar respuestas' }}
+                            </a>
+                          </div>
+                        
+                        
+                         <div>
+                          <a class="reply-button" (click)="toggleReplyForm(comment.idComentario)">
+                            Responder
+                          </a>
+                        
+                         </div>
+                        </div>
+
+
+
+                  <div class="reply-form" *ngIf="showReplyForm[comment.idComentario]">
+                    <textarea rows="3" placeholder="Escribe tu respuesta aquí..."        [(ngModel)]="newAnswer"></textarea>
+                    <button (click)="submitReply(comment.idComentario)">Enviar</button>
+                  </div>
+
+                  <div class="responses" *ngIf="showResponses[comment.idComentario]">
+
+                    <div class="response" *ngFor="let response of comment.respuestas">
+                      <div class="user-info">
+                        <img [src]="response.getUser.path" alt="User Photo">
+                        <div>
+                         <p class="name"><strong> {{ response.getUser.nombre }} {{ response.getUser.apellido }}:</strong> </p> 
+                          {{ response.contenido }}
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div> 
+
+
+
+
+
+                <div class="container-pagination">
+                  <div>
+                    <button class="btn-paginacion1" (click)="prevPage()" [disabled]="isPrevDisabled">Anterior</button>
+
+                  </div>
+                  <div>
+                    <button class="btn-paginacion2"  (click)="nextPage()" [disabled]="isNextDisabled">Siguiente</button>
+
+                  </div>
+                </div>  
+
+              </div> 
+
+            
+
+          </div>
+        </div>
+
     </div>  
-  <app-footer></app-footer> 
+    <app-footer></app-footer> 
 </div>

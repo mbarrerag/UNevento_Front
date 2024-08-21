@@ -12,7 +12,7 @@ export class OficialEventService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'https://uneventoback-production-3c28.up.railway.app';
+  private apiUrl = 'https://uneventoback-production-58ed.up.railway.app';
 
   getOficialEvents(facultyName: string, page: number): Observable<Page<any>> { // Corrige la declaración del método
     const getUserDataUrl = `${this.apiUrl}/home/${facultyName}`;

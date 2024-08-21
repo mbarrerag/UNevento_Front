@@ -1,0 +1,71 @@
+
+
+
+<app-navbar></app-navbar>
+
+<div class="container-box">
+<br/>
+<br/>
+
+
+<div class="card container-pqrs">
+
+
+    <h2 class="tittle-pqrs">Preguntas, quejas, reclamos y sugerencias</h2>
+
+    <br/>
+    <div class="container-text-pqrs">
+        <p>En Unevento, tu opinión y experiencia son muy importantes para nosotros. Por eso, hemos diseñado un formulario en el que puedes compartir tus peticiones, quejas, reclamos o sugerencias. Si tienes algo más específico que quisieras comunicar, también puedes escribirnos directamente a uneventounal&#64;gmail.com. ¡Nos comprometemos a responderte lo más pronto posible!</p>
+
+    </div>
+
+
+
+
+
+    <div class="container-form">
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <label class="label-text" for="name">Nombre:</label>
+        <div class="container-input">
+          <input id="name" formControlName="name" name="name" class="input-contact" />
+          <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+            <small *ngIf="contactForm.get('name')?.hasError('required')">*El nombre es requerido.*</small>
+          </div>
+        </div>
+      
+        <label class="label-text" for="email">Correo Electrónico:</label>
+        <div class="container-input">
+          <input id="email" formControlName="email" name="email" type="email" class="input-contact" />
+          <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+            <small *ngIf="contactForm.get('email')?.hasError('required')">*El correo es requerido.*</small>
+            <small *ngIf="contactForm.get('email')?.hasError('email')">*Debe ser un correo válido.*</small>
+          </div>
+        </div>
+      
+        <label class="label-text" for="message">Mensaje:</label>
+        <div class="container-input">
+          <textarea id="message" formControlName="message" name="message" class="input-contact"></textarea>
+          <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+            <small *ngIf="contactForm.get('message')?.hasError('required')">El mensaje es requerido.</small>
+          </div>
+        </div>
+      
+        <div class="container-btn">
+          <button class="btn-contact" type="submit" [disabled]="contactForm.invalid">Enviar</button>
+        </div>
+      </form>
+      
+      
+
+
+    </div>
+
+
+
+
+</div>
+</div>
+
+
+<router-outlet></router-outlet>

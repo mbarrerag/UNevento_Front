@@ -62,6 +62,19 @@ app-navbar {
     color: #a1cb0b;
     line-height: 1.5;
     text-align: center;
+    width: 100%;
+    margin: 2%;
+}
+
+.ImageNoContent{
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.ImageNoContent img{
+  max-width: 600px;
+  width: 70%;
 }
 
 .btn-login {

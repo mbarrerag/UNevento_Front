@@ -10,6 +10,19 @@ input{
 	padding-left: 5px;
 }
 
+.logo-sing{
+	height: 100px;
+    width: 60%;
+	margin: auto auto;
+  }
+
+  .container-logo-sing{
+    text-align: center;
+
+  }
+
+
+
 /* Login styles */
 .containerLog {
     background-image: url('../../../assets/img-login/n.jpg');
@@ -36,7 +49,8 @@ input{
 }
 .Title-login{
 	font-family: "approach-bold";
-	margin-bottom: 20px;
+    text-align: center;
+    font-size: 28px;
 	text-align: center;
 	justify-content: center;
 }

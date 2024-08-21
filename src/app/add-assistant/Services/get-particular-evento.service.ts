@@ -7,11 +7,11 @@ import { from } from 'rxjs';
 })
 export class GetParticularEventoService{
 
-  private url: string = 'https://uneventoback-production-3c28.up.railway.app/getevent/';
-  private urlValidate: string = 'https://uneventoback-production-3c28.up.railway.app/validateEvent'
-  private imageUrl: string = 'https://uneventoback-production-3c28.up.railway.app/';
-  private assistUrl: string = 'https://uneventoback-production-3c28.up.railway.app/assistevent';
-  private declineUrl: string = 'https://uneventoback-production-3c28.up.railway.app/deletedassistance';
+  private url: string = 'https://uneventoback-production-58ed.up.railway.app/getevent/';
+  private urlValidate: string = 'https://uneventoback-production-58ed.up.railway.app/validateEvent'
+  private imageUrl: string = 'https://uneventoback-production-58ed.up.railway.app/';
+  private assistUrl: string = 'https://uneventoback-production-58ed.up.railway.app/assistevent';
+  private declineUrl: string = 'https://uneventoback-production-58ed.up.railway.app/deletedassistance';
   
   constructor(private http: HttpClient) { }
 
@@ -60,4 +60,15 @@ export class GetParticularEventoService{
     }
     return this.http.post(this.declineUrl, message, {headers: headers})
   }
+
+
+
+
+
+
+
+
+
+
+  
 }

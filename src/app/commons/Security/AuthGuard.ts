@@ -24,4 +24,9 @@ export class AuthGuard implements CanActivate {
       return false;
     }
   }
+
+  isAdmin(): boolean {
+    const userRole = this.cookieService.get('rol');
+    return userRole === '10';
+  }
 }

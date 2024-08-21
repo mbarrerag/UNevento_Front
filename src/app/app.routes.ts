@@ -21,11 +21,13 @@ import { AdminVistaUsuariosComponent } from './admin-vista-usuarios/admin-vista-
 import { AdminVistaEventosComponent } from './admin-vista-eventos/admin-vista-eventos.component';
 import { EventsComponent } from './events/events.component';
 import { AuthGuard } from './commons/Security/AuthGuard';
+import { AdminCheck } from './commons/Security/AdminCheck';
 import { UsermanualComponent } from './usermanual/usermanual.component';
 import { MyassistsComponent } from './myassists/myassists.component';
 import { UserComponent } from './user/user.component';
 import { FrequentlyAskedQuestionsComponent } from './frequently-asked-questions/frequently-asked-questions.component';
 
+import { ContactComponent } from './commons/Contact/contact.component';
 
 export const routes: Routes = [
 
@@ -33,30 +35,30 @@ export const routes: Routes = [
   { path: 'singup', component: SingUpUserComponent }, 
   { path: 'login', component: UserLoginComponent }, 
   { path: 'home', component: HomeComponentComponent},  
-  { path: 'communityevents', component: CommunityeventsComponent, canActivate: [AuthGuard] },
+  { path: 'communityevents', component: CommunityeventsComponent, canActivate: [AuthGuard,AdminCheck] },
   { path: 'home', component:HomeComponentComponent},
   { path: 'forgotpassword', component:ForgotPasswordComponent},
   { path: 'aboutus', component:AboutUSComponent },
   { path: 'adminusers',component:AdminVistaUsuariosComponent, canActivate: [AuthGuard]},
   { path: 'adminevents', component:AdminVistaEventosComponent, canActivate: [AuthGuard]},
-  { path: 'assist/:idEvento', component: AddAssistantComponent, canActivate: [AuthGuard]},
-  { path: 'premium', component: PremiumComponent, canActivate: [AuthGuard]  },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
+  { path: 'assist/:idEvento', component: AddAssistantComponent, canActivate: [AuthGuard,AdminCheck]},
+ 
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard,AdminCheck] },
+  { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard,AdminCheck] },
   { path: 'termsofservice', component: TermsAndConditionsComponent},
-  { path: 'createevent', component: CreateEventsComponent, canActivate: [AuthGuard] },
-  { path: 'createfacultyevent', component: CreateFacultyEventsComponent, canActivate: [AuthGuard] },
-  { path: 'createcommunityevent', component: CreateCommunityEventsComponent, canActivate: [AuthGuard] },
-  { path: 'events', component: EventsComponent, canActivate: [AuthGuard] },
-  { path: 'miseventos', component: MyeventsComponent, canActivate: [AuthGuard] },
-  { path: 'myassists', component: MyassistsComponent, canActivate: [AuthGuard]},
+  { path: 'createevent', component: CreateEventsComponent, canActivate: [AuthGuard,AdminCheck] },
+  { path: 'createfacultyevent', component: CreateFacultyEventsComponent, canActivate: [AuthGuard,AdminCheck] },
+  { path: 'createcommunityevent', component: CreateCommunityEventsComponent, canActivate: [AuthGuard,AdminCheck] },
+  { path: 'events', component: EventsComponent, canActivate: [AuthGuard,AdminCheck] },
+  { path: 'miseventos', component: MyeventsComponent, canActivate: [AuthGuard,AdminCheck] },
+  { path: 'myassists', component: MyassistsComponent, canActivate: [AuthGuard,AdminCheck]},
   { path: 'usermanual', component: UsermanualComponent},
+  { path: 'user/:userId', component: UserComponent, canActivate: [AuthGuard,AdminCheck]},
 
-
+  { path: 'premium', component: PremiumComponent},
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
   
   { path: 'contact', component: ContactComponent },
-  { path: 'frequently-asked-questions', component: FrequentlyAskedQuestionsComponent },
   
   { path: '**', component: NotFoundpageComponent } 
 

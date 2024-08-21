@@ -19,7 +19,7 @@ export class MyAssistsService {
   constructor(private http: HttpClient) { }
 
 
-  private apiUrl = 'https://uneventoback-production-3c28.up.railway.app/MisAsistencias';
+  private apiUrl = 'https://uneventoback-production-58ed.up.railway.app/MisAsistencias';
 
   getMyAssists(userId: number, token: string, page:number): Observable<Page<any>>{
     const headers =  new HttpHeaders({

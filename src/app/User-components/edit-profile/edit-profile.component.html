@@ -6,13 +6,13 @@
     <div class="profile-edit-info">
         <div class="photo">
             <br>
-            <input type="file" id="file-upload" name="file-upload" accept="image/*" (change)="handleImageUpload($event)" style="display: none;"><!-- Aceptar Solo Imágenes -->
+            <input type="file" id="file-upload" name="file-upload" accept="image/*" (change)="handleImageUpload($event)" style="display: none;" [disabled]="this.rol<1"><!-- Aceptar Solo Imágenes -->
             <label for="file-upload" class="custom-file-upload">
                 Editar Foto de Perfil
             </label>
             <div class="profile-photo">
                 <div *ngIf="imageSrc" class="ImagenSeleccionada">
-                    <img [src]="imageSrc" alt="Vista previa de la imagen" style="max-width: 100%;">
+                    <img [src]="imageSrc" alt="Vista previa de la imagen">
                 </div>
             </div>
         </div>
