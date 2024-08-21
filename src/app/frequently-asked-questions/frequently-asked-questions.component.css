@@ -1,0 +1,39 @@
+.faq-container {
+    margin: 20px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h3 {
+    color: #363935;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: approach-regular;
+    font-size: 20px;
+}
+
+.faq-item h3:hover {
+    text-decoration: underline;
+}
+
+.faq-item ul {
+    padding-left: 20px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #363935;
+    font-family: "approach-regular";
+}
+
+span.expanded {
+    transform: rotate(45deg);
+}
+
+h2 {
+    text-align: center;
+    font-family: "approach-bold";
+    font-size: 60px;
+}

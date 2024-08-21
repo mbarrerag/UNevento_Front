@@ -23,6 +23,8 @@ import { EventsComponent } from './events/events.component';
 import { AuthGuard } from './commons/Security/AuthGuard';
 import { UsermanualComponent } from './usermanual/usermanual.component';
 import { MyassistsComponent } from './myassists/myassists.component';
+import { UserComponent } from './user/user.component';
+import { FrequentlyAskedQuestionsComponent } from './frequently-asked-questions/frequently-asked-questions.component';
 
 
 export const routes: Routes = [
@@ -52,6 +54,9 @@ export const routes: Routes = [
 
 
   { path: '', redirectTo: 'home',  pathMatch: 'full', },
+  
+  { path: 'contact', component: ContactComponent },
+  { path: 'frequently-asked-questions', component: FrequentlyAskedQuestionsComponent },
   
   { path: '**', component: NotFoundpageComponent } 
 

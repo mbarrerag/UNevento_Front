@@ -18,7 +18,27 @@ export class FooterComponent {
     window.open('/usermanual', '_blank');
   }
 
+  openTerms(){
+    window.open('/termsofservice', '_blank');
+  }
+
+  openFrequentlyAskedQuestions() {
+    window.open('/frequently-asked-questions', '_blank');
+  }
+
+  openContact() {
+    window.open('/contact', '_blank');
+  }
+
   isUserManualRoute() {
     return this.router.url === '/usermanual';
+  }
+
+  isTermsOfConditions(){
+    return this.router.url === '/termsofservice';
+  }
+
+  isFrequentlyAskedQuestions() {
+    return this.router.url === '/frequently-asked-questions';
   }
 }
