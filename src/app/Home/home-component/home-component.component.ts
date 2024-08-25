@@ -48,8 +48,7 @@ export class HomeComponentComponent {
     if (window.innerWidth < 600) {
       welcomeTextElement!.innerText = 'Sobre Nosotros →';
     } else {
-      welcomeTextElement!.innerText = '¡Bienvenido! UNevento es una plataforma web que centraliza y facilita la organización y participación en eventos académicos, culturales y deportivos en la Universidad Nacional de Colombia, sede Bogotá.';
-    }
+      welcomeTextElement!.innerText = '¡Bienvenido! Somos UNevento, una plataforma web que centraliza y facilita la organización y difusión de eventos académicos, culturales y deportivos en la Universidad Nacional de Colombia, sede Bogotá.';    }
   }
 
   constructor(private oficialEventService: OficialEventService, private authService: AuthService, private cookieService: CookieService) {}
