@@ -29,8 +29,21 @@
 }
 
 @media screen and (max-width: 600px) {
+
+.navbar-home{
+  height: 40px;
+
+}
+
   .information {
       width: auto;
+  }
+  .navbar {
+    height: auto; /* Si el navbar crece en responsive */
+}
+
+  .video-container {
+  margin-top: 100px;
   }
 }
 

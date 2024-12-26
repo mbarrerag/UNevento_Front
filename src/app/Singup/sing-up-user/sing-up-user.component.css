@@ -25,7 +25,20 @@
 }
 @media screen and (max-width: 900px) {
   .containerRegister {
-    width: 70%;
+    width: 95%;
+    position: absolute;
+
+  }
+
+  .inputs-singUp{
+    width: 100%;
+    margin-left: 15%;
+  }
+  input{
+    font-family: 'approach-regular';
+    border-radius: 5px;
+    border: none;
+    padding-left: 5px;
   }
 }
 

@@ -7,9 +7,14 @@
     overflow-y: auto;
 }
 
+.navbar-pqrs {
+    z-index: 1000;
+    position: relative; /* O fixed si deseas que siempre esté visible */
+}
 
 
 .container-pqrs{
+    z-index: 0;
     width: 60%;
     justify-content: center;
     margin: auto auto;
@@ -97,4 +102,17 @@ margin: auto auto;
     justify-content: center;
     text-align: center;
 
+}
+@media screen and (max-width: 768px) {
+    .container-pqrs{
+        width: 95%;
+        justify-content: center;
+        margin: auto auto;
+        background-color: rgba(17, 17, 17, 0.766);
+        color: white;
+       
+        margin-bottom: 200px;
+    }
+    
+    
 }

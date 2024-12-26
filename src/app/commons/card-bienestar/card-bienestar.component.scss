@@ -22,11 +22,17 @@ body {
 
 .title-card{
   color: rgb(0, 0, 0);
-  font: size 5%;;
   align-items: center;
   text-align: center;
-  font-family: "approach-regular";
+  font-family: "approach-black";
   margin-top: 3%;
+  font-size: 1.3rem;
+
+}
+.tittle-facultad{
+  font-family: "approach-black";
+  font-size: 1.3rem;
+  text-align: center;
 }
 
 
@@ -46,6 +52,12 @@ body {
   
   @media screen and (max-width: 760px) {
     grid-template-columns: repeat(2, 1fr);
+
+    .b-game-card__cover{
+      margin-left: 20px;
+    }
+
+
   }
   
 }
@@ -164,6 +176,6 @@ body {
 @media screen and (max-width: 780px) {
   
   .l-container {
-    margin-left: 5%;
+    margin-left: 10%;
   }
 }

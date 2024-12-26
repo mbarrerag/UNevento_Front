@@ -6,9 +6,14 @@
     justify-items: end;
 }
 
+
+
+
+
+
 .navbar-collapse.show {
     background-color: #fff; 
-    opacity: 0.9;
+    opacity: 1;
     border: none;
 }
 
@@ -102,7 +107,11 @@
 
 
 
-
+  .navbar-toggler {
+    border: none; /* Elimina el borde del botón */
+    box-shadow: none; /* Elimina cualquier sombra */
+    background-color: transparent; /* Hace el fondo transparente */
+}
   
 
 @keyframes titileo {
@@ -118,4 +127,27 @@
 }
 .dropdown-menu{
     font-family: 'approach-regular';
+}
+@media screen and (max-width:760px) {
+    .navbar {
+        width: 100%;
+        position: fixed;
+    }
+
+    .container-fluid {
+        padding-left: 0 !important; /* Sobrescribe el valor original */
+    }
+
+
+
+    .navbar-toggler {
+        border: none; /* Elimina el borde del botón */
+        box-shadow: none; /* Elimina cualquier sombra */
+        background-color: transparent; /* Hace el fondo transparente */
+    }
+    
+    .navbar-toggler-icon {
+        margin-right: 30px;
+    }
+    
 }

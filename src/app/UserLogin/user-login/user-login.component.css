@@ -48,9 +48,9 @@ input{
 	position: relative;
 }
 .Title-login{
-	font-family: "approach-bold";
+    font-family: "approach-black";
+    font-size: 2rem;
     text-align: center;
-    font-size: 28px;
 	text-align: center;
 	justify-content: center;
 }
